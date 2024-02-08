@@ -1,31 +1,24 @@
-import * as React from "react";
+import * as React from 'react';
 
 /**
  *
  * ![img](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMgMTJIMy4wMU03LjUgMTJINy41MU0xNi41IDEySDE2LjUxTTEyIDEySDEyLjAxTTIxIDEySDIxLjAxTTIxIDIxVjIwLjJDMjEgMTkuMDc5OSAyMSAxOC41MTk4IDIwLjc4MiAxOC4wOTJDMjAuNTkwMyAxNy43MTU3IDIwLjI4NDMgMTcuNDA5NyAxOS45MDggMTcuMjE4QzE5LjQ4MDIgMTcgMTguOTIwMSAxNyAxNy44IDE3SDYuMkM1LjA3OTkgMTcgNC41MTk4NCAxNyA0LjA5MjAyIDE3LjIxOEMzLjcxNTcgMTcuNDA5NyAzLjQwOTczIDE3LjcxNTcgMy4yMTc5OSAxOC4wOTJDMyAxOC41MTk4IDMgMTkuMDc5OSAzIDIwLjJWMjFNMjEgM1YzLjhDMjEgNC45MjAxIDIxIDUuNDgwMTYgMjAuNzgyIDUuOTA3OThDMjAuNTkwMyA2LjI4NDMxIDIwLjI4NDMgNi41OTAyNyAxOS45MDggNi43ODIwMUMxOS40ODAyIDcgMTguOTIwMSA3IDE3LjggN0g2LjJDNS4wNzk5IDcgNC41MTk4NCA3IDQuMDkyMDIgNi43ODIwMUMzLjcxNTY5IDYuNTkwMjcgMy40MDk3MyA2LjI4NDMxIDMuMjE3OTkgNS45MDc5OEMzIDUuNDgwMTYgMyA0LjkyMDExIDMgMy44VjMiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=)
  *
  */
-export const DividerIcon = React.forwardRef<
-  SVGSVGElement,
-  React.SVGProps<SVGSVGElement>
->((props, ref) => {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      ref={ref}
-      {...props}
-    >
-      <path
-        d="M3 12H3.01M7.5 12H7.51M16.5 12H16.51M12 12H12.01M21 12H21.01M21 21V20.2C21 19.0799 21 18.5198 20.782 18.092C20.5903 17.7157 20.2843 17.4097 19.908 17.218C19.4802 17 18.9201 17 17.8 17H6.2C5.0799 17 4.51984 17 4.09202 17.218C3.7157 17.4097 3.40973 17.7157 3.21799 18.092C3 18.5198 3 19.0799 3 20.2V21M21 3V3.8C21 4.9201 21 5.48016 20.782 5.90798C20.5903 6.28431 20.2843 6.59027 19.908 6.78201C19.4802 7 18.9201 7 17.8 7H6.2C5.0799 7 4.51984 7 4.09202 6.78201C3.71569 6.59027 3.40973 6.28431 3.21799 5.90798C3 5.48016 3 4.92011 3 3.8V3"
-        stroke="currentColor"
-        strokeWidth="1.66667"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-});
+export const DividerIcon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
+  (props, ref) => {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" ref={ref} {...props}>
+        <path
+          d="M3 12H3.01M7.5 12H7.51M16.5 12H16.51M12 12H12.01M21 12H21.01M21 21V20.2C21 19.0799 21 18.5198 20.782 18.092C20.5903 17.7157 20.2843 17.4097 19.908 17.218C19.4802 17 18.9201 17 17.8 17H6.2C5.0799 17 4.51984 17 4.09202 17.218C3.7157 17.4097 3.40973 17.7157 3.21799 18.092C3 18.5198 3 19.0799 3 20.2V21M21 3V3.8C21 4.9201 21 5.48016 20.782 5.90798C20.5903 6.28431 20.2843 6.59027 19.908 6.78201C19.4802 7 18.9201 7 17.8 7H6.2C5.0799 7 4.51984 7 4.09202 6.78201C3.71569 6.59027 3.40973 6.28431 3.21799 5.90798C3 5.48016 3 4.92011 3 3.8V3"
+          stroke="currentColor"
+          strokeWidth="1.66667"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  },
+);
 
-DividerIcon.displayName = "DividerIcon";
+DividerIcon.displayName = 'DividerIcon';

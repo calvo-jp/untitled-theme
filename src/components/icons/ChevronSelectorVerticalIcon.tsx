@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 /**
  *
@@ -10,13 +10,7 @@ export const ChevronSelectorVerticalIcon = React.forwardRef<
   React.SVGProps<SVGSVGElement>
 >((props, ref) => {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      ref={ref}
-      {...props}
-    >
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" ref={ref} {...props}>
       <path
         d="M7 15L12 20L17 15M7 9L12 4L17 9"
         stroke="currentColor"
@@ -28,4 +22,4 @@ export const ChevronSelectorVerticalIcon = React.forwardRef<
   );
 });
 
-ChevronSelectorVerticalIcon.displayName = "ChevronSelectorVerticalIcon";
+ChevronSelectorVerticalIcon.displayName = 'ChevronSelectorVerticalIcon';

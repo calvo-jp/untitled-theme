@@ -26,6 +26,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
+    "prettier": "3.2.5",
     "svg64": "2.0.0",
     "svgson": "5.3.1",
     "typescript": "^5"

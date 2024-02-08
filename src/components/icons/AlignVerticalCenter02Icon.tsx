@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 /**
  *
@@ -10,13 +10,7 @@ export const AlignVerticalCenter02Icon = React.forwardRef<
   React.SVGProps<SVGSVGElement>
 >((props, ref) => {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      ref={ref}
-      {...props}
-    >
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" ref={ref} {...props}>
       <path
         d="M10 18V6C10 5.06812 10 4.60218 9.84776 4.23463C9.64477 3.74458 9.25542 3.35523 8.76537 3.15224C8.39782 3 7.93188 3 7 3C6.06812 3 5.60218 3 5.23463 3.15224C4.74458 3.35523 4.35523 3.74458 4.15224 4.23463C4 4.60218 4 5.06812 4 6V18C4 18.9319 4 19.3978 4.15224 19.7654C4.35523 20.2554 4.74458 20.6448 5.23463 20.8478C5.60218 21 6.06812 21 7 21C7.93188 21 8.39782 21 8.76537 20.8478C9.25542 20.6448 9.64477 20.2554 9.84776 19.7654C10 19.3978 10 18.9319 10 18Z"
         stroke="currentColor"
@@ -35,4 +29,4 @@ export const AlignVerticalCenter02Icon = React.forwardRef<
   );
 });
 
-AlignVerticalCenter02Icon.displayName = "AlignVerticalCenter02Icon";
+AlignVerticalCenter02Icon.displayName = 'AlignVerticalCenter02Icon';

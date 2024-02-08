@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 /**
  *
@@ -10,13 +10,7 @@ export const SwitchHorizontal02Icon = React.forwardRef<
   React.SVGProps<SVGSVGElement>
 >((props, ref) => {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      ref={ref}
-      {...props}
-    >
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" ref={ref} {...props}>
       <path
         d="M4 17H20M20 17L16 13M20 17L16 21M20 7H4M4 7L8 3M4 7L8 11"
         stroke="currentColor"
@@ -28,4 +22,4 @@ export const SwitchHorizontal02Icon = React.forwardRef<
   );
 });
 
-SwitchHorizontal02Icon.displayName = "SwitchHorizontal02Icon";
+SwitchHorizontal02Icon.displayName = 'SwitchHorizontal02Icon';

@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 /**
  *
@@ -10,13 +10,7 @@ export const ArrowNarrowDownLeftIcon = React.forwardRef<
   React.SVGProps<SVGSVGElement>
 >((props, ref) => {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      ref={ref}
-      {...props}
-    >
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" ref={ref} {...props}>
       <path
         d="M18 6L6 18M6 18H14M6 18V10"
         stroke="currentColor"
@@ -28,4 +22,4 @@ export const ArrowNarrowDownLeftIcon = React.forwardRef<
   );
 });
 
-ArrowNarrowDownLeftIcon.displayName = "ArrowNarrowDownLeftIcon";
+ArrowNarrowDownLeftIcon.displayName = 'ArrowNarrowDownLeftIcon';

@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 /**
  *
@@ -10,13 +10,7 @@ export const AlignHorizontalCentre02Icon = React.forwardRef<
   React.SVGProps<SVGSVGElement>
 >((props, ref) => {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      ref={ref}
-      {...props}
-    >
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" ref={ref} {...props}>
       <path
         d="M16 10C16.9319 10 17.3978 10 17.7654 9.84776C18.2554 9.64477 18.6448 9.25542 18.8478 8.76537C19 8.39782 19 7.93188 19 7C19 6.06812 19 5.60218 18.8478 5.23463C18.6448 4.74458 18.2554 4.35523 17.7654 4.15224C17.3978 4 16.9319 4 16 4L8 4C7.06812 4 6.60218 4 6.23463 4.15224C5.74458 4.35523 5.35523 4.74458 5.15224 5.23463C5 5.60218 5 6.06812 5 7C5 7.93188 5 8.39782 5.15224 8.76537C5.35523 9.25542 5.74458 9.64477 6.23463 9.84776C6.60218 10 7.06812 10 8 10L16 10Z"
         stroke="currentColor"
@@ -35,4 +29,4 @@ export const AlignHorizontalCentre02Icon = React.forwardRef<
   );
 });
 
-AlignHorizontalCentre02Icon.displayName = "AlignHorizontalCentre02Icon";
+AlignHorizontalCentre02Icon.displayName = 'AlignHorizontalCentre02Icon';

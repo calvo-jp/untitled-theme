@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 /**
  *
@@ -10,13 +10,7 @@ export const ChevronRightDoubleIcon = React.forwardRef<
   React.SVGProps<SVGSVGElement>
 >((props, ref) => {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      ref={ref}
-      {...props}
-    >
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" ref={ref} {...props}>
       <path
         d="M6 17L11 12L6 7M13 17L18 12L13 7"
         stroke="currentColor"
@@ -28,4 +22,4 @@ export const ChevronRightDoubleIcon = React.forwardRef<
   );
 });
 
-ChevronRightDoubleIcon.displayName = "ChevronRightDoubleIcon";
+ChevronRightDoubleIcon.displayName = 'ChevronRightDoubleIcon';

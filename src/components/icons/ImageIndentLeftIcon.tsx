@@ -1,31 +1,24 @@
-import * as React from "react";
+import * as React from 'react';
 
 /**
  *
  * ![img](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIxIDkuMjVIMTVNMjEgNEgzTTIxIDE0Ljc1SDE1TTIxIDIwSDNNNC42IDE2SDkuNEM5Ljk2MDA1IDE2IDEwLjI0MDEgMTYgMTAuNDU0IDE1Ljg5MUMxMC42NDIyIDE1Ljc5NTEgMTAuNzk1MSAxNS42NDIyIDEwLjg5MSAxNS40NTRDMTEgMTUuMjQwMSAxMSAxNC45NjAxIDExIDE0LjRWOS42QzExIDkuMDM5OTUgMTEgOC43NTk5MiAxMC44OTEgOC41NDYwMUMxMC43OTUxIDguMzU3ODUgMTAuNjQyMiA4LjIwNDg3IDEwLjQ1NCA4LjEwODk5QzEwLjI0MDEgOCA5Ljk2MDA1IDggOS40IDhINC42QzQuMDM5OTUgOCAzLjc1OTkyIDggMy41NDYwMSA4LjEwODk5QzMuMzU3ODUgOC4yMDQ4NyAzLjIwNDg3IDguMzU3ODUgMy4xMDg5OSA4LjU0NjAxQzMgOC43NTk5MiAzIDkuMDM5OTUgMyA5LjZWMTQuNEMzIDE0Ljk2MDEgMyAxNS4yNDAxIDMuMTA4OTkgMTUuNDU0QzMuMjA0ODcgMTUuNjQyMiAzLjM1Nzg1IDE1Ljc5NTEgMy41NDYwMSAxNS44OTFDMy43NTk5MiAxNiA0LjAzOTk1IDE2IDQuNiAxNloiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=)
  *
  */
-export const ImageIndentLeftIcon = React.forwardRef<
-  SVGSVGElement,
-  React.SVGProps<SVGSVGElement>
->((props, ref) => {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      ref={ref}
-      {...props}
-    >
-      <path
-        d="M21 9.25H15M21 4H3M21 14.75H15M21 20H3M4.6 16H9.4C9.96005 16 10.2401 16 10.454 15.891C10.6422 15.7951 10.7951 15.6422 10.891 15.454C11 15.2401 11 14.9601 11 14.4V9.6C11 9.03995 11 8.75992 10.891 8.54601C10.7951 8.35785 10.6422 8.20487 10.454 8.10899C10.2401 8 9.96005 8 9.4 8H4.6C4.03995 8 3.75992 8 3.54601 8.10899C3.35785 8.20487 3.20487 8.35785 3.10899 8.54601C3 8.75992 3 9.03995 3 9.6V14.4C3 14.9601 3 15.2401 3.10899 15.454C3.20487 15.6422 3.35785 15.7951 3.54601 15.891C3.75992 16 4.03995 16 4.6 16Z"
-        stroke="currentColor"
-        strokeWidth="1.66667"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-});
+export const ImageIndentLeftIcon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
+  (props, ref) => {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" ref={ref} {...props}>
+        <path
+          d="M21 9.25H15M21 4H3M21 14.75H15M21 20H3M4.6 16H9.4C9.96005 16 10.2401 16 10.454 15.891C10.6422 15.7951 10.7951 15.6422 10.891 15.454C11 15.2401 11 14.9601 11 14.4V9.6C11 9.03995 11 8.75992 10.891 8.54601C10.7951 8.35785 10.6422 8.20487 10.454 8.10899C10.2401 8 9.96005 8 9.4 8H4.6C4.03995 8 3.75992 8 3.54601 8.10899C3.35785 8.20487 3.20487 8.35785 3.10899 8.54601C3 8.75992 3 9.03995 3 9.6V14.4C3 14.9601 3 15.2401 3.10899 15.454C3.20487 15.6422 3.35785 15.7951 3.54601 15.891C3.75992 16 4.03995 16 4.6 16Z"
+          stroke="currentColor"
+          strokeWidth="1.66667"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  },
+);
 
-ImageIndentLeftIcon.displayName = "ImageIndentLeftIcon";
+ImageIndentLeftIcon.displayName = 'ImageIndentLeftIcon';

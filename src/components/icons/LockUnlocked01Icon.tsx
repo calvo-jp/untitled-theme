@@ -1,31 +1,24 @@
-import * as React from "react";
+import * as React from 'react';
 
 /**
  *
  * ![img](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTcgMTBWOEM3IDUuMjM4NTggOS4yMzg1OCAzIDEyIDNDMTQuMDUwMyAzIDE1LjgxMjQgNC4yMzQxIDE2LjU4NCA2TTEyIDE0LjVWMTYuNU04LjggMjFIMTUuMkMxNi44ODAyIDIxIDE3LjcyMDIgMjEgMTguMzYyIDIwLjY3M0MxOC45MjY1IDIwLjM4NTQgMTkuMzg1NCAxOS45MjY1IDE5LjY3MyAxOS4zNjJDMjAgMTguNzIwMiAyMCAxNy44ODAyIDIwIDE2LjJWMTQuOEMyMCAxMy4xMTk4IDIwIDEyLjI3OTggMTkuNjczIDExLjYzOEMxOS4zODU0IDExLjA3MzUgMTguOTI2NSAxMC42MTQ2IDE4LjM2MiAxMC4zMjdDMTcuNzIwMiAxMCAxNi44ODAyIDEwIDE1LjIgMTBIOC44QzcuMTE5ODQgMTAgNi4yNzk3NiAxMCA1LjYzODAzIDEwLjMyN0M1LjA3MzU0IDEwLjYxNDYgNC42MTQ2IDExLjA3MzUgNC4zMjY5OCAxMS42MzhDNCAxMi4yNzk4IDQgMTMuMTE5OCA0IDE0LjhWMTYuMkM0IDE3Ljg4MDIgNCAxOC43MjAyIDQuMzI2OTggMTkuMzYyQzQuNjE0NiAxOS45MjY1IDUuMDczNTQgMjAuMzg1NCA1LjYzODAzIDIwLjY3M0M2LjI3OTc2IDIxIDcuMTE5ODQgMjEgOC44IDIxWiIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==)
  *
  */
-export const LockUnlocked01Icon = React.forwardRef<
-  SVGSVGElement,
-  React.SVGProps<SVGSVGElement>
->((props, ref) => {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      ref={ref}
-      {...props}
-    >
-      <path
-        d="M7 10V8C7 5.23858 9.23858 3 12 3C14.0503 3 15.8124 4.2341 16.584 6M12 14.5V16.5M8.8 21H15.2C16.8802 21 17.7202 21 18.362 20.673C18.9265 20.3854 19.3854 19.9265 19.673 19.362C20 18.7202 20 17.8802 20 16.2V14.8C20 13.1198 20 12.2798 19.673 11.638C19.3854 11.0735 18.9265 10.6146 18.362 10.327C17.7202 10 16.8802 10 15.2 10H8.8C7.11984 10 6.27976 10 5.63803 10.327C5.07354 10.6146 4.6146 11.0735 4.32698 11.638C4 12.2798 4 13.1198 4 14.8V16.2C4 17.8802 4 18.7202 4.32698 19.362C4.6146 19.9265 5.07354 20.3854 5.63803 20.673C6.27976 21 7.11984 21 8.8 21Z"
-        stroke="currentColor"
-        strokeWidth="1.66667"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-});
+export const LockUnlocked01Icon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
+  (props, ref) => {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" ref={ref} {...props}>
+        <path
+          d="M7 10V8C7 5.23858 9.23858 3 12 3C14.0503 3 15.8124 4.2341 16.584 6M12 14.5V16.5M8.8 21H15.2C16.8802 21 17.7202 21 18.362 20.673C18.9265 20.3854 19.3854 19.9265 19.673 19.362C20 18.7202 20 17.8802 20 16.2V14.8C20 13.1198 20 12.2798 19.673 11.638C19.3854 11.0735 18.9265 10.6146 18.362 10.327C17.7202 10 16.8802 10 15.2 10H8.8C7.11984 10 6.27976 10 5.63803 10.327C5.07354 10.6146 4.6146 11.0735 4.32698 11.638C4 12.2798 4 13.1198 4 14.8V16.2C4 17.8802 4 18.7202 4.32698 19.362C4.6146 19.9265 5.07354 20.3854 5.63803 20.673C6.27976 21 7.11984 21 8.8 21Z"
+          stroke="currentColor"
+          strokeWidth="1.66667"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  },
+);
 
-LockUnlocked01Icon.displayName = "LockUnlocked01Icon";
+LockUnlocked01Icon.displayName = 'LockUnlocked01Icon';
