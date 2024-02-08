@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URI")
+}
+
+model User {
+  id        String   @id @map("_id") @db.ObjectId
+  name      String
+  email     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  recipes   Recipe[]
+  reviews   Review[]
+
+  @@map("users")
+}
+
+model Recipe {
+  id           String              @id @map("_id") @db.ObjectId
+  slug         String              @unique
+  name         String
+  image        String
+  description  String
+  instructions RecipeInstruction[]
+  author       User                @relation(fields: [authorId], references: [id])
+  authorId     String              @db.ObjectId
+  reviews      Review[]
+  createdAt    DateTime            @default(now())
+  updatedAt    DateTime            @updatedAt
+
+  @@map("recipes")
+}
+
+type RecipeInstruction {
+  body  String
+  video String
+}
+
+model Review {
+  id        String   @id @map("_id") @db.ObjectId
+  rating    Int
+  feedback  String
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String   @db.ObjectId
+  recipe    Recipe   @relation(fields: [recipeId], references: [id])
+  recipeId  String   @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([authorId, recipeId], name: "userReview")
+  @@map("reviews")
+}
