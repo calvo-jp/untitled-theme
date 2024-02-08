@@ -7,7 +7,6 @@ export function Providers({children}: PropsWithChildren) {
   return (
     <ThemeProvider
       attribute="class"
-      storageKey="recipes/theme"
       enableSystem={false}
       enableColorScheme={false}
       disableTransitionOnChange

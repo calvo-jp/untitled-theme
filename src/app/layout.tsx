@@ -15,8 +15,8 @@ const sans = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Recipes',
-    template: '%s | Recipes',
+    default: 'Untitled UI',
+    template: '%s | Untitled UI',
   },
 };
 
