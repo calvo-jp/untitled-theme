@@ -9,11 +9,5 @@ const {withProvider, withContext} = createStyleContext(checkbox);
 
 export const Checkbox = withProvider(styled(ArkCheckbox.Root), 'root');
 export const CheckboxLabel = withContext(styled(ArkCheckbox.Label), 'label');
-export const CheckboxIndicator = withContext(
-	styled(ArkCheckbox.Indicator),
-	'indicator',
-);
-export const CheckboxControl = withContext(
-	styled(ArkCheckbox.Control),
-	'control',
-);
+export const CheckboxIndicator = withContext(styled(ArkCheckbox.Indicator), 'indicator');
+export const CheckboxControl = withContext(styled(ArkCheckbox.Control), 'control');

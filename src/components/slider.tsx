@@ -11,14 +11,8 @@ export const Slider = withProvider(styled(ArkSlider.Root), 'root');
 export const SliderControl = withContext(styled(ArkSlider.Control), 'control');
 export const SliderLabel = withContext(styled(ArkSlider.Label), 'label');
 export const SliderMarker = withContext(styled(ArkSlider.Marker), 'marker');
-export const SliderMarkerGroup = withContext(
-	styled(ArkSlider.MarkerGroup),
-	'markerGroup',
-);
+export const SliderMarkerGroup = withContext(styled(ArkSlider.MarkerGroup), 'markerGroup');
 export const SliderRange = withContext(styled(ArkSlider.Range), 'range');
 export const SliderThumb = withContext(styled(ArkSlider.Thumb), 'thumb');
 export const SliderTrack = withContext(styled(ArkSlider.Track), 'track');
-export const SliderValueText = withContext(
-	styled(ArkSlider.ValueText),
-	'valueText',
-);
+export const SliderValueText = withContext(styled(ArkSlider.ValueText), 'valueText');

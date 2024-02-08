@@ -8,20 +8,8 @@ import {RadioGroup as ArkRadioGroup} from '@ark-ui/react/radio-group';
 const {withProvider, withContext} = createStyleContext(radioGroup);
 
 export const RadioGroup = withProvider(styled(ArkRadioGroup.Root), 'root');
-export const RadioGroupIndicator = withContext(
-	styled(ArkRadioGroup.Indicator),
-	'indicator',
-);
+export const RadioGroupIndicator = withContext(styled(ArkRadioGroup.Indicator), 'indicator');
 export const RadioGroupItem = withContext(styled(ArkRadioGroup.Item), 'item');
-export const RadioGroupItemControl = withContext(
-	styled(ArkRadioGroup.ItemControl),
-	'itemControl',
-);
-export const RadioGroupItemText = withContext(
-	styled(ArkRadioGroup.ItemText),
-	'itemText',
-);
-export const RadioGroupLabel = withContext(
-	styled(ArkRadioGroup.Label),
-	'label',
-);
+export const RadioGroupItemControl = withContext(styled(ArkRadioGroup.ItemControl), 'itemControl');
+export const RadioGroupItemText = withContext(styled(ArkRadioGroup.ItemText), 'itemText');
+export const RadioGroupLabel = withContext(styled(ArkRadioGroup.Label), 'label');

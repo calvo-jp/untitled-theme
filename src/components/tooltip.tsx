@@ -9,19 +9,7 @@ const {withProvider, withContext} = createStyleContext(tooltip);
 
 export const Tooltip = withProvider(ArkTooltip.Root);
 export const TooltipArrow = withContext(styled(ArkTooltip.Arrow), 'arrow');
-export const TooltipArrowTip = withContext(
-	styled(ArkTooltip.ArrowTip),
-	'arrowTip',
-);
-export const TooltipContent = withContext(
-	styled(ArkTooltip.Content),
-	'content',
-);
-export const TooltipPositioner = withContext(
-	styled(ArkTooltip.Positioner),
-	'positioner',
-);
-export const TooltipTrigger = withContext(
-	styled(ArkTooltip.Trigger),
-	'trigger',
-);
+export const TooltipArrowTip = withContext(styled(ArkTooltip.ArrowTip), 'arrowTip');
+export const TooltipContent = withContext(styled(ArkTooltip.Content), 'content');
+export const TooltipPositioner = withContext(styled(ArkTooltip.Positioner), 'positioner');
+export const TooltipTrigger = withContext(styled(ArkTooltip.Trigger), 'trigger');

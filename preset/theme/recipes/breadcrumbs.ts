@@ -1,9 +1,9 @@
-import { createAnatomy } from "@ark-ui/anatomy";
-import { defineSlotRecipe } from "@pandacss/dev";
+import {createAnatomy} from '@ark-ui/anatomy';
+import {defineSlotRecipe} from '@pandacss/dev';
 
-const breadcrumbsAnatomy = createAnatomy("breadcrumbs");
+const breadcrumbsAnatomy = createAnatomy('breadcrumbs');
 
 export const breadcrumbs = defineSlotRecipe({
   slots: breadcrumbsAnatomy.keys(),
-  className: "breadcrumbs",
+  className: 'breadcrumbs',
 });

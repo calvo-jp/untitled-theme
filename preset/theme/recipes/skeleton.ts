@@ -1,5 +1,5 @@
-import { defineRecipe } from "@pandacss/dev";
+import {defineRecipe} from '@pandacss/dev';
 
 export const skeleton = defineRecipe({
-  className: "skeleton",
+  className: 'skeleton',
 });

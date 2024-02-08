@@ -1,3 +1,3 @@
-import { defineSemanticTokens } from "@pandacss/dev";
+import {defineSemanticTokens} from '@pandacss/dev';
 
 export const semanticTokens = defineSemanticTokens({});

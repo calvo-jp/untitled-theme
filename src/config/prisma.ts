@@ -1,17 +1,17 @@
 import {Prisma, PrismaClient} from '@prisma/client';
 
 function createClient() {
-	return new PrismaClient().$extends({
-		model: {
-			$allModels: {
-				async exists<T>(this: T, where: Prisma.Args<T, 'findFirst'>['where']) {
-					const context = Prisma.getExtensionContext(this) as any;
-					const result = await context.findFirst({where});
-					return result !== null;
-				},
-			},
-		},
-	});
+  return new PrismaClient().$extends({
+    model: {
+      $allModels: {
+        async exists<T>(this: T, where: Prisma.Args<T, 'findFirst'>['where']) {
+          const context = Prisma.getExtensionContext(this) as any;
+          const result = await context.findFirst({where});
+          return result !== null;
+        },
+      },
+    },
+  });
 }
 
 /* prettier-ignore */

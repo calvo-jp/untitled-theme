@@ -9,7 +9,4 @@ const {withProvider, withContext} = createStyleContext(avatar);
 
 export const Avatar = withProvider(styled(ArkAvatar.Root), 'root');
 export const AvatarImage = withContext(styled(ArkAvatar.Image), 'image');
-export const AvatarFallback = withContext(
-	styled(ArkAvatar.Fallback),
-	'fallback',
-);
+export const AvatarFallback = withContext(styled(ArkAvatar.Fallback), 'fallback');
