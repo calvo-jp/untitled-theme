@@ -5,8 +5,8 @@ const svg64 = require("svg64");
 const svgson = require("svgson");
 
 const work_dir = process.cwd();
-const assets_dir = path.join(work_dir, "assets");
-const output_dir = path.join(work_dir, "src/react");
+const assets_dir = path.join(work_dir, "assets/icons");
+const output_dir = path.join(work_dir, "src/components/icons");
 
 /**
  * @type {BufferEncoding}
