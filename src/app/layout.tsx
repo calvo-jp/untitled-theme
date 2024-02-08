@@ -1,12 +1,10 @@
-import {Toaster} from '@/components/toast';
 import {styled} from '@/styled-system/jsx';
 import {Metadata} from 'next';
-import {Source_Sans_3} from 'next/font/google';
+import {Inter} from 'next/font/google';
 import {PropsWithChildren} from 'react';
 import './globals.css';
-import {Providers} from './providers';
 
-const sans = Source_Sans_3({
+const sans = Inter({
   weight: ['400', '500', '600', '700'],
   display: 'swap',
   subsets: ['latin'],
@@ -35,8 +33,7 @@ export default function RootLayout({children}: PropsWithChildren) {
       suppressHydrationWarning
     >
       <styled.body fontFamily="sans">
-        <Providers>{children}</Providers>
-        <Toaster />
+        <styled.main>{children}</styled.main>
       </styled.body>
     </styled.html>
   );
