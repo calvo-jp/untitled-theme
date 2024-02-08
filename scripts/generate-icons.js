@@ -1,8 +1,8 @@
 const fs = require("fs/promises");
 const path = require("path");
-const prettier = require("prettier");
-const svg64 = require("svg64");
+const svg64 = require("svg64").default;
 const svgson = require("svgson");
+const prettier = require("prettier");
 
 const work_dir = process.cwd();
 const assets_dir = path.join(work_dir, "assets/icons");
@@ -60,6 +60,9 @@ async function to_react_component(location) {
       if (node.name === "svg") {
         node.attributes[$0] = "";
         node.attributes[$1] = "";
+
+        delete node.attributes.width;
+        delete node.attributes.height;
       }
 
       return node;
