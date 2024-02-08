@@ -1,4 +1,3 @@
-import {link} from 'fs';
 import {accordion} from './accordion';
 import {alert} from './alert';
 import {avatar} from './avatar';
@@ -16,7 +15,9 @@ import {formLabel} from './form-label';
 import {icon} from './icon';
 import {iconButton} from './icon-button';
 import {input} from './input';
+import {inputGroup} from './input-group';
 import {kbd} from './kbd';
+import {link} from './link';
 import {menu} from './menu';
 import {numberInput} from './number-input';
 import {pagination} from './pagination';
@@ -64,6 +65,7 @@ export const slotRecipes = {
   datePicker,
   dialog,
   drawer,
+  inputGroup,
   menu,
   numberInput,
   pagination,
