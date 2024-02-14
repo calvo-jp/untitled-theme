@@ -2,6 +2,7 @@
   "name": "@unofficial-untitled-ui/root",
   "scripts": {},
   "devDependencies": {
+    "@biomejs/biome": "1.5.3",
     "@types/node": "20.11.17"
   }
 }
