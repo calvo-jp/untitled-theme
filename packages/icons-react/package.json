@@ -1,6 +1,7 @@
 {
 	"name": "@unofficial-untitled-ui/icons-react",
 	"version": "0.0.1",
+	"main": "src/index.ts",
 	"scripts": {
 		"build": "tsup",
 		"prepack": "clean-package",
