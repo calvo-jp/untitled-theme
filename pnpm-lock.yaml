@@ -61,13 +61,13 @@ importers:
   packages/icons-react:
     devDependencies:
       '@types/react':
-        specifier: ^18
+        specifier: 18.2.55
         version: 18.2.55
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
       react:
-        specifier: ^18
+        specifier: 18.2.0
         version: 18.2.0
       tsup:
         specifier: 8.0.2
