@@ -1,22 +1,33 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
-  "organizeImports": {
-    "enabled": true
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true
-    }
-  },
-  "formatter": {
-    "enabled": true,
-    "lineWidth": 100
-  },
-  "javascript": {
-    "formatter": {
-      "quoteStyle": "single",
-      "bracketSpacing": false
-    }
-  }
+	"$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true
+		}
+	},
+	"formatter": {
+		"enabled": true
+	},
+	"javascript": {
+		"formatter": {
+			"lineWidth": 100,
+			"quoteStyle": "single",
+			"bracketSpacing": false
+		}
+	},
+	"json": {
+		"formatter": {
+			"lineWidth": 80
+		}
+	},
+	"files": {
+		"ignore": [
+			"packages/icons-react/**/*.{ts,tsx}",
+			"packages/icons-svelte/**/*.{ts,svelte}"
+		]
+	}
 }
