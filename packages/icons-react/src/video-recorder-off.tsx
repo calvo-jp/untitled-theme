@@ -1,0 +1,32 @@
+// Generated File
+
+import * as React from 'react';
+
+/**
+ * ![img](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTUgNUMzLjM0MzE1IDUgMiA2LjM0MzE1IDIgOFYxNkMyIDE3LjY1NjkgMy4zNDMxNSAxOSA1IDE5SDE0QzE1LjM1MjcgMTkgMTYuNDk2MiAxOC4xMDQ4IDE2Ljg3MDUgMTYuODc0NU0xNyAxMkwyMC42MzQzIDguMzY1NjlDMjEuMDYyNyA3LjkzNzMxIDIxLjI3NjkgNy43MjMxMiAyMS40NjA4IDcuNzA4NjVDMjEuNjIwMyA3LjY5NjA5IDIxLjc3NjMgNy43NjA2OCAyMS44ODAyIDcuODgyMzhDMjIgOC4wMjI2NSAyMiA4LjMyNTU2IDIyIDguOTMxMzdWMTUuMDY4NkMyMiAxNS42NzQ0IDIyIDE1Ljk3NzQgMjEuODgwMiAxNi4xMTc2QzIxLjc3NjMgMTYuMjM5MyAyMS42MjAzIDE2LjMwMzkgMjEuNDYwOCAxNi4yOTE0QzIxLjI3NjkgMTYuMjc2OSAyMS4wNjI3IDE2LjA2MjcgMjAuNjM0MyAxNS42MzQzTDE3IDEyWk0xNyAxMlY5LjhDMTcgOC4xMTk4NCAxNyA3LjI3OTc2IDE2LjY3MyA2LjYzODAzQzE2LjM4NTQgNi4wNzM1NCAxNS45MjY1IDUuNjE0NiAxNS4zNjIgNS4zMjY5OEMxNC43MjAyIDUgMTMuODgwMiA1IDEyLjIgNUg5LjVNMiAyTDIyIDIyIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K)
+ */
+export const VideoRecorderOffIcon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
+  (props, ref) => {
+    return (
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        ref={ref}
+        {...props}
+      >
+        <path
+          d="M5 5C3.34315 5 2 6.34315 2 8V16C2 17.6569 3.34315 19 5 19H14C15.3527 19 16.4962 18.1048 16.8705 16.8745M17 12L20.6343 8.36569C21.0627 7.93731 21.2769 7.72312 21.4608 7.70865C21.6203 7.69609 21.7763 7.76068 21.8802 7.88238C22 8.02265 22 8.32556 22 8.93137V15.0686C22 15.6744 22 15.9774 21.8802 16.1176C21.7763 16.2393 21.6203 16.3039 21.4608 16.2914C21.2769 16.2769 21.0627 16.0627 20.6343 15.6343L17 12ZM17 12V9.8C17 8.11984 17 7.27976 16.673 6.63803C16.3854 6.07354 15.9265 5.6146 15.362 5.32698C14.7202 5 13.8802 5 12.2 5H9.5M2 2L22 22"
+          stroke="currentColor"
+          strokeWidth="1.66667"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  },
+);
+
+VideoRecorderOffIcon.displayName = 'VideoRecorderOffIcon';

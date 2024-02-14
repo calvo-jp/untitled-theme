@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import {svg64} from 'svg64';
 import * as svgson from 'svgson';
+import {clean_or_create_dir} from './clean-or-create-dir';
 import {dash_to_pascal} from './dash-to-pascal';
 import {format_html} from './format-html';
 import {format_ts} from './format-ts';
@@ -15,11 +16,7 @@ const encoding: BufferEncoding = 'utf-8';
 async function generate_svelte_icons() {
 	const locations = await get_asset_locations();
 
-	/*
-	 * TODO:
-	 * - check if src directory exists, create if not
-	 * - clean src directory
-	 */
+	await clean_or_create_dir(output_dir);
 
 	const import_paths = await Promise.all(
 		locations.map(async (location) => {

@@ -1,0 +1,33 @@
+// Generated File
+
+import * as React from 'react';
+
+/**
+ * ![img](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIxIDIxVjNNMyAyMVYzTTkgOFYxNkM5IDE2LjkzMTkgOSAxNy4zOTc4IDkuMTUyMjQgMTcuNzY1NEM5LjM1NTIzIDE4LjI1NTQgOS43NDQ1OCAxOC42NDQ4IDEwLjIzNDYgMTguODQ3OEMxMC42MDIyIDE5IDExLjA2ODEgMTkgMTIgMTlDMTIuOTMxOSAxOSAxMy4zOTc4IDE5IDEzLjc2NTQgMTguODQ3OEMxNC4yNTU0IDE4LjY0NDggMTQuNjQ0OCAxOC4yNTU0IDE0Ljg0NzggMTcuNzY1NEMxNSAxNy4zOTc4IDE1IDE2LjkzMTkgMTUgMTZWOEMxNSA3LjA2ODEyIDE1IDYuNjAyMTggMTQuODQ3OCA2LjIzNDYzQzE0LjY0NDggNS43NDQ1OCAxNC4yNTU0IDUuMzU1MjMgMTMuNzY1NCA1LjE1MjI0QzEzLjM5NzggNSAxMi45MzE5IDUgMTIgNUMxMS4wNjgxIDUgMTAuNjAyMiA1IDEwLjIzNDYgNS4xNTIyNEM5Ljc0NDU4IDUuMzU1MjMgOS4zNTUyMyA1Ljc0NDU4IDkuMTUyMjQgNi4yMzQ2M0M5IDYuNjAyMTggOSA3LjA2ODEyIDkgOFoiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=)
+ */
+export const DistributeSpacingHorizontalIcon = React.forwardRef<
+  SVGSVGElement,
+  React.SVGProps<SVGSVGElement>
+>((props, ref) => {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      ref={ref}
+      {...props}
+    >
+      <path
+        d="M21 21V3M3 21V3M9 8V16C9 16.9319 9 17.3978 9.15224 17.7654C9.35523 18.2554 9.74458 18.6448 10.2346 18.8478C10.6022 19 11.0681 19 12 19C12.9319 19 13.3978 19 13.7654 18.8478C14.2554 18.6448 14.6448 18.2554 14.8478 17.7654C15 17.3978 15 16.9319 15 16V8C15 7.06812 15 6.60218 14.8478 6.23463C14.6448 5.74458 14.2554 5.35523 13.7654 5.15224C13.3978 5 12.9319 5 12 5C11.0681 5 10.6022 5 10.2346 5.15224C9.74458 5.35523 9.35523 5.74458 9.15224 6.23463C9 6.60218 9 7.06812 9 8Z"
+        stroke="currentColor"
+        strokeWidth="1.66667"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+});
+
+DistributeSpacingHorizontalIcon.displayName = 'DistributeSpacingHorizontalIcon';

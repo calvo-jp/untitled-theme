@@ -2,55 +2,45 @@ import fs from 'fs/promises';
 import path from 'path';
 import {svg64} from 'svg64';
 import * as svgson from 'svgson';
+import {clean_or_create_dir} from './clean-or-create-dir';
+import {BarrelItem, create_barrel_file} from './create-barrel-file';
 import {dash_to_pascal} from './dash-to-pascal';
 import {format_ts} from './format-ts';
+import {Icon, get_icons} from './get-icons';
 
-const root_dir = path.join(process.cwd(), '..');
-const assets_dir = path.join(root_dir, 'assets/icons');
-const output_dir = path.join(root_dir, 'packages/icons-react/src');
-
-const encoding: BufferEncoding = 'utf-8';
+const output_dir = path.resolve(process.cwd(), '../packages/icons-react/src');
 
 async function generate_react_icons() {
-	const locations = await get_asset_locations();
+	const icons = get_icons();
 
-	/*
-	 * TODO:
-	 * - check if src directory exists, create if not
-	 * - clean src directory
-	 */
+	await clean_or_create_dir(output_dir);
 
-	const import_paths = await Promise.all(
-		locations.map(async (location) => {
-			const component = await to_react_component(location);
+	const items = await Promise.all(
+		icons.map<Promise<BarrelItem>>(async (icon) => {
+			const Component = await to_react(icon);
+			const destination = path.join(output_dir, `${icon.filename}.tsx`);
 
-			const destination = path.join(output_dir, `${component.name}.tsx`);
+			await fs.writeFile(destination, await format_ts(Component.content), {encoding: 'utf-8'});
 
-			await fs.writeFile(destination, await format_ts(component.content), {
-				encoding,
-			});
-
-			return `./${component.name}`;
+			return {
+				path: `./${icon.filename}`,
+				modules: [
+					{
+						name: Component.name,
+					},
+				],
+			};
 		}),
 	);
 
-	await create_barrel_file(import_paths);
+	await create_barrel_file(output_dir, items);
 }
 
-async function create_barrel_file(import_paths: string[]) {
-	const location = path.join(output_dir, 'index.ts');
-	const content = import_paths.map((path) => `export * from '${path}';`).join('\n');
-
-	await fs.writeFile(location, await format_ts(content), {encoding});
-}
-
-async function to_react_component(location: string) {
-	const content = await fs.readFile(location, {encoding});
-
+async function to_react(icon: Icon) {
 	const $0 = 'REACT_REF';
 	const $1 = 'REACT_SPREAD_PROPS';
 
-	const node = await svgson.parse(content, {
+	const node = await svgson.parse(icon.content, {
 		camelcase: true,
 		transformNode(node) {
 			if (node.name === 'svg') {
@@ -87,10 +77,12 @@ async function to_react_component(location: string) {
 		},
 	});
 
-	const name = path.parse(location).name;
-	const jsdoc_preview = svg64(content);
-	const component_name = `${dash_to_pascal(name)}Icon`;
-	const react_component = to_react_template(component_name, react_svg, jsdoc_preview);
+	const component_name = `${dash_to_pascal(icon.filename)}Icon`;
+	const react_component = template({
+		name: component_name,
+		content: react_svg,
+		jsdoc: `![img](${svg64(icon.content)})`,
+	});
 
 	return {
 		name: component_name,
@@ -98,29 +90,27 @@ async function to_react_component(location: string) {
 	};
 }
 
-function to_react_template(name: string, content: string, preview: string) {
+interface TemplateConfig {
+	name: string;
+	content: string;
+	jsdoc?: string;
+}
+
+function template(config: TemplateConfig) {
 	return `
 		// Generated File
 
     import * as React from 'react';
 
     /**
-     * 
-     * ![img](${preview})
-     * 
+     * ${config.jsdoc}
      */
-		export const ${name} = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => {
-			return ${content};
+		export const ${config.name} = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => {
+			return ${config.content};
 		});
 
-		${name}.displayName = '${name}'
+		${config.name}.displayName = '${config.name}'
 	`;
-}
-
-async function get_asset_locations() {
-	const filenames = await fs.readdir(assets_dir, {encoding});
-
-	return filenames.map((fileName) => path.join(assets_dir, fileName));
 }
 
 generate_react_icons();

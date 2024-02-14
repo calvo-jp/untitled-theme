@@ -1,0 +1,32 @@
+// Generated File
+
+import * as React from 'react';
+
+/**
+ * ![img](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE0LjI0OTUgMkg4LjQ5Mzk1QzguMzE0NDcgMiA4LjIyNDczIDIgOC4xNDU1MSAyLjAyNzMzQzguMDc1NDQgMi4wNTE0OSA4LjAxMTYzIDIuMDkwOTMgNy45NTg2OCAyLjE0Mjc5QzcuODk4ODEgMi4yMDE0MyA3Ljg1ODY4IDIuMjgxNyA3Ljc3ODQxIDIuNDQyMjNMMy41Nzg0MSAxMC44NDIyQzMuMzg2NzMgMTEuMjI1NiAzLjI5MDg5IDExLjQxNzMgMy4zMTM5MSAxMS41NzMxQzMuMzM0MDEgMTEuNzA5MSAzLjQwOTI3IDExLjgzMDkgMy41MjE5NyAxMS45MDk3QzMuNjUxMDQgMTIgMy44NjUzNCAxMiA0LjI5Mzk1IDEySDEwLjQ5OTVMNy40OTk1MyAyMkwxOS42OTI2IDkuMzU1MzFDMjAuMTA0IDguOTI4NyAyMC4zMDk3IDguNzE1NCAyMC4zMjE3IDguNTMyODhDMjAuMzMyMSA4LjM3NDQ2IDIwLjI2NjcgOC4yMjA0OSAyMC4xNDU0IDguMTE4MDNDMjAuMDA1NyA4IDE5LjcwOTQgOCAxOS4xMTY3IDhIMTEuOTk5NUwxNC4yNDk1IDJaIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K)
+ */
+export const Lightning02Icon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
+  (props, ref) => {
+    return (
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        ref={ref}
+        {...props}
+      >
+        <path
+          d="M14.2495 2H8.49395C8.31447 2 8.22473 2 8.14551 2.02733C8.07544 2.05149 8.01163 2.09093 7.95868 2.14279C7.89881 2.20143 7.85868 2.2817 7.77841 2.44223L3.57841 10.8422C3.38673 11.2256 3.29089 11.4173 3.31391 11.5731C3.33401 11.7091 3.40927 11.8309 3.52197 11.9097C3.65104 12 3.86534 12 4.29395 12H10.4995L7.49953 22L19.6926 9.35531C20.104 8.9287 20.3097 8.7154 20.3217 8.53288C20.3321 8.37446 20.2667 8.22049 20.1454 8.11803C20.0057 8 19.7094 8 19.1167 8H11.9995L14.2495 2Z"
+          stroke="currentColor"
+          strokeWidth="1.66667"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  },
+);
+
+Lightning02Icon.displayName = 'Lightning02Icon';

@@ -1,0 +1,32 @@
+// Generated File
+
+import * as React from 'react';
+
+/**
+ * ![img](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE1LjUgMTEuNUgxNC41TDEzIDE0LjVMMTEgOC41TDkuNSAxMS41SDguNU0xMS45OTMyIDUuMTM1ODFDOS45OTM4IDIuNzk4NCA2LjY1OTc1IDIuMTY5NjQgNC4xNTQ2OSA0LjMxMDAxQzEuNjQ5NjQgNi40NTAzOCAxLjI5Njk3IDEwLjAyOSAzLjI2NDIgMTIuNTYwNEM0Ljc1MDA5IDE0LjQ3MjQgOC45NzEyOSAxOC4zMTEgMTAuOTQ4IDIwLjA3NDlDMTEuMzExNCAyMC4zOTkxIDExLjQ5MzEgMjAuNTYxMyAxMS43MDU4IDIwLjYyNTFDMTEuODkwNSAyMC42ODA1IDEyLjA5NTggMjAuNjgwNSAxMi4yODA1IDIwLjYyNTFDMTIuNDkzMiAyMC41NjEzIDEyLjY3NDkgMjAuMzk5MSAxMy4wMzgzIDIwLjA3NDlDMTUuMDE1IDE4LjMxMSAxOS4yMzYyIDE0LjQ3MjQgMjAuNzIyMSAxMi41NjA0QzIyLjY4OTMgMTAuMDI5IDIyLjM3OTcgNi40Mjc4NyAxOS44MzE2IDQuMzEwMDFDMTcuMjgzNSAyLjE5MjE2IDEzLjk5MjUgMi43OTg0IDExLjk5MzIgNS4xMzU4MVoiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=)
+ */
+export const ActivityHeartIcon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
+  (props, ref) => {
+    return (
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        ref={ref}
+        {...props}
+      >
+        <path
+          d="M15.5 11.5H14.5L13 14.5L11 8.5L9.5 11.5H8.5M11.9932 5.13581C9.9938 2.7984 6.65975 2.16964 4.15469 4.31001C1.64964 6.45038 1.29697 10.029 3.2642 12.5604C4.75009 14.4724 8.97129 18.311 10.948 20.0749C11.3114 20.3991 11.4931 20.5613 11.7058 20.6251C11.8905 20.6805 12.0958 20.6805 12.2805 20.6251C12.4932 20.5613 12.6749 20.3991 13.0383 20.0749C15.015 18.311 19.2362 14.4724 20.7221 12.5604C22.6893 10.029 22.3797 6.42787 19.8316 4.31001C17.2835 2.19216 13.9925 2.7984 11.9932 5.13581Z"
+          stroke="currentColor"
+          strokeWidth="1.66667"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  },
+);
+
+ActivityHeartIcon.displayName = 'ActivityHeartIcon';

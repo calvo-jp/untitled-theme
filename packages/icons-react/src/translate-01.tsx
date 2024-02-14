@@ -1,0 +1,32 @@
+// Generated File
+
+import * as React from 'react';
+
+/**
+ * ![img](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjkxMyAxN0gyMC4wODdNMTIuOTEzIDE3TDExIDIxTTEyLjkxMyAxN0wxNS43NzgzIDExLjAwOUMxNi4wMDkyIDEwLjUyNjMgMTYuMTI0NiAxMC4yODQ5IDE2LjI4MjYgMTAuMjA4NkMxNi40MTk5IDEwLjE0MjMgMTYuNTgwMSAxMC4xNDIzIDE2LjcxNzQgMTAuMjA4NkMxNi44NzU0IDEwLjI4NDkgMTYuOTkwOCAxMC41MjYzIDE3LjIyMTcgMTEuMDA5TDIwLjA4NyAxN00yMC4wODcgMTdMMjIgMjFNMiA1SDhNOCA1SDExLjVNOCA1VjNNMTEuNSA1SDE0TTExLjUgNUMxMS4wMDM5IDcuOTU3MjkgOS44NTI1OSAxMC42MzYyIDguMTY1NTUgMTIuODg0NE0xMCAxNEM5LjM4NzQ3IDEzLjcyNDggOC43NjI2NSAxMy4zNDIxIDguMTY1NTUgMTIuODg0NE04LjE2NTU1IDEyLjg4NDRDNi44MTMwMiAxMS44NDc4IDUuNjAyNzYgMTAuNDI2NiA1IDlNOC4xNjU1NSAxMi44ODQ0QzYuNTYwODYgMTUuMDIyOSA0LjQ3MTQzIDE2Ljc3MTggMiAxOCIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==)
+ */
+export const Translate01Icon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
+  (props, ref) => {
+    return (
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        ref={ref}
+        {...props}
+      >
+        <path
+          d="M12.913 17H20.087M12.913 17L11 21M12.913 17L15.7783 11.009C16.0092 10.5263 16.1246 10.2849 16.2826 10.2086C16.4199 10.1423 16.5801 10.1423 16.7174 10.2086C16.8754 10.2849 16.9908 10.5263 17.2217 11.009L20.087 17M20.087 17L22 21M2 5H8M8 5H11.5M8 5V3M11.5 5H14M11.5 5C11.0039 7.95729 9.85259 10.6362 8.16555 12.8844M10 14C9.38747 13.7248 8.76265 13.3421 8.16555 12.8844M8.16555 12.8844C6.81302 11.8478 5.60276 10.4266 5 9M8.16555 12.8844C6.56086 15.0229 4.47143 16.7718 2 18"
+          stroke="currentColor"
+          strokeWidth="1.66667"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  },
+);
+
+Translate01Icon.displayName = 'Translate01Icon';
