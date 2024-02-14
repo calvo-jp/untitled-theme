@@ -18,7 +18,7 @@ async function generate_svelte_icons() {
 	const items = await Promise.all(
 		icons.map<Promise<BarrelItem>>(async (icon) => {
 			const Component = await to_svelte_component(icon);
-			const destination = path.join(outdir, `${Component.name}.svelte`);
+			const destination = path.join(outdir, `${icon.filename}.svelte`);
 
 			await fs.writeFile(destination, await format_html(Component.content), {encoding: 'utf-8'});
 
