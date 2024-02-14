@@ -7,6 +7,5 @@ export async function clean_or_create_dir(location: string) {
 		await Promise.all(files.map((file) => fs.unlink(path.join(location, file))));
 	} catch {
 		await fs.mkdir(location);
-	} finally {
 	}
 }
