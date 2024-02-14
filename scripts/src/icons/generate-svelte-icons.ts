@@ -3,59 +3,42 @@ import path from 'path';
 import {svg64} from 'svg64';
 import * as svgson from 'svgson';
 import {clean_or_create_dir} from './clean-or-create-dir';
+import {BarrelItem, create_barrel_file} from './create-barrel-file';
 import {dash_to_pascal} from './dash-to-pascal';
 import {format_html} from './format-html';
-import {format_ts} from './format-ts';
+import {Icon, get_icons} from './get-icons';
 
-const root_dir = path.join(process.cwd(), '..');
-const assets_dir = path.join(root_dir, 'assets/icons');
-const output_dir = path.join(root_dir, 'packages/icons-svelte/src');
-
-const encoding: BufferEncoding = 'utf-8';
+const outdir = path.resolve(process.cwd(), '../packages/icons-svelte/src');
 
 async function generate_svelte_icons() {
-	const locations = await get_asset_locations();
+	const icons = get_icons();
 
-	await clean_or_create_dir(output_dir);
+	await clean_or_create_dir(outdir);
 
-	const import_paths = await Promise.all(
-		locations.map(async (location) => {
-			const component = await to_svelte_component(location);
+	const items = await Promise.all(
+		icons.map<Promise<BarrelItem>>(async (icon) => {
+			const Component = await to_svelte_component(icon);
+			const destination = path.join(outdir, `${Component.name}.svelte`);
 
-			const destination = path.join(output_dir, `${component.name}.svelte`);
-
-			await fs.writeFile(destination, await format_html(component.content), {
-				encoding,
-			});
+			await fs.writeFile(destination, await format_html(Component.content), {encoding: 'utf-8'});
 
 			return {
-				module: component.name,
-				path: `./${component.name}.svelte`,
+				path: `./${icon.filename}.svelte`,
+				modules: [
+					{
+						as: Component.name,
+						name: 'default',
+					},
+				],
 			};
 		}),
 	);
 
-	await create_barrel_file(import_paths);
+	await create_barrel_file(outdir, items);
 }
 
-interface BarrelItem {
-	path: string;
-	module: string;
-}
-
-async function create_barrel_file(items: BarrelItem[]) {
-	const location = path.join(output_dir, 'index.ts');
-	const content = items
-		.map((item) => `export {default as ${item.module}} from '${item.path}';`)
-		.join('\n');
-
-	await fs.writeFile(location, await format_ts(content), {encoding});
-}
-
-async function to_svelte_component(location: string) {
-	const content = await fs.readFile(location, {encoding});
-
-	const node = await svgson.parse(content, {
+async function to_svelte_component(icon: Icon) {
+	const node = await svgson.parse(icon.content, {
 		transformNode(node) {
 			if (node.name === 'svg') {
 				node.attributes.rest = '';
@@ -86,10 +69,9 @@ async function to_svelte_component(location: string) {
 		},
 	});
 
-	const name = path.parse(location).name;
-	const jsdoc_preview = svg64(content);
-	const component_name = `${dash_to_pascal(name)}Icon`;
-	const svelte_component = to_svelte_template(component_name, svelte_svg, jsdoc_preview);
+	const jsdoc_preview = svg64(icon.content);
+	const component_name = `${dash_to_pascal(icon.filename)}Icon`;
+	const svelte_component = template(svelte_svg);
 
 	return {
 		name: component_name,
@@ -97,7 +79,7 @@ async function to_svelte_component(location: string) {
 	};
 }
 
-function to_svelte_template(name: string, content: string, preview: string) {
+function template(content: string) {
 	return `
     <script lang="ts">
 		// Generated File
@@ -109,12 +91,6 @@ function to_svelte_template(name: string, content: string, preview: string) {
     
     ${content}
 	`;
-}
-
-async function get_asset_locations() {
-	const filenames = await fs.readdir(assets_dir, {encoding});
-
-	return filenames.map((fileName) => path.join(assets_dir, fileName));
 }
 
 generate_svelte_icons();

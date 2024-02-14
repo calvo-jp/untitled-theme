@@ -8,17 +8,17 @@ import {dash_to_pascal} from './dash-to-pascal';
 import {format_ts} from './format-ts';
 import {Icon, get_icons} from './get-icons';
 
-const output_dir = path.resolve(process.cwd(), '../packages/icons-react/src');
+const outdir = path.resolve(process.cwd(), '../packages/icons-react/src');
 
 async function generate_react_icons() {
 	const icons = get_icons();
 
-	await clean_or_create_dir(output_dir);
+	await clean_or_create_dir(outdir);
 
 	const items = await Promise.all(
 		icons.map<Promise<BarrelItem>>(async (icon) => {
-			const Component = await to_react(icon);
-			const destination = path.join(output_dir, `${icon.filename}.tsx`);
+			const Component = await to_react_component(icon);
+			const destination = path.join(outdir, `${icon.filename}.tsx`);
 
 			await fs.writeFile(destination, await format_ts(Component.content), {encoding: 'utf-8'});
 
@@ -33,19 +33,16 @@ async function generate_react_icons() {
 		}),
 	);
 
-	await create_barrel_file(output_dir, items);
+	await create_barrel_file(outdir, items);
 }
 
-async function to_react(icon: Icon) {
-	const $0 = 'REACT_REF';
-	const $1 = 'REACT_SPREAD_PROPS';
-
+async function to_react_component(icon: Icon) {
 	const node = await svgson.parse(icon.content, {
 		camelcase: true,
 		transformNode(node) {
 			if (node.name === 'svg') {
-				node.attributes[$0] = '';
-				node.attributes[$1] = '';
+				node.attributes.ref = '';
+				node.attributes.rest = '';
 				node.attributes.width = '16';
 				node.attributes.height = '16';
 			}
@@ -57,11 +54,11 @@ async function to_react(icon: Icon) {
 	const react_svg = svgson.stringify(node, {
 		selfClose: true,
 		transformAttr(key, value, esc) {
-			if (key === $0) {
+			if (key === 'ref') {
 				return 'ref={ref}';
 			}
 
-			if (key === $1) {
+			if (key === 'rest') {
 				return '{...props}';
 			}
 
