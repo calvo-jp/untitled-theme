@@ -1,8 +1,9 @@
 import fs from 'fs/promises';
 import path from 'path';
-import prettier from 'prettier';
 import {svg64} from 'svg64';
 import * as svgson from 'svgson';
+import {dash_to_pascal} from './dash-to-pascal';
+import {format_ts} from './format-ts';
 
 const root_dir = path.join(process.cwd(), '..');
 const assets_dir = path.join(root_dir, 'assets/icons');
@@ -12,6 +13,12 @@ const encoding: BufferEncoding = 'utf-8';
 
 async function generate_react_icons() {
 	const locations = await get_asset_locations();
+
+	/*
+	 * TODO:
+	 * - check if src directory exists, create if not
+	 * - clean src directory
+	 */
 
 	const import_paths = await Promise.all(
 		locations.map(async (location) => {
@@ -49,11 +56,8 @@ async function to_react_component(location: string) {
 			if (node.name === 'svg') {
 				node.attributes[$0] = '';
 				node.attributes[$1] = '';
-
-				// biome-ignore lint/performance/noDelete:
-				delete node.attributes.width;
-				// biome-ignore lint/performance/noDelete:
-				delete node.attributes.height;
+				node.attributes.width = '16';
+				node.attributes.height = '16';
 			}
 
 			return node;
@@ -117,22 +121,6 @@ async function get_asset_locations() {
 	const filenames = await fs.readdir(assets_dir, {encoding});
 
 	return filenames.map((fileName) => path.join(assets_dir, fileName));
-}
-
-async function format_ts(content: string) {
-	return await prettier.format(content, {
-		parser: 'typescript',
-		printWidth: 100,
-		singleQuote: true,
-		bracketSpacing: false,
-	});
-}
-
-function dash_to_pascal(subject: string) {
-	return subject
-		.split(/-/g)
-		.map((word) => word[0].toUpperCase() + word.substring(1))
-		.join('');
 }
 
 generate_react_icons();

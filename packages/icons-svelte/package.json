@@ -1,0 +1,33 @@
+{
+	"name": "icons-svelte",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"clean-package": "2.2.0",
+		"svelte": "5.0.0-next.53",
+		"tsup": "8.0.2"
+	},
+	"peerDependencies": {
+		"svelte": "^5"
+	},
+	"clean-package": {
+		"replace": {
+			"main": "dist/index.js",
+			"module": "dist/index.mjs",
+			"types": "dist/index.d.ts",
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.mjs",
+					"require": "./dist/index.js"
+				},
+				"./package.json": "./package.json"
+			}
+		}
+	}
+}
