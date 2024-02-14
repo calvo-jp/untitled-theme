@@ -1,0 +1,15 @@
+{
+	"name": "scripts",
+	"private": true,
+	"scripts": {
+		"icons-react": "ts-node ./src/generate-react-icons.ts",
+		"icons-svelte": "ts-node ./src/generate-svelte-icons.ts"
+	},
+	"devDependencies": {
+		"prettier": "3.2.5",
+		"svg64": "2.0.0",
+		"svgson": "5.3.1",
+		"ts-node": "10.9.2",
+		"typescript": "5.3.3"
+	}
+}
