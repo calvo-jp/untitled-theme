@@ -30,6 +30,9 @@ importers:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@pandacss/dev':
+        specifier: 0.31.0
+        version: 0.31.0(typescript@5.3.3)
       '@types/node':
         specifier: ^20
         version: 20.11.17
@@ -39,6 +42,9 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.2.19
+      '@unofficial-untitled-ui/preset':
+        specifier: workspace:*
+        version: link:../../packages/preset
       typescript:
         specifier: ^5
         version: 5.3.3
