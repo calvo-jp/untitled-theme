@@ -7,7 +7,13 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true
-		}
+		},
+		"ignore": [
+			"packages/icons-react/src/**/*.ts",
+			"packages/icons-react/src/**/*.tsx",
+			"packages/icons-svelte/src/**/*.ts",
+			"packages/icons-svelte/src/**/*.svelte"
+		]
 	},
 	"formatter": {
 		"enabled": true
@@ -23,11 +29,5 @@
 		"formatter": {
 			"lineWidth": 80
 		}
-	},
-	"files": {
-		"ignore": [
-			"packages/icons-react/**/*.{ts,tsx}",
-			"packages/icons-svelte/**/*.{ts,svelte}"
-		]
 	}
 }
