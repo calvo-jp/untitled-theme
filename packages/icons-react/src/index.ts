@@ -599,7 +599,6 @@ export {Hourglass03Icon} from './hourglass-03';
 export {Hurricane01Icon} from './hurricane-01';
 export {Hurricane02Icon} from './hurricane-02';
 export {Hurricane03Icon} from './hurricane-03';
-export {IconIcon} from './Icon';
 export {Image01Icon} from './image-01';
 export {Image02Icon} from './image-02';
 export {Image03Icon} from './image-03';

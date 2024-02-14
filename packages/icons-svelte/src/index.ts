@@ -599,7 +599,6 @@ export {default as Hourglass03Icon} from './hourglass-03.svelte';
 export {default as Hurricane01Icon} from './hurricane-01.svelte';
 export {default as Hurricane02Icon} from './hurricane-02.svelte';
 export {default as Hurricane03Icon} from './hurricane-03.svelte';
-export {default as IconIcon} from './Icon.svelte';
 export {default as Image01Icon} from './image-01.svelte';
 export {default as Image02Icon} from './image-02.svelte';
 export {default as Image03Icon} from './image-03.svelte';

@@ -1,5 +1,3 @@
-// Generated File
-
 import * as React from 'react';
 
 /**
