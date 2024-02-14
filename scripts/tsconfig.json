@@ -1,10 +1,10 @@
 {
 	"compilerOptions": {
+		"strict": true,
 		"noEmit": true,
-		"module": "ESNext",
+		"module": "CommonJS",
 		"target": "ESNext",
 		"moduleResolution": "node",
-		"strict": true,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"skipLibCheck": true,

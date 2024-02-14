@@ -4,9 +4,9 @@ import prettier from 'prettier';
 import svg64 from 'svg64';
 import svgson from 'svgson';
 
-const work_dir = process.cwd();
-const assets_dir = path.join(work_dir, 'assets/icons');
-const output_dir = path.join(work_dir, 'src/components/icons');
+const root_dir = path.join(process.cwd(), '../..');
+const assets_dir = path.join(root_dir, 'assets/icons');
+const output_dir = path.join(root_dir, 'packages/icons-react/src');
 
 const encoding: BufferEncoding = 'utf-8';
 
@@ -119,8 +119,10 @@ async function get_asset_locations() {
 
 async function format_ts(content: string) {
 	return await prettier.format(content, {
-		...(await prettier.resolveConfig(path.join(work_dir, '.prettierrc'))),
 		parser: 'typescript',
+		printWidth: 100,
+		singleQuote: true,
+		bracketSpacing: false,
 	});
 }
 

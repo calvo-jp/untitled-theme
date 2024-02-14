@@ -1,9 +1,9 @@
 {
-	"name": "scripts",
+	"name": "@unofficial-untitled-ui/scripts",
 	"private": true,
 	"scripts": {
-		"icons-react": "ts-node ./src/generate-react-icons.ts",
-		"icons-svelte": "ts-node ./src/generate-svelte-icons.ts"
+		"generate-react-icons": "ts-node --project tsconfig.json ./src/generate-react-icons.ts",
+		"generate-svelte-icons": "ts-node --project tsconfig.json ./src/generate-svelte-icons.ts"
 	},
 	"devDependencies": {
 		"prettier": "3.2.5",
