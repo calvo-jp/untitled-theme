@@ -79,25 +79,25 @@ importers:
   packages/icons-svelte:
     devDependencies:
       '@sveltejs/package':
-        specifier: ^2.2.6
+        specifier: 2.2.6
         version: 2.2.6(svelte@5.0.0-next.53)(typescript@5.3.3)
       '@sveltejs/vite-plugin-svelte':
-        specifier: ^3.0.2
+        specifier: 3.0.2
         version: 3.0.2(svelte@5.0.0-next.53)(vite@5.1.1)
       '@tsconfig/svelte':
-        specifier: ^5.0.2
+        specifier: 5.0.2
         version: 5.0.2
       svelte:
         specifier: 5.0.0-next.53
         version: 5.0.0-next.53
       svelte-check:
-        specifier: ^3.6.4
+        specifier: 3.6.4
         version: 3.6.4(svelte@5.0.0-next.53)
       svelte-preprocess:
-        specifier: ^5.1.3
+        specifier: 5.1.3
         version: 5.1.3(svelte@5.0.0-next.53)(typescript@5.3.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: 5.3.3
         version: 5.3.3
       vite:
         specifier: 5.1.1
