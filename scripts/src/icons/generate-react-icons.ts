@@ -7,8 +7,9 @@ import {BarrelItem, create_barrel_file} from './create-barrel-file';
 import {dash_to_pascal} from './dash-to-pascal';
 import {format_ts} from './format-ts';
 import {Icon, get_icons} from './get-icons';
+import {workspace_root} from './workspace-root';
 
-const outdir = path.resolve(process.cwd(), '../packages/icons-react/src');
+const outdir = path.join(workspace_root, 'packages/icons-react/src');
 
 async function generate_react_icons() {
 	const icons = get_icons();

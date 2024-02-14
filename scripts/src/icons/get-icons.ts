@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import {workspace_root} from './workspace-root';
 
 export interface Icon {
 	/**
@@ -21,7 +22,7 @@ export interface Icon {
 	content: string;
 }
 
-const assets_dir = path.resolve(process.cwd(), '../assets/icons');
+const assets_dir = path.join(workspace_root, 'assets/icons');
 
 export function get_icons() {
 	return fs
