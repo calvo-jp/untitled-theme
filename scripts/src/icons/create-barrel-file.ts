@@ -2,42 +2,36 @@ import fs from 'fs/promises';
 import path from 'path';
 import {format_ts} from './format-ts';
 
-export type BarrelItem =
+export type BarrelItem = {
+	path: string;
+	type?: boolean;
+} & (
 	| {
-			path: string;
-			type?: boolean;
-			modules:
-				| string[]
-				| Array<{
-						as?: string;
-						name: string;
-						type?: boolean;
-				  }>;
+			modules: string[] | {as?: string; name: string; type?: boolean}[];
 			exportAll?: false;
 	  }
 	| {
-			path: string;
-			type?: boolean;
 			modules?: never;
 			exportAll: true;
-	  };
+	  }
+);
 
 export async function create_barrel_file(directory: string, content: BarrelItem[]) {
 	const c = content
-		.map((item) => {
-			if (item.exportAll) return `export ${typeOnly(item.type)} * from '${item.path}';`;
+		.map((o) => {
+			if (o.exportAll) return `export ${typeOnly(o.type)} * from '${o.path}';`;
 
-			const m = item.modules
+			const m = o.modules
 				.map((mod) => {
 					return typeof mod === 'string'
-						? `${typeOnly(item.type)} ${mod}`
+						? `${typeOnly(o.type)} ${mod}`
 						: mod.as
 						  ? `${typeOnly(mod.type)} ${mod.name} as ${mod.as}`
 						  : `${typeOnly(mod.type)} ${mod.name}`;
 				})
 				.join();
 
-			return `export ${typeOnly(item.type)} {${m}} from '${item.path}';`;
+			return `export ${typeOnly(o.type)} {${m}} from '${o.path}';`;
 		})
 		.join('\n');
 
