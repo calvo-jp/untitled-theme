@@ -9,13 +9,12 @@
 			"recommended": true
 		},
 		"ignore": [
-			"dist",
-			".svelte-kit",
 			"node_modules",
-			"packages/icons-react/src/**/*.ts",
-			"packages/icons-react/src/**/*.tsx",
-			"packages/icons-svelte/src/**/*.ts",
-			"packages/icons-svelte/src/**/*.svelte"
+			"dist",
+			".next",
+			".svelte-kit",
+			"packages/icons-react",
+			"packages/icons-svelte"
 		]
 	},
 	"formatter": {
