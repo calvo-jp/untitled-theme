@@ -21,8 +21,8 @@
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
-		"@unofficial-untitled-ui/icons-react": "workspace:*",
-		"@unofficial-untitled-ui/preset": "workspace:*",
+		"@untitled-theme/icons-react": "workspace:*",
+		"@untitled-theme/preset-panda": "workspace:*",
 		"typescript": "^5"
 	}
 }

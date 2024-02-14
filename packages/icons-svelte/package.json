@@ -1,5 +1,5 @@
 {
-	"name": "@unofficial-untitled-ui/icons-svelte",
+	"name": "@untitled-theme/icons-svelte",
 	"type": "module",
 	"version": "0.0.1",
 	"main": "dist/index.js",

@@ -1,5 +1,5 @@
 {
-	"name": "@unofficial-untitled-ui/scripts",
+	"name": "@untitled-theme/scripts",
 	"private": true,
 	"scripts": {
 		"generate-react-icons": "ts-node --project tsconfig.json ./src/icons/generate-react-icons.ts",
