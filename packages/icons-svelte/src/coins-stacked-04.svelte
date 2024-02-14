@@ -1,10 +1,10 @@
 <script lang="ts">
-  // Generated File
-
   import type {SVGAttributes} from 'svelte/elements';
 
   let {...props} = $props<SVGAttributes<SVGSVGElement>>();
 </script>
+
+<!-- @component ![img](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDVDMjAgNi42NTY4NSAxNi40MTgzIDggMTIgOEM3LjU4MTcyIDggNCA2LjY1Njg1IDQgNU0yMCA1QzIwIDMuMzQzMTUgMTYuNDE4MyAyIDEyIDJDNy41ODE3MiAyIDQgMy4zNDMxNSA0IDVNMjAgNVYxOUMyMCAyMC42NTY5IDE2LjQxODMgMjIgMTIgMjJDNy41ODE3MiAyMiA0IDIwLjY1NjkgNCAxOVY1TTIwIDkuNjY2NkMyMCAxMS4zMjM1IDE2LjQxODMgMTIuNjY2NiAxMiAxMi42NjY2QzcuNTgxNzIgMTIuNjY2NiA0IDExLjMyMzUgNCA5LjY2NjZNMjAgMTQuMzNDMjAgMTUuOTg2OSAxNi40MTgzIDE3LjMzIDEyIDE3LjMzQzcuNTgxNzIgMTcuMzMgNCAxNS45ODY5IDQgMTQuMzMiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=) -->
 
 <svg
   width="16"

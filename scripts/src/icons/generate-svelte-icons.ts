@@ -69,9 +69,11 @@ async function to_svelte_component(icon: Icon) {
 		},
 	});
 
-	const jsdoc_preview = svg64(icon.content);
 	const component_name = `${dash_to_pascal(icon.filename)}Icon`;
-	const svelte_component = template(svelte_svg);
+	const svelte_component = template({
+		content: svelte_svg,
+		jsdoc: `![img](${svg64(icon.content)})`,
+	});
 
 	return {
 		name: component_name,
@@ -79,17 +81,22 @@ async function to_svelte_component(icon: Icon) {
 	};
 }
 
-function template(content: string) {
-	return `
-    <script lang="ts">
-		// Generated File
-    
-    import type {SVGAttributes} from 'svelte/elements';
+interface TemplateConfig {
+	content: string;
+	jsdoc?: string;
+}
 
-    let {...props} = $props<SVGAttributes<SVGSVGElement>>();  
-    </script>
-    
-    ${content}
+function template(config: TemplateConfig) {
+	return `
+		<script lang="ts">
+			import type {SVGAttributes} from 'svelte/elements';
+
+			let {...props} = $props<SVGAttributes<SVGSVGElement>>();  
+		</script>
+
+		<!-- @component ${config.jsdoc} -->
+
+		${config.content}
 	`;
 }
 

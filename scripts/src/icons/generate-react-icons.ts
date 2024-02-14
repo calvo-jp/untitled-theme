@@ -95,13 +95,11 @@ interface TemplateConfig {
 
 function template(config: TemplateConfig) {
 	return `
-		// Generated File
+		import * as React from 'react';
 
-    import * as React from 'react';
-
-    /**
-     * ${config.jsdoc}
-     */
+		/**
+		 * ${config.jsdoc}
+		 */
 		export const ${config.name} = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => {
 			return ${config.content};
 		});
