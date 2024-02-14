@@ -1,10 +1,10 @@
 import fs from 'fs/promises';
 import path from 'path';
 import prettier from 'prettier';
-import svg64 from 'svg64';
-import svgson from 'svgson';
+import {svg64} from 'svg64';
+import * as svgson from 'svgson';
 
-const root_dir = path.join(process.cwd(), '../..');
+const root_dir = path.join(process.cwd(), '..');
 const assets_dir = path.join(root_dir, 'assets/icons');
 const output_dir = path.join(root_dir, 'packages/icons-react/src');
 
@@ -50,9 +50,9 @@ async function to_react_component(location: string) {
 				node.attributes[$0] = '';
 				node.attributes[$1] = '';
 
-				// biome-ignore lint/performance/noDelete: <explanation>
+				// biome-ignore lint/performance/noDelete:
 				delete node.attributes.width;
-				// biome-ignore lint/performance/noDelete: <explanation>
+				// biome-ignore lint/performance/noDelete:
 				delete node.attributes.height;
 			}
 
@@ -96,6 +96,8 @@ async function to_react_component(location: string) {
 
 function to_react_template(name: string, content: string, preview: string) {
 	return `
+		// Generated File
+
     import * as React from 'react';
 
     /**

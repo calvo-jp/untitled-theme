@@ -1,0 +1,10 @@
+{
+	"name": "@unofficial-untitled-ui/icons-react",
+	"version": "0.0.1",
+	"devDependencies": {
+		"react": "^18"
+	},
+	"peerDependencies": {
+		"react": "^18"
+	}
+}
