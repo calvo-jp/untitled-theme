@@ -75,6 +75,7 @@ async function to_react_component(icon: Icon) {
 	});
 
 	const component_name = `${dash_to_pascal(icon.filename)}Icon`;
+
 	const react_component = template({
 		name: component_name,
 		content: react_svg,

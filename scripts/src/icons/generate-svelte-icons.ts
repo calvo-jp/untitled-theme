@@ -70,6 +70,7 @@ async function to_svelte_component(icon: Icon) {
 	});
 
 	const component_name = `${dash_to_pascal(icon.filename)}Icon`;
+
 	const svelte_component = template({
 		content: svelte_svg,
 		jsdoc: `![img](${svg64(icon.content)})`,
