@@ -13,8 +13,8 @@ export const TagsInputControl = withContext(styled(ArkTagsInput.Control), 'contr
 export const TagsInputInput = withContext(styled(ArkTagsInput.Input), 'input');
 export const TagsInputItem = withContext(styled(ArkTagsInput.Item), 'item');
 export const TagsInputItemDeleteTrigger = withContext(
-  styled(ArkTagsInput.ItemDeleteTrigger),
-  'itemDeleteTrigger',
+	styled(ArkTagsInput.ItemDeleteTrigger),
+	'itemDeleteTrigger',
 );
 export const TagsInputItemInput = withContext(styled(ArkTagsInput.ItemInput), 'itemInput');
 export const TagsInputItemPreview = withContext(styled(ArkTagsInput.ItemPreview), 'itemPreview');

@@ -4,6 +4,6 @@ import {defineSlotRecipe} from '@pandacss/dev';
 const drawerAnatomy = dialogAnatomy.extendWith();
 
 export const drawer = defineSlotRecipe({
-  slots: drawerAnatomy.keys(),
-  className: 'drawer',
+	slots: drawerAnatomy.keys(),
+	className: 'drawer',
 });

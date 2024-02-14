@@ -15,12 +15,12 @@ export const ComboboxInput = withContext(styled(ArkCombobox.Input), 'input');
 export const ComboboxItem = withContext(styled(ArkCombobox.Item), 'item');
 export const ComboboxItemGroup = withContext(styled(ArkCombobox.ItemGroup), 'itemGroup');
 export const ComboboxItemGroupLabel = withContext(
-  styled(ArkCombobox.ItemGroupLabel),
-  'itemGroupLabel',
+	styled(ArkCombobox.ItemGroupLabel),
+	'itemGroupLabel',
 );
 export const ComboboxItemIndicator = withContext(
-  styled(ArkCombobox.ItemIndicator),
-  'itemIndicator',
+	styled(ArkCombobox.ItemIndicator),
+	'itemIndicator',
 );
 export const ComboboxItemText = withContext(styled(ArkCombobox.ItemText), 'itemText');
 export const ComboboxLabel = withContext(styled(ArkCombobox.Label), 'label');

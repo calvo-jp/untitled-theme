@@ -18,7 +18,8 @@
 		]
 	},
 	"formatter": {
-		"enabled": true
+		"enabled": true,
+		"ignore": ["packages/icons-react", "packages/icons-svelte"]
 	},
 	"javascript": {
 		"formatter": {

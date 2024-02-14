@@ -9,8 +9,8 @@ const {withProvider, withContext} = createStyleContext(datePicker);
 
 export const DatePicker = withProvider(styled(ArkDatePicker.Root), 'root');
 export const DatePickerClearTrigger = withContext(
-  styled(ArkDatePicker.ClearTrigger),
-  'clearTrigger',
+	styled(ArkDatePicker.ClearTrigger),
+	'clearTrigger',
 );
 export const DatePickerContent = withContext(styled(ArkDatePicker.Content), 'content');
 export const DatePickerControl = withContext(styled(ArkDatePicker.Control), 'control');
@@ -25,8 +25,8 @@ export const DatePickerTable = withContext(styled(ArkDatePicker.Table), 'table')
 export const DatePickerTableBody = withContext(styled(ArkDatePicker.TableBody), 'tableBody');
 export const DatePickerTableCell = withContext(styled(ArkDatePicker.TableCell), 'tableCell');
 export const DatePickerTableCellTrigger = withContext(
-  styled(ArkDatePicker.TableCellTrigger),
-  'tableCellTrigger',
+	styled(ArkDatePicker.TableCellTrigger),
+	'tableCellTrigger',
 );
 export const DatePickerTableHead = withContext(styled(ArkDatePicker.TableHead), 'tableHead');
 export const DatePickerTableHeader = withContext(styled(ArkDatePicker.TableHeader), 'tableHeader');

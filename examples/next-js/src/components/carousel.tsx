@@ -11,8 +11,8 @@ export const Carousel = withProvider(styled(ArkCarousel.Root), 'root');
 export const CarouselControl = withContext(styled(ArkCarousel.Control), 'control');
 export const CarouselIndicator = withContext(styled(ArkCarousel.Indicator), 'indicator');
 export const CarouselIndicatorGroup = withContext(
-  styled(ArkCarousel.IndicatorGroup),
-  'indicatorGroup',
+	styled(ArkCarousel.IndicatorGroup),
+	'indicatorGroup',
 );
 export const CarouselItem = withContext(styled(ArkCarousel.Item), 'item');
 export const CarouselItemGroup = withContext(styled(ArkCarousel.ItemGroup), 'itemGroup');

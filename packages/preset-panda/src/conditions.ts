@@ -1,3 +1,3 @@
 export const conditions = {
-  extend: {},
+	extend: {},
 };

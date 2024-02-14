@@ -4,6 +4,6 @@ import {defineSlotRecipe} from '@pandacss/dev';
 const badgeAnatomy = createAnatomy('badge', ['root', 'label', 'indicator']);
 
 export const badge = defineSlotRecipe({
-  slots: badgeAnatomy.keys(),
-  className: 'badge',
+	slots: badgeAnatomy.keys(),
+	className: 'badge',
 });

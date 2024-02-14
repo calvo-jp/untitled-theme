@@ -5,10 +5,10 @@ import {textStyles} from './text-styles';
 import {tokens} from './tokens';
 
 export const theme = {
-  tokens,
-  breakpoints,
-  textStyles,
-  slotRecipes,
-  recipes,
-  semanticTokens,
+	tokens,
+	breakpoints,
+	textStyles,
+	slotRecipes,
+	recipes,
+	semanticTokens,
 };
