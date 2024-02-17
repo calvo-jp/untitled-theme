@@ -1,0 +1,6 @@
+.next
+.svelte-kit
+styled-system
+assets/icons
+packages/icons-react
+packages/icons-svelte

@@ -4,34 +4,34 @@ import * as React from 'react';
  * ![img](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSJ3aGl0ZSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjxwYXRoIGQ9Ik0yIDcuNjI1QzIgOS45MDMxNyAzLjg0NjgzIDExLjc1IDYuMTI1IDExLjc1QzYuNDMwODkgMTEuNzUgNi41ODM4MyAxMS43NSA2LjY2MzA4IDExLjc3NzNDNi44Mjg4OCAxMS44MzQ1IDYuOTE1NDUgMTEuOTIxMSA2Ljk3MjY2IDEyLjA4NjlDNyAxMi4xNjYyIDcgMTIuMjkwMyA3IDEyLjUzODZWMTguODc1QzcgMTkuNzcyNSA3LjcyNzU0IDIwLjUgOC42MjUgMjAuNUM5LjUyMjQ2IDIwLjUgMTAuMjUgMTkuNzcyNSAxMC4yNSAxOC44NzVWNy42MjVDMTAuMjUgNS4zNDY4MyA4LjQwMzE3IDMuNSA2LjEyNSAzLjVDMy44NDY4MyAzLjUgMiA1LjM0NjgzIDIgNy42MjVaIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEuNjY2NjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0yMiA3LjYyNUMyMiA5LjkwMzE3IDIwLjE1MzIgMTEuNzUgMTcuODc1IDExLjc1QzE3LjU2OTEgMTEuNzUgMTcuNDE2MiAxMS43NSAxNy4zMzY5IDExLjc3NzNDMTcuMTcxMSAxMS44MzQ1IDE3LjA4NDUgMTEuOTIxMSAxNy4wMjczIDEyLjA4NjlDMTcgMTIuMTY2MiAxNyAxMi4yOTAzIDE3IDEyLjUzODZWMTguODc1QzE3IDE5Ljc3MjUgMTYuMjcyNSAyMC41IDE1LjM3NSAyMC41QzE0LjQ3NzUgMjAuNSAxMy43NSAxOS43NzI1IDEzLjc1IDE4Ljg3NVY3LjYyNUMxMy43NSA1LjM0NjgzIDE1LjU5NjggMy41IDE3Ljg3NSAzLjVDMjAuMTUzMiAzLjUgMjIgNS4zNDY4MyAyMiA3LjYyNVoiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMS42NjY2NyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+)
  */
 export const AirpodsIcon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
-  (props, ref) => {
-    return (
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        ref={ref}
-        {...props}
-      >
-        <path
-          d="M2 7.625C2 9.90317 3.84683 11.75 6.125 11.75C6.43089 11.75 6.58383 11.75 6.66308 11.7773C6.82888 11.8345 6.91545 11.9211 6.97266 12.0869C7 12.1662 7 12.2903 7 12.5386V18.875C7 19.7725 7.72754 20.5 8.625 20.5C9.52246 20.5 10.25 19.7725 10.25 18.875V7.625C10.25 5.34683 8.40317 3.5 6.125 3.5C3.84683 3.5 2 5.34683 2 7.625Z"
-          stroke="currentColor"
-          strokeWidth="1.66667"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M22 7.625C22 9.90317 20.1532 11.75 17.875 11.75C17.5691 11.75 17.4162 11.75 17.3369 11.7773C17.1711 11.8345 17.0845 11.9211 17.0273 12.0869C17 12.1662 17 12.2903 17 12.5386V18.875C17 19.7725 16.2725 20.5 15.375 20.5C14.4775 20.5 13.75 19.7725 13.75 18.875V7.625C13.75 5.34683 15.5968 3.5 17.875 3.5C20.1532 3.5 22 5.34683 22 7.625Z"
-          stroke="currentColor"
-          strokeWidth="1.66667"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    );
-  },
+	(props, ref) => {
+		return (
+			<svg
+				width="16"
+				height="16"
+				viewBox="0 0 24 24"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				ref={ref}
+				{...props}
+			>
+				<path
+					d="M2 7.625C2 9.90317 3.84683 11.75 6.125 11.75C6.43089 11.75 6.58383 11.75 6.66308 11.7773C6.82888 11.8345 6.91545 11.9211 6.97266 12.0869C7 12.1662 7 12.2903 7 12.5386V18.875C7 19.7725 7.72754 20.5 8.625 20.5C9.52246 20.5 10.25 19.7725 10.25 18.875V7.625C10.25 5.34683 8.40317 3.5 6.125 3.5C3.84683 3.5 2 5.34683 2 7.625Z"
+					stroke="currentColor"
+					strokeWidth="1.66667"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+				/>
+				<path
+					d="M22 7.625C22 9.90317 20.1532 11.75 17.875 11.75C17.5691 11.75 17.4162 11.75 17.3369 11.7773C17.1711 11.8345 17.0845 11.9211 17.0273 12.0869C17 12.1662 17 12.2903 17 12.5386V18.875C17 19.7725 16.2725 20.5 15.375 20.5C14.4775 20.5 13.75 19.7725 13.75 18.875V7.625C13.75 5.34683 15.5968 3.5 17.875 3.5C20.1532 3.5 22 5.34683 22 7.625Z"
+					stroke="currentColor"
+					strokeWidth="1.66667"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+				/>
+			</svg>
+		);
+	},
 );
 
 AirpodsIcon.displayName = 'AirpodsIcon';

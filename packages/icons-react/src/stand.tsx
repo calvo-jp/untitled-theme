@@ -4,27 +4,27 @@ import * as React from 'react';
  * ![img](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSJ3aGl0ZSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjxwYXRoIGQ9Ik05IDE3TDQgMjJNMTUgMTdMMjAgMjJNMTIgMlY0TTEyIDIyVjE3TTUuMiAxN0gxOC44QzE5LjkyMDEgMTcgMjAuNDgwMiAxNyAyMC45MDggMTYuNzgyQzIxLjI4NDMgMTYuNTkwMyAyMS41OTAzIDE2LjI4NDMgMjEuNzgyIDE1LjkwOEMyMiAxNS40ODAyIDIyIDE0LjkyMDEgMjIgMTMuOFY3LjJDMjIgNi4wNzk4OSAyMiA1LjUxOTg0IDIxLjc4MiA1LjA5MjAyQzIxLjU5MDMgNC43MTU2OSAyMS4yODQzIDQuNDA5NzMgMjAuOTA4IDQuMjE3OTlDMjAuNDgwMiA0IDE5LjkyMDEgNCAxOC44IDRINS4yQzQuMDc5ODkgNCAzLjUxOTg0IDQgMy4wOTIwMiA0LjIxNzk5QzIuNzE1NjkgNC40MDk3MyAyLjQwOTczIDQuNzE1NjkgMi4yMTc5OSA1LjA5MjAyQzIgNS41MTk4NCAyIDYuMDc5ODkgMiA3LjJWMTMuOEMyIDE0LjkyMDEgMiAxNS40ODAyIDIuMjE3OTkgMTUuOTA4QzIuNDA5NzMgMTYuMjg0MyAyLjcxNTY5IDE2LjU5MDMgMy4wOTIwMiAxNi43ODJDMy41MTk4NCAxNyA0LjA3OTkgMTcgNS4yIDE3WiIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjY2NjY3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=)
  */
 export const StandIcon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
-  (props, ref) => {
-    return (
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        ref={ref}
-        {...props}
-      >
-        <path
-          d="M9 17L4 22M15 17L20 22M12 2V4M12 22V17M5.2 17H18.8C19.9201 17 20.4802 17 20.908 16.782C21.2843 16.5903 21.5903 16.2843 21.782 15.908C22 15.4802 22 14.9201 22 13.8V7.2C22 6.07989 22 5.51984 21.782 5.09202C21.5903 4.71569 21.2843 4.40973 20.908 4.21799C20.4802 4 19.9201 4 18.8 4H5.2C4.07989 4 3.51984 4 3.09202 4.21799C2.71569 4.40973 2.40973 4.71569 2.21799 5.09202C2 5.51984 2 6.07989 2 7.2V13.8C2 14.9201 2 15.4802 2.21799 15.908C2.40973 16.2843 2.71569 16.5903 3.09202 16.782C3.51984 17 4.0799 17 5.2 17Z"
-          stroke="currentColor"
-          strokeWidth="1.66667"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    );
-  },
+	(props, ref) => {
+		return (
+			<svg
+				width="16"
+				height="16"
+				viewBox="0 0 24 24"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				ref={ref}
+				{...props}
+			>
+				<path
+					d="M9 17L4 22M15 17L20 22M12 2V4M12 22V17M5.2 17H18.8C19.9201 17 20.4802 17 20.908 16.782C21.2843 16.5903 21.5903 16.2843 21.782 15.908C22 15.4802 22 14.9201 22 13.8V7.2C22 6.07989 22 5.51984 21.782 5.09202C21.5903 4.71569 21.2843 4.40973 20.908 4.21799C20.4802 4 19.9201 4 18.8 4H5.2C4.07989 4 3.51984 4 3.09202 4.21799C2.71569 4.40973 2.40973 4.71569 2.21799 5.09202C2 5.51984 2 6.07989 2 7.2V13.8C2 14.9201 2 15.4802 2.21799 15.908C2.40973 16.2843 2.71569 16.5903 3.09202 16.782C3.51984 17 4.0799 17 5.2 17Z"
+					stroke="currentColor"
+					strokeWidth="1.66667"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+				/>
+			</svg>
+		);
+	},
 );
 
 StandIcon.displayName = 'StandIcon';

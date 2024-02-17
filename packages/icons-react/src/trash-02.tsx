@@ -4,27 +4,27 @@ import * as React from 'react';
  * ![img](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSJ3aGl0ZSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjxwYXRoIGQ9Ik0xNiA2VjUuMkMxNiA0LjA3OTkgMTYgMy41MTk4NCAxNS43ODIgMy4wOTIwMkMxNS41OTAzIDIuNzE1NjkgMTUuMjg0MyAyLjQwOTczIDE0LjkwOCAyLjIxNzk5QzE0LjQ4MDIgMiAxMy45MjAxIDIgMTIuOCAySDExLjJDMTAuMDc5OSAyIDkuNTE5ODQgMiA5LjA5MjAyIDIuMjE3OTlDOC43MTU2OSAyLjQwOTczIDguNDA5NzMgMi43MTU2OSA4LjIxNzk5IDMuMDkyMDJDOCAzLjUxOTg0IDggNC4wNzk5IDggNS4yVjZNMyA2SDIxTTE5IDZWMTcuMkMxOSAxOC44ODAyIDE5IDE5LjcyMDIgMTguNjczIDIwLjM2MkMxOC4zODU0IDIwLjkyNjUgMTcuOTI2NSAyMS4zODU0IDE3LjM2MiAyMS42NzNDMTYuNzIwMiAyMiAxNS44ODAyIDIyIDE0LjIgMjJIOS44QzguMTE5ODQgMjIgNy4yNzk3NiAyMiA2LjYzODAzIDIxLjY3M0M2LjA3MzU0IDIxLjM4NTQgNS42MTQ2IDIwLjkyNjUgNS4zMjY5OCAyMC4zNjJDNSAxOS43MjAyIDUgMTguODgwMiA1IDE3LjJWNiIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjY2NjY3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4=)
  */
 export const Trash02Icon = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(
-  (props, ref) => {
-    return (
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        ref={ref}
-        {...props}
-      >
-        <path
-          d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6"
-          stroke="currentColor"
-          strokeWidth="1.66667"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    );
-  },
+	(props, ref) => {
+		return (
+			<svg
+				width="16"
+				height="16"
+				viewBox="0 0 24 24"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				ref={ref}
+				{...props}
+			>
+				<path
+					d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6"
+					stroke="currentColor"
+					strokeWidth="1.66667"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+				/>
+			</svg>
+		);
+	},
 );
 
 Trash02Icon.displayName = 'Trash02Icon';

@@ -1,4 +1,14 @@
 {
-  "printWidth": 100,
-  "bracketSpacing": false
+	"useTabs": true,
+	"printWidth": 100,
+	"singleQuote": true,
+	"bracketSpacing": false,
+	"overrides": [
+		{
+			"files": "*.json",
+			"options": {
+				"printWidth": 200
+			}
+		}
+	]
 }

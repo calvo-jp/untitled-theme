@@ -26,8 +26,8 @@ export async function create_barrel_file(directory: string, content: BarrelItem[
 					return typeof mod === 'string'
 						? `${typeOnly(o.type)} ${mod}`
 						: mod.as
-						  ? `${typeOnly(mod.type)} ${mod.name} as ${mod.as}`
-						  : `${typeOnly(mod.type)} ${mod.name}`;
+							? `${typeOnly(mod.type)} ${mod.name} as ${mod.as}`
+							: `${typeOnly(mod.type)} ${mod.name}`;
 				})
 				.join();
 

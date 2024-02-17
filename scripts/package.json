@@ -1,15 +1,16 @@
 {
-  "name": "@untitled-theme/scripts",
-  "private": true,
-  "scripts": {
-    "generate:icons:react": "ts-node --project tsconfig.json ./src/icons/generate-icons-react.ts",
-    "generate:icons:svelte": "ts-node --project tsconfig.json ./src/icons/generate-icons-svelte.ts"
-  },
-  "devDependencies": {
-    "prettier": "3.2.5",
-    "svg64": "2.0.0",
-    "svgson": "5.3.1",
-    "ts-node": "10.9.2",
-    "typescript": "5.3.3"
-  }
+	"name": "@untitled-theme/scripts",
+	"private": true,
+	"scripts": {
+		"generate:icons:react": "ts-node --project tsconfig.json ./src/icons/generate-icons-react.ts",
+		"generate:icons:svelte": "ts-node --project tsconfig.json ./src/icons/generate-icons-svelte.ts",
+		"generate:icons": "pnpm generate:icons:react && pnpm generate:icons:svelte"
+	},
+	"devDependencies": {
+		"prettier": "3.2.5",
+		"svg64": "2.0.0",
+		"svgson": "5.3.1",
+		"ts-node": "10.9.2",
+		"typescript": "5.3.3"
+	}
 }
