@@ -9,7 +9,6 @@ import {dash_to_pascal} from './dash-to-pascal.mjs';
 import {format_html} from './format-html.mjs';
 import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
 import {get_icons} from './get-icons.mjs';
-import {spinner} from './spinner.mjs';
 import {workspace_root} from './workspace-root.mjs';
 
 const outdir = path.join(workspace_root, 'packages/icons-svelte/src');
@@ -113,16 +112,3 @@ function template(config) {
 		${config.content}
 	`;
 }
-
-(async () => {
-	spinner.start('Generating Svelte icons...');
-
-	try {
-		await generate_icons_svelte();
-		spinner.succeed('Svelte icons generated');
-	} catch (error) {
-		spinner.fail('Error generating Svelte icons');
-	} finally {
-		spinner.stop();
-	}
-})();

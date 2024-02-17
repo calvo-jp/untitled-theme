@@ -25,7 +25,6 @@ import {format_ts} from './format-ts.mjs';
  */
 
 /**
- *
  * @param {string} directory
  * @param {BarrelItem[]} content
  */

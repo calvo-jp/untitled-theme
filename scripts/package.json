@@ -3,8 +3,6 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"generate:icons:react": "node ./src/icons/generate-icons-react.mjs",
-		"generate:icons:svelte": "node ./src/icons/generate-icons-svelte.mjs",
 		"generate:icons": "node ./src/icons/generate-icons.mjs"
 	},
 	"devDependencies": {
@@ -12,8 +10,6 @@
 		"ora": "8.0.1",
 		"prettier": "3.2.5",
 		"svg64": "2.0.0",
-		"svgson": "5.3.1",
-		"ts-node": "10.9.2",
-		"typescript": "5.3.3"
+		"svgson": "5.3.1"
 	}
 }

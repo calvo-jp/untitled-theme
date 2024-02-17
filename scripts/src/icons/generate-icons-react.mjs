@@ -9,7 +9,6 @@ import {dash_to_pascal} from './dash-to-pascal.mjs';
 import {format_ts} from './format-ts.mjs';
 import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
 import {get_icons} from './get-icons.mjs';
-import {spinner} from './spinner.mjs';
 import {workspace_root} from './workspace-root.mjs';
 
 const outdir = path.join(workspace_root, 'packages/icons-react/src');
@@ -125,16 +124,3 @@ function template(config) {
 		${config.name}.displayName = '${config.name}'
 	`;
 }
-
-(async () => {
-	spinner.start('Generating React icons...');
-
-	try {
-		await generate_icons_react();
-		spinner.succeed('React icons generated');
-	} catch {
-		spinner.fail('Error generating React icons');
-	} finally {
-		spinner.stop();
-	}
-})();

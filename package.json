@@ -2,13 +2,9 @@
 	"name": "@untitled-theme/root",
 	"private": true,
 	"scripts": {
-		"generate:icons:react": "pnpm --filter @untitled-theme/scripts run generate:icons:react",
-		"generate:icons:svelte": "pnpm --filter @untitled-theme/scripts run generate:icons:svelte",
-		"generate:icons": "pnpm --filter @untitled-theme/scripts run generate:icons",
-		"release:icons:react": "pnpm --filter @untitled-theme/icons-react run release",
-		"release:icons:svelte": "pnpm --filter @untitled-theme/icons-svelte run release",
-		"release:icons": "pnpm run release:icons:react && pnpm run release:icons:svelte",
-		"release:preset:panda": "pnpm --filter @untitled-theme/preset-panda run release"
+		"generate:icons": "pnpm --filter @untitled-theme/script run generate:icons",
+		"release:icons": "pnpm --filter @untitled-theme/icons run release",
+		"release:preset": "pnpm --filter @untitled-theme/preset-panda run release"
 	},
 	"devDependencies": {
 		"@types/node": "20.11.17",
