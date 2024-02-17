@@ -1,23 +1,29 @@
+// @ts-check
+
 import fs from 'fs/promises';
 import path from 'path';
 import * as svgson from 'svgson';
-import {clean_or_create_dir} from './clean-or-create-dir';
-import {BarrelItem, create_barrel_file} from './create-barrel-file';
-import {dash_to_pascal} from './dash-to-pascal';
-import {format_ts} from './format-ts';
-import {generate_jsdoc_preview} from './generate-jsdoc-preview';
-import {Icon, get_icons} from './get-icons';
-import {workspace_root} from './workspace-root';
+import {clean_or_create_dir} from './clean-or-create-dir.mjs';
+import {create_barrel_file} from './create-barrel-file.mjs';
+import {dash_to_pascal} from './dash-to-pascal.mjs';
+import {format_ts} from './format-ts.mjs';
+import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
+import {get_icons} from './get-icons.mjs';
+import {spinner} from './spinner.mjs';
+import {workspace_root} from './workspace-root.mjs';
 
 const outdir = path.join(workspace_root, 'packages/icons-react/src');
 
-async function generate_icons_react() {
+export async function generate_icons_react() {
 	const icons = get_icons();
 
 	await clean_or_create_dir(outdir);
 
+	/**
+	 * @type {import('./create-barrel-file.mjs').BarrelItem[]}
+	 */
 	const items = await Promise.all(
-		icons.map<Promise<BarrelItem>>(async (icon) => {
+		icons.map(async (icon) => {
 			const Component = await to_react_component(icon);
 			const destination = path.join(outdir, `${icon.filename}.tsx`);
 
@@ -37,7 +43,11 @@ async function generate_icons_react() {
 	await create_barrel_file(outdir, items);
 }
 
-async function to_react_component(icon: Icon) {
+/**
+ * @param {import('./get-icons.mjs').Icon} icon
+ * @returns {Promise<{name: string, content: string}>}
+ */
+async function to_react_component(icon) {
 	const node = await svgson.parse(icon.content, {
 		camelcase: true,
 		transformNode(node) {
@@ -89,13 +99,19 @@ async function to_react_component(icon: Icon) {
 	};
 }
 
-interface TemplateConfig {
-	name: string;
-	content: string;
-	jsdoc?: string;
-}
+/**
+ * @typedef TemplateConfig
+ * @property {string} name
+ * @property {string} content
+ * @property {string} [jsdoc]
+ *
+ */
 
-function template(config: TemplateConfig) {
+/**
+ * @param {TemplateConfig} config
+ * @returns {string}
+ */
+function template(config) {
 	return `
 		import * as React from 'react';
 
@@ -110,4 +126,15 @@ function template(config: TemplateConfig) {
 	`;
 }
 
-generate_icons_react();
+(async () => {
+	spinner.start('Generating React icons...');
+
+	try {
+		await generate_icons_react();
+		spinner.succeed('React icons generated');
+	} catch {
+		spinner.fail('Error generating React icons');
+	} finally {
+		spinner.stop();
+	}
+})();

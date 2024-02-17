@@ -1,7 +1,12 @@
+// @ts-check
+
 import {svg64} from 'svg64';
 import {parse, stringify} from 'svgson';
 
-export async function generate_jsdoc_preview(svg: string) {
+/**
+ * @param {string} svg
+ */
+export async function generate_jsdoc_preview(svg) {
 	const p = await parse(svg, {
 		transformNode(node) {
 			if (node.name === 'svg') {

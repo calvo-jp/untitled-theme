@@ -1,9 +1,14 @@
+// @ts-check
+
 import path from 'path';
 import prettier from 'prettier';
 
-export async function format_ts(content: string) {
+/**
+ * @param {string} content
+ */
+export async function format_html(content) {
 	return await prettier.format(content, {
-		parser: 'typescript',
+		parser: 'html',
 		...(await prettier.resolveConfig(path.join(process.cwd(), '.prettierrc'))),
 	});
 }

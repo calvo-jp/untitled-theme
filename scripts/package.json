@@ -1,12 +1,15 @@
 {
 	"name": "@untitled-theme/scripts",
+	"type": "module",
 	"private": true,
 	"scripts": {
-		"generate:icons:react": "ts-node --project tsconfig.json ./src/icons/generate-icons-react.ts",
-		"generate:icons:svelte": "ts-node --project tsconfig.json ./src/icons/generate-icons-svelte.ts",
-		"generate:icons": "pnpm generate:icons:react && pnpm generate:icons:svelte"
+		"generate:icons:react": "node ./src/icons/generate-icons-react.mjs",
+		"generate:icons:svelte": "node ./src/icons/generate-icons-svelte.mjs",
+		"generate:icons": "node ./src/icons/generate-icons.mjs"
 	},
 	"devDependencies": {
+		"cli-spinners": "2.9.2",
+		"ora": "8.0.1",
 		"prettier": "3.2.5",
 		"svg64": "2.0.0",
 		"svgson": "5.3.1",

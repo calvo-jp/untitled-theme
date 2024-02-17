@@ -1,23 +1,27 @@
+// @ts-check
+
 import fs from 'fs/promises';
 import path from 'path';
 import * as svgson from 'svgson';
-import {clean_or_create_dir} from './clean-or-create-dir';
-import {BarrelItem, create_barrel_file} from './create-barrel-file';
-import {dash_to_pascal} from './dash-to-pascal';
-import {format_html} from './format-html';
-import {generate_jsdoc_preview} from './generate-jsdoc-preview';
-import {Icon, get_icons} from './get-icons';
-import {workspace_root} from './workspace-root';
+import {clean_or_create_dir} from './clean-or-create-dir.mjs';
+import {create_barrel_file} from './create-barrel-file.mjs';
+import {dash_to_pascal} from './dash-to-pascal.mjs';
+import {format_html} from './format-html.mjs';
+import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
+import {get_icons} from './get-icons.mjs';
+import {spinner} from './spinner.mjs';
+import {workspace_root} from './workspace-root.mjs';
 
 const outdir = path.join(workspace_root, 'packages/icons-svelte/src');
 
-async function generate_icons_svelte() {
-	const icons = get_icons();
-
+export async function generate_icons_svelte() {
 	await clean_or_create_dir(outdir);
 
+	/**
+	 * @type {import('./create-barrel-file.mjs').BarrelItem[]}
+	 */
 	const items = await Promise.all(
-		icons.map<Promise<BarrelItem>>(async (icon) => {
+		get_icons().map(async (icon) => {
 			const Component = await to_svelte_component(icon);
 			const destination = path.join(outdir, `${icon.filename}.svelte`);
 
@@ -38,7 +42,11 @@ async function generate_icons_svelte() {
 	await create_barrel_file(outdir, items);
 }
 
-async function to_svelte_component(icon: Icon) {
+/**
+ * @param {import('./get-icons.mjs').Icon} icon
+ * @returns {Promise<{name: string, content: string}>}
+ */
+async function to_svelte_component(icon) {
 	const node = await svgson.parse(icon.content, {
 		transformNode(node) {
 			if (node.name === 'svg') {
@@ -83,12 +91,16 @@ async function to_svelte_component(icon: Icon) {
 	};
 }
 
-interface TemplateConfig {
-	content: string;
-	jsdoc?: string;
-}
+/**
+ * @typedef TemplateConfig
+ * @property {string} content
+ * @property {string} [jsdoc]
+ */
 
-function template(config: TemplateConfig) {
+/**
+ * @param {TemplateConfig} config
+ */
+function template(config) {
 	return `
 		<script lang="ts">
 			import type {SVGAttributes} from 'svelte/elements';
@@ -102,4 +114,15 @@ function template(config: TemplateConfig) {
 	`;
 }
 
-generate_icons_svelte();
+(async () => {
+	spinner.start('Generating Svelte icons...');
+
+	try {
+		await generate_icons_svelte();
+		spinner.succeed('Svelte icons generated');
+	} catch (error) {
+		spinner.fail('Error generating Svelte icons');
+	} finally {
+		spinner.stop();
+	}
+})();
