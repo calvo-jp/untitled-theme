@@ -4,8 +4,8 @@
 	"private": true,
 	"scripts": {},
 	"devDependencies": {
-		"@biomejs/biome": "1.5.3",
 		"@types/node": "20.11.17",
+		"prettier": "3.2.5",
 		"typescript": "5.3.3"
 	},
 	"packageManager": "pnpm@8.15.1"

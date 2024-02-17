@@ -1,6 +1,13 @@
 {
 	"name": "@untitled-theme/icons-react",
 	"version": "0.0.1",
+	"license":"MIT",
+	"description": "Untitled UI Icons for React",
+	"keywords": [
+		"react",
+		"icons",
+		"untitled ui"
+	],
 	"main": "src/index.ts",
 	"scripts": {
 		"build": "tsup",
@@ -11,6 +18,7 @@
 		"@types/react": "18.2.55",
 		"clean-package": "2.2.0",
 		"react": "18.2.0",
+		"release-it": "17.0.5",
 		"tsup": "8.0.2",
 		"typescript": "5.3.3"
 	},

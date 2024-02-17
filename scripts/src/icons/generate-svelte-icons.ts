@@ -1,13 +1,13 @@
 import fs from 'fs/promises';
 import path from 'path';
-import {svg64} from 'svg64';
 import * as svgson from 'svgson';
-import {clean_or_create_dir} from './clean-or-create-dir';
-import {BarrelItem, create_barrel_file} from './create-barrel-file';
-import {dash_to_pascal} from './dash-to-pascal';
-import {format_html} from './format-html';
-import {Icon, get_icons} from './get-icons';
-import {workspace_root} from './workspace-root';
+import { clean_or_create_dir } from './clean-or-create-dir';
+import { BarrelItem, create_barrel_file } from './create-barrel-file';
+import { dash_to_pascal } from './dash-to-pascal';
+import { format_html } from './format-html';
+import { generate_jsdoc_preview } from './generate-jsdoc-preview';
+import { Icon, get_icons } from './get-icons';
+import { workspace_root } from './workspace-root';
 
 const outdir = path.join(workspace_root, 'packages/icons-svelte/src');
 
@@ -74,7 +74,7 @@ async function to_svelte_component(icon: Icon) {
 
 	const svelte_component = template({
 		content: svelte_svg,
-		jsdoc: `![img](${svg64(icon.content)})`,
+		jsdoc: await generate_jsdoc_preview(icon.content),
 	});
 
 	return {
