@@ -4,30 +4,31 @@ import * as svgson from "svgson";
 import {clean_or_create_dir} from "./clean-or-create-dir";
 import {BarrelItem, create_barrel_file} from "./create-barrel-file";
 import {dash_to_pascal} from "./dash-to-pascal";
-import {format_ts} from "./format-ts";
+import {format_html} from "./format-html";
 import {generate_jsdoc_preview} from "./generate-jsdoc-preview";
 import {Icon, get_icons} from "./get-icons";
 import {workspace_root} from "./workspace-root";
 
-const outdir = path.join(workspace_root, "packages/icons-react/src");
+const outdir = path.join(workspace_root, "packages/icons-svelte/src");
 
-async function generate_react_icons() {
+async function generate_icons_svelte() {
   const icons = get_icons();
 
   await clean_or_create_dir(outdir);
 
   const items = await Promise.all(
     icons.map<Promise<BarrelItem>>(async (icon) => {
-      const Component = await to_react_component(icon);
-      const destination = path.join(outdir, `${icon.filename}.tsx`);
+      const Component = await to_svelte_component(icon);
+      const destination = path.join(outdir, `${icon.filename}.svelte`);
 
-      await fs.writeFile(destination, await format_ts(Component.content), {encoding: "utf-8"});
+      await fs.writeFile(destination, await format_html(Component.content), {encoding: "utf-8"});
 
       return {
-        path: `./${icon.filename}`,
+        path: `./${icon.filename}.svelte`,
         modules: [
           {
-            name: Component.name,
+            as: Component.name,
+            name: "default",
           },
         ],
       };
@@ -37,12 +38,10 @@ async function generate_react_icons() {
   await create_barrel_file(outdir, items);
 }
 
-async function to_react_component(icon: Icon) {
+async function to_svelte_component(icon: Icon) {
   const node = await svgson.parse(icon.content, {
-    camelcase: true,
     transformNode(node) {
       if (node.name === "svg") {
-        node.attributes.ref = "";
         node.attributes.rest = "";
         node.attributes.width = "16";
         node.attributes.height = "16";
@@ -52,13 +51,9 @@ async function to_react_component(icon: Icon) {
     },
   });
 
-  const react_svg = svgson.stringify(node, {
+  const svelte_svg = svgson.stringify(node, {
     selfClose: true,
     transformAttr(key, value, esc) {
-      if (key === "ref") {
-        return "ref={ref}";
-      }
-
       if (key === "rest") {
         return "{...props}";
       }
@@ -67,8 +62,8 @@ async function to_react_component(icon: Icon) {
         return 'stroke="currentColor"';
       }
 
-      if (key === "strokeWidth") {
-        return 'strokeWidth="1.66667"';
+      if (key === "stroke-width") {
+        return 'stroke-width="1.66667"';
       }
 
       return `${key}="${esc(value)}"`;
@@ -77,37 +72,34 @@ async function to_react_component(icon: Icon) {
 
   const component_name = `${dash_to_pascal(icon.filename)}Icon`;
 
-  const react_component = template({
-    name: component_name,
-    content: react_svg,
+  const svelte_component = template({
+    content: svelte_svg,
     jsdoc: await generate_jsdoc_preview(icon.content),
   });
 
   return {
     name: component_name,
-    content: react_component,
+    content: svelte_component,
   };
 }
 
 interface TemplateConfig {
-  name: string;
   content: string;
   jsdoc?: string;
 }
 
 function template(config: TemplateConfig) {
   return `
-		import * as React from 'react';
+		<script lang="ts">
+			import type {SVGAttributes} from 'svelte/elements';
 
-		/**
-		 * ${config.jsdoc}
-		 */
-		export const ${config.name} = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => {
-			return ${config.content};
-		});
+			let {...props} = $props<SVGAttributes<SVGSVGElement>>();  
+		</script>
 
-		${config.name}.displayName = '${config.name}'
+		<!-- @component ${config.jsdoc} -->
+
+		${config.content}
 	`;
 }
 
-generate_react_icons();
+generate_icons_svelte();

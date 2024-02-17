@@ -1,0 +1,9 @@
+{
+  "git": {
+    "commitMessage": "chore: release ${npm.name} v${version}",
+    "tagName": "${npm.name}@${version}"
+  },
+  "hooks": {
+    "after:bump": ["pnpm build"]
+  }
+}

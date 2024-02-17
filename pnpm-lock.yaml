@@ -120,6 +120,9 @@ importers:
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
+      release-it:
+        specifier: 17.0.5
+        version: 17.0.5(typescript@5.3.3)
       tsup:
         specifier: 8.0.2
         version: 8.0.2(postcss@8.4.35)(typescript@5.3.3)
