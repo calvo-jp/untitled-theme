@@ -2,7 +2,7 @@
 
 import fs from 'fs/promises';
 import path from 'path';
-import {format_ts} from './format-ts.mjs';
+import {format_ts} from './format.mjs';
 
 /**
  * @typedef {Object} BarrelItem_0
