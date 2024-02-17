@@ -2,7 +2,7 @@
 
 import fs from 'fs/promises';
 import path from 'path';
-import * as svgson from 'svgson';
+import svgson from 'svgson';
 import {clean_or_create_dir} from './clean-or-create-dir.mjs';
 import {create_barrel_file} from './create-barrel-file.mjs';
 import {dash_to_pascal} from './dash-to-pascal.mjs';

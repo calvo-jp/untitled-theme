@@ -1,13 +1,13 @@
 // @ts-check
 
-import {svg64} from 'svg64';
-import {parse, stringify} from 'svgson';
+import svg64 from 'svg64';
+import svgson from 'svgson';
 
 /**
  * @param {string} svg
  */
 export async function generate_jsdoc_preview(svg) {
-	const p = await parse(svg, {
+	const p = await svgson.parse(svg, {
 		transformNode(node) {
 			if (node.name === 'svg') {
 				node.attributes.width = '24';
@@ -29,7 +29,7 @@ export async function generate_jsdoc_preview(svg) {
 		},
 	});
 
-	const s = stringify(p, {
+	const s = svgson.stringify(p, {
 		transformAttr(key, value, escape) {
 			if (key === 'stroke-width') {
 				return 'stroke-width="1.66667"';
