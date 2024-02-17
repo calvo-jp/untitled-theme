@@ -1,24 +1,40 @@
 // @ts-check
 
-import spinners from 'cli-spinners';
-import ora from 'ora';
+import * as p from '@clack/prompts';
 import {generate_icons_react} from './generate-icons-react.mjs';
 import {generate_icons_svelte} from './generate-icons-svelte.mjs';
 
-const spinner = ora(spinners.dots);
-
-// TODO: allow to specify which icons to generate using @clack/prompt
-
 async function generate_icons() {
+	const spinner = p.spinner();
+
+	const frameworks = await p.multiselect({
+		message: 'Select frameworks to generate icons for:',
+		options: [
+			{value: 'react', label: 'React'},
+			{value: 'svelte', label: 'Svelte'},
+		],
+		required: true,
+	});
+
+	spinner.start('Generating icons');
+
+	/**
+	 * @type {Promise<void>[]}
+	 */
+	const promises = [];
+
+	if (Array.isArray(frameworks)) {
+		if (frameworks.includes('react')) promises.push(generate_icons_react());
+		if (frameworks.includes('svelte')) promises.push(generate_icons_svelte());
+	}
+
 	try {
-		spinner.start('Generating icons...');
-		await Promise.allSettled([generate_icons_react(), generate_icons_svelte()]);
-		spinner.succeed('Icons generated');
-	} catch (error) {
-		spinner.fail('Error generating icons');
+		await Promise.all(promises);
+	} catch {
+		spinner.message('Something went wrong generating icons');
 	} finally {
-		spinner.stop();
+		spinner.stop('Done');
 	}
 }
 
-generate_icons();
+await generate_icons();

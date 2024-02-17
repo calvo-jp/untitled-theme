@@ -6,8 +6,7 @@
 		"generate:icons": "node ./src/icons/generate-icons.mjs"
 	},
 	"devDependencies": {
-		"cli-spinners": "2.9.2",
-		"ora": "8.0.1",
+		"@clack/prompts": "0.7.0",
 		"prettier": "3.2.5",
 		"svg64": "2.0.0",
 		"svgson": "5.3.1"
