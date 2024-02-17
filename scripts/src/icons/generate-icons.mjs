@@ -10,8 +10,14 @@ async function generate_icons() {
 	const frameworks = await p.multiselect({
 		message: 'Select frameworks to generate icons for:',
 		options: [
-			{value: 'react', label: 'React'},
-			{value: 'svelte', label: 'Svelte'},
+			{
+				value: 'react',
+				label: 'React',
+			},
+			{
+				value: 'svelte',
+				label: 'Svelte',
+			},
 		],
 		required: true,
 	});
