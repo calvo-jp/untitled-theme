@@ -13,5 +13,7 @@ npm install @untitled-ui/icons-react
 ```jsx
 import {RocketIcon} from '@untitled-ui/icons-react';
 
-<RocketIcon />;
+function Component() {
+	return <RocketIcon />;
+}
 ```
