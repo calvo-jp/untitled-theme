@@ -9,6 +9,8 @@
 		"icons",
 		"untitled ui"
 	],
+	"repository": "https://github.com/calvo-jp/untitled-theme",
+	"bugs": "https://github.com/calvo-jp/untitled-theme/issues",
 	"main": "dist/index.js",
 	"exports": {
 		".": {
