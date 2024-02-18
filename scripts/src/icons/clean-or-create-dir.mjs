@@ -7,13 +7,10 @@ import fs from 'fs/promises';
  */
 export async function clean_or_create_dir(location) {
 	try {
-		await fs.rm(location, {
-			force: true,
-			recursive: true,
-		});
+		await fs.rm(location, {force: true, recursive: true});
 	} catch {
 		//
 	} finally {
-		await fs.mkdir(location);
+		await fs.mkdir(location, {recursive: true});
 	}
 }
