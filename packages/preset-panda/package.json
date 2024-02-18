@@ -33,6 +33,21 @@
 	"peerDependencies": {
 		"@pandacss/dev": ">0.31.0"
 	},
+	"tsup": {
+		"dts": true,
+		"clean": true,
+		"entry": [
+			"src/index.ts"
+		],
+		"format": [
+			"esm",
+			"cjs"
+		],
+		"external": [
+			"react"
+		],
+		"sourcemap": true
+	},
 	"clean-package": {
 		"replace": {
 			"main": "dist/index.js",
@@ -46,6 +61,20 @@
 				},
 				"./package.json": "./package.json"
 			}
+		}
+	},
+	"release-it": {
+		"hooks": {
+			"after:bump": [
+				"pnpm build"
+			]
+		},
+		"git": {
+			"commitMessage": "chore: release ${npm.name} v${version}",
+			"tagName": "${npm.name}@${version}"
+		},
+		"github": {
+			"release": false
 		}
 	}
 }

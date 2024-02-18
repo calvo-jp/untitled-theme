@@ -2,5 +2,5 @@
 .svelte-kit
 styled-system
 assets/icons
-packages/icons-react
-packages/icons-svelte
+packages/icons-react/src
+packages/icons-svelte/src
