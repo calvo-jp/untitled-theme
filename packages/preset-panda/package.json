@@ -25,10 +25,7 @@
 	},
 	"devDependencies": {
 		"@ark-ui/anatomy": "2.2.0",
-		"@pandacss/dev": "0.31.0",
-		"clean-package": "2.2.0",
-		"release-it": "17.0.5",
-		"tsup": "8.0.2"
+		"@pandacss/dev": "0.31.0"
 	},
 	"peerDependencies": {
 		"@pandacss/dev": ">0.31.0"
@@ -47,34 +44,5 @@
 			"react"
 		],
 		"sourcemap": true
-	},
-	"clean-package": {
-		"replace": {
-			"main": "dist/index.js",
-			"module": "dist/index.mjs",
-			"types": "dist/index.d.ts",
-			"exports": {
-				".": {
-					"types": "./dist/index.d.ts",
-					"import": "./dist/index.mjs",
-					"require": "./dist/index.js"
-				},
-				"./package.json": "./package.json"
-			}
-		}
-	},
-	"release-it": {
-		"hooks": {
-			"after:bump": [
-				"pnpm build"
-			]
-		},
-		"git": {
-			"commitMessage": "chore: release ${npm.name} v${version}",
-			"tagName": "${npm.name}@${version}"
-		},
-		"github": {
-			"release": false
-		}
 	}
 }
