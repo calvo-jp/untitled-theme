@@ -5,13 +5,13 @@
 ## Installation
 
 ```bash
-npm install @untitled-ui/icons-react
+npm install @untitled-theme/icons-react
 ```
 
 ## Usage
 
 ```jsx
-import {RocketIcon} from '@untitled-ui/icons-react';
+import {RocketIcon} from '@untitled-theme/icons-react';
 
 function Component() {
 	return <RocketIcon />;

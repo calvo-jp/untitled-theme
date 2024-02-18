@@ -5,14 +5,14 @@
 ## Installation
 
 ```bash
-npm install @untitled-ui/icons-svelte
+npm install @untitled-theme/icons-svelte
 ```
 
 ## Usage
 
 ```svelte
 <script>
-  import { RocketIcon } from '@untitled-ui/icons-svelte';
+  import {RocketIcon} from '@untitled-theme/icons-svelte';
 </script>
 
 <RocketIcon />
