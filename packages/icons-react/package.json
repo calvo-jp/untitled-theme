@@ -9,7 +9,9 @@
 		"untitled ui"
 	],
 	"repository": "https://github.com/calvo-jp/untitled-theme",
-	"bugs": "https://github.com/calvo-jp/untitled-theme/issues",
+	"bugs": {
+		"url": "https://github.com/calvo-jp/untitled-theme/issues"
+	},
 	"main": "src/index.ts",
 	"files": [
 		"src",
