@@ -3,8 +3,8 @@
 import fs from 'fs/promises';
 import path from 'path';
 import svgson from 'svgson';
-import {clean_or_create_dir} from './clean-or-create-dir.mjs';
 import {create_barrel_file} from './create-barrel-file.mjs';
+import {create_dir_clean} from './create-dir-clean.mjs';
 import {dash_to_pascal} from './dash-to-pascal.mjs';
 import {format_html} from './format.mjs';
 import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
@@ -14,7 +14,7 @@ import {workspace_root} from './workspace-root.mjs';
 const outdir = path.join(workspace_root, 'packages/icons-svelte/src');
 
 export async function generate_icons_svelte() {
-	await clean_or_create_dir(outdir);
+	await create_dir_clean(outdir);
 
 	/**
 	 * @type {import('./create-barrel-file.mjs').BarrelItem[]}
