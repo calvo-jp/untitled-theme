@@ -9,6 +9,13 @@
     "untitled ui"
   ],
   "main": "src/index.ts",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
     "release": "release-it",

@@ -14,6 +14,9 @@
 		"dist",
 		"src"
 	],
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"build": "tsup",
 		"release": "release-it",

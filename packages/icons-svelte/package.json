@@ -16,6 +16,13 @@
       "svelte": "./dist/index.js"
     }
   },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "svelte-package --input ./src",
     "release": "release-it"
