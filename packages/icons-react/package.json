@@ -29,9 +29,7 @@
 	},
 	"scripts": {
 		"build": "vite build",
-		"release": "release-it",
-		"prepack": "clean-package",
-		"postpack": "clean-package restore"
+		"release": "release-it"
 	},
 	"devDependencies": {
 		"@types/react": "18.2.55",
