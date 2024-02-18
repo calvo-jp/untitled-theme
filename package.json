@@ -3,8 +3,9 @@
 	"private": true,
 	"scripts": {
 		"generate:icons": "pnpm --filter @untitled-theme/scripts run generate:icons",
-		"release:icons": "pnpm --filter @untitled-theme/icons run release",
-		"release:preset": "pnpm --filter @untitled-theme/preset-panda run release"
+		"release:icons-react": "pnpm --filter @untitled-theme/icons-react run release",
+		"release:icons-svelte": "pnpm --filter @untitled-theme/icons-svelte run release",
+		"release:preset-panda": "pnpm --filter @untitled-theme/preset-panda run release"
 	},
 	"devDependencies": {
 		"@types/node": "20.11.17",
