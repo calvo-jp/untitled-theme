@@ -17,12 +17,7 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"scripts": {
-		"build": "tsup",
-		"release": "release-it",
-		"prepack": "clean-package",
-		"postpack": "clean-package restore"
-	},
+	"scripts": {},
 	"devDependencies": {
 		"@ark-ui/anatomy": "2.2.0",
 		"@pandacss/dev": "0.31.0"
