@@ -1,5 +1,6 @@
 {
 	"name": "@untitled-theme/icons-react",
+	"type": "module",
 	"version": "0.0.10",
 	"license": "MIT",
 	"description": "Untitled UI Icons for React",
@@ -12,7 +13,13 @@
 	"bugs": {
 		"url": "https://github.com/calvo-jp/untitled-theme/issues"
 	},
-	"main": "src/index.ts",
+	"main": "dist/index.js",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	},
 	"files": [
 		"src",
 		"dist"
@@ -21,51 +28,21 @@
 		"access": "public"
 	},
 	"scripts": {
-		"build": "tsup",
+		"build": "vite build",
 		"release": "release-it",
 		"prepack": "clean-package",
 		"postpack": "clean-package restore"
 	},
 	"devDependencies": {
 		"@types/react": "18.2.55",
-		"clean-package": "2.2.0",
 		"react": "18.2.0",
 		"release-it": "17.0.5",
-		"tsup": "8.0.2",
-		"typescript": "5.3.3"
+		"typescript": "5.3.3",
+		"vite": "5.1.1",
+		"vite-plugin-dts": "3.7.2"
 	},
 	"peerDependencies": {
 		"react": ">=18.0.0"
-	},
-	"tsup": {
-		"dts": true,
-		"clean": true,
-		"entry": [
-			"src/index.ts"
-		],
-		"format": [
-			"esm",
-			"cjs"
-		],
-		"external": [
-			"react"
-		],
-		"sourcemap": true
-	},
-	"clean-package": {
-		"replace": {
-			"main": "dist/index.js",
-			"module": "dist/index.mjs",
-			"types": "dist/index.d.ts",
-			"exports": {
-				".": {
-					"types": "./dist/index.d.ts",
-					"import": "./dist/index.mjs",
-					"require": "./dist/index.js"
-				},
-				"./package.json": "./package.json"
-			}
-		}
 	},
 	"release-it": {
 		"hooks": {
