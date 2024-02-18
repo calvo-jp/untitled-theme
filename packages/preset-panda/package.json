@@ -23,21 +23,6 @@
 		"@pandacss/dev": "0.31.0"
 	},
 	"peerDependencies": {
-		"@pandacss/dev": ">0.31.0"
-	},
-	"tsup": {
-		"dts": true,
-		"clean": true,
-		"entry": [
-			"src/index.ts"
-		],
-		"format": [
-			"esm",
-			"cjs"
-		],
-		"external": [
-			"react"
-		],
-		"sourcemap": true
+		"@pandacss/dev": ">=0.31.0"
 	}
 }
