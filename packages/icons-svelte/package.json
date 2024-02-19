@@ -5,8 +5,10 @@
 	"license": "MIT",
 	"description": "Untitled UI Icons for Svelte",
 	"keywords": [
-		"svelte",
+		"svg",
+		"icon",
 		"icons",
+		"svelte",
 		"untitled ui"
 	],
 	"repository": "https://github.com/calvo-jp/untitled-theme",
