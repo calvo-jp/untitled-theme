@@ -1,0 +1,29 @@
+{
+	"name": "@untitled-theme/website",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --turbo --port 4200",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"prepare": "panda codegen"
+	},
+	"dependencies": {
+		"@ark-ui/react": "2.1.1",
+		"@untitled-theme/icons-react": "workspace:*",
+		"@untitled-theme/preset-panda": "workspace:*",
+		"next": "14.1.0",
+		"react": "^18",
+		"react-dom": "^18"
+	},
+	"devDependencies": {
+		"@pandacss/dev": "0.31.0",
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"eslint": "^8",
+		"eslint-config-next": "14.1.0",
+		"typescript": "^5"
+	}
+}
