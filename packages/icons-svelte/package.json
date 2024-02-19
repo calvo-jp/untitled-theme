@@ -28,6 +28,7 @@
 		"access": "public"
 	},
 	"scripts": {
+		"prebuild": "pnpm --filter @untitled-theme/scripts run generate:icons -f svelte",
 		"build": "svelte-package --input ./src",
 		"release": "release-it"
 	},
