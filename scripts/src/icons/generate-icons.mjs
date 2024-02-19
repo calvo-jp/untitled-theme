@@ -1,28 +1,45 @@
+#!/usr/bin/env node
 // @ts-check
 
 import * as p from '@clack/prompts';
+import yargs from 'yargs';
+import {hideBin} from 'yargs/helpers';
 import {generate_icons_react} from './generate-icons-react.mjs';
 import {generate_icons_svelte} from './generate-icons-svelte.mjs';
+
+const Framework = {
+	React: 'react',
+	Svelte: 'svelte',
+};
+
+const frameworks = Object.values(Framework);
 
 async function generate_icons() {
 	p.intro('Generate icons');
 
-	const frameworks = await p.multiselect({
-		message: 'Select frameworks:',
-		options: [
-			{
-				value: 'react',
-				label: 'React',
-			},
-			{
-				value: 'svelte',
-				label: 'Svelte',
-			},
-		],
-		required: true,
-	});
+	const argv = await yargs(hideBin(process.argv))
+		.option('framework', {
+			type: 'array',
+			alias: 'f',
+			choices: frameworks,
+		})
+		.parse();
 
-	if (p.isCancel(frameworks)) {
+	/** @type {string[]} */
+	const initialValues = [];
+	const selectedFrameworks = argv.framework?.length
+		? argv.framework
+		: await p.multiselect({
+				message: 'Select frameworks:',
+				options: frameworks.map((value) => ({
+					value,
+					label: value,
+				})),
+				initialValues,
+				required: true,
+			});
+
+	if (p.isCancel(selectedFrameworks)) {
 		p.cancel('Cancelled');
 		process.exit(0);
 	}
@@ -35,8 +52,8 @@ async function generate_icons() {
 
 	spinner.start('Generating icons');
 
-	if (frameworks.includes('react')) promises.push(generate_icons_react());
-	if (frameworks.includes('svelte')) promises.push(generate_icons_svelte());
+	if (selectedFrameworks.includes(Framework.React)) promises.push(generate_icons_react());
+	if (selectedFrameworks.includes(Framework.Svelte)) promises.push(generate_icons_svelte());
 
 	try {
 		await Promise.all(promises);
