@@ -1,2 +1,6 @@
 node_modules
 dist
+.svelte-kit
+vite.config.*.timestamp-*
+packages/icons-react/src
+packages/icons-svelte/src
