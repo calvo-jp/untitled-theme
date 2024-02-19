@@ -15,15 +15,15 @@ const Framework = {
 const frameworks = Object.values(Framework);
 
 async function generate_icons() {
-	p.intro('Generate icons');
-
 	const argv = await yargs(hideBin(process.argv))
 		.option('framework', {
 			type: 'array',
 			alias: 'f',
 			choices: frameworks,
 		})
-		.parse();
+		.parseAsync();
+
+	p.intro('Generate icons');
 
 	/** @type {string[]} */
 	const initialValues = [];
