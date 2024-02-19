@@ -7,36 +7,36 @@ import {hideBin} from 'yargs/helpers';
 import {generate_icons_react} from './generate-icons-react.mjs';
 import {generate_icons_svelte} from './generate-icons-svelte.mjs';
 
-const Framework = {
-	React: 'react',
-	Svelte: 'svelte',
-};
-
-const frameworks = Object.values(Framework);
+const REACT = 'react';
+const SVELTE = 'svelte';
 
 async function generate_icons() {
 	const argv = await yargs(hideBin(process.argv))
 		.option('framework', {
 			type: 'array',
 			alias: 'f',
-			choices: frameworks,
+			choices: [REACT, SVELTE],
 		})
 		.parseAsync();
 
 	p.intro('Generate icons');
 
-	/** @type {string[]} */
-	const initialValues = [];
 	const selectedFrameworks = argv.framework?.length
 		? argv.framework
 		: await p.multiselect({
 				message: 'Select frameworks:',
-				options: frameworks.map((value) => ({
-					value,
-					label: value,
-				})),
-				initialValues,
+				options: [
+					{
+						label: 'React',
+						value: REACT,
+					},
+					{
+						label: 'Svelte',
+						value: SVELTE,
+					},
+				],
 				required: true,
+				initialValues: argv.framework ?? [],
 			});
 
 	if (p.isCancel(selectedFrameworks)) {
@@ -52,8 +52,8 @@ async function generate_icons() {
 
 	spinner.start('Generating icons');
 
-	if (selectedFrameworks.includes(Framework.React)) promises.push(generate_icons_react());
-	if (selectedFrameworks.includes(Framework.Svelte)) promises.push(generate_icons_svelte());
+	if (selectedFrameworks.includes(REACT)) promises.push(generate_icons_react());
+	if (selectedFrameworks.includes(SVELTE)) promises.push(generate_icons_svelte());
 
 	try {
 		await Promise.all(promises);

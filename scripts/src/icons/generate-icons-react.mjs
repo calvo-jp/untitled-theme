@@ -14,7 +14,7 @@ import {workspace_root} from './workspace-root.mjs';
 const outdir = path.join(workspace_root, 'packages/icons-react/src');
 
 export async function generate_icons_react() {
-	const icons = get_icons();
+	const icons = await get_icons();
 
 	await create_dir_clean(outdir);
 

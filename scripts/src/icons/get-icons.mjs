@@ -1,6 +1,6 @@
 // @ts-check
 
-import fs from 'fs';
+import fs from 'fs/promises';
 import path from 'path';
 import {workspace_root} from './workspace-root.mjs';
 
@@ -16,23 +16,26 @@ import {workspace_root} from './workspace-root.mjs';
 const assets_dir = path.join(workspace_root, 'assets/icons');
 
 /**
- * @returns {Icon[]}
+ * @returns {Promise<Icon[]>}
  */
-export function get_icons() {
-	return fs
-		.readdirSync(assets_dir, {encoding: 'utf-8'})
-		.filter((filename) => filename.endsWith('svg'))
-		.map((filename) => {
-			const details = path.parse(filename);
-			const fullpath = path.join(assets_dir, filename);
-			const content = fs.readFileSync(fullpath, {encoding: 'utf-8'});
+export async function get_icons() {
+	const filenames = await fs.readdir(assets_dir, {encoding: 'utf-8'});
 
-			return {
-				content,
-				fullpath,
-				basename: details.base,
-				filename: details.name,
-				extension: details.ext,
-			};
-		});
+	return Promise.all(
+		filenames
+			.filter((filename) => filename.endsWith('svg'))
+			.map(async (filename) => {
+				const details = path.parse(filename);
+				const fullpath = path.join(assets_dir, filename);
+				const content = await fs.readFile(fullpath, {encoding: 'utf-8'});
+
+				return {
+					content,
+					fullpath,
+					basename: details.base,
+					filename: details.name,
+					extension: details.ext,
+				};
+			}),
+	);
 }

@@ -14,13 +14,15 @@ import {workspace_root} from './workspace-root.mjs';
 const outdir = path.join(workspace_root, 'packages/icons-svelte/src');
 
 export async function generate_icons_svelte() {
+	const icons = await get_icons();
+
 	await create_dir_clean(outdir);
 
 	/**
 	 * @type {import('./create-barrel-file.mjs').BarrelItem[]}
 	 */
 	const items = await Promise.all(
-		get_icons().map(async (icon) => {
+		icons.map(async (icon) => {
 			const Component = await to_svelte_component(icon);
 			const destination = path.join(outdir, `${icon.filename}.svelte`);
 
