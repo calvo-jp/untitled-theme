@@ -2,7 +2,8 @@
 	"extends": "@tsconfig/node20/tsconfig.json",
 	"compilerOptions": {
 		"jsx": "react",
-		"noEmit": true
+		"noEmit": true,
+		"verbatimModuleSyntax": true
 	},
 	"include": ["./src"]
 }
