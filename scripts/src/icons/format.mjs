@@ -3,6 +3,7 @@
 import path from 'path';
 import prettier from 'prettier';
 
+/** @type {import('prettier').Options | null} */
 let config = null;
 
 async function get_config() {
