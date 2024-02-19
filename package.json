@@ -2,10 +2,10 @@
 	"name": "@untitled-theme/root",
 	"private": true,
 	"scripts": {
-		"generate:icons": "pnpm --filter @untitled-theme/scripts run generate:icons",
-		"release:icons-react": "pnpm --filter @untitled-theme/icons-react run release",
-		"release:icons-svelte": "pnpm --filter @untitled-theme/icons-svelte run release",
-		"release:preset-panda": "pnpm --filter @untitled-theme/preset-panda run release"
+		"scripts": "pnpm --filter @untitled-theme/scripts",
+		"icons-react": "pnpm --filter @untitled-theme/icons-react",
+		"icons-svelte": "pnpm --filter @untitled-theme/icons-svelte",
+		"preset-panda": "pnpm --filter @untitled-theme/preset-panda"
 	},
 	"devDependencies": {
 		"@types/node": "20.11.17",
