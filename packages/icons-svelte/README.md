@@ -17,3 +17,13 @@ npm install @untitled-theme/icons-svelte
 
 <RocketIcon />
 ```
+
+or
+
+```svelte
+<script>
+  import RocketIcon from '@untitled-theme/icons-svelte/rocket';
+</script>
+
+<RocketIcon />
+```
