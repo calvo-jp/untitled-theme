@@ -11,19 +11,19 @@ npm install @untitled-theme/icons-react
 ## Usage
 
 ```jsx
-import {RocketIcon} from '@untitled-theme/icons-react';
+import {Rocket01Icon} from '@untitled-theme/icons-react';
 
 function Component() {
-	return <RocketIcon />;
+	return <Rocket01Icon />;
 }
 ```
 
 or
 
 ```jsx
-import RocketIcon from '@untitled-theme/icons-react/rocket';
+import Rocket01Icon from '@untitled-theme/icons-react/rocket-01';
 
 function Component() {
-	return <RocketIcon />;
+	return <Rocket01Icon />;
 }
 ```

@@ -12,18 +12,18 @@ npm install @untitled-theme/icons-svelte
 
 ```svelte
 <script>
-  import {RocketIcon} from '@untitled-theme/icons-svelte';
+  import {Rocket01Icon} from '@untitled-theme/icons-svelte';
 </script>
 
-<RocketIcon />
+<Rocket01Icon />
 ```
 
 or
 
 ```svelte
 <script>
-  import RocketIcon from '@untitled-theme/icons-svelte/rocket';
+  import Rocket01Icon from '@untitled-theme/icons-svelte/rocket-01';
 </script>
 
-<RocketIcon />
+<Rocket01Icon />
 ```
