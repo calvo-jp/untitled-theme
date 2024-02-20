@@ -2,7 +2,7 @@
 
 import fs from 'fs/promises';
 import path from 'path';
-import {workspace_root} from './workspace-root.mjs';
+import {get_workspace_root} from './get-workspace-root.mjs';
 
 /**
  * @typedef {Object} Icon
@@ -13,7 +13,7 @@ import {workspace_root} from './workspace-root.mjs';
  * @property {string} content
  */
 
-const assets_dir = path.join(workspace_root, 'assets/icons');
+const assets_dir = path.join(get_workspace_root(), 'assets/icons');
 
 /**
  * @returns {Promise<Icon[]>}
