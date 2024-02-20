@@ -9,10 +9,15 @@ export default defineConfig({
 			name: 'icons-react',
 			entry: path.resolve(__dirname, 'src/index.ts'),
 			formats: ['es'],
-			fileName: 'index',
+			fileName(_, name) {
+				return `${name}.js`;
+			},
 		},
 		rollupOptions: {
 			external: ['react', 'react/jsx-runtime', 'react-dom'],
+			output: {
+				preserveModules: true,
+			},
 		},
 	},
 });

@@ -18,9 +18,6 @@ export async function generate_icons_svelte() {
 
 	await create_dir_clean(outdir);
 
-	/**
-	 * @type {import('./create-barrel-file.mjs').BarrelItem[]}
-	 */
 	const items = await Promise.all(
 		icons.map(async (icon) => {
 			const Component = await to_svelte_component(icon);
@@ -28,15 +25,20 @@ export async function generate_icons_svelte() {
 
 			await fs.writeFile(destination, await format_html(Component.content), {encoding: 'utf-8'});
 
-			return {
+			/**
+			 * @type {import('./create-barrel-file.mjs').BarrelItem}
+			 */
+			const item = {
 				path: `./${icon.filename}.svelte`,
 				modules: [
 					{
-						as: Component.name,
 						name: 'default',
+						as: Component.name,
 					},
 				],
 			};
+
+			return item;
 		}),
 	);
 

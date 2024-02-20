@@ -18,9 +18,6 @@ export async function generate_icons_react() {
 
 	await create_dir_clean(outdir);
 
-	/**
-	 * @type {import('./create-barrel-file.mjs').BarrelItem[]}
-	 */
 	const items = await Promise.all(
 		icons.map(async (icon) => {
 			const Component = await to_react_component(icon);
@@ -28,14 +25,20 @@ export async function generate_icons_react() {
 
 			await fs.writeFile(destination, await format_ts(Component.content), {encoding: 'utf-8'});
 
-			return {
+			/**
+			 * @type {import('./create-barrel-file.mjs').BarrelItem}
+			 */
+			const item = {
 				path: `./${icon.filename}`,
 				modules: [
 					{
-						name: Component.name,
+						name: 'default',
+						as: Component.name,
 					},
 				],
 			};
+
+			return item;
 		}),
 	);
 
@@ -113,16 +116,17 @@ async function to_react_component(icon) {
  */
 function template(config) {
 	return `
-		import type {SVGProps} from 'react';
-		import {forwardRef} from 'react';
+		import * as React from 'react';
 
 		/**
 		 * ${config.jsdoc}
 		 */
-		export const ${config.name} = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => {
+		const ${config.name} = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => {
 			return ${config.content};
 		});
 
 		${config.name}.displayName = '${config.name}'
+
+		export default ${config.name};
 	`;
 }

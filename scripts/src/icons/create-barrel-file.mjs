@@ -8,7 +8,7 @@ import {format_ts} from './format.mjs';
  * @typedef {Object} BarrelItem_0
  * @property {string} path
  * @property {boolean} [type]
- * @property {string[] | {as?: string; name: string; type?: boolean}[]} modules
+ * @property {string[] | {as?: string; name: 'default' | (string & {}) ; type?: boolean}[]} modules
  * @property {false} [exportAll]
  */
 
