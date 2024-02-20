@@ -1,9 +1,4 @@
 {
-	"extends": "@tsconfig/node20/tsconfig.json",
-	"compilerOptions": {
-		"jsx": "react",
-		"noEmit": true,
-		"verbatimModuleSyntax": true
-	},
+	"extends": "@tsconfig/vite-react/tsconfig.json",
 	"include": ["./src"]
 }

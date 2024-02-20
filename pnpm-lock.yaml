@@ -20,9 +20,9 @@ importers:
 
   packages/icons-react:
     devDependencies:
-      '@tsconfig/node20':
-        specifier: 20.1.2
-        version: 20.1.2
+      '@tsconfig/vite-react':
+        specifier: 3.0.0
+        version: 3.0.0
       '@types/react':
         specifier: 18.2.55
         version: 18.2.55
@@ -1393,6 +1393,10 @@ packages:
 
   /@tsconfig/svelte@5.0.2:
     resolution: {integrity: sha512-BRbo1fOtyVbhfLyuCWw6wAWp+U8UQle+ZXu84MYYWzYSEB28dyfnRBIE99eoG+qdAC0po6L2ScIEivcT07UaMA==}
+    dev: true
+
+  /@tsconfig/vite-react@3.0.0:
+    resolution: {integrity: sha512-haOFbphpavQ1+eyQjeqvlz7sRkQue/bS0GvFmraHml31Ufhv+7juUSc8PVe0In7sly+n+5zTLmzc287KciiGXg==}
     dev: true
 
   /@types/argparse@1.0.38:
