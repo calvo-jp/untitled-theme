@@ -23,7 +23,7 @@
 		},
 		"./*": {
 			"types": "./dist/*.d.ts",
-			"svelte": "./dist/*.js"
+			"import": "./dist/*.svelte"
 		},
 		"./package.json": {
 			"default": "./package.json"
