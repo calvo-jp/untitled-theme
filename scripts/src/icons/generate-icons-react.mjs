@@ -3,13 +3,13 @@
 import fs from 'fs/promises';
 import path from 'path';
 import svgson from 'svgson';
-import { create_barrel_file } from './create-barrel-file.mjs';
-import { create_dir_clean } from './create-dir-clean.mjs';
-import { dash_to_pascal } from './dash-to-pascal.mjs';
-import { format_ts } from './format.mjs';
-import { generate_jsdoc_preview } from './generate-jsdoc-preview.mjs';
-import { get_icons } from './get-icons.mjs';
-import { workspace_root } from './workspace-root.mjs';
+import {create_barrel_file} from './create-barrel-file.mjs';
+import {create_dir_clean} from './create-dir-clean.mjs';
+import {dash_to_pascal} from './dash-to-pascal.mjs';
+import {format_ts} from './format.mjs';
+import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
+import {get_icons} from './get-icons.mjs';
+import {workspace_root} from './workspace-root.mjs';
 
 const outdir = path.join(workspace_root, 'packages/icons-react/src');
 
@@ -55,7 +55,7 @@ async function to_react_component(icon) {
 				node.attributes.rest = '';
 				node.attributes.width = '16';
 				node.attributes.height = '16';
-				node.attributes['aria-hidden'] = "true"
+				node.attributes['aria-hidden'] = 'true';
 			}
 
 			return node;
