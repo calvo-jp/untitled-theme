@@ -112,12 +112,13 @@ async function to_react_component(icon) {
  */
 function template(config) {
 	return `
-		import * as React from 'react';
+		import type {SVGProps} from 'react';
+		import {forwardRef} from 'react';
 
 		/**
 		 * ${config.jsdoc}
 		 */
-		export const ${config.name} = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => {
+		export const ${config.name} = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => {
 			return ${config.content};
 		});
 
