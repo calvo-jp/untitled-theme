@@ -2,6 +2,7 @@
 
 import svg64 from 'svg64';
 import svgson from 'svgson';
+import {config} from './config.mjs';
 
 /**
  * @param {string} svg
@@ -10,8 +11,8 @@ export async function generate_jsdoc_preview(svg) {
 	const p = await svgson.parse(svg, {
 		transformNode(node) {
 			if (node.name === 'svg') {
-				node.attributes.width = '24';
-				node.attributes.height = '24';
+				node.attributes.width = config.width;
+				node.attributes.height = config.height;
 				node.children.unshift({
 					name: 'rect',
 					type: 'element',
@@ -31,11 +32,13 @@ export async function generate_jsdoc_preview(svg) {
 
 	const s = svgson.stringify(p, {
 		transformAttr(key, value, escape) {
-			if (key === 'stroke-width') {
-				return 'stroke-width="1.66667"';
+			if (key === 'stroke') {
+				return `${key}="black"`;
+			} else if (key === 'stroke-width') {
+				return `${key}="${config.strokeWidth}"`;
+			} else {
+				return `${key}="${escape(value)}"`;
 			}
-
-			return `${key}="${escape(value)}"`;
 		},
 	});
 

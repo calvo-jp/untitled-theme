@@ -3,6 +3,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import svgson from 'svgson';
+import {config} from './config.mjs';
 import {create_barrel_file} from './create-barrel-file.mjs';
 import {create_dir_clean} from './create-dir-clean.mjs';
 import {dash_to_pascal} from './dash-to-pascal.mjs';
@@ -54,9 +55,9 @@ async function to_svelte_component(icon) {
 		transformNode(node) {
 			if (node.name === 'svg') {
 				node.attributes.rest = '';
-				node.attributes.width = '16';
-				node.attributes.height = '16';
-				node.attributes['aria-hidden'] = 'true';
+				node.attributes.width = config.width;
+				node.attributes.height = config.height;
+				node.attributes['aria-hidden'] = config.ariaHidden;
 			}
 
 			return node;
@@ -68,17 +69,13 @@ async function to_svelte_component(icon) {
 		transformAttr(key, value, esc) {
 			if (key === 'rest') {
 				return '{...props}';
+			} else if (key === 'stroke') {
+				return `${key}="${config.stroke}"`;
+			} else if (key === 'stroke-width') {
+				return `${key}="${config.strokeWidth}"`;
+			} else {
+				return `${key}="${esc(value)}"`;
 			}
-
-			if (key === 'stroke') {
-				return 'stroke="currentColor"';
-			}
-
-			if (key === 'stroke-width') {
-				return 'stroke-width="1.66667"';
-			}
-
-			return `${key}="${esc(value)}"`;
 		},
 	});
 

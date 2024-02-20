@@ -3,6 +3,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import svgson from 'svgson';
+import {config} from './config.mjs';
 import {create_barrel_file} from './create-barrel-file.mjs';
 import {create_dir_clean} from './create-dir-clean.mjs';
 import {dash_to_pascal} from './dash-to-pascal.mjs';
@@ -56,9 +57,10 @@ async function to_react_component(icon) {
 			if (node.name === 'svg') {
 				node.attributes.ref = '';
 				node.attributes.rest = '';
-				node.attributes.width = '16';
-				node.attributes.height = '16';
-				node.attributes['aria-hidden'] = 'true';
+
+				node.attributes.width = config.width;
+				node.attributes.height = config.height;
+				node.attributes['aria-hidden'] = config.ariaHidden;
 			}
 
 			return node;
@@ -70,21 +72,15 @@ async function to_react_component(icon) {
 		transformAttr(key, value, esc) {
 			if (key === 'ref') {
 				return 'ref={ref}';
-			}
-
-			if (key === 'rest') {
+			} else if (key === 'rest') {
 				return '{...props}';
+			} else if (key === 'stroke') {
+				return `${key}="${config.stroke}"`;
+			} else if (key === 'strokeWidth') {
+				return `${key}="${config.strokeWidth}"`;
+			} else {
+				return `${key}="${esc(value)}"`;
 			}
-
-			if (key === 'stroke') {
-				return 'stroke="currentColor"';
-			}
-
-			if (key === 'strokeWidth') {
-				return 'strokeWidth="1.66667"';
-			}
-
-			return `${key}="${esc(value)}"`;
 		},
 	});
 
