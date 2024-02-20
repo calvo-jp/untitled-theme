@@ -17,3 +17,13 @@ function Component() {
 	return <RocketIcon />;
 }
 ```
+
+or
+
+```jsx
+import RocketIcon from '@untitled-theme/icons-react/rocket';
+
+function Component() {
+	return <RocketIcon />;
+}
+```
