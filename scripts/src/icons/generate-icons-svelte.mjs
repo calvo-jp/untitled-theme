@@ -57,6 +57,7 @@ async function to_svelte_component(icon) {
 				node.attributes.rest = '';
 				node.attributes.width = config.width;
 				node.attributes.height = config.height;
+				node.attributes.viewBox = config.viewBox;
 				node.attributes['aria-hidden'] = config.ariaHidden;
 			}
 
