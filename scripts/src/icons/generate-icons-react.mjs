@@ -1,7 +1,7 @@
 // @ts-check
 
-import fs from 'fs/promises';
-import path from 'path';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import svgson from 'svgson';
 import {config} from './config.mjs';
 import {create_barrel_file} from './create-barrel-file.mjs';

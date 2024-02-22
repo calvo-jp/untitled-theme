@@ -1,6 +1,6 @@
 // @ts-check
 
-import path from 'path';
+import path from 'node:path';
 import prettier from 'prettier';
 
 /** @type {import('prettier').Options | null} */

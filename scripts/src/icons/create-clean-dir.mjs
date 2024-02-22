@@ -1,6 +1,6 @@
 // @ts-check
 
-import fs from 'fs/promises';
+import fs from 'node:fs/promises';
 
 /**
  * @param {string} location

@@ -1,7 +1,7 @@
 // @ts-check
 
-import fs from 'fs/promises';
-import path from 'path';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import {format_ts} from './format.mjs';
 
 /**
