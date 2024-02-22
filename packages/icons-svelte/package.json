@@ -43,7 +43,7 @@
 	},
 	"devDependencies": {
 		"@sveltejs/kit": "2.5.1",
-		"@sveltejs/package": "2.2.6",
+		"@sveltejs/package": "2.2.7",
 		"@sveltejs/vite-plugin-svelte": "3.0.2",
 		"@tsconfig/svelte": "5.0.2",
 		"release-it": "17.1.1",
