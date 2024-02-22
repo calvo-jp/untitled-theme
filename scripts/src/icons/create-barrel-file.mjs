@@ -5,10 +5,17 @@ import path from 'path';
 import {format_ts} from './format.mjs';
 
 /**
+ * @typedef {Object} Module
+ * @property {string} [as]
+ * @property {'default' | (string & {})} name
+ * @property {boolean} [type]
+ */
+
+/**
  * @typedef {Object} BarrelItem_0
  * @property {string} path
  * @property {boolean} [type]
- * @property {string[] | {as?: string; name: 'default' | (string & {}) ; type?: boolean}[]} modules
+ * @property {(string|Module)[]} modules
  * @property {false} [exportAll]
  */
 
@@ -34,7 +41,7 @@ export async function create_barrel_file(directory, content) {
 			if (o.exportAll) return `export ${typeOnly(o.type)} * from '${o.path}';`;
 
 			const m = o.modules
-				?.map((mod) => {
+				.map((mod) => {
 					return typeof mod === 'string'
 						? `${typeOnly(o.type)} ${mod}`
 						: mod.as
