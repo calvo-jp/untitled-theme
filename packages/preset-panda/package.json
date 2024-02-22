@@ -21,7 +21,7 @@
 	"scripts": {},
 	"devDependencies": {
 		"@ark-ui/anatomy": "2.2.0",
-		"@pandacss/dev": "0.31.0",
+		"@pandacss/dev": "0.32.0",
 		"@tsconfig/node20": "20.1.2"
 	},
 	"peerDependencies": {
