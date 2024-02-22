@@ -54,10 +54,10 @@ async function to_svelte_component(icon) {
 	const node = await svgson.parse(icon.content, {
 		transformNode(node) {
 			if (node.name === 'svg') {
-				node.attributes.rest = '';
-				node.attributes.width = config.width;
-				node.attributes.height = config.height;
-				node.attributes.viewBox = config.viewBox;
+				node.attributes['rest'] = '';
+				node.attributes['width'] = config.width;
+				node.attributes['height'] = config.height;
+				node.attributes['viewBox'] = config.viewBox;
 				node.attributes['aria-hidden'] = config.ariaHidden;
 			}
 

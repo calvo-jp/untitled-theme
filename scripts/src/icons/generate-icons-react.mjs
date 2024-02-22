@@ -55,12 +55,11 @@ async function to_react_component(icon) {
 		camelcase: true,
 		transformNode(node) {
 			if (node.name === 'svg') {
-				node.attributes.ref = '';
-				node.attributes.rest = '';
-
-				node.attributes.width = config.width;
-				node.attributes.height = config.height;
-				node.attributes.viewBox = config.viewBox;
+				node.attributes['ref'] = '';
+				node.attributes['rest'] = '';
+				node.attributes['width'] = config.width;
+				node.attributes['height'] = config.height;
+				node.attributes['viewBox'] = config.viewBox;
 				node.attributes['aria-hidden'] = config.ariaHidden;
 			}
 

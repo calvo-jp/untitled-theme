@@ -11,9 +11,9 @@ export async function generate_jsdoc_preview(svg) {
 	const p = await svgson.parse(svg, {
 		transformNode(node) {
 			if (node.name === 'svg') {
-				node.attributes.width = config.width;
-				node.attributes.height = config.height;
-				node.attributes.viewBox = config.viewBox;
+				node.attributes['width'] = config.width;
+				node.attributes['height'] = config.height;
+				node.attributes['viewBox'] = config.viewBox;
 				node.children.unshift({
 					name: 'rect',
 					type: 'element',
