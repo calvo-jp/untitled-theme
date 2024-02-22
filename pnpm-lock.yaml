@@ -48,8 +48,8 @@ importers:
         specifier: 2.5.1
         version: 2.5.1(@sveltejs/vite-plugin-svelte@3.0.2)(svelte@5.0.0-next.65)(vite@5.1.4)
       '@sveltejs/package':
-        specifier: 2.2.6
-        version: 2.2.6(svelte@5.0.0-next.65)(typescript@5.3.3)
+        specifier: 2.2.7
+        version: 2.2.7(svelte@5.0.0-next.65)(typescript@5.3.3)
       '@sveltejs/vite-plugin-svelte':
         specifier: 3.0.2
         version: 3.0.2(svelte@5.0.0-next.65)(vite@5.1.4)
@@ -1315,8 +1315,8 @@ packages:
       vite: 5.1.4(@types/node@20.11.17)
     dev: true
 
-  /@sveltejs/package@2.2.6(svelte@5.0.0-next.65)(typescript@5.3.3):
-    resolution: {integrity: sha512-rhKL/96M7LCvFI2xN94qsqHtEWr/ypcMGiii3s6dRW7ADt3tiDm8UfExjRR8v5jW3Femz0+VJ0TNevxI4Q9Quw==}
+  /@sveltejs/package@2.2.7(svelte@5.0.0-next.65)(typescript@5.3.3):
+    resolution: {integrity: sha512-/vvmrQO2mMvROdM/iGRHtRn+ValnK9xzB50pqRcX0IvoeVoTq7uhYf+KifrZTluBA+km6AX/WXRXajrgrgbmvw==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
     peerDependencies:
