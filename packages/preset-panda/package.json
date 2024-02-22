@@ -1,6 +1,5 @@
 {
 	"name": "@untitled-theme/preset-panda",
-	"type": "module",
 	"version": "0.0.0",
 	"license": "MIT",
 	"description": "Untitled UI preset for Panda and Ark UI",
@@ -10,21 +9,45 @@
 		"ark ui",
 		"panda"
 	],
-	"main": "src/index.ts",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js"
+		},
+		"./package.json": "./package.json"
+	},
 	"files": [
-		"dist",
-		"src"
+		"dist"
 	],
 	"publishConfig": {
 		"access": "public"
 	},
-	"scripts": {},
+	"scripts": {
+		"build": "tsup"
+	},
 	"devDependencies": {
 		"@ark-ui/anatomy": "2.2.0",
 		"@pandacss/dev": "0.32.0",
-		"@tsconfig/node20": "20.1.2"
+		"@tsconfig/node20": "20.1.2",
+		"tsup": "8.0.2"
 	},
 	"peerDependencies": {
 		"@pandacss/dev": ">=0.31.0"
+	},
+	"tsup": {
+		"clean": true,
+		"entry": [
+			"src/index.ts"
+		],
+		"format": [
+			"esm",
+			"cjs"
+		],
+		"dts": true,
+		"sourcemap": "inline"
 	}
 }
