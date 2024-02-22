@@ -13,6 +13,7 @@ export default defineConfig({
 				return `${name}.js`;
 			},
 		},
+		sourcemap: 'inline',
 		rollupOptions: {
 			external: ['react', 'react/jsx-runtime', 'react-dom'],
 			output: {

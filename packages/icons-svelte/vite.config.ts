@@ -4,6 +4,7 @@ import {defineConfig} from 'vite';
 export default defineConfig({
 	plugins: [svelte()],
 	build: {
+		sourcemap: 'inline',
 		rollupOptions: {
 			external: ['svelte'],
 		},
