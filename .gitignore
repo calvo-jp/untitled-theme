@@ -3,3 +3,5 @@ dist
 .svelte-kit
 vite.config.*.timestamp-*
 packages/icons-*/src
+styled-system
+styled-system-studio
