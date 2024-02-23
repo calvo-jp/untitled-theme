@@ -3,7 +3,6 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"test": "vitest",
 		"generate:icons": "node ./src/icons/generate-icons.mjs"
 	},
 	"devDependencies": {
