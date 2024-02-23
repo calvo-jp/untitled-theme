@@ -1,0 +1,61 @@
+{
+	"name": "@untitled-theme/colors",
+	"version": "0.0.1",
+	"license": "MIT",
+	"description": "Untitled UI Colors",
+	"keywords": [
+		"untitled ui",
+		"colors"
+	],
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"build": "tsup",
+		"release": "release-it"
+	},
+	"devDependencies": {
+		"@tsconfig/node20": "20.1.2",
+		"release-it": "17.1.1",
+		"tsup": "8.0.2"
+	},
+	"tsup": {
+		"clean": true,
+		"entry": [
+			"src/index.ts"
+		],
+		"dts": true,
+		"sourcemap": true,
+		"format": [
+			"esm",
+			"cjs"
+		]
+	},
+	"release-it": {
+		"hooks": {
+			"after:bump": [
+				"pnpm build"
+			]
+		},
+		"git": {
+			"commitMessage": "chore: release ${npm.name} v${version}",
+			"tagName": "${npm.name}@${version}"
+		},
+		"github": {
+			"release": false
+		}
+	}
+}

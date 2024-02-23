@@ -33,7 +33,8 @@
 		"release": "release-it"
 	},
 	"dependencies": {
-		"@ark-ui/anatomy": "2.2.0"
+		"@ark-ui/anatomy": "2.2.0",
+		"@untitled-theme/colors": "workspace:*"
 	},
 	"devDependencies": {
 		"@ark-ui/react": "2.1.1",

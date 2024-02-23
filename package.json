@@ -3,6 +3,7 @@
 	"private": true,
 	"scripts": {
 		"scripts": "pnpm --filter @untitled-theme/scripts",
+		"colors": "pnpm --filter @untitled-theme/colors",
 		"icons-react": "pnpm --filter @untitled-theme/icons-react",
 		"icons-svelte": "pnpm --filter @untitled-theme/icons-svelte",
 		"preset-panda": "pnpm --filter @untitled-theme/preset-panda"
