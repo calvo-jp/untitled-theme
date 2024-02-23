@@ -1,4 +1,4 @@
-export const colors = {
+const colors = {
 	white: '#FFFFFF',
 	black: '#000000',
 	brand: {
@@ -422,3 +422,5 @@ export const colors = {
 		950: '#542C0D',
 	},
 };
+
+export default colors;

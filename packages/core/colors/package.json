@@ -7,6 +7,10 @@
 		"untitled ui",
 		"colors"
 	],
+	"repository": "https://github.com/calvo-jp/untitled-theme",
+	"bugs": {
+		"url": "https://github.com/calvo-jp/untitled-theme/issues"
+	},
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
