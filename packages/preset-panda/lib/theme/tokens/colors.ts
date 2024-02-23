@@ -1,5 +1,5 @@
 import {defineTokens} from '@pandacss/dev';
-import {colors as utColors} from '@untitled-theme/colors';
+import utColors from '@untitled-theme/colors';
 
 type Colors = typeof utColors;
 
