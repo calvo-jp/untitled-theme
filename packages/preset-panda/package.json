@@ -50,11 +50,26 @@
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"react-router-dom": "6.22.1",
+		"release-it": "17.1.1",
 		"typescript": "5.2.2",
 		"vite": "5.1.4",
 		"vite-plugin-dts": "3.7.3"
 	},
 	"peerDependencies": {
 		"@pandacss/dev": ">=0.32.0"
+	},
+	"release-it": {
+		"hooks": {
+			"after:bump": [
+				"pnpm build"
+			]
+		},
+		"git": {
+			"commitMessage": "chore: release ${npm.name} v${version}",
+			"tagName": "${npm.name}@${version}"
+		},
+		"github": {
+			"release": false
+		}
 	}
 }
