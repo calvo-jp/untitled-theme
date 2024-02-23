@@ -102,6 +102,9 @@ importers:
       '@fontsource/inter':
         specifier: 5.0.16
         version: 5.0.16
+      '@fontsource/open-sans':
+        specifier: 5.0.24
+        version: 5.0.24
       '@pandacss/dev':
         specifier: 0.32.0
         version: 0.32.0(typescript@5.3.3)
@@ -829,6 +832,10 @@ packages:
 
   /@fontsource/inter@5.0.16:
     resolution: {integrity: sha512-qF0aH5UiZvCmneX5orJbVRoc2VTyLTV3X/7laMp03Qt28L+B9tFlZODOGUL64wDWc69YVdi1LeJB0cIgd51lvw==}
+    dev: true
+
+  /@fontsource/open-sans@5.0.24:
+    resolution: {integrity: sha512-bIF+87vxfOPTyvnBKS+rCPmz/m66um3zCk1UdPv8RGBgwu6MMxwED0jpcbvyFSkfy0ApcdjfkDSAhlFTm/pgiw==}
     dev: true
 
   /@humanwhocodes/config-array@0.11.14:

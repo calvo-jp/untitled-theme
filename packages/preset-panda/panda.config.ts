@@ -12,6 +12,9 @@ export default defineConfig({
 					sans: {
 						value: "'Inter', sans-serif",
 					},
+					heading: {
+						value: "'Open Sans', sans-serif",
+					},
 				},
 			},
 		},
