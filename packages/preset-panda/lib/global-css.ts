@@ -11,15 +11,15 @@ export const globalCss = defineGlobalStyles({
 	},
 	body: {
 		bg: 'white',
-		color: 'gray.light.800',
+		color: 'gray-light.800',
 	},
 	'*, *::before, *::after': {
-		borderColor: 'gray.light.300',
+		borderColor: 'gray-light.300',
 		borderStyle: 'solid',
 		boxSizing: 'border-box',
 	},
 	'*::placeholder': {
 		opacity: 1,
-		color: 'gray.light.500',
+		color: 'gray-light.500',
 	},
 });
