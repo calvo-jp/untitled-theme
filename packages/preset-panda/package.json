@@ -29,7 +29,8 @@
 	},
 	"scripts": {
 		"debug": "vite",
-		"build": "vite build"
+		"build": "vite build",
+		"release": "release-it"
 	},
 	"dependencies": {
 		"@ark-ui/anatomy": "2.2.0"
