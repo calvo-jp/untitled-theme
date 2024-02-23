@@ -1,5 +1,5 @@
 import {Box} from 'styled-system/jsx';
 
-export function LandingPage() {
+export default function LandingPage() {
 	return <Box>Hello world</Box>;
 }
