@@ -39,7 +39,8 @@
 	"scripts": {
 		"debug": "vite",
 		"build": "vite build",
-		"prebuild": "pnpm --filter @untitled-theme/scripts run generate:icons -f react"
+		"prebuild": "pnpm --filter @untitled-theme/scripts run generate:icons -f react",
+		"release": "release-it"
 	},
 	"devDependencies": {
 		"@types/react": "18.2.56",
