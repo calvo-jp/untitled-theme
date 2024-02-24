@@ -5,8 +5,7 @@
 		"scripts": "pnpm --filter @untitled-theme/scripts",
 		"colors": "pnpm --filter @untitled-theme/colors",
 		"icons-react": "pnpm --filter @untitled-theme/icons-react",
-		"icons-svelte": "pnpm --filter @untitled-theme/icons-svelte",
-		"preset-panda": "pnpm --filter @untitled-theme/preset-panda"
+		"icons-svelte": "pnpm --filter @untitled-theme/icons-svelte"
 	},
 	"devDependencies": {
 		"@types/node": "20.11.20",
