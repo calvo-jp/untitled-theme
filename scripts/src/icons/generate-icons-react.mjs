@@ -12,7 +12,7 @@ import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
 import {get_icons} from './get-icons.mjs';
 import {get_workspace_root} from './get-workspace-root.mjs';
 
-const outdir = path.join(get_workspace_root(), 'packages/icons/react/lib');
+const outdir = path.join(get_workspace_root(), 'packages/icons/react/src');
 
 export async function generate_icons_react() {
 	const icons = await get_icons();
