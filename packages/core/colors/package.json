@@ -5,7 +5,9 @@
 	"description": "Untitled UI Colors",
 	"keywords": [
 		"untitled ui",
-		"colors"
+		"colors",
+		"tailwind",
+		"panda"
 	],
 	"repository": "https://github.com/calvo-jp/untitled-theme",
 	"bugs": {
