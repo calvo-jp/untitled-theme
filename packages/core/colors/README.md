@@ -10,6 +10,12 @@ npm install @untitled-theme/colors
 
 ## Usage
 
-```jsx
-import colors from '@untitled-theme/icons-react';
+```js
+import colors from '@untitled-theme/colors';
+```
+
+for [Panda](https://panda-css.com/)
+
+```js
+import colors from '@untitled-theme/colors/panda';
 ```
