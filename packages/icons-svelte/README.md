@@ -27,3 +27,5 @@ or
 
 <Rocket01Icon />
 ```
+
+See all icons [here](../../assets/icons.md)
