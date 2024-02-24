@@ -2,9 +2,8 @@
 
 import fs from 'fs/promises';
 import path from 'path';
-import svgson from 'svgson';
-import {config} from './config.mjs';
 import {format_html} from './format.mjs';
+import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
 import {get_icons} from './get-icons.mjs';
 import {get_workspace_root} from './get-workspace-root.mjs';
 
@@ -20,35 +19,10 @@ export async function generate_icons_readme() {
 	const icons = await get_icons();
 
 	const promises = icons.map(async (icon) => {
-		const parsed = await svgson.parse(icon.content, {
-			transformNode(node) {
-				if (node.name === 'svg') {
-					node.attributes['width'] = config.width;
-					node.attributes['height'] = config.height;
-					node.attributes['viewBox'] = config.viewBox;
-					node.attributes['aria-hidden'] = config.ariaHidden;
-				}
-
-				return node;
-			},
-		});
-
-		return svgson.stringify(parsed, {
-			transformAttr(key, value, esc) {
-				if (key === 'stroke') {
-					return `${key}="black"`;
-				}
-
-				if (key === 'strokeWidth') {
-					return `${key}="${config.strokeWidth}"`;
-				}
-
-				return `${key}="${esc(value)}"`;
-			},
-		});
+		return await generate_jsdoc_preview(icon.content);
 	});
 
-	const content = await Promise.all(promises).then((icons) => icons.join('\n'));
+	const content = await Promise.all(promises).then((icons) => icons.join('\n\n'));
 
 	await fs.writeFile(
 		path.join(workspace_root, 'assets/icons.md'),
