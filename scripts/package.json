@@ -3,7 +3,8 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"generate:icons": "node ./src/icons/generate-icons.mjs"
+		"generate:icons": "node ./src/icons/generate-icons.mjs",
+		"typecheck": "tsc -p jsconfig.json"
 	},
 	"dependencies": {
 		"@clack/prompts": "0.7.0",
