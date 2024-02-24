@@ -1,5 +1,3 @@
-// @ts-check
-
 import svg64 from 'svg64';
 import svgson from 'svgson';
 import {config} from './config.mjs';

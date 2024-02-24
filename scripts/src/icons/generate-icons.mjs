@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-// @ts-check
 
 import * as p from '@clack/prompts';
 import yargs from 'yargs';

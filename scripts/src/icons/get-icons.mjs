@@ -1,5 +1,3 @@
-// @ts-check
-
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {get_workspace_root} from './get-workspace-root.mjs';

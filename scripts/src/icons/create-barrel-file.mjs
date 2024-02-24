@@ -1,5 +1,3 @@
-// @ts-check
-
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {format_ts} from './format.mjs';
