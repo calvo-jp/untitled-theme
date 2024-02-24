@@ -34,7 +34,7 @@
 	},
 	"dependencies": {
 		"@ark-ui/anatomy": "2.2.0",
-		"@untitled-theme/colors": "workspace:*"
+		"@untitled-theme/colors": "0.0.2"
 	},
 	"devDependencies": {
 		"@ark-ui/react": "2.1.1",

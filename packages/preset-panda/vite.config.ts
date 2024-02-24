@@ -31,7 +31,10 @@ export default defineConfig({
 		sourcemap: true,
 		copyPublicDir: false,
 		rollupOptions: {
-			external: Object.keys(packageJson.devDependencies),
+			external: [
+				...Object.keys(packageJson.dependencies),
+				...Object.keys(packageJson.devDependencies),
+			],
 		},
 	},
 });

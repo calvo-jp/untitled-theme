@@ -93,7 +93,7 @@ importers:
         specifier: 2.2.0
         version: 2.2.0(@internationalized/date@3.5.2)
       '@untitled-theme/colors':
-        specifier: workspace:*
+        specifier: 0.0.2
         version: link:../core/colors
     devDependencies:
       '@ark-ui/react':
