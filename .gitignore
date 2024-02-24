@@ -1,7 +1,9 @@
 node_modules
 dist
 .svelte-kit
-vite.config.*.timestamp-*
-packages/icons-*/src
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+packages/icons/react/src
+packages/icons/svelte/src
 styled-system
 styled-system-studio
