@@ -8,9 +8,7 @@ import {get_icons} from './get-icons.mjs';
 import {get_workspace_root} from './get-workspace-root.mjs';
 
 const template = `
-  <div style="display:flex;flex-wrap:wrap;gap:0.25rem;padding:1rem;background:white;">
     %content%
-  </div>
 `;
 
 const workspace_root = get_workspace_root();
