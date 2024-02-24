@@ -1,3 +1,5 @@
+import type {ColorPalette} from './types';
+
 const colors = {
 	white: '#FFFFFF',
 	black: '#000000',
@@ -421,6 +423,6 @@ const colors = {
 		900: '#713B12',
 		950: '#542C0D',
 	},
-};
+} satisfies ColorPalette;
 
 export default colors;

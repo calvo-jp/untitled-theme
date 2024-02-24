@@ -19,6 +19,11 @@
 			"types": "./dist/index.d.ts",
 			"import": "./dist/index.mjs",
 			"require": "./dist/index.js"
+		},
+		"./panda": {
+			"types": "./dist/panda.d.ts",
+			"import": "./dist/panda.mjs",
+			"require": "./dist/panda.js"
 		}
 	},
 	"files": [
@@ -37,16 +42,18 @@
 		"tsup": "8.0.2"
 	},
 	"tsup": {
-		"clean": true,
-		"entry": [
-			"src/index.ts"
-		],
 		"dts": true,
-		"sourcemap": true,
+		"clean": true,
+		"entry": {
+			"index": "src/index.ts",
+			"panda": "src/panda.ts"
+		},
 		"format": [
 			"esm",
 			"cjs"
-		]
+		],
+		"splitting": false,
+		"sourcemap": "inline"
 	},
 	"release-it": {
 		"hooks": {
