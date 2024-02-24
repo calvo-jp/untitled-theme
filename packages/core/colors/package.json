@@ -36,7 +36,8 @@
 	},
 	"scripts": {
 		"build": "tsup",
-		"release": "release-it"
+		"release": "release-it",
+		"typecheck": "tsc"
 	},
 	"devDependencies": {
 		"@tsconfig/node20": "20.1.2",
