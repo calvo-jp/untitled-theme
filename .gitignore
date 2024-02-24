@@ -5,5 +5,3 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 packages/icons/react/src
 packages/icons/svelte/src
-styled-system
-styled-system-studio
