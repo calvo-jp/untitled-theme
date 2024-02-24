@@ -86,6 +86,9 @@ importers:
       '@clack/prompts':
         specifier: 0.7.0
         version: 0.7.0
+      '@tsconfig/recommended':
+        specifier: 1.0.3
+        version: 1.0.3
       '@types/yargs':
         specifier: 17.0.32
         version: 17.0.32
@@ -856,6 +859,10 @@ packages:
 
   /@tsconfig/node20@20.1.2:
     resolution: {integrity: sha512-madaWq2k+LYMEhmcp0fs+OGaLFk0OenpHa4gmI4VEmCKX4PJntQ6fnnGADVFrVkBj0wIdAlQnK/MrlYTHsa1gQ==}
+    dev: true
+
+  /@tsconfig/recommended@1.0.3:
+    resolution: {integrity: sha512-+jby/Guq9H8O7NWgCv6X8VAiQE8Dr/nccsCtL74xyHKhu2Knu5EAKmOZj3nLCnLm1KooUzKY+5DsnGVqhM8/wQ==}
     dev: true
 
   /@tsconfig/svelte@5.0.2:

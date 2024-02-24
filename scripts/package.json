@@ -7,6 +7,7 @@
 	},
 	"devDependencies": {
 		"@clack/prompts": "0.7.0",
+		"@tsconfig/recommended": "1.0.3",
 		"@types/yargs": "17.0.32",
 		"prettier": "3.2.5",
 		"svg64": "2.0.0",
