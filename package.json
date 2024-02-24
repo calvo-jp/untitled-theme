@@ -8,9 +8,7 @@
 		"icons-svelte": "pnpm --filter @untitled-theme/icons-svelte"
 	},
 	"devDependencies": {
-		"@types/node": "20.11.20",
-		"prettier": "3.2.5",
-		"typescript": "5.3.3"
+		"prettier": "3.2.5"
 	},
 	"packageManager": "pnpm@8.15.3"
 }
