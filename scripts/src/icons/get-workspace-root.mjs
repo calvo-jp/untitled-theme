@@ -1,5 +1,12 @@
 import path from 'node:path';
 
+/** @type {string|null} */
+let workspace_root = null;
+
 export function get_workspace_root() {
-	return path.resolve(process.cwd(), '..');
+	if (workspace_root) return workspace_root;
+
+	const w = path.resolve(process.cwd(), '..');
+	workspace_root = w;
+	return w;
 }
