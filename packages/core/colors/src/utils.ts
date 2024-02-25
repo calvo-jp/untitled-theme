@@ -8,6 +8,8 @@ type CoreToPanda<T extends ColorPalette> = {
 			};
 };
 
+type Pretty<T extends Record<string, unknown>> = {[P in keyof T]: T[P]} & {};
+
 export function core_to_panda<T extends ColorPalette>(value: T) {
 	const o: Record<string, any> = {};
 
@@ -23,5 +25,5 @@ export function core_to_panda<T extends ColorPalette>(value: T) {
 		}
 	});
 
-	return o as CoreToPanda<T>;
+	return o as Pretty<CoreToPanda<T>>;
 }
