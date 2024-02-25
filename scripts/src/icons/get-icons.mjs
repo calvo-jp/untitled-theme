@@ -13,13 +13,19 @@ import {get_workspace_root} from './get-workspace-root.mjs';
 
 const assets_dir = path.join(get_workspace_root(), 'assets/icons');
 
+/** @type {Icon[]|null} */
+let icons = null;
+
 /**
  * @returns {Promise<Icon[]>}
  */
 export async function get_icons() {
+	if (icons) return icons;
+
 	const filenames = await fs.readdir(assets_dir, {encoding: 'utf-8'});
 
-	return Promise.all(
+	/** @type {Icon[]} */
+	let l = await Promise.all(
 		filenames
 			.filter((filename) => filename.endsWith('svg'))
 			.map(async (filename) => {
@@ -36,4 +42,7 @@ export async function get_icons() {
 				};
 			}),
 	);
+
+	icons = l;
+	return l;
 }
