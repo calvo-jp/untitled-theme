@@ -1,7 +1,7 @@
 {
 	"name": "@untitled-theme/icons-svelte",
 	"type": "module",
-	"version": "0.1.7",
+	"version": "0.1.8",
 	"license": "MIT",
 	"description": "Untitled UI Icons for Svelte",
 	"keywords": [
