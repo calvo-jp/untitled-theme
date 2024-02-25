@@ -10,8 +10,6 @@ const REACT = 'react';
 const SVELTE = 'svelte';
 
 async function generate_icons() {
-	console.time('generate_icons');
-
 	const argv = await yargs(hideBin(process.argv))
 		.option('framework', {
 			type: 'array',
@@ -64,8 +62,6 @@ async function generate_icons() {
 		spinner.stop('Icons generated');
 		p.outro('Goodbye!');
 	}
-
-	console.timeEnd('generate_icons');
 }
 
 await generate_icons();
