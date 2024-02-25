@@ -1,22 +1,22 @@
-import {createLruCache} from './lru-cache.mjs';
+import {create_lru_cache} from './create-lru-cache.mjs';
 
-/** @type {import('./lru-cache.mjs').LruCache<string, string>} */
-const cache = createLruCache(1000);
+/** @type {import('./create-lru-cache.mjs').LruCache<string, string>} */
+const cache = create_lru_cache(1000);
 
 /**
  * @param {string} subject
  */
 export function dash_to_pascal(subject) {
-	let d = cache.get(subject);
+	let v = cache.get(subject);
 
-	if (d) return d;
+	if (v) return v;
 
-	d = subject
+	v = subject
 		.split(/-/g)
 		.map((word) => word[0].toUpperCase() + word.substring(1))
 		.join('');
 
-	cache.set(subject, d);
+	cache.set(subject, v);
 
-	return d;
+	return v;
 }

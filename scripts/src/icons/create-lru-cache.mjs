@@ -11,7 +11,7 @@
  * @returns {LruCache<Key, Value>}
 
  */
-export function createLruCache(maxCacheSize) {
+export function create_lru_cache(maxCacheSize) {
 	if (maxCacheSize < 1) {
 		return {
 			get: () => undefined,

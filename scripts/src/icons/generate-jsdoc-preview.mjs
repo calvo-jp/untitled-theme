@@ -1,11 +1,19 @@
 import svg64 from 'svg64';
 import svgson from 'svgson';
 import {config} from './config.mjs';
+import {create_lru_cache} from './create-lru-cache.mjs';
+
+/** @type {import('./create-lru-cache.mjs').LruCache<string,string>} */
+let cache = create_lru_cache(1000);
 
 /**
  * @param {string} svg
  */
 export async function generate_jsdoc_preview(svg) {
+	let v = cache.get(svg);
+
+	if (v) return v;
+
 	const p = await svgson.parse(svg, {
 		transformNode(node) {
 			if (node.name === 'svg') {
@@ -41,5 +49,7 @@ export async function generate_jsdoc_preview(svg) {
 		},
 	});
 
-	return `![img](${svg64(s)})`;
+	v = `![img](${svg64(s)})`;
+
+	return v;
 }
