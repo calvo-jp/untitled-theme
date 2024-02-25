@@ -32,7 +32,6 @@ If you are using [Next.js](https://nextjs.org/), we recommend adding it to `opti
 
 ```js
 // next.config.js
-
 module.exports = {
 	experimental: {
 		optimizePackageImports: ['@untitled-theme/icons-react'],
