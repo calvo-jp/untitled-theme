@@ -50,6 +50,6 @@ export async function generate_jsdoc_preview(svg) {
 	});
 
 	v = `![img](${svg64(s)})`;
-
+	cache.set(svg, v);
 	return v;
 }

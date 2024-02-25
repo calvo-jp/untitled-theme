@@ -17,6 +17,5 @@ export function dash_to_pascal(subject) {
 		.join('');
 
 	cache.set(subject, v);
-
 	return v;
 }

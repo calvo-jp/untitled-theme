@@ -7,19 +7,19 @@
 
 /**
  * @template Key, Value
- * @param {number} maxCacheSize
+ * @param {number} max_cache_size
  * @returns {LruCache<Key, Value>}
 
  */
-export function create_lru_cache(maxCacheSize) {
-	if (maxCacheSize < 1) {
+export function create_lru_cache(max_cache_size) {
+	if (max_cache_size < 1) {
 		return {
 			get: () => undefined,
 			set: () => {},
 		};
 	}
 
-	let cacheSize = 0;
+	let cache_size = 0;
 	/**
 	 * @type {Map<Key, Value>}
 	 */
@@ -27,7 +27,7 @@ export function create_lru_cache(maxCacheSize) {
 	/**
 	 * @type {Map<Key, Value>}
 	 */
-	let previousCache = new Map();
+	let previous_cache = new Map();
 
 	/**
 	 *
@@ -36,11 +36,11 @@ export function create_lru_cache(maxCacheSize) {
 	 */
 	function update(key, value) {
 		cache.set(key, value);
-		cacheSize++;
+		cache_size++;
 
-		if (cacheSize > maxCacheSize) {
-			cacheSize = 0;
-			previousCache = cache;
+		if (cache_size > max_cache_size) {
+			cache_size = 0;
+			previous_cache = cache;
 			cache = new Map();
 		}
 	}
@@ -52,7 +52,7 @@ export function create_lru_cache(maxCacheSize) {
 			if (value !== undefined) {
 				return value;
 			}
-			if ((value = previousCache.get(key)) !== undefined) {
+			if ((value = previous_cache.get(key)) !== undefined) {
 				update(key, value);
 				return value;
 			}
