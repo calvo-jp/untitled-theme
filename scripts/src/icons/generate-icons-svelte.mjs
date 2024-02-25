@@ -46,7 +46,6 @@ export async function generate_icons_svelte() {
 
 /**
  * @param {import('./get-icons.mjs').Icon} icon
- * @returns {Promise<{name: string, content: string}>}
  */
 async function to_svelte_component(icon) {
 	const node = await svgson.parse(icon.content, {
