@@ -1,5 +1,6 @@
 import path from 'node:path';
 import prettier from 'prettier';
+import {createLruCache} from './lru-cache.mjs';
 
 /** @type {import('prettier').Options | null} */
 let config = null;
@@ -12,16 +13,31 @@ async function get_config() {
 	return c;
 }
 
+/** @type {import('./lru-cache.mjs').LruCache<string, string>} */
+let cache = createLruCache(1000);
+
 /**
  * @param {string} content
  */
 export async function format_html(content) {
-	return await prettier.format(content, {...(await get_config()), parser: 'html'});
+	let f = cache.get(content);
+
+	if (f) return f;
+
+	f = await prettier.format(content, {...(await get_config()), parser: 'html'});
+
+	return f;
 }
 
 /**
  * @param {string} content
  */
 export async function format_ts(content) {
-	return await prettier.format(content, {...(await get_config()), parser: 'typescript'});
+	let f = cache.get(content);
+
+	if (f) return f;
+
+	f = await prettier.format(content, {...(await get_config()), parser: 'typescript'});
+
+	return f;
 }
