@@ -1,76 +1,76 @@
 {
-	"name": "@untitled-theme/icons-react",
-	"type": "module",
-	"version": "0.1.8",
-	"license": "MIT",
-	"description": "Untitled UI Icons for React",
-	"keywords": [
-		"svg",
-		"icon",
-		"icons",
-		"react",
-		"untitled ui",
-		"component library"
-	],
-	"repository": "https://github.com/calvo-jp/untitled-theme",
-	"bugs": {
-		"url": "https://github.com/calvo-jp/untitled-theme/issues"
-	},
-	"main": "dist/index.js",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.js"
-		},
-		"./*": {
-			"types": "./dist/*.d.ts",
-			"import": "./dist/*.js"
-		},
-		"./package.json": {
-			"default": "./package.json"
-		}
-	},
-	"files": [
-		"dist"
-	],
-	"publishConfig": {
-		"access": "public"
-	},
-	"scripts": {
-		"build": "vite build",
-		"prebuild": "pnpm --filter @untitled-theme/scripts run generate:icons -f react",
-		"release": "release-it"
-	},
-	"devDependencies": {
-		"@tsconfig/vite-react": "3.0.0",
-		"@types/react": "18.2.58",
-		"react": "18.2.0",
-		"release-it": "17.1.1",
-		"typescript": "5.3.3",
-		"vite": "5.1.4",
-		"vite-plugin-dts": "3.7.3"
-	},
-	"peerDependencies": {
-		"@types/react": ">=18.0.0",
-		"react": ">=18.0.0"
-	},
-	"peerDependenciesMeta": {
-		"@types/react": {
-			"optional": true
-		}
-	},
-	"release-it": {
-		"hooks": {
-			"after:bump": [
-				"pnpm build"
-			]
-		},
-		"git": {
-			"commitMessage": "chore: release ${npm.name} v${version}",
-			"tagName": "${npm.name}@${version}"
-		},
-		"github": {
-			"release": false
-		}
-	}
+  "name": "@untitled-theme/icons-react",
+  "type": "module",
+  "version": "0.1.8",
+  "license": "MIT",
+  "description": "Untitled UI Icons for React",
+  "keywords": [
+    "svg",
+    "icon",
+    "icons",
+    "react",
+    "untitled ui",
+    "component library"
+  ],
+  "repository": "https://github.com/calvo-jp/untitled-theme",
+  "bugs": {
+    "url": "https://github.com/calvo-jp/untitled-theme/issues"
+  },
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "vite build",
+    "prebuild": "pnpm --filter @untitled-theme/scripts run generate:icons -f react",
+    "release": "release-it"
+  },
+  "devDependencies": {
+    "@tsconfig/vite-react": "3.0.0",
+    "@types/react": "18.2.58",
+    "react": "18.2.0",
+    "release-it": "17.1.1",
+    "typescript": "5.3.3",
+    "vite": "5.1.4",
+    "vite-plugin-dts": "3.7.3"
+  },
+  "peerDependencies": {
+    "@types/react": ">=18.0.0",
+    "react": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  },
+  "release-it": {
+    "hooks": {
+      "after:bump": [
+        "pnpm build"
+      ]
+    },
+    "git": {
+      "commitMessage": "chore: release ${npm.name} v${version}",
+      "tagName": "${npm.name}@${version}"
+    },
+    "github": {
+      "release": false
+    }
+  }
 }

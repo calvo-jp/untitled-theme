@@ -7,15 +7,15 @@ const cache = create_lru_cache(1000);
  * @param {string} subject
  */
 export function dash_to_pascal(subject) {
-	let v = cache.get(subject);
+  let v = cache.get(subject);
 
-	if (v) return v;
+  if (v) return v;
 
-	v = subject
-		.split(/-/g)
-		.map((word) => word[0].toUpperCase() + word.substring(1))
-		.join('');
+  v = subject
+    .split(/-/g)
+    .map((word) => word[0].toUpperCase() + word.substring(1))
+    .join('');
 
-	cache.set(subject, v);
-	return v;
+  cache.set(subject, v);
+  return v;
 }

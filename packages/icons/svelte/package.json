@@ -1,71 +1,71 @@
 {
-	"name": "@untitled-theme/icons-svelte",
-	"type": "module",
-	"version": "0.1.8",
-	"license": "MIT",
-	"description": "Untitled UI Icons for Svelte",
-	"keywords": [
-		"svg",
-		"icon",
-		"icons",
-		"svelte",
-		"untitled ui",
-		"component library"
-	],
-	"repository": "https://github.com/calvo-jp/untitled-theme",
-	"bugs": {
-		"url": "https://github.com/calvo-jp/untitled-theme/issues"
-	},
-	"main": "dist/index.js",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js"
-		},
-		"./*": {
-			"types": "./dist/*.svelte.d.ts",
-			"svelte": "./dist/*.svelte"
-		},
-		"./package.json": {
-			"default": "./package.json"
-		}
-	},
-	"files": [
-		"dist"
-	],
-	"publishConfig": {
-		"access": "public"
-	},
-	"scripts": {
-		"prebuild": "pnpm --filter @untitled-theme/scripts run generate:icons -f svelte",
-		"build": "svelte-package --input ./src",
-		"release": "release-it"
-	},
-	"devDependencies": {
-		"@sveltejs/package": "2.2.7",
-		"@sveltejs/vite-plugin-svelte": "3.0.2",
-		"@tsconfig/svelte": "5.0.2",
-		"release-it": "17.1.1",
-		"svelte": "5.0.0-next.68",
-		"svelte-preprocess": "5.1.3",
-		"typescript": "5.3.3",
-		"vite": "5.1.4"
-	},
-	"peerDependencies": {
-		"svelte": ">=5.0.0"
-	},
-	"release-it": {
-		"hooks": {
-			"after:bump": [
-				"pnpm build"
-			]
-		},
-		"git": {
-			"commitMessage": "chore: release ${npm.name} v${version}",
-			"tagName": "${npm.name}@${version}"
-		},
-		"github": {
-			"release": false
-		}
-	}
+  "name": "@untitled-theme/icons-svelte",
+  "type": "module",
+  "version": "0.1.8",
+  "license": "MIT",
+  "description": "Untitled UI Icons for Svelte",
+  "keywords": [
+    "svg",
+    "icon",
+    "icons",
+    "svelte",
+    "untitled ui",
+    "component library"
+  ],
+  "repository": "https://github.com/calvo-jp/untitled-theme",
+  "bugs": {
+    "url": "https://github.com/calvo-jp/untitled-theme/issues"
+  },
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.svelte.d.ts",
+      "svelte": "./dist/*.svelte"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prebuild": "pnpm --filter @untitled-theme/scripts run generate:icons -f svelte",
+    "build": "svelte-package --input ./src",
+    "release": "release-it"
+  },
+  "devDependencies": {
+    "@sveltejs/package": "2.2.7",
+    "@sveltejs/vite-plugin-svelte": "3.0.2",
+    "@tsconfig/svelte": "5.0.2",
+    "release-it": "17.1.1",
+    "svelte": "5.0.0-next.68",
+    "svelte-preprocess": "5.1.3",
+    "typescript": "5.3.3",
+    "vite": "5.1.4"
+  },
+  "peerDependencies": {
+    "svelte": ">=5.0.0"
+  },
+  "release-it": {
+    "hooks": {
+      "after:bump": [
+        "pnpm build"
+      ]
+    },
+    "git": {
+      "commitMessage": "chore: release ${npm.name} v${version}",
+      "tagName": "${npm.name}@${version}"
+    },
+    "github": {
+      "release": false
+    }
+  }
 }

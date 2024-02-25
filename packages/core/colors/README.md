@@ -34,12 +34,12 @@ import colors from '@untitled-theme/colors/panda';
 import {defineConfig} from '@pandacss/dev';
 
 export const config = defineConfig({
-	theme: {
-		extend: {
-			tokens: {
-				colors,
-			},
-		},
-	},
+  theme: {
+    extend: {
+      tokens: {
+        colors,
+      },
+    },
+  },
 });
 ```

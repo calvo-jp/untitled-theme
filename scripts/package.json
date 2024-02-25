@@ -1,20 +1,20 @@
 {
-	"name": "@untitled-theme/scripts",
-	"type": "module",
-	"private": true,
-	"scripts": {
-		"generate:icons": "node ./src/icons/generate-icons.mjs",
-		"typecheck": "tsc -p jsconfig.json"
-	},
-	"dependencies": {
-		"@clack/prompts": "0.7.0",
-		"@tsconfig/recommended": "1.0.3",
-		"@types/node": "20.11.20",
-		"@types/yargs": "17.0.32",
-		"prettier": "3.2.5",
-		"svg64": "2.0.0",
-		"svgson": "5.3.1",
-		"typescript": "5.3.3",
-		"yargs": "17.7.2"
-	}
+  "name": "@untitled-theme/scripts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "generate:icons": "node ./src/icons/generate-icons.mjs",
+    "typecheck": "tsc -p jsconfig.json"
+  },
+  "dependencies": {
+    "@clack/prompts": "0.7.0",
+    "@tsconfig/recommended": "1.0.3",
+    "@types/node": "20.11.20",
+    "@types/yargs": "17.0.32",
+    "prettier": "3.2.5",
+    "svg64": "2.0.0",
+    "svgson": "5.3.1",
+    "typescript": "5.3.3",
+    "yargs": "17.7.2"
+  }
 }

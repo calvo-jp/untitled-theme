@@ -1,14 +1,14 @@
 {
-	"name": "@untitled-theme/root",
-	"private": true,
-	"scripts": {
-		"scripts": "pnpm --filter @untitled-theme/scripts",
-		"colors": "pnpm --filter @untitled-theme/colors",
-		"icons-react": "pnpm --filter @untitled-theme/icons-react",
-		"icons-svelte": "pnpm --filter @untitled-theme/icons-svelte"
-	},
-	"devDependencies": {
-		"prettier": "3.2.5"
-	},
-	"packageManager": "pnpm@8.15.4"
+  "name": "@untitled-theme/root",
+  "private": true,
+  "scripts": {
+    "scripts": "pnpm --filter @untitled-theme/scripts",
+    "colors": "pnpm --filter @untitled-theme/colors",
+    "icons-react": "pnpm --filter @untitled-theme/icons-react",
+    "icons-svelte": "pnpm --filter @untitled-theme/icons-svelte"
+  },
+  "devDependencies": {
+    "prettier": "3.2.5"
+  },
+  "packageManager": "pnpm@8.15.4"
 }

@@ -14,7 +14,7 @@ npm install @untitled-theme/icons-react
 import {Rocket01Icon} from '@untitled-theme/icons-react';
 
 function Component() {
-	return <Rocket01Icon />;
+  return <Rocket01Icon />;
 }
 ```
 
@@ -24,7 +24,7 @@ or
 import Rocket01Icon from '@untitled-theme/icons-react/rocket-01';
 
 function Component() {
-	return <Rocket01Icon />;
+  return <Rocket01Icon />;
 }
 ```
 
@@ -33,9 +33,9 @@ If you are using [Next.js](https://nextjs.org/), we recommend adding it to `opti
 ```js
 // next.config.js
 module.exports = {
-	experimental: {
-		optimizePackageImports: ['@untitled-theme/icons-react'],
-	},
+  experimental: {
+    optimizePackageImports: ['@untitled-theme/icons-react'],
+  },
 };
 ```
 

@@ -34,30 +34,30 @@ import {format_ts} from './format.mjs';
  * @param {BarrelItem[]} content
  */
 export async function create_barrel_file(directory, content) {
-	const c = content
-		.map((o) => {
-			if (o.exportAll) return `export ${typeOnly(o.type)} * from '${o.path}';`;
+  const c = content
+    .map((o) => {
+      if (o.exportAll) return `export ${typeOnly(o.type)} * from '${o.path}';`;
 
-			const m = o.modules
-				.map((mod) => {
-					return typeof mod === 'string'
-						? `${typeOnly(o.type)} ${mod}`
-						: mod.as
-							? `${typeOnly(mod.type)} ${mod.name} as ${mod.as}`
-							: `${typeOnly(mod.type)} ${mod.name}`;
-				})
-				.join();
+      const m = o.modules
+        .map((mod) => {
+          return typeof mod === 'string'
+            ? `${typeOnly(o.type)} ${mod}`
+            : mod.as
+              ? `${typeOnly(mod.type)} ${mod.name} as ${mod.as}`
+              : `${typeOnly(mod.type)} ${mod.name}`;
+        })
+        .join();
 
-			return `export ${typeOnly(o.type)} {${m}} from '${o.path}';`;
-		})
-		.join('\n');
+      return `export ${typeOnly(o.type)} {${m}} from '${o.path}';`;
+    })
+    .join('\n');
 
-	await fs.writeFile(path.join(directory, 'index.ts'), await format_ts(c), {encoding: 'utf-8'});
+  await fs.writeFile(path.join(directory, 'index.ts'), await format_ts(c), {encoding: 'utf-8'});
 }
 
 /**
  * @param {boolean} [guard]
  */
 function typeOnly(guard) {
-	return guard ? 'type' : '';
+  return guard ? 'type' : '';
 }
