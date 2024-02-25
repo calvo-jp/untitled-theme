@@ -46,7 +46,6 @@ export async function generate_icons_react() {
 
 /**
  * @param {import('./get-icons.mjs').Icon} icon
- * @returns {Promise<{name: string, content: string}>}
  */
 async function to_react_component(icon) {
 	const node = await svgson.parse(icon.content, {
