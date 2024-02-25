@@ -11,11 +11,35 @@ npm install @untitled-theme/colors
 ## Usage
 
 ```js
+// tailwind.config.ts
 import colors from '@untitled-theme/colors';
+import type {Config} from 'tailwindcss';
+
+const config: Config = {
+	theme: {
+		extend: {
+			colors,
+		},
+	},
+};
+
+export default config;
 ```
 
 for [Panda](https://panda-css.com/)
 
 ```js
+// panda.config.ts
 import colors from '@untitled-theme/colors/panda';
+import {defineConfig} from '@pandacss/dev';
+
+export const config = defineConfig({
+	theme: {
+		extend: {
+			tokens: {
+				colors,
+			},
+		},
+	},
+});
 ```
