@@ -16,11 +16,14 @@ import colors from '@untitled-theme/colors';
 import type {Config} from 'tailwindcss';
 
 const config: Config = {
-	theme: {
-		extend: {
-			colors,
-		},
-	},
+  theme: {
+    extend: {
+      colors,
+    },
+
+    // 👇🏽 or this, to remove tailwind's default colors and use only untitled ui's
+    colors,
+  },
 };
 
 export default config;
