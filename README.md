@@ -5,5 +5,5 @@
 ## Docs
 
 - [@untitled-theme/colors](/packages/core/colors/README.md)
-- [@untitled-theme/icons-react](/packages/icons-react/README.md)
-- [@untitled-theme/icons-svelte](/packages/icons-svelte/README.md)
+- [@untitled-theme/icons-react](/packages/icons/react/README.md)
+- [@untitled-theme/icons-svelte](/packages/icons/svelte/README.md)
