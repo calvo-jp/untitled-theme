@@ -2,6 +2,7 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": "always"
   },
+  "eslint.workingDirectories": ["website"],
   "files.associations": {
     "**/website/**/*.css": "tailwindcss"
   }
