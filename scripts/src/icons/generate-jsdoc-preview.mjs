@@ -17,8 +17,8 @@ export async function generate_jsdoc_preview(svg) {
   const p = await svgson.parse(svg, {
     transformNode(node) {
       if (node.name === 'svg') {
-        node.attributes['width'] = '32';
-        node.attributes['height'] = '32';
+        node.attributes['width'] = config.width;
+        node.attributes['height'] = config.height;
         node.attributes['viewBox'] = config.viewBox;
         node.children.unshift({
           name: 'rect',
@@ -26,7 +26,7 @@ export async function generate_jsdoc_preview(svg) {
           value: '',
           children: [],
           attributes: {
-            fill: '#f8fafc',
+            fill: '#f9fafb',
             width: '100%',
             height: '100%',
           },
@@ -40,7 +40,7 @@ export async function generate_jsdoc_preview(svg) {
   const s = svgson.stringify(p, {
     transformAttr(key, value, escape) {
       if (key === 'stroke') {
-        return `${key}="#334155"`;
+        return `${key}="#111827"`;
       } else if (key === 'stroke-width') {
         return `${key}="${config.strokeWidth}"`;
       } else {
