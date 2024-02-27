@@ -5,7 +5,7 @@ import {config} from './config.mjs';
 import {create_barrel_file} from './create-barrel-file.mjs';
 import {create_clean_dir} from './create-clean-dir.mjs';
 import {dash_to_pascal} from './dash-to-pascal.mjs';
-import {format_html} from './format.mjs';
+import {format_svelte} from './format.mjs';
 import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
 import {get_icons} from './get-icons.mjs';
 import {get_workspace_root} from './get-workspace-root.mjs';
@@ -22,7 +22,7 @@ export async function generate_icons_svelte() {
       const Component = await to_svelte_component(icon);
       const destination = path.join(outdir, `${icon.filename}.svelte`);
 
-      await fs.writeFile(destination, await format_html(Component.content), {encoding: 'utf-8'});
+      await fs.writeFile(destination, await format_svelte(Component.content), {encoding: 'utf-8'});
 
       /**
        * @type {import('./create-barrel-file.mjs').BarrelItem}
@@ -44,6 +44,8 @@ export async function generate_icons_svelte() {
   await create_barrel_file(outdir, items);
 }
 
+const REST = 'REST';
+
 /**
  * @param {import('./get-icons.mjs').Icon} icon
  */
@@ -51,11 +53,17 @@ async function to_svelte_component(icon) {
   const node = await svgson.parse(icon.content, {
     transformNode(node) {
       if (node.name === 'svg') {
-        node.attributes['rest'] = '';
-        node.attributes['width'] = config.width;
-        node.attributes['height'] = config.height;
-        node.attributes['viewBox'] = config.viewBox;
-        node.attributes['aria-hidden'] = config.ariaHidden;
+        return {
+          ...node,
+          attributes: {
+            width: config.width,
+            height: config.height,
+            viewBox: config.viewBox,
+            class: config.className,
+            'aria-hidden': config.ariaHidden,
+            [REST]: '',
+          },
+        };
       }
 
       return node;
@@ -65,12 +73,16 @@ async function to_svelte_component(icon) {
   const svelte_svg = svgson.stringify(node, {
     selfClose: true,
     transformAttr(key, value, esc) {
-      if (key === 'rest') {
+      if (key === REST) {
         return '{...props}';
       } else if (key === 'stroke') {
         return `${key}="${config.stroke}"`;
       } else if (key === 'stroke-width') {
         return `${key}="${config.strokeWidth}"`;
+      } else if (key === 'class') {
+        const classes = `${config.className} ${icon.filename}-icon`;
+
+        return `${key}="{('${classes} ' + className).trim()}"`;
       } else {
         return `${key}="${esc(value)}"`;
       }
@@ -104,7 +116,7 @@ function template(config) {
 		<script lang="ts">
 			import type {SVGAttributes} from 'svelte/elements';
 
-			let {...props} = $props<SVGAttributes<SVGSVGElement>>();  
+			let {class: className = '', ...props} = $props<SVGAttributes<SVGSVGElement>>();  
 		</script>
 
 		<!-- @component ${config.jsdoc} -->

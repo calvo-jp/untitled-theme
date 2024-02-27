@@ -44,6 +44,9 @@ export async function generate_icons_react() {
   await create_barrel_file(outdir, items);
 }
 
+const REF = 'REF';
+const REST = 'REST';
+
 /**
  * @param {import('./get-icons.mjs').Icon} icon
  */
@@ -52,12 +55,19 @@ async function to_react_component(icon) {
     camelcase: true,
     transformNode(node) {
       if (node.name === 'svg') {
-        node.attributes['ref'] = '';
-        node.attributes['rest'] = '';
-        node.attributes['width'] = config.width;
-        node.attributes['height'] = config.height;
-        node.attributes['viewBox'] = config.viewBox;
-        node.attributes['aria-hidden'] = config.ariaHidden;
+        return {
+          ...node,
+          attributes: {
+            [REF]: '',
+            ...node.attributes,
+            width: config.width,
+            height: config.height,
+            viewBox: config.viewBox,
+            className: config.className,
+            ['aria-hidden']: config.ariaHidden,
+            [REST]: '',
+          },
+        };
       }
 
       return node;
@@ -67,14 +77,18 @@ async function to_react_component(icon) {
   const react_svg = svgson.stringify(node, {
     selfClose: true,
     transformAttr(key, value, esc) {
-      if (key === 'ref') {
+      if (key === REF) {
         return 'ref={ref}';
-      } else if (key === 'rest') {
+      } else if (key === REST) {
         return '{...props}';
       } else if (key === 'stroke') {
         return `${key}="${config.stroke}"`;
       } else if (key === 'strokeWidth') {
         return `${key}="${config.strokeWidth}"`;
+      } else if (key === 'className') {
+        const classes = `${config.className} ${icon.filename}-icon`;
+
+        return `${key}={\`${classes} \${className}\`.trim()}`;
       } else {
         return `${key}="${esc(value)}"`;
       }
@@ -114,7 +128,7 @@ function template(config) {
 		/**
 		 * ${config.jsdoc}
 		 */
-		const ${config.name} = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => {
+		const ${config.name} = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(({className="", ...props}, ref) => {
 			return ${config.content};
 		});
 
