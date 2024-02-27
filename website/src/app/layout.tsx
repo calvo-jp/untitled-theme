@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 import {Fira_Code, Inter} from 'next/font/google';
 import {twMerge} from 'tailwind-merge';
 import './globals.css';
+import {Navbar} from './navbar';
 
 const sans = Inter({
   weight: ['400', '500', '600', '700'],
@@ -28,8 +29,9 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
       lang="en"
       className={twMerge(sans.variable, mono.variable, 'scroll-smooth lg:overflow-y-scroll')}
     >
-      <body className="font-sans bg-white text-gray-true-800 min-h-dvh">
-        <main className="max-w-screen-lg mx-auto p-12">{children}</main>
+      <body className="font-sans bg-white text-gray-true-700 min-h-dvh dark:text-gray-true-400 dark:bg-gray-true-900">
+        <Navbar />
+        <main className="max-w-screen-lg mx-auto p-12 pt-0 mt-10">{children}</main>
       </body>
     </html>
   );

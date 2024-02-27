@@ -1,4 +1,27 @@
 @tailwind base;
+
+@layer base {
+  *,
+  *::after,
+  *::before {
+    @apply border-gray-true-200 dark:border-gray-true-800;
+  }
+
+  input {
+    background-color: transparent;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html {
+      color-scheme: dark;
+    }
+  }
+}
+
 @tailwind components;
 @tailwind utilities;
 

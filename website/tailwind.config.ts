@@ -10,6 +10,12 @@ const config: Config = {
       sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
       mono: ['var(--font-mono)', ...defaultTheme.fontFamily.mono],
     },
+    extend: {
+      data: {
+        open: 'state="open"',
+        closed: 'state="closed"',
+      },
+    },
   },
   plugins: [],
 };
