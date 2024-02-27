@@ -1,5 +1,8 @@
 {
   "editor.codeActionsOnSave": {
     "source.organizeImports": "always"
+  },
+  "files.associations": {
+    "**/docs/**/*.css": "tailwindcss"
   }
 }
