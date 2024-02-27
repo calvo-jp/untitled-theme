@@ -5,4 +5,5 @@ export const config = {
   strokeWidth: '2',
   ariaHidden: 'true',
   viewBox: '0 0 24 24',
+  className: 'untitled-icon',
 };
