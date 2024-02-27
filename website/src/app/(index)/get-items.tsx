@@ -1,41 +1,9 @@
-import {SearchLgIcon} from '@untitled-theme/icons-react';
 import fs from 'fs/promises';
 import path from 'path';
 import * as svgson from 'svgson';
+import {Item} from './types';
 
-export default async function Landing() {
-  const items = await getItems();
-
-  return (
-    <div>
-      <div className="relative">
-        <input
-          placeholder="Search"
-          className="w-full px-4 py-2 h-12 border border-gray-true-200 rounded outline-none placeholder:text-gray-true-400"
-        />
-        <SearchLgIcon className="absolute pointer-events-none top-1/2 -translate-y-1/2 right-4 stroke-[1.5]" />
-      </div>
-
-      <div className="grid grid-cols-12 gap-2 mt-8">
-        {items.map((item) => {
-          return (
-            <button
-              key={item.name}
-              type="button"
-              dangerouslySetInnerHTML={{
-                __html: item.html,
-              }}
-              className="aspect-square border text-gray-true-700 border-gray-true-200 flex items-center justify-center p-2 rounded"
-              aria-label={item.name}
-            />
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-async function getItems() {
+export async function getItems() {
   const root = path.resolve(process.cwd(), '../assets/icons');
   const filenames = await fs.readdir(root, 'utf-8');
   const promises = filenames.map(async (filename) => {
@@ -70,7 +38,7 @@ async function getItems() {
     return {
       name,
       html,
-    };
+    } satisfies Item;
   });
 
   return await Promise.all(promises);

@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.untitled-icon [stroke-width] {
+  stroke-width: 1.5;
+}

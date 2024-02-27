@@ -24,7 +24,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   return (
-    <html lang="en" className={twMerge(sans.variable, mono.variable, 'scroll-smooth')}>
+    <html
+      lang="en"
+      className={twMerge(sans.variable, mono.variable, 'scroll-smooth lg:overflow-y-scroll')}
+    >
       <body className="font-sans bg-white text-gray-true-800 min-h-dvh">
         <main className="max-w-screen-lg mx-auto p-12">{children}</main>
       </body>

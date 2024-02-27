@@ -3,6 +3,6 @@
     "source.organizeImports": "always"
   },
   "files.associations": {
-    "**/docs/**/*.css": "tailwindcss"
+    "**/website/**/*.css": "tailwindcss"
   }
 }
