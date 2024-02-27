@@ -1,9 +1,10 @@
 import fs from 'fs/promises';
+import {unstable_cache as cache} from 'next/cache';
 import path from 'path';
 import * as svgson from 'svgson';
 import {Item} from './types';
 
-export async function getItems() {
+export const getItems = cache(async () => {
   const root = path.resolve(process.cwd(), '../assets/icons');
   const filenames = await fs.readdir(root, 'utf-8');
   const promises = filenames.map(async (filename) => {
@@ -42,7 +43,7 @@ export async function getItems() {
   });
 
   return await Promise.all(promises);
-}
+}, ['items']);
 
 function dashToPascal(value: string) {
   return value

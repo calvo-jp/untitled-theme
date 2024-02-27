@@ -5,5 +5,9 @@
   "eslint.workingDirectories": ["website"],
   "files.associations": {
     "**/website/**/*.css": "tailwindcss"
-  }
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["twJoin\\(([^)]*)\\)", "'([^']*)'"],
+    ["twMerge\\(([^)]*)\\)", "'([^']*)'"]
+  ]
 }

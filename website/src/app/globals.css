@@ -16,7 +16,7 @@
   html {
     color-scheme: light;
 
-    @apply scroll-smooth lg:overflow-y-scroll;
+    @apply scroll-smooth;
   }
 
   body {
