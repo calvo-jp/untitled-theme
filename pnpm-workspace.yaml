@@ -1,4 +1,4 @@
 packages:
   - scripts
   - packages/**
-  - docs
+  - website

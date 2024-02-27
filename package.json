@@ -6,7 +6,8 @@
     "colors": "pnpm --filter @untitled-theme/colors",
     "icons-react": "pnpm --filter @untitled-theme/icons-react",
     "icons-svelte": "pnpm --filter @untitled-theme/icons-svelte",
-    "typecheck": "pnpm --filter @untitled-theme/scripts --filter @untitled-theme/colors run typecheck"
+    "typecheck": "pnpm --filter @untitled-theme/scripts --filter @untitled-theme/colors run typecheck",
+    "website": "pnpm --filter @untitled-theme/website"
   },
   "devDependencies": {
     "prettier": "3.2.5"
