@@ -18,7 +18,7 @@ export function Searchbar() {
         onChange={(e) => context.setSearch(e.target.value)}
         placeholder="Search"
         className={twMerge(
-          'w-full pl-12 py-2 h-12 border rounded outline-none placeholder:text-gray-true-400 dark:placeholder:text-gray-true-500',
+          'w-full pl-12 py-2 h-12 border rounded outline-none',
           context.search ? 'pr-10' : 'pr-4',
         )}
       />

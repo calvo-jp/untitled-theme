@@ -7,12 +7,20 @@
     @apply border-gray-true-200 dark:border-gray-true-800;
   }
 
-  input {
-    background-color: transparent;
+  input,
+  select,
+  textarea {
+    @apply bg-white placeholder:!text-gray-true-400 placeholder:dark:!text-gray-true-500 dark:bg-gray-true-900;
   }
 
   html {
     color-scheme: light;
+
+    @apply scroll-smooth lg:overflow-y-scroll;
+  }
+
+  body {
+    @apply font-sans bg-white text-gray-true-700 min-h-dvh dark:text-gray-true-400 dark:bg-gray-true-900;
   }
 
   @media (prefers-color-scheme: dark) {

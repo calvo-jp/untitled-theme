@@ -25,13 +25,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   return (
-    <html
-      lang="en"
-      className={twMerge(sans.variable, mono.variable, 'scroll-smooth lg:overflow-y-scroll')}
-    >
-      <body className="font-sans bg-white text-gray-true-700 min-h-dvh dark:text-gray-true-400 dark:bg-gray-true-900">
+    <html lang="en" className={twMerge(sans.variable, mono.variable)}>
+      <body>
         <Navbar />
-        <main className="max-w-screen-lg mx-auto p-12 pt-0 mt-10">{children}</main>
+        <main className="max-w-screen-lg mx-auto p-4 md:p-8 lg:p-12">{children}</main>
       </body>
     </html>
   );

@@ -7,7 +7,7 @@ export function Gallery() {
   const context = useContext();
 
   return (
-    <div className="grid grid-cols-12 gap-2">
+    <div className="grid grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-2">
       {context.items.map((item) => {
         return (
           <button
