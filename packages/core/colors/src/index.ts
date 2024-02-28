@@ -423,6 +423,7 @@ const colors = {
     900: '#713B12',
     950: '#542C0D',
   },
+  transparent: 'transparent',
 } satisfies ColorPalette;
 
 export default colors;

@@ -9,6 +9,7 @@ const config: Config = {
     fontFamily: {
       sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
       mono: ['var(--font-mono)', ...defaultTheme.fontFamily.mono],
+      'open-sans': ['var(--font-open-sans)', ...defaultTheme.fontFamily.sans],
     },
     extend: {
       data: {

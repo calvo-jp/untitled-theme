@@ -32,7 +32,10 @@ export function Searchbar() {
           context.setSearch('');
           inputRef.current?.focus();
         }}
-        className="absolute right-4 top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out data-open:scale-100 data-open:opacity-100 data-closed:scale-0 data-closed:opacity-0"
+        className={twMerge(
+          'absolute right-4 top-1/2 -translate-y-1/2',
+          !context.search && 'hidden',
+        )}
       >
         <XCloseIcon className="h-5 w-5" />
         <span className="sr-only">Clear</span>

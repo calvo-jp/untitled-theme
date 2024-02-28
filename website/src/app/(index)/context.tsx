@@ -5,6 +5,7 @@ import {Item} from './types';
 
 interface T {
   items: Item[];
+  count: number;
   search: string;
   setSearch: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -31,10 +32,13 @@ export function Provider(props: React.PropsWithChildren<ProviderProps>) {
           .includes(search.toLowerCase().replace(/ /g, ''));
       });
 
+  const count = items.length;
+
   return (
     <Context.Provider
       value={{
         items,
+        count,
         search,
         setSearch,
       }}

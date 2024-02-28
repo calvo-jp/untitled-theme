@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ark-ui/react": "2.1.1",
+    "@ark-ui/react": "2.2.2",
     "@untitled-theme/colors": "workspace:*",
     "@untitled-theme/icons-react": "workspace:*",
     "next": "14.1.0",

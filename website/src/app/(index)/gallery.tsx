@@ -25,8 +25,8 @@ export function Gallery() {
             />
 
             <Tooltip.Positioner>
-              <Tooltip.Content className="fontMono rounded-lg bg-gray-true-100 px-4 py-3 font-mono text-sm text-gray-true-800 transition-opacity duration-300">
-                <Tooltip.Arrow className="[--arrow-background:theme(colors.gray-true[100])] [--arrow-size:theme(spacing.4)]">
+              <Tooltip.Content className="rounded-md bg-gray-true-50 px-2.5 py-2 font-mono text-xs text-gray-true-800 transition-opacity duration-300">
+                <Tooltip.Arrow className="[--arrow-background:theme(colors.gray-true[100])] [--arrow-size:theme(spacing.2)]">
                   <Tooltip.ArrowTip />
                 </Tooltip.Arrow>
 
