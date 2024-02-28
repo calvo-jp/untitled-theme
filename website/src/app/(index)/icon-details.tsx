@@ -1,9 +1,8 @@
 'use client';
 
+import {Syntax} from '@/components/syntax';
 import {Clipboard, Dialog, Tabs} from '@ark-ui/react';
 import {CheckIcon, Copy01Icon, XCloseIcon} from '@untitled-theme/icons-react';
-import {forwardRef, type ComponentProps} from 'react';
-import {twMerge} from 'tailwind-merge';
 import {usePageContext} from './page-context';
 
 export function IconDetails() {
@@ -19,9 +18,9 @@ export function IconDetails() {
       }}
       lazyMount
     >
-      <Dialog.Backdrop className="data-open:animate-fade-in data-closed:animate-fade-out fixed inset-0 z-overlay bg-white/25 backdrop-blur-sm dark:bg-gray-true-950/50" />
+      <Dialog.Backdrop className="fixed inset-0 z-overlay bg-white/25 backdrop-blur-sm data-open:animate-fade-in data-closed:animate-fade-out dark:bg-gray-true-950/50" />
       <Dialog.Positioner>
-        <Dialog.Content className="data-open:animate-slide-up data-closed:animate-slide-down fixed bottom-0 right-0 z-modal w-full border-t bg-white p-8 dark:bg-gray-true-950">
+        <Dialog.Content className="fixed bottom-0 right-0 z-modal w-full border-t bg-white p-8 data-open:animate-slide-up data-closed:animate-slide-down dark:bg-gray-true-950">
           <div>
             <div
               className="w-fit rounded border p-3"
@@ -60,11 +59,30 @@ export function IconDetails() {
                 ))}
               </Tabs.List>
 
-              {items.map((item) => (
-                <Tabs.Content key={item.value} value={item.value} asChild>
-                  <Snippet>{item.getContent()}</Snippet>
-                </Tabs.Content>
-              ))}
+              {items.map((item) => {
+                const content = item.getContent();
+
+                return (
+                  <Tabs.Content key={item.value} value={item.value} asChild>
+                    <div className="relative max-w-lg rounded-sm text-sm">
+                      <Clipboard.Root className="absolute right-5 top-5" value={content}>
+                        <Clipboard.Label className="sr-only">Copy</Clipboard.Label>
+                        <Clipboard.Trigger>
+                          <Clipboard.Indicator
+                            copied={
+                              <CheckIcon className="text-success-500 dark:text-success-700" />
+                            }
+                          >
+                            <Copy01Icon />
+                          </Clipboard.Indicator>
+                        </Clipboard.Trigger>
+                      </Clipboard.Root>
+
+                      <Syntax>{content}</Syntax>
+                    </div>
+                  </Tabs.Content>
+                );
+              })}
             </Tabs.Root>
           </div>
 
@@ -77,44 +95,10 @@ export function IconDetails() {
   );
 }
 
-const Snippet = forwardRef<HTMLDivElement, ComponentProps<'div'>>(
-  ({className, children, ...props}, ref) => {
-    if (!children) return <div ref={ref} {...props} />;
-
-    return (
-      <div
-        ref={ref}
-        className={twMerge(
-          'relative mt-5 max-w-lg rounded-sm bg-gray-true-100 p-5 text-sm dark:bg-gray-true-800/25',
-          className,
-        )}
-        {...props}
-      >
-        <Clipboard.Root className="absolute right-5 top-5" value={children?.toString()}>
-          <Clipboard.Label className="sr-only">Copy</Clipboard.Label>
-          <Clipboard.Trigger>
-            <Clipboard.Indicator
-              copied={<CheckIcon className="text-success-500 dark:text-success-700" />}
-            >
-              <Copy01Icon />
-            </Clipboard.Indicator>
-          </Clipboard.Trigger>
-        </Clipboard.Root>
-
-        <code>
-          <pre>{children}</pre>
-        </code>
-      </div>
-    );
-  },
-);
-
-Snippet.displayName = 'Snippet';
-
 const items = [
   {
     label: 'SVG',
-    value: 'svg',
+    value: 'html',
     getContent: () => `<svg
   width="24"
   height="24"

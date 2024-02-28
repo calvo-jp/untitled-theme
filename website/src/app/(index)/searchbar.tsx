@@ -2,13 +2,13 @@
 
 import {Presence} from '@ark-ui/react';
 import {SearchLgIcon, XCloseIcon} from '@untitled-theme/icons-react';
-import * as React from 'react';
+import {useRef} from 'react';
 import {twMerge} from 'tailwind-merge';
 import {usePageContext} from './page-context';
 
 export function Searchbar() {
   const context = usePageContext();
-  const inputRef = React.useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   return (
     <div className="relative">

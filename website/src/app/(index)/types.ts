@@ -1,5 +1,4 @@
-type Alias<T> = T & {_?: never};
-type Html = Alias<string>;
+import type {Html} from '../types';
 
 export interface Icon {
   displayName: string;
