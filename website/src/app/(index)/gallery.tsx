@@ -1,6 +1,7 @@
 'use client';
 
 import {Tooltip} from '@ark-ui/react';
+import {twMerge} from 'tailwind-merge';
 import {usePageContext} from './page-context';
 import type {Icon} from './types';
 
@@ -27,13 +28,19 @@ function GalleryItem({data}: {data: Icon}) {
         dangerouslySetInnerHTML={{
           __html: data.content,
         }}
-        className="flex aspect-square items-center justify-center rounded border border-gray-true-200 p-2 transition duration-200 hover:bg-gray-true-50 dark:border-gray-true-800 dark:hover:bg-gray-true-800/10"
+        className="flex aspect-square items-center justify-center rounded border p-2 transition duration-200 hover:bg-gray-true-50 dark:hover:bg-gray-true-800/10"
         aria-label={data.displayName}
       />
 
       <Tooltip.Positioner>
-        <Tooltip.Content className="data-open:animate-scalefade-in data-closed:animate-scalefade-out rounded-md bg-gray-true-50 px-2.5 py-2 font-mono text-xs text-gray-true-800 transition-opacity duration-300">
-          <Tooltip.Arrow className="[--arrow-background:theme(colors.gray-true[100])] [--arrow-size:theme(spacing.2)]">
+        <Tooltip.Content className="data-open:animate-scalefade-in data-closed:animate-scalefade-out rounded-md bg-gray-true-900 px-2.5 py-2 font-mono text-sm text-white dark:bg-gray-true-50 dark:text-gray-true-800">
+          <Tooltip.Arrow
+            className={twMerge(
+              '[--arrow-size:theme(spacing.2)]',
+              '[--arrow-background:theme(colors.gray-true[900])]',
+              'dark:[--arrow-background:theme(colors.gray-true[100])]',
+            )}
+          >
             <Tooltip.ArrowTip />
           </Tooltip.Arrow>
 
