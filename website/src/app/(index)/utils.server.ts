@@ -11,9 +11,7 @@ export const getIcons = cache(async () => {
   const promises = files.map<Promise<Icon>>(async (fileName) => {
     const parsedPath = path.parse(fileName);
     const displayName = dashToPascal(parsedPath.name) + 'Icon';
-
-    const fullPath = path.join(root, fileName);
-    const fileContent = await fs.readFile(fullPath, 'utf-8');
+    const fileContent = await fs.readFile(path.join(root, fileName), 'utf-8');
 
     const parsed = await svgson.parse(fileContent, {
       transformNode(node) {
@@ -38,10 +36,7 @@ export const getIcons = cache(async () => {
     return {
       displayName,
       content,
-      meta: {
-        fullPath,
-        fileName,
-      },
+      meta: {fileName},
     };
   });
 

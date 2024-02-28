@@ -6,6 +6,5 @@ export interface Icon {
   content: Html;
   meta: {
     fileName: string;
-    fullPath: string;
   };
 }

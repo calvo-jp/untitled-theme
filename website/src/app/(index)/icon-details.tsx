@@ -2,12 +2,14 @@
 
 import {Clipboard, Dialog, Tabs} from '@ark-ui/react';
 import {CheckIcon, Copy01Icon, XCloseIcon} from '@untitled-theme/icons-react';
-import type {ComponentProps} from 'react';
+import {forwardRef, type ComponentProps} from 'react';
 import {twMerge} from 'tailwind-merge';
 import {usePageContext} from './page-context';
 
 export function IconDetails() {
   const context = usePageContext();
+
+  if (!context.inspectionSubject) return null;
 
   return (
     <Dialog.Root
@@ -20,9 +22,9 @@ export function IconDetails() {
       lazyMount
       unmountOnExit
     >
-      <Dialog.Backdrop className="fixed inset-0 z-overlay bg-gray-true-950/50 backdrop-blur-sm" />
+      <Dialog.Backdrop className="fixed inset-0 z-overlay bg-white/25 backdrop-blur-sm dark:bg-gray-true-950/50" />
       <Dialog.Positioner>
-        <Dialog.Content className="absolute bottom-0 right-0 z-modal w-full border-t bg-gray-true-950 p-8">
+        <Dialog.Content className="fixed bottom-0 right-0 z-modal w-full border-t bg-white p-8 dark:bg-gray-true-950">
           <div>
             <div
               className="w-fit rounded border p-3"
@@ -31,13 +33,17 @@ export function IconDetails() {
               }}
             />
 
-            <div className="mt-5 flex w-fit items-center gap-5 rounded-sm bg-gray-true-800/25 px-3 py-2">
+            <div className="mt-5 flex w-fit items-center gap-5 rounded-sm bg-gray-true-100 px-3 py-2 dark:bg-gray-true-800/25">
               <code>&lt;{context.inspectionSubject?.displayName ?? ''}&nbsp;&#47;&gt;</code>
 
               <Clipboard.Root className="flex">
                 <Clipboard.Label className="sr-only">Copy</Clipboard.Label>
                 <Clipboard.Trigger>
-                  <Clipboard.Indicator copied={<CheckIcon className="h-4 w-4 text-success-700" />}>
+                  <Clipboard.Indicator
+                    copied={
+                      <CheckIcon className="h-4 w-4 text-success-500 dark:text-success-700" />
+                    }
+                  >
                     <Copy01Icon className="h-4 w-4" />
                   </Clipboard.Indicator>
                 </Clipboard.Trigger>
@@ -50,7 +56,7 @@ export function IconDetails() {
                   <Tabs.Trigger
                     key={item.value}
                     value={item.value}
-                    className="data-selected:text-brand-500 transition-colors duration-300"
+                    className="transition-colors duration-300 data-selected:text-brand-700 dark:data-selected:text-brand-500"
                   >
                     {item.label}
                   </Tabs.Trigger>
@@ -65,7 +71,7 @@ export function IconDetails() {
             </Tabs.Root>
           </div>
 
-          <Dialog.CloseTrigger className="absolute right-3 top-3 rounded-full bg-gray-true-800/25 p-2">
+          <Dialog.CloseTrigger className="absolute right-4 top-4 rounded-full bg-gray-true-100 p-2 dark:bg-gray-true-800/25">
             <XCloseIcon />
           </Dialog.CloseTrigger>
         </Dialog.Content>
@@ -74,30 +80,37 @@ export function IconDetails() {
   );
 }
 
-function Snippet({className, children, ...props}: ComponentProps<'div'>) {
-  return (
-    <div
-      className={twMerge(
-        'relative mt-5 max-w-lg rounded-sm bg-gray-true-800/25 p-5 text-sm',
-        className,
-      )}
-      {...props}
-    >
-      <Clipboard.Root className="absolute right-5 top-5" value={children?.toString()}>
-        <Clipboard.Label className="sr-only">Copy</Clipboard.Label>
-        <Clipboard.Trigger>
-          <Clipboard.Indicator copied={<CheckIcon className="text-success-700" />}>
-            <Copy01Icon />
-          </Clipboard.Indicator>
-        </Clipboard.Trigger>
-      </Clipboard.Root>
+const Snippet = forwardRef<HTMLDivElement, ComponentProps<'div'>>(
+  ({className, children, ...props}, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={twMerge(
+          'relative mt-5 max-w-lg rounded-sm bg-gray-true-100 p-5 text-sm dark:bg-gray-true-800/25',
+          className,
+        )}
+        {...props}
+      >
+        <Clipboard.Root className="absolute right-5 top-5" value={children?.toString()}>
+          <Clipboard.Label className="sr-only">Copy</Clipboard.Label>
+          <Clipboard.Trigger>
+            <Clipboard.Indicator
+              copied={<CheckIcon className="text-success-500 dark:text-success-700" />}
+            >
+              <Copy01Icon />
+            </Clipboard.Indicator>
+          </Clipboard.Trigger>
+        </Clipboard.Root>
 
-      <code>
-        <pre>{children}</pre>
-      </code>
-    </div>
-  );
-}
+        <code>
+          <pre>{children}</pre>
+        </code>
+      </div>
+    );
+  },
+);
+
+Snippet.displayName = 'Snippet';
 
 const items = [
   {
