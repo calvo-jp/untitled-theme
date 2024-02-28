@@ -50,7 +50,7 @@ export function ThemePicker() {
                 <ark.svg asChild className="h-4 w-4">
                   {icon}
                 </ark.svg>
-                <ark.span>{label}</ark.span>
+                <span>{label}</span>
               </Select.ItemText>
               <Select.ItemIndicator>
                 <CheckIcon className="h-4 w-4 text-success-500 dark:text-success-300" />

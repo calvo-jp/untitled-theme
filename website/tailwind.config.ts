@@ -30,6 +30,7 @@ const config: Config = {
       data: {
         open: 'state="open"',
         closed: 'state="closed"',
+        selected: 'selected',
         highlighted: 'highlighted',
       },
     },

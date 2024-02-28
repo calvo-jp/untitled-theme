@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import {unstable_cache as cache} from 'next/cache';
 import path from 'path';
 import * as svgson from 'svgson';
-import {Icon} from './types';
+import type {Icon} from './types';
 
 export const getIcons = cache(async () => {
   const root = path.resolve(process.cwd(), '../assets/icons');
@@ -10,7 +10,7 @@ export const getIcons = cache(async () => {
 
   const promises = files.map<Promise<Icon>>(async (fileName) => {
     const parsedPath = path.parse(fileName);
-    const displayName = dashToPascal(parsedPath.name);
+    const displayName = dashToPascal(parsedPath.name) + 'Icon';
 
     const fullPath = path.join(root, fileName);
     const fileContent = await fs.readFile(fullPath, 'utf-8');

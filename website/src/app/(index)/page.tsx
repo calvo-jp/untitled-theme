@@ -13,7 +13,6 @@ export default async function Landing() {
         <Total />
         <Gallery />
       </div>
-
       <IconDetails />
     </PageProvider>
   );
