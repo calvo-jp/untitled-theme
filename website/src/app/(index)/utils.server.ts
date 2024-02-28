@@ -2,15 +2,20 @@ import fs from 'fs/promises';
 import {unstable_cache as cache} from 'next/cache';
 import path from 'path';
 import * as svgson from 'svgson';
-import {Item} from './types';
+import {Icon} from './types';
 
-export const getItems = cache(async () => {
+export const getIcons = cache(async () => {
   const root = path.resolve(process.cwd(), '../assets/icons');
-  const filenames = await fs.readdir(root, 'utf-8');
-  const promises = filenames.map(async (filename) => {
-    const name = dashToPascal(path.parse(filename).name);
-    const content = await fs.readFile(path.join(root, filename), 'utf-8');
-    const parsed = await svgson.parse(content, {
+  const files = await fs.readdir(root, 'utf-8');
+
+  const promises = files.map<Promise<Icon>>(async (fileName) => {
+    const parsedPath = path.parse(fileName);
+    const displayName = dashToPascal(parsedPath.name);
+
+    const fullPath = path.join(root, fileName);
+    const fileContent = await fs.readFile(fullPath, 'utf-8');
+
+    const parsed = await svgson.parse(fileContent, {
       transformNode(node) {
         if (node.name === 'svg') {
           node.attributes['width'] = '32';
@@ -21,25 +26,23 @@ export const getItems = cache(async () => {
       },
     });
 
-    const html = svgson.stringify(parsed, {
+    const content = svgson.stringify(parsed, {
       selfClose: true,
       transformAttr(key, value, escape) {
-        if (key === 'stroke') {
-          return `${key}="currentColor"`;
-        }
-
-        if (key === 'stroke-width') {
-          return `${key}="1.5"`;
-        }
-
+        if (key === 'stroke') return `${key}="currentColor"`;
+        if (key === 'stroke-width') return `${key}="1.5"`;
         return `${key}="${escape(value)}"`;
       },
     });
 
     return {
-      name,
-      html,
-    } satisfies Item;
+      displayName,
+      content,
+      meta: {
+        fullPath,
+        fileName,
+      },
+    };
   });
 
   return await Promise.all(promises);

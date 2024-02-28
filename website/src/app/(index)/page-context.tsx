@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import {Item} from './types';
+import type {Icon} from './types';
 
 export const PageContext = React.createContext(undefined as unknown as UsePageReturn);
 export const usePageContext = () => React.useContext(PageContext);
@@ -10,7 +10,7 @@ export const PageProvider = (props: React.PropsWithChildren<UsePageProps>) => (
 );
 
 interface UsePageProps {
-  items?: Item[];
+  items?: Icon[];
 }
 
 type UsePageReturn = ReturnType<typeof usePage>;
@@ -24,20 +24,20 @@ function usePage(props: UsePageProps) {
 
   search.stop = () => setSearchKeyword('');
 
-  const items = !props.items
+  const icons = !props.items
     ? []
     : props.items.filter((item) => {
-        return item.name
+        return item.displayName
           .toLowerCase()
           .replace(/ /g, '')
           .includes(searchKeyword.toLowerCase().replace(/ /g, ''));
       });
 
-  const itemsCount = items.length;
+  const iconsCount = icons.length;
 
-  const [inspectionSubject, setInspectionSubject] = React.useState<Item>();
+  const [inspectionSubject, setInspectionSubject] = React.useState<Icon>();
 
-  const inspect = (item: Item) => {
+  const inspect = (item: Icon) => {
     setInspectionSubject(item);
   };
 
@@ -46,8 +46,8 @@ function usePage(props: UsePageProps) {
   };
 
   return {
-    items,
-    itemsCount,
+    icons,
+    iconsCount,
     search,
     searchKeyword,
     inspect,

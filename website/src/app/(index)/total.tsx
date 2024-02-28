@@ -7,12 +7,12 @@ export function Total() {
 
   let s: string[] = [];
 
-  if (context.itemsCount === 0) {
+  if (context.iconsCount === 0) {
     s.push('No icons found');
-  } else if (context.itemsCount === 1) {
+  } else if (context.iconsCount === 1) {
     s.push('1 icon found');
   } else {
-    s.push(`${context.itemsCount} icons found`);
+    s.push(`${context.iconsCount} icons found`);
   }
 
   if (context.searchKeyword) {

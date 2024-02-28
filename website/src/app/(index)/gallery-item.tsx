@@ -1,8 +1,8 @@
 import {Tooltip} from '@ark-ui/react';
 import {usePageContext} from './page-context';
-import {Item} from './types';
+import {Icon} from './types';
 
-export function GalleryItem({data}: {data: Item}) {
+export function GalleryItem({data}: {data: Icon}) {
   const context = usePageContext();
 
   return (
@@ -11,10 +11,10 @@ export function GalleryItem({data}: {data: Item}) {
         type="button"
         onClick={() => context.inspect(data)}
         dangerouslySetInnerHTML={{
-          __html: data.html,
+          __html: data.content,
         }}
         className="flex aspect-square items-center justify-center rounded border border-gray-true-200 p-2 transition duration-200 hover:bg-gray-true-50 dark:border-gray-true-800 dark:hover:bg-gray-true-800/10"
-        aria-label={data.name}
+        aria-label={data.displayName}
       />
 
       <Tooltip.Positioner>
@@ -23,7 +23,7 @@ export function GalleryItem({data}: {data: Item}) {
             <Tooltip.ArrowTip />
           </Tooltip.Arrow>
 
-          {data.name}
+          {data.displayName}
         </Tooltip.Content>
       </Tooltip.Positioner>
     </Tooltip.Root>
