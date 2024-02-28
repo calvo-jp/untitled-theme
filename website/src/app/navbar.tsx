@@ -1,4 +1,4 @@
-import {Theme} from './theme';
+import {ThemePicker} from './theme-picker';
 
 export function Navbar() {
   return (
@@ -15,7 +15,7 @@ export function Navbar() {
 
       <div className="grow" />
 
-      <Theme />
+      <ThemePicker />
     </header>
   );
 }

@@ -3,24 +3,24 @@
 import {SearchLgIcon, XCloseIcon} from '@untitled-theme/icons-react';
 import * as React from 'react';
 import {twMerge} from 'tailwind-merge';
-import {useContext} from './context';
+import {usePageContext} from './page-context';
 
 export function Searchbar() {
-  const context = useContext();
+  const context = usePageContext();
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   return (
     <div className="relative">
       <input
         ref={inputRef}
-        value={context.search}
+        value={context.searchKeyword}
         onChange={(e) => {
-          context.setSearch(e.target.value);
+          context.search(e.target.value);
         }}
         placeholder="Search"
         className={twMerge(
           'h-12 w-full rounded border py-2 pl-12 outline-none',
-          context.search ? 'pr-10' : 'pr-4',
+          context.searchKeyword ? 'pr-10' : 'pr-4',
         )}
       />
 
@@ -29,7 +29,7 @@ export function Searchbar() {
       <button
         type="button"
         onClick={() => {
-          context.setSearch('');
+          context.search.stop();
           inputRef.current?.focus();
         }}
         className={twMerge(

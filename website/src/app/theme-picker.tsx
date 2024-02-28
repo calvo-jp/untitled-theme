@@ -1,11 +1,11 @@
 'use client';
 
-import {useMounted} from '@/lib/use-mounted';
 import {Select, ark} from '@ark-ui/react';
 import {CheckIcon, CloudMoonIcon, CloudSun02Icon, Monitor01Icon} from '@untitled-theme/icons-react';
 import {useTheme} from 'next-themes';
+import {useEffect, useState} from 'react';
 
-export function Theme() {
+export function ThemePicker() {
   const theme = useTheme();
   const mounted = useMounted();
 
@@ -19,7 +19,6 @@ export function Theme() {
       value={[selected.value]}
       onValueChange={(o) => {
         theme.setTheme(o.value[0]);
-        console.log(o);
       }}
       lazyMount
       unmountOnExit
@@ -35,7 +34,7 @@ export function Theme() {
         </Select.Trigger>
       </Select.Control>
 
-      <Select.Positioner className="z-modal">
+      <Select.Positioner className="z-dropdown">
         <Select.Content className="rounded border bg-white p-2 dark:bg-gray-true-900">
           {themes.map(({icon, label, value}) => (
             <Select.Item
@@ -45,7 +44,7 @@ export function Theme() {
                 label,
                 value,
               }}
-              className="flex w-36 cursor-default items-center gap-4 rounded px-2 py-1 data-highlighted:bg-gray-true-50 dark:data-highlighted:bg-gray-true-800/10"
+              className="flex w-32 cursor-default items-center gap-4 rounded px-2 py-1 data-highlighted:bg-gray-true-50 dark:data-highlighted:bg-gray-true-800/10"
             >
               <Select.ItemText className="flex grow items-center gap-2">
                 <ark.svg asChild className="h-4 w-4">
@@ -81,3 +80,13 @@ const themes = [
     value: 'dark',
   },
 ];
+
+function useMounted() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return mounted;
+}

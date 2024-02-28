@@ -1,22 +1,22 @@
 'use client';
 
-import {useContext} from './context';
+import {usePageContext} from './page-context';
 
 export function Total() {
-  const {count, search} = useContext();
+  const context = usePageContext();
 
   let s: string[] = [];
 
-  if (count === 0) {
+  if (context.itemsCount === 0) {
     s.push('No icons found');
-  } else if (count === 1) {
+  } else if (context.itemsCount === 1) {
     s.push('1 icon found');
   } else {
-    s.push(`${count} icons found`);
+    s.push(`${context.itemsCount} icons found`);
   }
 
-  if (search) {
-    s.push(`for <strong>'${search}'</strong>`);
+  if (context.searchKeyword) {
+    s.push(`for <strong>'${context.searchKeyword}'</strong>`);
   }
 
   return (
