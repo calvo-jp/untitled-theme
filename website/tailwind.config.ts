@@ -33,6 +33,42 @@ const config: Config = {
         selected: 'selected',
         highlighted: 'highlighted',
       },
+      keyframes: {
+        'fade-in': {
+          from: {opacity: '0'},
+          to: {opacity: '1'},
+        },
+        'fade-out': {
+          from: {opacity: '1'},
+          to: {opacity: '0'},
+        },
+        'slide-up': {
+          from: {transform: 'translateY(100%)'},
+          to: {transform: 'translateY(0%)'},
+        },
+        'slide-down': {
+          from: {transform: 'translateY(0%)'},
+          to: {transform: 'translateY(100%)'},
+        },
+        'scalefade-in': {
+          from: {transform: 'scale(0.5)', opacity: '0'},
+          to: {transform: 'scale(1)', opacity: '1'},
+        },
+        'scalefade-out': {
+          from: {transform: 'scale(1)', opacity: '1'},
+          to: {transform: 'scale(0.5)', opacity: '0'},
+        },
+      },
+      animation: {
+        'slide-up': 'slide-up 250ms ease-in-out',
+        'slide-down': 'slide-down 250ms ease-in-out',
+        'fade-in': 'fade-in 250ms ease-in-out',
+        'fade-out': 'fade-out 250ms ease-in-out',
+        'scale-in': 'scale-in 250ms ease-in-out',
+        'scale-out': 'scale-in 250ms ease-in-out',
+        'scalefade-in': 'scalefade-in 250ms ease-in-out',
+        'scalefade-out': 'scalefade-out 250ms ease-in-out',
+      },
     },
   },
   plugins: [],

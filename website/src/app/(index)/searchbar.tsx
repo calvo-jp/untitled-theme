@@ -1,5 +1,6 @@
 'use client';
 
+import {Presence} from '@ark-ui/react';
 import {SearchLgIcon, XCloseIcon} from '@untitled-theme/icons-react';
 import * as React from 'react';
 import {twMerge} from 'tailwind-merge';
@@ -26,20 +27,24 @@ export function Searchbar() {
 
       <SearchLgIcon className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-true-500 dark:text-gray-true-600" />
 
-      <button
-        type="button"
-        onClick={() => {
-          context.search.stop();
-          inputRef.current?.focus();
-        }}
-        className={twMerge(
-          'absolute right-4 top-1/2 -translate-y-1/2',
-          !context.search && 'hidden',
-        )}
+      <Presence
+        present={!!context.searchKeyword}
+        lazyMount
+        className="data-open:animate-scalefade-in data-closed:animate-scalefade-out"
+        asChild
       >
-        <XCloseIcon className="h-5 w-5" />
-        <span className="sr-only">Clear</span>
-      </button>
+        <button
+          type="button"
+          onClick={() => {
+            context.search.stop();
+            inputRef.current?.focus();
+          }}
+          className="absolute right-4 top-3.5 h-5 w-5"
+        >
+          <XCloseIcon className="h-5 w-5" />
+          <span className="sr-only">Clear</span>
+        </button>
+      </Presence>
     </div>
   );
 }

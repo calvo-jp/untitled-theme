@@ -35,7 +35,7 @@ export function ThemePicker() {
       </Select.Control>
 
       <Select.Positioner className="z-dropdown">
-        <Select.Content className="rounded border bg-white p-2 dark:bg-gray-true-900">
+        <Select.Content className="data-open:animate-fade-in data-closed:animate-fade-out rounded border bg-white p-2 dark:bg-gray-true-900">
           {themes.map(({icon, label, value}) => (
             <Select.Item
               key={value}

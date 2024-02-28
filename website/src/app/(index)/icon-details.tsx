@@ -9,8 +9,6 @@ import {usePageContext} from './page-context';
 export function IconDetails() {
   const context = usePageContext();
 
-  if (!context.inspectionSubject) return null;
-
   return (
     <Dialog.Root
       open={!!context.inspectionSubject}
@@ -20,11 +18,10 @@ export function IconDetails() {
         }
       }}
       lazyMount
-      unmountOnExit
     >
-      <Dialog.Backdrop className="fixed inset-0 z-overlay bg-white/25 backdrop-blur-sm dark:bg-gray-true-950/50" />
+      <Dialog.Backdrop className="data-open:animate-fade-in data-closed:animate-fade-out fixed inset-0 z-overlay bg-white/25 backdrop-blur-sm dark:bg-gray-true-950/50" />
       <Dialog.Positioner>
-        <Dialog.Content className="fixed bottom-0 right-0 z-modal w-full border-t bg-white p-8 dark:bg-gray-true-950">
+        <Dialog.Content className="data-open:animate-slide-up data-closed:animate-slide-down fixed bottom-0 right-0 z-modal w-full border-t bg-white p-8 dark:bg-gray-true-950">
           <div>
             <div
               className="w-fit rounded border p-3"
@@ -82,6 +79,8 @@ export function IconDetails() {
 
 const Snippet = forwardRef<HTMLDivElement, ComponentProps<'div'>>(
   ({className, children, ...props}, ref) => {
+    if (!children) return <div ref={ref} {...props} />;
+
     return (
       <div
         ref={ref}

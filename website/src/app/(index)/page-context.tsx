@@ -1,13 +1,26 @@
 'use client';
 
-import {createContext, useContext, useEffect, useState, type PropsWithChildren} from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type PropsWithChildren,
+} from 'react';
 import type {Icon} from './types';
 
 export const PageContext = createContext(undefined as unknown as UsePageReturn);
 export const usePageContext = () => useContext(PageContext);
-export const PageProvider = (props: PropsWithChildren<UsePageProps>) => (
-  <PageContext.Provider value={usePage(props)}>{props.children}</PageContext.Provider>
-);
+export const PageProvider = (props: PropsWithChildren<UsePageProps>) => {
+  const context = usePage(props);
+
+  return (
+    <PageContext.Provider value={useMemo(() => context, [context])}>
+      {props.children}
+    </PageContext.Provider>
+  );
+};
 
 interface UsePageProps {
   items?: Icon[];
@@ -20,14 +33,16 @@ function usePage(props: UsePageProps) {
   const search = (keyword: string) => setSearchKeyword(keyword);
   search.stop = () => setSearchKeyword('');
 
-  const icons = !props.items
-    ? []
-    : props.items.filter((item) => {
-        return item.displayName
-          .toLowerCase()
-          .replace(/ /g, '')
-          .includes(searchKeyword.toLowerCase().replace(/ /g, ''));
-      });
+  const icons = useMemo(() => {
+    if (!props.items) return [];
+
+    return props.items.filter((item) => {
+      return item.displayName
+        .toLowerCase()
+        .replace(/ /g, '')
+        .includes(searchKeyword.toLowerCase().replace(/ /g, ''));
+    });
+  }, [props.items, searchKeyword]);
 
   const iconsCount = icons.length;
 
@@ -36,7 +51,7 @@ function usePage(props: UsePageProps) {
   inspect.dismiss = () => setInspectionSubject(null);
 
   useEffect(() => {
-    return () => {
+    return function reset() {
       setSearchKeyword('');
       setInspectionSubject(null);
     };
