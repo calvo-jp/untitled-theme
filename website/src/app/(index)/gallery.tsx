@@ -10,7 +10,7 @@ export function Gallery() {
   const disclosure = useDisclosure();
 
   return (
-    <div className="grid grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-2">
+    <div className="grid grid-cols-6 gap-2 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12">
       {context.items.map((item) => {
         return (
           <Tooltip.Root key={item.name} lazyMount unmountOnExit openDelay={0}>
@@ -20,12 +20,12 @@ export function Gallery() {
               dangerouslySetInnerHTML={{
                 __html: item.html,
               }}
-              className="aspect-square border border-gray-true-200 flex items-center justify-center p-2 rounded dark:border-gray-true-800 hover:bg-gray-true-800/10 transition duration-200"
+              className="flex aspect-square items-center justify-center rounded border border-gray-true-200 p-2 transition duration-200 hover:bg-gray-true-800/10 dark:border-gray-true-800"
               aria-label={item.name}
             />
 
             <Tooltip.Positioner>
-              <Tooltip.Content className="bg-gray-true-100 text-gray-true-800 fontMono text-sm font-mono px-4 py-3 rounded-lg transition-opacity duration-300">
+              <Tooltip.Content className="fontMono rounded-lg bg-gray-true-100 px-4 py-3 font-mono text-sm text-gray-true-800 transition-opacity duration-300">
                 <Tooltip.Arrow className="[--arrow-background:theme(colors.gray-true[100])] [--arrow-size:theme(spacing.4)]">
                   <Tooltip.ArrowTip />
                 </Tooltip.Arrow>
@@ -51,7 +51,7 @@ export function Gallery() {
       >
         <Dialog.Backdrop className="fixed inset-0 bg-gray-true-800/10 backdrop-blur-sm" />
         <Dialog.Positioner>
-          <Dialog.Content className="absolute h-2/3 bg-gray-true-900 w-full bottom-0 right-0">
+          <Dialog.Content className="absolute bottom-0 right-0 h-2/3 w-full bg-gray-true-900">
             <Dialog.CloseTrigger>
               <XCloseIcon />
             </Dialog.CloseTrigger>

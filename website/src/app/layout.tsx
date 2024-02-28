@@ -28,7 +28,7 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
     <html lang="en" className={twMerge(sans.variable, mono.variable)}>
       <body>
         <Navbar />
-        <main className="max-w-screen-lg mx-auto p-4 md:p-8 lg:p-12">{children}</main>
+        <main className="mx-auto max-w-screen-lg p-4 md:p-8 lg:p-12">{children}</main>
       </body>
     </html>
   );
