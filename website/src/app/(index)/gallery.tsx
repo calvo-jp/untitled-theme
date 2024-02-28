@@ -13,14 +13,14 @@ export function Gallery() {
     <div className="grid grid-cols-6 gap-2 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12">
       {context.items.map((item) => {
         return (
-          <Tooltip.Root key={item.name} lazyMount unmountOnExit openDelay={0}>
+          <Tooltip.Root key={item.name} lazyMount unmountOnExit>
             <Tooltip.Trigger
               type="button"
               onClick={disclosure.onToggle}
               dangerouslySetInnerHTML={{
                 __html: item.html,
               }}
-              className="flex aspect-square items-center justify-center rounded border border-gray-true-200 p-2 transition duration-200 hover:bg-gray-true-800/10 dark:border-gray-true-800"
+              className="flex aspect-square items-center justify-center rounded border border-gray-true-200 p-2 transition duration-200 hover:bg-gray-true-50 dark:border-gray-true-800 dark:hover:bg-gray-true-800/10"
               aria-label={item.name}
             />
 
