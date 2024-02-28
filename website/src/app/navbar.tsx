@@ -1,8 +1,8 @@
-import {Moon01Icon} from '@untitled-theme/icons-react';
+import {Theme} from './theme';
 
 export function Navbar() {
   return (
-    <header className="flex items-center gap-2 border-b p-4">
+    <header className="z-sticky sticky top-0 flex items-center gap-2 border-b bg-gray-true-900/80 p-4 backdrop-blur-sm">
       <div className="flex items-center gap-3 rounded-sm bg-gray-true-700/10 px-3 py-2.5">
         <code className="flex items-center gap-1.5 text-xs">
           <span className="text-warning-500">pnpm</span>
@@ -13,11 +13,7 @@ export function Navbar() {
 
       <div className="grow" />
 
-      <div className="flex items-center">
-        <button className="rounded border p-1.5">
-          <Moon01Icon className="h-5 w-5" />
-        </button>
-      </div>
+      <Theme />
     </header>
   );
 }

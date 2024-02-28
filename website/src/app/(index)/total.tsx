@@ -5,25 +5,26 @@ import {useContext} from './context';
 export function Total() {
   const {count, search} = useContext();
 
+  let s: string[] = [];
+
+  if (count === 0) {
+    s.push('No icons found');
+  } else if (count === 1) {
+    s.push('1 icon found');
+  } else {
+    s.push(`${count} icons found`);
+  }
+
   if (search) {
-    return (
-      <div className="font-open-sans text-sm">
-        {count <= 0
-          ? `No icons matched for ${search}`
-          : count === 1
-            ? `Showing 1 match for ${search}`
-            : `Showing ${count} matches for ${search}`}
-      </div>
-    );
+    s.push(`for <strong>'${search}'</strong>`);
   }
 
   return (
-    <div className="font-open-sans text-sm">
-      {count <= 0
-        ? 'No records to show'
-        : count === 1
-          ? 'Showing 1 record'
-          : `Showing all ${count} records`}
-    </div>
+    <div
+      className="text-sm [&_strong]:font-semibold"
+      dangerouslySetInnerHTML={{
+        __html: s.join(' '),
+      }}
+    />
   );
 }
