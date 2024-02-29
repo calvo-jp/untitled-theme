@@ -55,12 +55,14 @@ export async function toReactComponent(icon: Icon) {
 		});
 
 		${icon.displayName}.displayName = '${icon.displayName}'
+
+    export default ${icon.displayName};
 	`;
 
   return await prettier.format(component, {
     parser: 'typescript',
     plugins: [prettierTsPlugin, prettierEsTreePlugin],
-    printWidth: 120,
+    printWidth: 80,
     bracketSpacing: false,
   });
 }
@@ -117,7 +119,7 @@ export async function toSvelteComponent(icon: Icon) {
   return await prettier.format(component, {
     parser: 'html',
     plugins: [prettierHtmlPlugin],
-    printWidth: 120,
+    printWidth: 80,
     bracketSpacing: false,
   });
 }
@@ -158,7 +160,7 @@ export async function toHtmlComponent(icon: Icon) {
   return await prettier.format(htmlSvg, {
     parser: 'html',
     plugins: [prettierHtmlPlugin],
-    printWidth: 120,
+    printWidth: 80,
     bracketSpacing: false,
   });
 }

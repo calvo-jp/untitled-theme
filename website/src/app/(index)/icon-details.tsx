@@ -65,10 +65,10 @@ export function IconDetails() {
               {items.map((item) => {
                 return (
                   <Tabs.Content key={item.value} value={item.value} asChild>
-                    <div className="relative mt-5 rounded-sm text-sm">
+                    <div className="relative mt-5 max-w-xl rounded-sm text-sm">
                       <Clipboard.Root
                         value={item.content}
-                        className="absolute right-px top-px rounded-bl-full bg-white/50 p-3 backdrop-blur-sm"
+                        className="absolute right-4 top-4 flex items-center justify-center rounded-lg bg-white/50 p-1 backdrop-blur-sm dark:bg-gray-true-950/50"
                       >
                         <Clipboard.Label className="sr-only">Copy</Clipboard.Label>
                         <Clipboard.Trigger>

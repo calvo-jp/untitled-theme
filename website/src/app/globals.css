@@ -27,6 +27,18 @@
 
   .shiki {
     @apply h-full overflow-auto rounded-sm border p-4;
+
+    &::-webkit-scrollbar {
+      @apply h-1 w-1;
+    }
+
+    &::-webkit-scrollbar-track {
+      @apply bg-gray-true-50 dark:bg-gray-true-800/25;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      @apply rounded-full bg-gray-true-300 dark:bg-gray-true-700/50;
+    }
   }
 
   .shiki,
