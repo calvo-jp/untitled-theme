@@ -28,4 +28,4 @@ or
 <Rocket01Icon />
 ```
 
-See all icons [here](<https://www.figma.com/file/19Vb14aAvbrJ96cErSsOTj/%E2%9D%96-Untitled-UI-Icons-%E2%80%93-1%2C100%2B-essential-Figma-icons-(Community)?type=design&node-id=181-128951&mode=design&t=OmzkoS7cQhGIdxr7-0>)
+See all icons [here](https://untitled-theme-docs.vercel.app)
