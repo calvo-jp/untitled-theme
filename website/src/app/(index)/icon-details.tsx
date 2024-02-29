@@ -113,17 +113,17 @@ function useItems() {
   return [
     {
       label: 'SVG',
-      value: 'html',
+      value: 'html' as const,
       content: htmlComponent,
     },
     {
       label: 'React',
-      value: 'tsx',
+      value: 'tsx' as const,
       content: reactComponent,
     },
     {
       label: 'Svelte',
-      value: 'svelte',
+      value: 'svelte' as const,
       content: svelteComponent,
     },
   ];

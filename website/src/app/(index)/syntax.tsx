@@ -2,14 +2,13 @@ import type {Assign} from '@/app/types';
 import {ark, type HTMLArkProps} from '@ark-ui/react';
 import {forwardRef, useEffect, useState} from 'react';
 import {codeToHtml, type BundledLanguage} from 'shiki';
-import {twMerge} from 'tailwind-merge';
 
 interface SyntaxProps extends Assign<HTMLArkProps<'div'>, {children: string}> {
-  language?: BundledLanguage | (string & {});
+  language: BundledLanguage;
 }
 
 export const Syntax = forwardRef<HTMLDivElement, SyntaxProps>(
-  ({children, language = 'html', className, ...props}, ref) => {
+  ({children, language, ...props}, ref) => {
     const [parsed, setParsed] = useState('');
 
     useEffect(() => {
@@ -22,22 +21,13 @@ export const Syntax = forwardRef<HTMLDivElement, SyntaxProps>(
       })
         .then(setParsed)
         .catch(console.error);
+
+      return () => {
+        setParsed('');
+      };
     }, [children, language]);
 
-    return (
-      <ark.div
-        ref={ref}
-        className={twMerge(
-          '[&_.shiki]:p-4',
-          '[&_.shiki]:border',
-          '[&_.shiki]:rounded-sm',
-          '[&_.shiki]:whitespace-pre-wrap',
-          className,
-        )}
-        dangerouslySetInnerHTML={{__html: parsed}}
-        {...props}
-      />
-    );
+    return <ark.div ref={ref} dangerouslySetInnerHTML={{__html: parsed}} {...props} />;
   },
 );
 
