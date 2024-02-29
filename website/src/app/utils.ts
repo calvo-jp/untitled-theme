@@ -42,13 +42,13 @@ export const getIcons = cache(
       };
     });
 
-    return await Promise.all(promises).then((array) => {
-      if (!search) return array;
+    const icons = await Promise.all(promises);
 
-      return array.filter((item) =>
-        item.name.toLowerCase().replace(/ /g, '').includes(search.toLowerCase().replace(/ /g, '')),
-      );
-    });
+    if (!search) return icons;
+
+    return icons.filter((icon) =>
+      icon.name.toLowerCase().replace(/ /g, '').includes(search.toLowerCase().replace(/ /g, '')),
+    );
   },
   ['icons'],
 );

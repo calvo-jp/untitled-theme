@@ -50,7 +50,7 @@ export default async function IconsPage({searchParams}: Props) {
               aria-label={icon.name}
               asChild
             >
-              <Link href={`/${icon.slug}`} />
+              <Link href={`/icons/${icon.slug}`} />
             </Tooltip.Trigger>
 
             <Tooltip.Positioner>

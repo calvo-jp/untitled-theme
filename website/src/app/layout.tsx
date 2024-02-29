@@ -1,6 +1,7 @@
 import {GeistMono} from 'geist/font/mono';
 import {GeistSans} from 'geist/font/sans';
 import type {Metadata} from 'next';
+import type {ReactNode} from 'react';
 import {twMerge} from 'tailwind-merge';
 import './globals.css';
 import {Navbar} from './navbar';
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
+export default function RootLayout(props: Readonly<{modal: ReactNode; children: ReactNode}>) {
   return (
     <html
       lang="en"
@@ -31,7 +32,9 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
       <body>
         <Providers>
           <Navbar />
-          <main className="mx-auto max-w-screen-lg p-4 md:p-8 lg:p-12">{children}</main>
+          <main className="mx-auto max-w-screen-lg p-4 md:p-8 lg:p-12">{props.children}</main>
+
+          {props.modal}
         </Providers>
       </body>
     </html>
