@@ -1,14 +1,14 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import svgson from 'svgson';
+import {dash_to_pascal} from '../utils/dash-to-pascal.mjs';
+import {format_ts} from '../utils/formatter.mjs';
+import {get_icons} from '../utils/get-icons.mjs';
+import {get_workspace_root} from '../utils/get-workspace-root.mjs';
 import {config} from './config.mjs';
 import {create_barrel_file} from './create-barrel-file.mjs';
 import {create_clean_dir} from './create-clean-dir.mjs';
-import {dash_to_pascal} from './dash-to-pascal.mjs';
-import {format_ts} from './format.mjs';
 import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
-import {get_icons} from './get-icons.mjs';
-import {get_workspace_root} from './get-workspace-root.mjs';
 
 const outdir = path.join(get_workspace_root(), 'packages/icons/react/src');
 
@@ -48,7 +48,7 @@ const REF = 'REF';
 const REST = 'REST';
 
 /**
- * @param {import('./get-icons.mjs').Icon} icon
+ * @param {import('../utils/get-icons.mjs').Icon} icon
  */
 async function to_react_component(icon) {
   const node = await svgson.parse(icon.content, {

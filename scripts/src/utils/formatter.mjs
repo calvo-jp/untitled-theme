@@ -50,3 +50,19 @@ export async function format_ts(content) {
   cache_1.set(content, v);
   return v;
 }
+
+/** @type {import('./create-lru-cache.mjs').LruCache<string, string>} */
+let cache_2 = create_lru_cache(1000);
+
+/**
+ * @param {string} content
+ */
+export async function format_json(content) {
+  let v = cache_2.get(content);
+
+  if (v) return v;
+
+  v = await prettier.format(content, {...(await get_config()), parser: 'json'});
+  cache_2.set(content, v);
+  return v;
+}

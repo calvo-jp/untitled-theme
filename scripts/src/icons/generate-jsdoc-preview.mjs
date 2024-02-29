@@ -1,9 +1,9 @@
 import svg64 from 'svg64';
 import svgson from 'svgson';
+import {create_lru_cache} from '../utils/create-lru-cache.mjs';
 import {config} from './config.mjs';
-import {create_lru_cache} from './create-lru-cache.mjs';
 
-/** @type {import('./create-lru-cache.mjs').LruCache<string,string>} */
+/** @type {import('../utils/create-lru-cache.mjs').LruCache<string,string>} */
 let cache = create_lru_cache(1000);
 
 /**

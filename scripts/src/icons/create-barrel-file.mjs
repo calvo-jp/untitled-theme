@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import {format_ts} from './format.mjs';
+import {format_ts} from '../utils/formatter.mjs';
 
 /**
  * @typedef {Object} Module

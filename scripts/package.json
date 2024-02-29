@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "generate:icons": "node ./src/icons/generate-icons.mjs",
+    "generate:database": "node ./src/website/generate-database.mjs",
     "typecheck": "tsc -p jsconfig.json"
   },
   "dependencies": {
