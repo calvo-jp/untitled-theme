@@ -66,15 +66,18 @@ export function IconDetails() {
                 return (
                   <Tabs.Content key={item.value} value={item.value} asChild>
                     <div className="relative mt-5 rounded-sm text-sm">
-                      <Clipboard.Root className="absolute right-5 top-5" value={item.content}>
+                      <Clipboard.Root
+                        value={item.content}
+                        className="absolute right-px top-px rounded-bl-full bg-white/50 p-3 backdrop-blur-sm"
+                      >
                         <Clipboard.Label className="sr-only">Copy</Clipboard.Label>
                         <Clipboard.Trigger>
                           <Clipboard.Indicator
                             copied={
-                              <CheckIcon className="text-success-500 dark:text-success-700" />
+                              <CheckIcon className="h-5 w-5 text-success-500 dark:text-success-700" />
                             }
                           >
-                            <Copy01Icon />
+                            <Copy01Icon className="h-5 w-5" />
                           </Clipboard.Indicator>
                         </Clipboard.Trigger>
                       </Clipboard.Root>
