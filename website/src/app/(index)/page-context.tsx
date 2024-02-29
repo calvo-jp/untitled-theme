@@ -1,5 +1,6 @@
 'use client';
 
+import {useDebounce} from '@/lib/use-debounce';
 import {
   createContext,
   useContext,
@@ -13,13 +14,7 @@ import type {Icon} from './types';
 export const PageContext = createContext(undefined as unknown as UsePageReturn);
 export const usePageContext = () => useContext(PageContext);
 export const PageProvider = (props: PropsWithChildren<UsePageProps>) => {
-  const context = usePage(props);
-
-  return (
-    <PageContext.Provider value={useMemo(() => context, [context])}>
-      {props.children}
-    </PageContext.Provider>
-  );
+  return <PageContext.Provider value={usePage(props)}>{props.children}</PageContext.Provider>;
 };
 
 interface UsePageProps {
@@ -30,6 +25,7 @@ type UsePageReturn = ReturnType<typeof usePage>;
 
 function usePage(props: UsePageProps) {
   const [searchKeyword, setSearchKeyword] = useState('');
+  const debouncedKeyword = useDebounce(searchKeyword);
   const search = (keyword: string) => setSearchKeyword(keyword);
   search.stop = () => setSearchKeyword('');
 
@@ -40,9 +36,9 @@ function usePage(props: UsePageProps) {
       return item.displayName
         .toLowerCase()
         .replace(/ /g, '')
-        .includes(searchKeyword.toLowerCase().replace(/ /g, ''));
+        .includes(debouncedKeyword.toLowerCase().replace(/ /g, ''));
     });
-  }, [props.items, searchKeyword]);
+  }, [props.items, debouncedKeyword]);
 
   const iconsCount = icons.length;
 

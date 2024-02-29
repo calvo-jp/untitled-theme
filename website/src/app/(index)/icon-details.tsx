@@ -1,7 +1,7 @@
 'use client';
 
-import {Spinner} from '@/components/spinner';
-import {Syntax} from '@/components/syntax';
+import {Spinner} from '@/lib/spinner';
+import {Syntax} from '@/lib/syntax';
 import {Clipboard, Dialog, Tabs} from '@ark-ui/react';
 import {CheckIcon, Copy01Icon, XCloseIcon} from '@untitled-theme/icons-react';
 import {useCallback, useEffect, useState} from 'react';
