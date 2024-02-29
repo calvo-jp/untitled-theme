@@ -2,12 +2,12 @@
   "name": "@untitled-theme/root",
   "private": true,
   "scripts": {
+    "website": "pnpm --filter @untitled-theme/website",
     "scripts": "pnpm --filter @untitled-theme/scripts",
     "colors": "pnpm --filter @untitled-theme/colors",
     "icons-react": "pnpm --filter @untitled-theme/icons-react",
     "icons-svelte": "pnpm --filter @untitled-theme/icons-svelte",
-    "typecheck": "pnpm --filter @untitled-theme/scripts --filter @untitled-theme/colors run typecheck",
-    "website": "pnpm --filter @untitled-theme/website"
+    "typecheck": "pnpm --filter @untitled-theme/scripts --filter @untitled-theme/colors run typecheck"
   },
   "devDependencies": {
     "prettier": "3.2.5"
