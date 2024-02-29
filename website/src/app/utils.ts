@@ -1,60 +1,15 @@
 import type {Html, Icon} from '@/app/types';
-import fs from 'fs/promises';
 import {unstable_cache as cache} from 'next/cache';
-import path from 'path';
 import prettier from 'prettier';
 import {codeToHtml} from 'shiki';
 import * as svgson from 'svgson';
-
-function dashToPascal(value: string) {
-  return value
-    .split('-')
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join('');
-}
+import database from './database.json';
 
 export const getIcons = cache(
   async ({search}: {search?: string}) => {
-    const root = path.resolve(process.cwd(), '../assets/icons');
-    const files = await fs.readdir(root, 'utf-8');
+    if (!search) return database;
 
-    const promises = files.map<Promise<Icon>>(async (fileName) => {
-      const content = await fs.readFile(path.join(root, fileName), 'utf-8');
-      const parsed = await svgson.parse(content, {
-        transformNode(node) {
-          if (node.name === 'svg') {
-            node.attributes['width'] = '32';
-            node.attributes['height'] = '32';
-          }
-
-          return node;
-        },
-      });
-
-      const html = svgson.stringify(parsed, {
-        selfClose: true,
-        transformAttr(key, value, escape) {
-          if (key === 'stroke') return `${key}="currentColor"`;
-          if (key === 'stroke-width') return `${key}="1.5"`;
-          return `${key}="${escape(value)}"`;
-        },
-      });
-
-      const slug = path.parse(fileName).name;
-      const name = dashToPascal(slug) + 'Icon';
-
-      return {
-        slug,
-        name,
-        html,
-      };
-    });
-
-    const icons = await Promise.all(promises);
-
-    if (!search) return icons;
-
-    return icons.filter((icon) =>
+    return database.filter((icon) =>
       icon.name.toLowerCase().replace(/ /g, '').includes(search.toLowerCase().replace(/ /g, '')),
     );
   },
@@ -244,45 +199,16 @@ async function toHtmlSnippet(svg: Html) {
 
 export const getIcon = cache(
   async (slug: string): Promise<Icon<true> | null> => {
-    const fullPath = path.resolve(process.cwd(), '../assets/icons', `${slug}.svg`);
+    const item = database.find((icon) => icon.slug === slug);
 
-    try {
-      await fs.stat(fullPath);
-    } catch {
-      return null;
-    }
-
-    const content = await fs.readFile(fullPath, 'utf-8');
-    const parsed = await svgson.parse(content, {
-      transformNode(node) {
-        if (node.name === 'svg') {
-          node.attributes['width'] = '32';
-          node.attributes['height'] = '32';
-        }
-
-        return node;
-      },
-    });
-
-    const html = svgson.stringify(parsed, {
-      selfClose: true,
-      transformAttr(key, value, escape) {
-        if (key === 'stroke') return `${key}="currentColor"`;
-        if (key === 'stroke-width') return `${key}="1.5"`;
-        return `${key}="${escape(value)}"`;
-      },
-    });
-
-    const name = dashToPascal(slug) + 'Icon';
+    if (!item) return null;
 
     return {
-      slug,
-      name,
-      html,
+      ...item,
       snippet: {
-        html: await toHtmlSnippet(html),
-        react: await toReactSnippet(html, name),
-        svelte: await toSvelteSnippet(html),
+        html: await toHtmlSnippet(item.html),
+        react: await toReactSnippet(item.html, item.name),
+        svelte: await toSvelteSnippet(item.html),
       },
     };
   },
