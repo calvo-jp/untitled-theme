@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: '@untitled-theme/icons-{react|svelte} | %s',
   },
   description: 'Untitled UI icons for React and Svelte',
-  metadataBase: new URL('https://untitled-theme.vercel.app'),
+  metadataBase: new URL('https://untitled-theme-docs.vercel.app'),
   openGraph: {
     type: 'website',
     title: '@untitled-theme/icons-{react|svelte}',
