@@ -1,4 +1,4 @@
-import type {Html} from '../types';
+import type {Html} from '@/types';
 
 export interface Icon {
   displayName: string;

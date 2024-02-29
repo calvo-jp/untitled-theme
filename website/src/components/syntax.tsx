@@ -1,4 +1,4 @@
-import type {Assign} from '@/app/types';
+import type {Assign} from '@/types';
 import {ark, type HTMLArkProps} from '@ark-ui/react';
 import {forwardRef, useEffect, useState} from 'react';
 import {codeToHtml, type BundledLanguage} from 'shiki';
