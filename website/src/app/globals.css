@@ -36,3 +36,8 @@
 .untitled-icon [stroke-width] {
   stroke-width: 1.66667;
 }
+
+[data-theme='dark'] .shiki,
+[data-theme='dark'] .shiki span {
+  @apply !bg-[var(--shiki-dark-bg)] !text-[var(--shiki-dark)];
+}

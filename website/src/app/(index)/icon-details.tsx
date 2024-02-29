@@ -1,12 +1,15 @@
 'use client';
 
-import {Syntax} from '@/components/syntax';
+import {Syntax} from '@/app/(index)/syntax';
 import {Clipboard, Dialog, Tabs} from '@ark-ui/react';
 import {CheckIcon, Copy01Icon, XCloseIcon} from '@untitled-theme/icons-react';
+import {useEffect, useState} from 'react';
 import {usePageContext} from './page-context';
+import {toHtmlComponent, toReactComponent, toSvelteComponent} from './utils';
 
 export function IconDetails() {
   const context = usePageContext();
+  const items = useItems();
 
   return (
     <Dialog.Root
@@ -29,7 +32,7 @@ export function IconDetails() {
               }}
             />
 
-            <div className="mt-5 flex w-fit items-center gap-5 rounded-sm bg-gray-true-100 px-3 py-2 dark:bg-gray-true-800/25">
+            <div className="mt-5 flex max-h-screen w-fit items-center gap-5 overflow-y-auto rounded-sm bg-gray-true-100 px-3 py-2 dark:bg-gray-true-800/25">
               <code>&lt;{context.inspectionSubject?.displayName ?? ''}&nbsp;&#47;&gt;</code>
 
               <Clipboard.Root className="flex">
@@ -60,12 +63,10 @@ export function IconDetails() {
               </Tabs.List>
 
               {items.map((item) => {
-                const content = item.getContent();
-
                 return (
                   <Tabs.Content key={item.value} value={item.value} asChild>
-                    <div className="relative max-w-lg rounded-sm text-sm">
-                      <Clipboard.Root className="absolute right-5 top-5" value={content}>
+                    <div className="relative mt-5 rounded-sm text-sm">
+                      <Clipboard.Root className="absolute right-5 top-5" value={item.content}>
                         <Clipboard.Label className="sr-only">Copy</Clipboard.Label>
                         <Clipboard.Trigger>
                           <Clipboard.Indicator
@@ -78,7 +79,7 @@ export function IconDetails() {
                         </Clipboard.Trigger>
                       </Clipboard.Root>
 
-                      <Syntax>{content}</Syntax>
+                      <Syntax language={item.value}>{item.content}</Syntax>
                     </div>
                   </Tabs.Content>
                 );
@@ -95,34 +96,35 @@ export function IconDetails() {
   );
 }
 
-const items = [
-  {
-    label: 'SVG',
-    value: 'html',
-    getContent: () => `<svg
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    d="M22 12H18L15 21L9 3L6 12H2"
-    stroke="black"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-</svg>`,
-  },
-  {
-    label: 'React',
-    value: 'react',
-    getContent: () => '',
-  },
-  {
-    label: 'Svelte',
-    value: 'svelte',
-    getContent: () => '',
-  },
-];
+function useItems() {
+  const context = usePageContext();
+  const [htmlComponent, setHtmlComponent] = useState('');
+  const [reactComponent, setReactComponent] = useState('');
+  const [svelteComponent, setSvelteComponent] = useState('');
+
+  useEffect(() => {
+    if (context.inspectionSubject) {
+      toHtmlComponent(context.inspectionSubject).then(setHtmlComponent);
+      toReactComponent(context.inspectionSubject).then(setReactComponent);
+      toSvelteComponent(context.inspectionSubject).then(setSvelteComponent);
+    }
+  }, [context.inspectionSubject]);
+
+  return [
+    {
+      label: 'SVG',
+      value: 'html',
+      content: htmlComponent,
+    },
+    {
+      label: 'React',
+      value: 'tsx',
+      content: reactComponent,
+    },
+    {
+      label: 'Svelte',
+      value: 'svelte',
+      content: svelteComponent,
+    },
+  ];
+}

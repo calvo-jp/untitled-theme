@@ -1,27 +1,28 @@
 import type {Assign} from '@/app/types';
 import {ark, type HTMLArkProps} from '@ark-ui/react';
-import {useTheme} from 'next-themes';
 import {forwardRef, useEffect, useState} from 'react';
 import {codeToHtml, type BundledLanguage} from 'shiki';
 import {twMerge} from 'tailwind-merge';
 
 interface SyntaxProps extends Assign<HTMLArkProps<'div'>, {children: string}> {
-  language?: BundledLanguage;
+  language?: BundledLanguage | (string & {});
 }
 
 export const Syntax = forwardRef<HTMLDivElement, SyntaxProps>(
   ({children, language = 'html', className, ...props}, ref) => {
     const [parsed, setParsed] = useState('');
-    const {resolvedTheme} = useTheme();
 
     useEffect(() => {
       codeToHtml(children, {
         lang: language,
-        theme: resolvedTheme === 'dark' ? 'vitesse-dark' : 'vitesse-light',
+        themes: {
+          dark: 'vitesse-dark',
+          light: 'vitesse-light',
+        },
       })
         .then(setParsed)
         .catch(console.error);
-    }, [children, language, resolvedTheme]);
+    }, [children, language]);
 
     return (
       <ark.div
@@ -30,6 +31,7 @@ export const Syntax = forwardRef<HTMLDivElement, SyntaxProps>(
           '[&_.shiki]:p-4',
           '[&_.shiki]:border',
           '[&_.shiki]:rounded-sm',
+          '[&_.shiki]:whitespace-pre-wrap',
           className,
         )}
         dangerouslySetInnerHTML={{__html: parsed}}
