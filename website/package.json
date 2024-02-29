@@ -4,14 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "pnpm --filter @untitled-theme/icons-react run build && pnpm --filter @untitled-theme/colors run build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@ark-ui/react": "2.2.2",
-    "@untitled-theme/colors": "0.0.10",
-    "@untitled-theme/icons-react": "0.1.13",
+    "@untitled-theme/colors": "workspace:*",
+    "@untitled-theme/icons-react": "workspace:*",
     "geist": "1.2.2",
     "next": "14.1.0",
     "next-themes": "0.2.1",
