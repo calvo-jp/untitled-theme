@@ -114,10 +114,10 @@ importers:
         specifier: 2.2.2
         version: 2.2.2(@internationalized/date@3.5.2)(react-dom@18.2.0)(react@18.2.0)
       '@untitled-theme/colors':
-        specifier: workspace:*
+        specifier: 0.0.10
         version: link:../packages/core/colors
       '@untitled-theme/icons-react':
-        specifier: workspace:*
+        specifier: 0.1.13
         version: link:../packages/icons/react
       geist:
         specifier: 1.2.2
