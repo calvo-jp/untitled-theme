@@ -6,7 +6,7 @@ import * as svgson from 'svgson';
 import database from './database.json';
 
 export const getIcons = cache(
-  async ({search}: {search?: string}) => {
+  async ({search}: {search?: string} = {}) => {
     if (!search) return database;
 
     return database.filter((icon) =>

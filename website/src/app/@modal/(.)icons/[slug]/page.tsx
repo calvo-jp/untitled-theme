@@ -1,7 +1,12 @@
 import {IconDetails} from '@/app/icon-details';
-import {getIcon} from '@/app/utils';
+import {getIcon, getIcons} from '@/app/utils';
 import {notFound} from 'next/navigation';
 import {Modal} from './modal';
+
+export async function generateStaticParams() {
+  const icons = await getIcons();
+  return icons.map(({slug}) => ({slug}));
+}
 
 interface Props {
   params: {
