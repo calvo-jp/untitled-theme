@@ -74,10 +74,11 @@ export function IconDetails() {
         }
       }}
       lazyMount
+      unmountOnExit
     >
       <Dialog.Backdrop className="fixed inset-0 z-overlay bg-white/25 backdrop-blur-sm data-open:animate-fade-in data-closed:animate-fade-out dark:bg-gray-true-950/50" />
       <Dialog.Positioner>
-        <Dialog.Content className="fixed bottom-0 right-0 z-modal w-full border-t bg-white p-8 data-open:animate-slide-up data-closed:animate-slide-down dark:bg-gray-true-950">
+        <Dialog.Content className="fixed bottom-0 right-0 z-modal w-full border-t bg-white p-4 data-open:animate-slide-up data-closed:animate-slide-down md:p-6 lg:p-8 dark:bg-gray-true-950">
           <div>
             <div
               className="w-fit rounded border p-3"

@@ -21,7 +21,7 @@ function GalleryItem({data}: {data: Icon}) {
   const context = usePageContext();
 
   return (
-    <Tooltip.Root lazyMount>
+    <Tooltip.Root lazyMount unmountOnExit>
       <Tooltip.Trigger
         type="button"
         onClick={() => context.inspect(data)}
@@ -33,7 +33,7 @@ function GalleryItem({data}: {data: Icon}) {
       />
 
       <Tooltip.Positioner>
-        <Tooltip.Content className="data-open:animate-scalefade-in data-closed:animate-scalefade-out rounded-md bg-gray-true-900 px-2.5 py-2 font-mono text-sm text-white dark:bg-gray-true-50 dark:text-gray-true-800">
+        <Tooltip.Content className="rounded-md bg-gray-true-900 px-2.5 py-2 font-mono text-sm text-white data-open:animate-scalefade-in data-closed:animate-scalefade-out dark:bg-gray-true-50 dark:text-gray-true-800">
           <Tooltip.Arrow
             className={twMerge(
               '[--arrow-size:theme(spacing.2)]',
