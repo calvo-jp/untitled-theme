@@ -1,7 +1,7 @@
+import {getIcon} from '@/app/utils';
 import {Clipboard, Tabs} from '@ark-ui/react';
 import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-react';
 import {notFound} from 'next/navigation';
-import {getIcon} from './utils';
 
 interface Props {
   params: {

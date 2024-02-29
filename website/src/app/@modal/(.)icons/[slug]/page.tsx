@@ -1,7 +1,16 @@
+import {getIcon} from '@/app/utils';
 import {Dialog} from '@ark-ui/react';
 import {XCloseIcon} from '@untitled-theme/icons-react';
 
-export default function IconDetailsModal() {
+interface Props {
+  params: {
+    slug: string;
+  };
+}
+
+export default async function IconDetailsModal({params}: Props) {
+  const icon = await getIcon(params.slug);
+
   return (
     <Dialog.Root open lazyMount unmountOnExit>
       <Dialog.Backdrop className="fixed inset-0 z-overlay bg-white/25 backdrop-blur-sm data-open:animate-fade-in data-closed:animate-fade-out dark:bg-gray-true-950/50" />
