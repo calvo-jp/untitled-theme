@@ -9,7 +9,7 @@ export default async function Landing() {
   return (
     <PageProvider items={await getIcons()}>
       <Searchbar />
-      <div className="mt-8 space-y-3">
+      <div className="mt-5 space-y-3 lg:mt-8">
         <Total />
         <Gallery />
       </div>

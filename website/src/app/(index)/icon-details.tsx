@@ -92,7 +92,7 @@ export function IconDetails() {
 
               <Clipboard.Root className="flex">
                 <Clipboard.Label className="sr-only">Copy</Clipboard.Label>
-                <Clipboard.Trigger>
+                <Clipboard.Trigger className="p-1">
                   <Clipboard.Indicator
                     copied={
                       <CheckIcon className="h-4 w-4 text-success-500 dark:text-success-700" />
@@ -126,10 +126,10 @@ export function IconDetails() {
                         <>
                           <Clipboard.Root
                             value={item.content}
-                            className="absolute right-4 top-4 flex items-center justify-center rounded-lg bg-white/50 p-1 backdrop-blur-sm dark:bg-gray-true-950/50"
+                            className="absolute right-4 top-4 flex items-center justify-center rounded-lg bg-white/50 p-0.5 backdrop-blur-sm dark:bg-gray-true-950/50"
                           >
                             <Clipboard.Label className="sr-only">Copy</Clipboard.Label>
-                            <Clipboard.Trigger>
+                            <Clipboard.Trigger className="p-0.5">
                               <Clipboard.Indicator
                                 copied={
                                   <CheckIcon className="h-5 w-5 text-success-500 dark:text-success-700" />
@@ -152,7 +152,7 @@ export function IconDetails() {
             </Tabs.Root>
           </div>
 
-          <Dialog.CloseTrigger className="absolute right-4 top-4 rounded-full bg-gray-true-100 p-2 dark:bg-gray-true-800/25">
+          <Dialog.CloseTrigger className="absolute right-3 top-3 p-1">
             <XCloseIcon />
           </Dialog.CloseTrigger>
         </Dialog.Content>

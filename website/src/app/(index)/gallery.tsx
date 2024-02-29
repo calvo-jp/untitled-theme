@@ -28,7 +28,7 @@ function GalleryItem({data}: {data: Icon}) {
         dangerouslySetInnerHTML={{
           __html: data.content,
         }}
-        className="flex aspect-square items-center justify-center rounded border p-2 transition duration-200 hover:bg-gray-true-50 dark:hover:bg-gray-true-800/10"
+        className="flex aspect-square items-center justify-center rounded border p-2 transition duration-200 hover:bg-gray-true-50 focus:shadow-outline dark:hover:bg-gray-true-800/10"
         aria-label={data.displayName}
       />
 

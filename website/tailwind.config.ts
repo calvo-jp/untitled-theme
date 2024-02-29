@@ -1,6 +1,7 @@
 import colors from '@untitled-theme/colors';
 import type {Config} from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
+import plugin from 'tailwindcss/plugin';
 
 const config: Config = {
   darkMode: ['selector', '[data-theme="dark"]'],
@@ -71,7 +72,22 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({addUtilities, theme}) => {
+      addUtilities({
+        '.shadow-outline': {
+          transitionProperty: 'border-color, box-shadow',
+          transitionDuration: '200ms',
+          transitionTimingFunction: 'cubic-bezier(0.2, 0, 0, 1)',
+
+          '&:focus-visible': {
+            'box-shadow': '0 0 0 1px black',
+            'border-color': 'black',
+          },
+        },
+      });
+    }),
+  ],
 };
 
 export default config;

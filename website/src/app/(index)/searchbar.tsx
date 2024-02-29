@@ -20,7 +20,7 @@ export function Searchbar() {
         }}
         placeholder="Search"
         className={twMerge(
-          'h-12 w-full rounded border py-2 pl-12 outline-none',
+          'h-12 w-full rounded border py-2 pl-12 outline-none focus:shadow-outline',
           context.searchKeyword ? 'pr-10' : 'pr-4',
         )}
       />

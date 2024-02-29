@@ -24,7 +24,7 @@ export function ThemePicker() {
       unmountOnExit
     >
       <Select.Control>
-        <Select.Trigger className="flex aspect-square items-center gap-2 rounded border px-2 py-1">
+        <Select.Trigger className="focus:shadow-outline flex aspect-square items-center gap-2 rounded border px-2 py-1">
           <Select.ValueText className="flex grow items-center gap-1 text-left">
             <ark.svg className="h-5 w-5" asChild>
               {selected.icon}
@@ -35,7 +35,7 @@ export function ThemePicker() {
       </Select.Control>
 
       <Select.Positioner className="z-dropdown">
-        <Select.Content className="data-open:animate-fade-in data-closed:animate-fade-out rounded border bg-white p-2 dark:bg-gray-true-900">
+        <Select.Content className="rounded border bg-white p-2 data-open:animate-fade-in data-closed:animate-fade-out dark:bg-gray-true-900">
           {themes.map(({icon, label, value}) => (
             <Select.Item
               key={value}
