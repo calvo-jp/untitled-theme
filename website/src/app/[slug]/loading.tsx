@@ -1,14 +1,11 @@
-import {forwardRef, type SVGProps} from 'react';
-
-export const Spinner = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => {
+export default function Loading() {
   return (
     <svg
-      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
       viewBox="0 0 24 24"
-      {...props}
+      className="h-8 w-8"
     >
       <path
         fill="currentColor"
@@ -29,6 +26,4 @@ export const Spinner = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props
       </path>
     </svg>
   );
-});
-
-Spinner.displayName = 'Spinner';
+}

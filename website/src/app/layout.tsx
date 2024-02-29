@@ -8,14 +8,14 @@ import {Providers} from './providers';
 
 export const metadata: Metadata = {
   title: {
-    default: '@untitled-theme/icons-{react|svelte}',
-    template: '@untitled-theme/icons-{react|svelte} | %s',
+    default: '@untitled-theme',
+    template: '@untitled-theme | %s',
   },
   description: 'Untitled UI icons for React and Svelte',
   metadataBase: new URL('https://untitled-theme-docs.vercel.app'),
   openGraph: {
     type: 'website',
-    title: '@untitled-theme/icons-{react|svelte}',
+    title: '@untitled-theme',
     description: 'Untitled UI icons for React and Svelte',
     images: ['/opengraph.png'],
   },

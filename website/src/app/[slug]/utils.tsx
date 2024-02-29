@@ -1,15 +1,17 @@
-import prettierEsTreePlugin from 'prettier/plugins/estree';
-import prettierHtmlPlugin from 'prettier/plugins/html';
-import prettierTsPlugin from 'prettier/plugins/typescript';
-import prettier from 'prettier/standalone';
+import {dashToPascal} from '@/lib/dash-to-pascal';
+import type {Html, Icon} from '@/types';
+import fs from 'fs/promises';
+import {unstable_cache as cache} from 'next/cache';
+import path from 'path';
+import prettier from 'prettier';
+import {codeToHtml} from 'shiki';
 import * as svgson from 'svgson';
-import type {Icon} from './types';
 
 const REF = 'REF';
 const REST = 'REST';
 
-export async function toReactComponent(icon: Icon) {
-  const node = await svgson.parse(icon.content, {
+async function toReactSnippet(svg: Html, name: string) {
+  const node = await svgson.parse(svg, {
     camelcase: true,
     transformNode(node) {
       if (node.name === 'svg') {
@@ -50,25 +52,32 @@ export async function toReactComponent(icon: Icon) {
   const component = `
 		import * as React from 'react';
 
-		export const ${icon.displayName} = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => {
+		export const ${name} = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => {
 			return ${reactSvg};
 		});
 
-		${icon.displayName}.displayName = '${icon.displayName}'
+		${name}.displayName = '${name}'
 
-    export default ${icon.displayName};
+    export default ${name};
 	`;
 
-  return await prettier.format(component, {
-    parser: 'typescript',
-    plugins: [prettierTsPlugin, prettierEsTreePlugin],
-    printWidth: 80,
-    bracketSpacing: false,
-  });
+  return await codeToHtml(
+    await prettier.format(component, {
+      parser: 'typescript',
+      printWidth: 80,
+    }),
+    {
+      lang: 'typescript',
+      themes: {
+        dark: 'vitesse-dark',
+        light: 'vitesse-light',
+      },
+    },
+  );
 }
 
-export async function toSvelteComponent(icon: Icon) {
-  const node = await svgson.parse(icon.content, {
+async function toSvelteSnippet(svg: Html) {
+  const node = await svgson.parse(svg, {
     camelcase: true,
     transformNode(node) {
       if (node.name === 'svg') {
@@ -116,16 +125,23 @@ export async function toSvelteComponent(icon: Icon) {
 		${svelteSvg}
 	`;
 
-  return await prettier.format(component, {
-    parser: 'html',
-    plugins: [prettierHtmlPlugin],
-    printWidth: 80,
-    bracketSpacing: false,
-  });
+  return await codeToHtml(
+    await prettier.format(component, {
+      parser: 'html',
+      printWidth: 80,
+    }),
+    {
+      lang: 'svelte',
+      themes: {
+        dark: 'vitesse-dark',
+        light: 'vitesse-light',
+      },
+    },
+  );
 }
 
-export async function toHtmlComponent(icon: Icon) {
-  const node = await svgson.parse(icon.content, {
+async function toHtmlSnippet(svg: Html) {
+  const node = await svgson.parse(svg, {
     camelcase: true,
     transformNode(node) {
       if (node.name === 'svg') {
@@ -157,10 +173,64 @@ export async function toHtmlComponent(icon: Icon) {
     },
   });
 
-  return await prettier.format(htmlSvg, {
-    parser: 'html',
-    plugins: [prettierHtmlPlugin],
-    printWidth: 80,
-    bracketSpacing: false,
-  });
+  return await codeToHtml(
+    await prettier.format(htmlSvg, {
+      parser: 'html',
+      printWidth: 80,
+    }),
+    {
+      lang: 'html',
+      themes: {
+        dark: 'vitesse-dark',
+        light: 'vitesse-light',
+      },
+    },
+  );
 }
+
+export const getIcon = cache(
+  async (slug: string): Promise<Icon<true> | null> => {
+    const fullPath = path.resolve(process.cwd(), '../assets/icons', `${slug}.svg`);
+
+    try {
+      await fs.stat(fullPath);
+    } catch {
+      return null;
+    }
+
+    const content = await fs.readFile(fullPath, 'utf-8');
+    const parsed = await svgson.parse(content, {
+      transformNode(node) {
+        if (node.name === 'svg') {
+          node.attributes['width'] = '32';
+          node.attributes['height'] = '32';
+        }
+
+        return node;
+      },
+    });
+
+    const html = svgson.stringify(parsed, {
+      selfClose: true,
+      transformAttr(key, value, escape) {
+        if (key === 'stroke') return `${key}="currentColor"`;
+        if (key === 'stroke-width') return `${key}="1.5"`;
+        return `${key}="${escape(value)}"`;
+      },
+    });
+
+    const name = dashToPascal(slug) + 'Icon';
+
+    return {
+      slug,
+      name,
+      html,
+      snippet: {
+        html: await toHtmlSnippet(html),
+        react: await toReactSnippet(html, name),
+        svelte: await toSvelteSnippet(html),
+      },
+    };
+  },
+  ['icon'],
+);

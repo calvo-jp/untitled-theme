@@ -24,7 +24,7 @@ export function ThemePicker() {
       unmountOnExit
     >
       <Select.Control>
-        <Select.Trigger className="focus:shadow-outline flex aspect-square items-center gap-2 rounded border px-2 py-1">
+        <Select.Trigger className="flex aspect-square items-center gap-2 rounded border px-2 py-1 focus:shadow-outline">
           <Select.ValueText className="flex grow items-center gap-1 text-left">
             <ark.svg className="h-5 w-5" asChild>
               {selected.icon}

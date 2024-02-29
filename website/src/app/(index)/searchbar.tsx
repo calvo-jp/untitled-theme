@@ -1,50 +1,33 @@
 'use client';
 
-import {Presence} from '@ark-ui/react';
-import {SearchLgIcon, XCloseIcon} from '@untitled-theme/icons-react';
-import {useRef} from 'react';
-import {twMerge} from 'tailwind-merge';
-import {usePageContext} from './page-context';
+import {SearchLgIcon} from '@untitled-theme/icons-react';
+import {usePathname, useRouter, useSearchParams} from 'next/navigation';
 
 export function Searchbar() {
-  const context = usePageContext();
-  const inputRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
+  const params = useSearchParams();
+  const pathname = usePathname();
 
   return (
     <div className="relative">
       <input
-        ref={inputRef}
-        value={context.searchKeyword}
+        defaultValue={params.get('search')?.toString()}
         onChange={(e) => {
-          context.search(e.target.value);
+          const newParams = new URLSearchParams(params);
+
+          if (e.target.value) {
+            newParams.set('search', e.target.value);
+          } else {
+            newParams.delete('search');
+          }
+
+          router.replace(`${pathname}?${newParams.toString()}`);
         }}
         placeholder="Search"
-        className={twMerge(
-          'h-12 w-full rounded border py-2 pl-12 outline-none focus:shadow-outline',
-          context.searchKeyword ? 'pr-10' : 'pr-4',
-        )}
+        className="h-12 w-full rounded border py-2 pl-12 pr-4 outline-none focus:shadow-outline"
       />
 
       <SearchLgIcon className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-true-500 dark:text-gray-true-600" />
-
-      <Presence
-        present={!!context.searchKeyword}
-        lazyMount
-        className="data-open:animate-scalefade-in data-closed:animate-scalefade-out"
-        asChild
-      >
-        <button
-          type="button"
-          onClick={() => {
-            context.search.stop();
-            inputRef.current?.focus();
-          }}
-          className="absolute right-4 top-3.5 h-5 w-5"
-        >
-          <XCloseIcon className="h-5 w-5" />
-          <span className="sr-only">Clear</span>
-        </button>
-      </Presence>
     </div>
   );
 }
