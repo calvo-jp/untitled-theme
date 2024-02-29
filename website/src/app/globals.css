@@ -14,9 +14,7 @@
   }
 
   html {
-    color-scheme: light;
-
-    @apply scroll-smooth;
+    @apply scroll-smooth [color-scheme:light] dark:[color-scheme:dark];
   }
 
   body {
@@ -24,22 +22,16 @@
   }
 
   .untitled-icon [stroke-width] {
-    stroke-width: 1.66667;
+    @apply stroke-[1.66667];
   }
 
   .shiki {
-    @apply whitespace-pre-wrap rounded-sm border p-4;
+    @apply h-full overflow-auto rounded-sm border p-4;
   }
 
-  [data-theme='dark'] .shiki,
-  [data-theme='dark'] .shiki span {
-    @apply !bg-[var(--shiki-dark-bg)] !text-[var(--shiki-dark)];
-  }
-
-  @media (prefers-color-scheme: dark) {
-    html {
-      color-scheme: dark;
-    }
+  .shiki,
+  .shiki span {
+    @apply dark:!bg-[var(--shiki-dark-bg)] dark:!text-[var(--shiki-dark)];
   }
 }
 

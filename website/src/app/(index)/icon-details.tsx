@@ -79,7 +79,9 @@ export function IconDetails() {
                         </Clipboard.Trigger>
                       </Clipboard.Root>
 
-                      <Syntax language={item.value}>{item.content}</Syntax>
+                      <Syntax language={item.value} className="[&_.shiki]:max-h-[50vh]">
+                        {item.content}
+                      </Syntax>
                     </div>
                   </Tabs.Content>
                 );
