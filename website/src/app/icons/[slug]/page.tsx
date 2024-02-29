@@ -3,7 +3,7 @@ import {getIcon, getIcons} from '@/app/utils';
 import {notFound} from 'next/navigation';
 
 export async function generateStaticParams() {
-  const icons = await getIcons();
+  const icons = await getIcons({limit: 100});
   return icons.map(({slug}) => ({slug}));
 }
 

@@ -41,6 +41,7 @@ export default async function IconsPage({searchParams}: Props) {
           <Link
             key={icon.slug}
             href={`/icons/${icon.slug}`}
+            scroll={false}
             className="flex aspect-square items-center justify-center rounded border p-2 transition duration-200 hover:bg-gray-true-50 focus:shadow-outline dark:hover:bg-gray-true-800/10"
           >
             <span

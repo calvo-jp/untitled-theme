@@ -4,7 +4,7 @@ import {notFound} from 'next/navigation';
 import {Modal} from './modal';
 
 export async function generateStaticParams() {
-  const icons = await getIcons();
+  const icons = await getIcons({limit: 100});
   return icons.map(({slug}) => ({slug}));
 }
 

@@ -5,13 +5,31 @@ import {codeToHtml} from 'shiki';
 import * as svgson from 'svgson';
 import database from './database.json';
 
-export const getIcons = cache(
-  async ({search}: {search?: string} = {}) => {
-    if (!search) return database;
+interface GetIconsArgs {
+  limit?: number;
+  offset?: number;
+  search?: string;
+}
 
-    return database.filter((icon) =>
-      icon.name.toLowerCase().replace(/ /g, '').includes(search.toLowerCase().replace(/ /g, '')),
-    );
+export const getIcons = cache(
+  async ({search, limit, offset}: GetIconsArgs = {}) => {
+    let l = database;
+
+    if (search) {
+      l = l.filter((icon) =>
+        icon.name.toLowerCase().replace(/ /g, '').includes(search.toLowerCase().replace(/ /g, '')),
+      );
+    }
+
+    if (offset) {
+      l = l.slice(offset);
+    }
+
+    if (limit) {
+      l = l.slice(0, limit);
+    }
+
+    return l;
   },
   ['icons'],
 );
