@@ -73,7 +73,7 @@ const config: Config = {
     },
   },
   plugins: [
-    plugin(({addUtilities, theme}) => {
+    plugin(({addUtilities}) => {
       addUtilities({
         '.shadow-outline': {
           transitionProperty: 'border-color, box-shadow',
@@ -81,10 +81,13 @@ const config: Config = {
           transitionTimingFunction: 'cubic-bezier(0.2, 0, 0, 1)',
 
           '&:focus-visible': {
-            'box-shadow': '0 0 0 1px black',
-            'border-color': 'black',
+            'box-shadow': '0 0 0 1px var(--shadow-outline-plugin-color)',
+            'border-color': 'var(--shadow-outline-plugin-color)',
           },
         },
+
+        '[data-theme="dark"] .shadow-outline': {'--shadow-outline-plugin-color': 'white'},
+        '[data-theme="light"] .shadow-outline': {'--shadow-outline-plugin-color': 'black'},
       });
     }),
   ],
