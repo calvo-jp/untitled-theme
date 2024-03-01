@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import svgson from 'svgson';
 import {dash_to_pascal} from '../utils/dash-to-pascal.mjs';
-import {format_svelte} from '../utils/formatter.mjs';
+import {format_html} from '../utils/formatter.mjs';
 import {get_icons} from '../utils/get-icons.mjs';
 import {get_workspace_root} from '../utils/get-workspace-root.mjs';
 import {config} from './config.mjs';
@@ -22,7 +22,7 @@ export async function generate_icons_svelte() {
       const Component = await to_svelte_component(icon);
       const destination = path.join(outdir, `${icon.filename}.svelte`);
 
-      await fs.writeFile(destination, await format_svelte(Component.content), {encoding: 'utf-8'});
+      await fs.writeFile(destination, await format_html(Component.content), {encoding: 'utf-8'});
 
       /**
        * @type {import('./create-barrel-file.mjs').BarrelItem}
@@ -80,9 +80,7 @@ async function to_svelte_component(icon) {
       } else if (key === 'stroke-width') {
         return `${key}="${config.strokeWidth}"`;
       } else if (key === 'class') {
-        const classes = `${config.className} ${icon.filename}-icon`;
-
-        return `${key}="{('${classes} ' + className).trim()}"`;
+        return `${key}="{class_}"`;
       } else {
         return `${key}="${esc(value)}"`;
       }
@@ -94,6 +92,9 @@ async function to_svelte_component(icon) {
   const svelte_component = template({
     content: svelte_svg,
     jsdoc: await generate_jsdoc_preview(icon.content),
+    props: {
+      class: `${icon.filename}-icon`,
+    },
   });
 
   return {
@@ -106,6 +107,7 @@ async function to_svelte_component(icon) {
  * @typedef TemplateConfig
  * @property {string} content
  * @property {string} [jsdoc]
+ * @property {Record<string,any>} [props]
  */
 
 /**
@@ -115,8 +117,11 @@ function template(config) {
   return `
 		<script lang="ts">
 			import type {SVGAttributes} from 'svelte/elements';
+      
+      const cx = (...classes: (string | null | undefined)[]) => classes.filter(Boolean).join(' ');
 
-			let {class: className = '', ...props} = $props<SVGAttributes<SVGSVGElement>>();  
+			let {class: classProp, ...props} = $props<SVGAttributes<SVGSVGElement>>(); 
+      let class_ = $derived(cx('untitled-icon', '${config.props?.class ?? ''}', classProp)); 
 		</script>
 
 		<!-- @component ${config.jsdoc} -->

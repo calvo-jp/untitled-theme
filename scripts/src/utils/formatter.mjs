@@ -19,17 +19,12 @@ let cache_0 = create_lru_cache(1000);
 /**
  * @param {string} content
  */
-export async function format_svelte(content) {
+export async function format_html(content) {
   let v = cache_0.get(content);
 
   if (v) return v;
 
-  v = await prettier.format(content, {
-    ...(await get_config()),
-    htmlWhitespaceSensitivity: 'ignore',
-    embeddedLanguageFormatting: 'off',
-    parser: 'html',
-  });
+  v = await prettier.format(content, {...(await get_config()), parser: 'html'});
 
   cache_0.set(content, v);
   return v;
