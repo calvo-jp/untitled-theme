@@ -20,30 +20,23 @@ async function generate_database() {
    * @type {Data[]}
    */
   const items = icons.map((icon) => {
-    const parsed = svgson.parseSync(icon.content, {
+    const html = svgson.stringify(svgson.parseSync(icon.content), {
+      selfClose: true,
       transformNode(node) {
         if (node.name === 'svg') {
           node.attributes['width'] = '32';
           node.attributes['height'] = '32';
+          node.attributes['stroke-width'] = '1.5';
         }
 
         return node;
       },
     });
 
-    const html = svgson.stringify(parsed, {
-      selfClose: true,
-      transformAttr(key, value, escape) {
-        if (key === 'stroke') return `${key}="currentColor"`;
-        if (key === 'stroke-width') return `${key}="1.5"`;
-        return `${key}="${escape(value)}"`;
-      },
-    });
-
     return {
-      html,
-      name: `${dash_to_pascal(icon.filename)}Icon`,
       slug: icon.filename,
+      name: `${dash_to_pascal(icon.filename)}Icon`,
+      html,
     };
   });
 

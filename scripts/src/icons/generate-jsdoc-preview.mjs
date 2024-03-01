@@ -1,7 +1,6 @@
 import svg64 from 'svg64';
 import svgson from 'svgson';
 import {create_lru_cache} from '../utils/create-lru-cache.mjs';
-import {config} from './config.mjs';
 
 /** @type {import('../utils/create-lru-cache.mjs').LruCache<string,string>} */
 let cache = create_lru_cache(1000);
@@ -17,9 +16,7 @@ export async function generate_jsdoc_preview(svg) {
   const p = await svgson.parse(svg, {
     transformNode(node) {
       if (node.name === 'svg') {
-        node.attributes['width'] = config.width;
-        node.attributes['height'] = config.height;
-        node.attributes['viewBox'] = config.viewBox;
+        node.attributes.stroke = '#111827';
         node.children.unshift({
           name: 'rect',
           type: 'element',
@@ -37,19 +34,7 @@ export async function generate_jsdoc_preview(svg) {
     },
   });
 
-  const s = svgson.stringify(p, {
-    transformAttr(key, value, escape) {
-      if (key === 'stroke') {
-        return `${key}="#111827"`;
-      } else if (key === 'stroke-width') {
-        return `${key}="${config.strokeWidth}"`;
-      } else {
-        return `${key}="${escape(value)}"`;
-      }
-    },
-  });
-
-  v = `![img](${svg64(s)})`;
+  v = `![img](${svg64(svgson.stringify(p))})`;
   cache.set(svg, v);
   return v;
 }

@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import svgson from 'svgson';
 import {get_workspace_root} from './get-workspace-root.mjs';
 
 /**
@@ -32,9 +33,39 @@ export async function get_icons() {
         const details = path.parse(filename);
         const fullpath = path.join(assets_dir, filename);
         const content = await fs.readFile(fullpath, {encoding: 'utf-8'});
+        const parsed = await svgson.parse(content);
 
         return {
-          content,
+          content: svgson.stringify(parsed, {
+            transformNode(node) {
+              if (node.name === 'svg') {
+                return {
+                  ...node,
+
+                  attributes: {
+                    ...node.attributes,
+
+                    ['width']: '24',
+                    ['height']: '24',
+                    ['viewBox']: '0 0 24 24',
+                    ['stroke']: 'currentColor',
+                    ['stroke-width']: '2',
+                    ['aria-hidden']: 'true',
+                  },
+                };
+              }
+
+              if (node.attributes['stroke']) {
+                delete node.attributes['stroke'];
+              }
+
+              if (node.attributes['stroke-width']) {
+                delete node.attributes['stroke-width'];
+              }
+
+              return node;
+            },
+          }),
           fullpath,
           basename: details.base,
           filename: details.name,

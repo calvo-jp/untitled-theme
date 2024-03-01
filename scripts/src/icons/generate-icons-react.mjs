@@ -5,7 +5,6 @@ import {dash_to_pascal} from '../utils/dash-to-pascal.mjs';
 import {format_ts} from '../utils/formatter.mjs';
 import {get_icons} from '../utils/get-icons.mjs';
 import {get_workspace_root} from '../utils/get-workspace-root.mjs';
-import {config} from './config.mjs';
 import {create_barrel_file} from './create-barrel-file.mjs';
 import {create_clean_dir} from './create-clean-dir.mjs';
 import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
@@ -45,7 +44,8 @@ export async function generate_icons_react() {
 }
 
 const REF = 'REF';
-const REST = 'REST';
+const CLASSNAME = 'CLASSNAME';
+const REST_PROPS = 'REST_PROPS';
 
 /**
  * @param {import('../utils/get-icons.mjs').Icon} icon
@@ -57,15 +57,14 @@ async function to_react_component(icon) {
       if (node.name === 'svg') {
         return {
           ...node,
+
           attributes: {
             [REF]: '',
+
             ...node.attributes,
-            width: config.width,
-            height: config.height,
-            viewBox: config.viewBox,
-            className: config.className,
-            ['aria-hidden']: config.ariaHidden,
-            [REST]: '',
+
+            [CLASSNAME]: '',
+            [REST_PROPS]: '',
           },
         };
       }
@@ -79,19 +78,19 @@ async function to_react_component(icon) {
     transformAttr(key, value, esc) {
       if (key === REF) {
         return 'ref={ref}';
-      } else if (key === REST) {
-        return '{...props}';
-      } else if (key === 'stroke') {
-        return `${key}="${config.stroke}"`;
-      } else if (key === 'strokeWidth') {
-        return `${key}="${config.strokeWidth}"`;
-      } else if (key === 'className') {
-        const classes = `${config.className} ${icon.filename}-icon`;
-
-        return `${key}={\`${classes} \${className}\`.trim()}`;
-      } else {
-        return `${key}="${esc(value)}"`;
       }
+
+      if (key === CLASSNAME) {
+        const cls = `"untitled-icon ${icon.filename}-icon"`;
+
+        return `className={cx(${cls}, className)}`;
+      }
+
+      if (key === REST_PROPS) {
+        return '{...props}';
+      }
+
+      return `${key}="${esc(value)}"`;
     },
   });
 
@@ -128,9 +127,14 @@ function template(config) {
 		/**
 		 * ${config.jsdoc}
 		 */
-		const ${config.name} = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>(({className="", ...props}, ref) => {
+		const ${config.name} = React.forwardRef<
+      SVGSVGElement,
+      React.SVGProps<SVGSVGElement>
+    >(({className, ...props}, ref) => {
 			return ${config.content};
 		});
+
+    const cx = (...classes: (string | undefined)[]) => classes.filter(Boolean).join(' ');
 
 		${config.name}.displayName = '${config.name}'
 

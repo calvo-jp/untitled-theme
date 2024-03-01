@@ -5,7 +5,6 @@ import {dash_to_pascal} from '../utils/dash-to-pascal.mjs';
 import {format_html} from '../utils/formatter.mjs';
 import {get_icons} from '../utils/get-icons.mjs';
 import {get_workspace_root} from '../utils/get-workspace-root.mjs';
-import {config} from './config.mjs';
 import {create_barrel_file} from './create-barrel-file.mjs';
 import {create_clean_dir} from './create-clean-dir.mjs';
 import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
@@ -44,7 +43,8 @@ export async function generate_icons_svelte() {
   await create_barrel_file(outdir, items);
 }
 
-const REST = 'REST';
+const CLASSNAME = 'CLASSNAME';
+const REST_PROPS = 'REST_PROPS';
 
 /**
  * @param {import('../utils/get-icons.mjs').Icon} icon
@@ -55,14 +55,12 @@ async function to_svelte_component(icon) {
       if (node.name === 'svg') {
         return {
           ...node,
+
           attributes: {
             ...node.attributes,
-            width: config.width,
-            height: config.height,
-            viewBox: config.viewBox,
-            class: config.className,
-            'aria-hidden': config.ariaHidden,
-            [REST]: '',
+
+            [CLASSNAME]: '',
+            [REST_PROPS]: '',
           },
         };
       }
@@ -74,17 +72,15 @@ async function to_svelte_component(icon) {
   const svelte_svg = svgson.stringify(node, {
     selfClose: true,
     transformAttr(key, value, esc) {
-      if (key === REST) {
-        return '{...props}';
-      } else if (key === 'stroke') {
-        return `${key}="${config.stroke}"`;
-      } else if (key === 'stroke-width') {
-        return `${key}="${config.strokeWidth}"`;
-      } else if (key === 'class') {
-        return `${key}="{className}"`;
-      } else {
-        return `${key}="${esc(value)}"`;
+      if (key === CLASSNAME) {
+        return `class="{className}"`;
       }
+
+      if (key === REST_PROPS) {
+        return '{...props}';
+      }
+
+      return `${key}="${esc(value)}"`;
     },
   });
 
@@ -118,12 +114,10 @@ function template(config) {
   const classProps = config.props?.class ?? '';
 
   return `
-    <script lang="ts" context="module">
-      const cx = (...args: (string | null | undefined)[]) => args.filter(Boolean).join(' ');
-    </script>
+    <script lang="ts">
+      import type {SVGAttributes} from 'svelte/elements';
 
-		<script lang="ts">
-			import type {SVGAttributes} from 'svelte/elements';
+      const cx = (...args: (string | null | undefined)[]) => args.filter(Boolean).join(' ');
       
 			let {class: classProp, ...props} = $props<SVGAttributes<SVGSVGElement>>(); 
       let className = $derived(cx('${classProps}', classProp)); 
