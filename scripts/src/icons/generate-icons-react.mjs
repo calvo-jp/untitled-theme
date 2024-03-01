@@ -1,5 +1,5 @@
-import fs from 'node:fs';
-import path from 'node:path';
+import fs from 'fs';
+import path from 'path';
 import svgson from 'svgson';
 import {format_ts} from '../utils/formatter.mjs';
 import {get_icons} from '../utils/get-icons.mjs';

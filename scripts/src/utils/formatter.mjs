@@ -1,5 +1,5 @@
 import prettier from '@prettier/sync';
-import path from 'node:path';
+import path from 'path';
 
 /** @type {import('prettier').Options | null} */
 let config = null;

@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from 'fs';
 
 /**
  * @param {string} location
