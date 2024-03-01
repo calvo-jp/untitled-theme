@@ -14,7 +14,7 @@
     "@untitled-theme/colors": "workspace:*",
     "@untitled-theme/icons-react": "workspace:*",
     "geist": "1.2.2",
-    "next": "14.1.1-canary.80",
+    "next": "14.1.1",
     "next-themes": "0.2.1",
     "react": "^18",
     "react-dom": "^18",
