@@ -44,7 +44,7 @@ async function generate_database() {
 
     return {
       html,
-      name: dash_to_pascal(icon.filename),
+      name: `${dash_to_pascal(icon.filename)}Icon`,
       slug: icon.filename,
     };
   });
