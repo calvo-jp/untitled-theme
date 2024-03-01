@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import svgson from 'svgson';
-import {format_json} from '../utils/formatter.mjs';
 import {get_icons} from '../utils/get-icons.mjs';
 import {get_workspace_root} from '../utils/get-workspace-root.mjs';
 
@@ -26,7 +25,7 @@ function generate_database() {
 
   const out_file = path.join(get_workspace_root(), 'website/src/app/database.json');
 
-  fs.writeFileSync(out_file, format_json(JSON.stringify(items)), 'utf-8');
+  fs.writeFileSync(out_file, JSON.stringify(items, null, 2), 'utf-8');
 }
 
 generate_database();

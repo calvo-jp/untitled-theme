@@ -13,13 +13,9 @@
     "@types/node": "20.11.24",
     "@types/yargs": "17.0.32",
     "@untitled-theme/colors": "workspace:*",
-    "prettier": "3.2.5",
     "svg64": "2.0.0",
     "svgson": "5.3.1",
     "typescript": "5.3.3",
     "yargs": "17.7.2"
-  },
-  "devDependencies": {
-    "@prettier/sync": "0.5.1"
   }
 }

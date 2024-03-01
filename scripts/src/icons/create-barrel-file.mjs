@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import {format_ts} from '../utils/formatter.mjs';
 
 /**
  * @typedef {Object} Module
@@ -52,7 +51,7 @@ export async function create_barrel_file(directory, content) {
     })
     .join('\n');
 
-  fs.writeFileSync(path.join(directory, 'index.ts'), format_ts(c), 'utf-8');
+  fs.writeFileSync(path.join(directory, 'index.ts'), c, 'utf-8');
 }
 
 /**

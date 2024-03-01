@@ -95,9 +95,6 @@ importers:
       '@untitled-theme/colors':
         specifier: workspace:*
         version: link:../packages/core/colors
-      prettier:
-        specifier: 3.2.5
-        version: 3.2.5
       svg64:
         specifier: 2.0.0
         version: 2.0.0
@@ -110,10 +107,6 @@ importers:
       yargs:
         specifier: 17.7.2
         version: 17.7.2
-    devDependencies:
-      '@prettier/sync':
-        specifier: 0.5.1
-        version: 0.5.1(prettier@3.2.5)
 
   website:
     dependencies:
@@ -995,15 +988,6 @@ packages:
       '@pnpm/config.env-replace': 1.1.0
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
-    dev: true
-
-  /@prettier/sync@0.5.1(prettier@3.2.5):
-    resolution: {integrity: sha512-tpF+A1e4ynO2U4fTH21Sjgm9EYENmqg4zmJCMLrmLVfzIzuDc1cKGXyxrxbFgcH8qQRfowyDCZFAUukwhiZlsw==}
-    peerDependencies:
-      prettier: '*'
-    dependencies:
-      make-synchronized: 0.2.8
-      prettier: 3.2.5
     dev: true
 
   /@rollup/pluginutils@5.1.0:
@@ -4570,10 +4554,6 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /make-synchronized@0.2.8:
-    resolution: {integrity: sha512-jtXnKYCxjmGaXiZhXbDbGPbh4YyTvIIbOgcQjtAboc4RSm9k3nyhTFvFQB0cfs7QFKuZXKe2D2RvOkv1c+vpxg==}
-    dev: true
-
   /merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
     dev: true
@@ -5260,6 +5240,7 @@ packages:
     resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
     engines: {node: '>=14'}
     hasBin: true
+    dev: true
 
   /promise.allsettled@1.0.7:
     resolution: {integrity: sha512-hezvKvQQmsFkOdrZfYxUxkyxl8mgFQeT259Ajj9PXdbg9VzBCWrItOev72JyWxkCD5VSSqAeHmlN3tWx4DlmsA==}

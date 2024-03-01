@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import svgson from 'svgson';
-import {format_ts} from '../utils/formatter.mjs';
 import {get_icons} from '../utils/get-icons.mjs';
 import {get_workspace_root} from '../utils/get-workspace-root.mjs';
 import {create_barrel_file} from './create-barrel-file.mjs';
@@ -17,13 +16,13 @@ export function generate_icons_react() {
     const component = to_react_component(icon);
     const destination = path.join(outdir, `${icon.name.pascal}.tsx`);
 
-    fs.writeFileSync(destination, format_ts(component), 'utf-8');
+    fs.writeFileSync(destination, component, 'utf-8');
 
     /**
      * @type {import('./create-barrel-file.mjs').BarrelItem}
      */
     const item = {
-      path: `./${icon.name.pascal}.tsx`,
+      path: `./${icon.name.pascal}`,
       modules: [
         {
           name: 'default',
@@ -87,44 +86,28 @@ function to_react_component(icon) {
     },
   });
 
-  const react_component = template({
-    name: icon.name.pascal,
-    html: react_svg,
-    comment: generate_jsdoc_preview(icon.html),
-  });
-
-  return react_component;
+  return template
+    .replaceAll('%name%', icon.name.pascal)
+    .replaceAll('%html%', react_svg)
+    .replaceAll('%comment%', generate_jsdoc_preview(icon.html));
 }
 
-/**
- * @typedef TemplateConfig
- * @property {string} name
- * @property {string} html
- * @property {string} [comment]
- */
+const template = `
+import * as React from 'react';
 
 /**
- * @param {TemplateConfig} config
- * @returns {string}
+ * %comment%
  */
-function template(config) {
-  return `
-		import * as React from 'react';
+const %name% = React.forwardRef<
+  SVGSVGElement,
+  React.SVGProps<SVGSVGElement>
+>(({className, ...props}, ref) => {
+  return %html%;
+});
 
-		/**
-		 * ${config.comment}
-		 */
-		const ${config.name} = React.forwardRef<
-      SVGSVGElement,
-      React.SVGProps<SVGSVGElement>
-    >(({className, ...props}, ref) => {
-			return ${config.html};
-		});
+const cx = (...classes: (string | undefined)[]) => classes.filter(Boolean).join(' ');
 
-    const cx = (...classes: (string | undefined)[]) => classes.filter(Boolean).join(' ');
+%name%.displayName = '%name%'
 
-		${config.name}.displayName = '${config.name}'
-
-		export default ${config.name};
-	`;
-}
+export default %name%;
+`;

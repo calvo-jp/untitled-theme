@@ -4,7 +4,6 @@ import * as p from '@clack/prompts';
 import yargs from 'yargs';
 import {hideBin} from 'yargs/helpers';
 import {generate_icons_react} from './generate-icons-react.mjs';
-import {generate_icons_solid} from './generate-icons-solid.mjs';
 import {generate_icons_svelte} from './generate-icons-svelte.mjs';
 
 const REACT = 'react';
@@ -55,7 +54,6 @@ async function generate_icons() {
   try {
     if (selectedFrameworks.includes(REACT)) generate_icons_react();
     if (selectedFrameworks.includes(SVELTE)) generate_icons_svelte();
-    if (selectedFrameworks.includes(SOLID)) generate_icons_solid();
   } catch {
     spinner.message('Something went wrong');
   } finally {

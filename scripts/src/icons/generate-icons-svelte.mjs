@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import svgson from 'svgson';
-import {format_html} from '../utils/formatter.mjs';
 import {get_icons} from '../utils/get-icons.mjs';
 import {get_workspace_root} from '../utils/get-workspace-root.mjs';
 import {create_barrel_file} from './create-barrel-file.mjs';
@@ -17,7 +16,7 @@ export function generate_icons_svelte() {
     const component = to_svelte_component(icon);
     const destination = path.join(outdir, `${icon.name.pascal}.svelte`);
 
-    fs.writeFileSync(destination, format_html(component), 'utf-8');
+    fs.writeFileSync(destination, component, 'utf-8');
 
     /**
      * @type {import('./create-barrel-file.mjs').BarrelItem}
@@ -68,7 +67,7 @@ function to_svelte_component(icon) {
     selfClose: true,
     transformAttr(key, value, esc) {
       if (key === CLASSNAME) {
-        return `class="{className}"`;
+        return `class={className}`;
       }
 
       if (key === REST_PROPS) {
@@ -79,42 +78,23 @@ function to_svelte_component(icon) {
     },
   });
 
-  const svelte_component = template({
-    html: svelte_svg,
-    comment: generate_jsdoc_preview(icon.html),
-    props: {
-      class: `untitled-icon ${icon.name.kebab}`,
-    },
-  });
-
-  return svelte_component;
+  return template
+    .replaceAll('%name%', icon.name.pascal)
+    .replaceAll('%html%', svelte_svg)
+    .replaceAll('%comment%', generate_jsdoc_preview(icon.html))
+    .replaceAll('%class%', 'lucide-icon ' + icon.name.kebab);
 }
 
-/**
- * @typedef TemplateConfig
- * @property {string} html
- * @property {Record<string, any>} [props]
- * @property {string} [comment]
- */
+const template = `
+<script lang="ts">
+  import type {SVGAttributes} from 'svelte/elements';
 
-/**
- * @param {TemplateConfig} config
- */
-function template(config) {
-  const classProps = config.props?.class ?? '';
+  const cx = (...args: (string | null | undefined)[]) => args.filter(Boolean).join(' ');
+  
+  let {class: classProp, ...props} = $props<SVGAttributes<SVGSVGElement>>(); 
+  let className = $derived(cx('%class%', classProp)); 
+</script>
 
-  return `
-    <script lang="ts">
-      import type {SVGAttributes} from 'svelte/elements';
+<!-- @component %comment% -->
 
-      const cx = (...args: (string | null | undefined)[]) => args.filter(Boolean).join(' ');
-      
-			let {class: classProp, ...props} = $props<SVGAttributes<SVGSVGElement>>(); 
-      let className = $derived(cx('${classProps}', classProp)); 
-		</script>
-
-		<!-- @component ${config.comment} -->
-
-		${config.html}
-	`;
-}
+%html%`;
