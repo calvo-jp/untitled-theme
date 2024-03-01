@@ -22,9 +22,9 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./*": {
+    "./*.svelte": {
       "types": "./dist/*.d.ts",
-      "import": "./dist/*.js"
+      "import": "./dist/*"
     },
     "./package.json": {
       "default": "./package.json"

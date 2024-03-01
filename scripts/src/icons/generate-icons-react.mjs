@@ -20,7 +20,7 @@ export async function generate_icons_react() {
   const items = await Promise.all(
     icons.map(async (icon) => {
       const Component = await to_react_component(icon);
-      const destination = path.join(outdir, `${icon.filename}.tsx`);
+      const destination = path.join(outdir, `${Component.name}.tsx`);
 
       await fs.writeFile(destination, await format_ts(Component.content), {encoding: 'utf-8'});
 
@@ -28,7 +28,7 @@ export async function generate_icons_react() {
        * @type {import('./create-barrel-file.mjs').BarrelItem}
        */
       const item = {
-        path: `./${icon.filename}`,
+        path: `./${Component.name}.tsx`,
         modules: [
           {
             name: 'default',
