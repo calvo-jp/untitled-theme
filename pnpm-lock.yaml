@@ -92,6 +92,9 @@ importers:
       '@types/yargs':
         specifier: 17.0.32
         version: 17.0.32
+      '@untitled-theme/colors':
+        specifier: workspace:*
+        version: link:../packages/core/colors
       prettier:
         specifier: 3.2.5
         version: 3.2.5

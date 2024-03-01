@@ -21,7 +21,6 @@ async function generate_database() {
    */
   const items = icons.map((icon) => {
     const html = svgson.stringify(svgson.parseSync(icon.content), {
-      selfClose: true,
       transformNode(node) {
         if (node.name === 'svg') {
           node.attributes['width'] = '32';

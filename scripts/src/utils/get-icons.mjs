@@ -17,9 +17,6 @@ const assets_dir = path.join(get_workspace_root(), 'assets/icons');
 /** @type {Icon[]|null} */
 let icons = null;
 
-/**
- * @returns {Promise<Icon[]>}
- */
 export async function get_icons() {
   if (icons) return icons;
 
@@ -40,27 +37,17 @@ export async function get_icons() {
               if (node.name === 'svg') {
                 return {
                   ...node,
-
                   attributes: {
                     ...node.attributes,
-
-                    width: '24',
-                    height: '24',
-                    viewBox: '0 0 24 24',
-                    stroke: 'currentColor',
-                    'stroke-width': '2',
-                    'stroke-linecap': 'round',
-                    'stroke-linejoin': 'round',
+                    ...svg_attrs,
                   },
                 };
               }
 
-              if (node.attributes['stroke']) delete node.attributes['stroke'];
-              if (node.attributes['stroke-width']) delete node.attributes['stroke-width'];
-              if (node.attributes['stroke-linecap']) delete node.attributes['stroke-linecap'];
-              if (node.attributes['stroke-linejoin']) delete node.attributes['stroke-linejoin'];
-
-              return node;
+              return {
+                ...node,
+                attributes: remove_svg_attrs(node.attributes),
+              };
             },
           }),
           fullpath,
@@ -73,4 +60,33 @@ export async function get_icons() {
 
   icons = l;
   return l;
+}
+
+/**
+ * @type {Record<string, string>}
+ */
+const svg_attrs = {
+  xmlns: 'http://www.w3.org/2000/svg',
+  width: '24',
+  height: '24',
+  viewBox: '0 0 24 24',
+  stroke: 'currentColor',
+  'stroke-width': '2',
+  'stroke-linecap': 'round',
+  'stroke-linejoin': 'round',
+};
+
+/**
+ * @param {Record<string, string>} o
+ */
+function remove_svg_attrs(o) {
+  const c = {...o};
+
+  for (const k in o) {
+    if (svg_attrs[k]) {
+      delete c[k];
+    }
+  }
+
+  return c;
 }

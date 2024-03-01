@@ -24,8 +24,8 @@ export async function generate_jsdoc_preview(svg) {
           children: [],
           attributes: {
             fill: '#f9fafb',
-            width: '100%',
-            height: '100%',
+            width: node.attributes.width,
+            height: node.attributes.height,
           },
         });
       }

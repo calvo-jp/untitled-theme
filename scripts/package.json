@@ -12,6 +12,7 @@
     "@tsconfig/recommended": "1.0.3",
     "@types/node": "20.11.24",
     "@types/yargs": "17.0.32",
+    "@untitled-theme/colors": "workspace:*",
     "prettier": "3.2.5",
     "svg64": "2.0.0",
     "svgson": "5.3.1",
