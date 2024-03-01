@@ -56,6 +56,7 @@ async function to_svelte_component(icon) {
         return {
           ...node,
           attributes: {
+            ...node.attributes,
             width: config.width,
             height: config.height,
             viewBox: config.viewBox,
@@ -114,6 +115,8 @@ async function to_svelte_component(icon) {
  * @param {TemplateConfig} config
  */
 function template(config) {
+  const classProps = config.props?.class ?? '';
+
   return `
 		<script lang="ts">
 			import type {SVGAttributes} from 'svelte/elements';
@@ -121,7 +124,7 @@ function template(config) {
       const cx = (...classes: (string | null | undefined)[]) => classes.filter(Boolean).join(' ');
 
 			let {class: classProp, ...props} = $props<SVGAttributes<SVGSVGElement>>(); 
-      let class_ = $derived(cx('untitled-icon', '${config.props?.class ?? ''}', classProp)); 
+      let class_ = $derived(cx('${`untitled-icon ${classProps}`.trim()}', classProp)); 
 		</script>
 
 		<!-- @component ${config.jsdoc} -->
