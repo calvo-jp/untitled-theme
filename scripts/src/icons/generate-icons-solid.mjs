@@ -8,16 +8,16 @@ import {create_barrel_file} from './create-barrel-file.mjs';
 import {create_clean_dir} from './create-clean-dir.mjs';
 import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
 
-const outdir = path.join(get_workspace_root(), 'packages/icons/react/src');
+const outdir = path.join(get_workspace_root(), 'packages/icons/solid/src');
 
-export function generate_icons_react() {
+export function generate_icons_solid() {
   create_clean_dir(outdir);
 
   const items = get_icons().map((icon) => {
-    const component = to_react_component(icon);
+    const component = to_solid_component(icon);
     const destination = path.join(outdir, `${icon.name.pascal}.tsx`);
 
-    fs.writeFileSync(destination, format_ts(component), 'utf-8');
+    fs.writeFileSync(destination, format_ts(component), 'utf8');
 
     /**
      * @type {import('./create-barrel-file.mjs').BarrelItem}
@@ -38,14 +38,13 @@ export function generate_icons_react() {
   create_barrel_file(outdir, items);
 }
 
-const REF = 'REF';
 const CLASSNAME = 'CLASSNAME';
 const REST_PROPS = 'REST_PROPS';
 
 /**
  * @param {import('../utils/get-icons.mjs').Icon} icon
  */
-function to_react_component(icon) {
+function to_solid_component(icon) {
   const node = svgson.parseSync(icon.html, {
     camelcase: true,
     transformNode(node) {
@@ -54,8 +53,6 @@ function to_react_component(icon) {
           ...node,
 
           attributes: {
-            [REF]: '',
-
             ...node.attributes,
 
             [CLASSNAME]: '',
@@ -68,32 +65,28 @@ function to_react_component(icon) {
     },
   });
 
-  const react_svg = svgson.stringify(node, {
+  const solid_svg = svgson.stringify(node, {
     selfClose: true,
     transformAttr(key, value, esc) {
-      if (key === REF) {
-        return 'ref={ref}';
-      }
-
       if (key === CLASSNAME) {
-        return `className={cx("untitled-icon ${icon.name.kebab}", className)}`;
+        return `class={cx("untitled-icon ${icon.name.kebab}", local.className)}`;
       }
 
       if (key === REST_PROPS) {
-        return '{...props}';
+        return '{...others}';
       }
 
       return `${key}="${esc(value)}"`;
     },
   });
 
-  const react_component = template({
+  const solid_component = template({
     name: icon.name.pascal,
-    html: react_svg,
+    html: solid_svg,
     comment: generate_jsdoc_preview(icon.html),
   });
 
-  return react_component;
+  return solid_component;
 }
 
 /**
@@ -109,21 +102,16 @@ function to_react_component(icon) {
  */
 function template(config) {
   return `
-		import * as React from 'react';
-
 		/**
 		 * ${config.comment}
 		 */
-		const ${config.name} = React.forwardRef<
-      SVGSVGElement,
-      React.SVGProps<SVGSVGElement>
-    >(({className, ...props}, ref) => {
+		const ${config.name} = ((props) => {
+      const [local, others] = splitProps(props, ['className']);
+      
 			return ${config.html};
 		});
 
     const cx = (...classes: (string | undefined)[]) => classes.filter(Boolean).join(' ');
-
-		${config.name}.displayName = '${config.name}'
 
 		export default ${config.name};
 	`;

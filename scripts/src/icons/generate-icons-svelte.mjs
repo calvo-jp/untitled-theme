@@ -17,7 +17,7 @@ export function generate_icons_svelte() {
     const component = to_svelte_component(icon);
     const destination = path.join(outdir, `${icon.name.pascal}.svelte`);
 
-    fs.writeFileSync(destination, format_html(component), {encoding: 'utf-8'});
+    fs.writeFileSync(destination, format_html(component), 'utf-8');
 
     /**
      * @type {import('./create-barrel-file.mjs').BarrelItem}

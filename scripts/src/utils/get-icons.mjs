@@ -5,10 +5,9 @@ import {get_workspace_root} from './get-workspace-root.mjs';
 
 /**
  * @typedef {Object} Name
- * @property {string} formal
- * @property {string} pascal
- * @property {string} kebab
- 
+ * @property {string} formal _ie_ `Rocket 01 Icon`
+ * @property {string} pascal _ie_ `Rocket01Icon`
+ * @property {string} kebab _ie_ `rocket-01-icon`
  */
 
 /**
@@ -27,10 +26,9 @@ let icons = null;
 export function get_icons() {
   if (icons) return icons;
 
-  const filenames = fs.readdirSync(assets_dir, {encoding: 'utf-8'});
-
   /** @type {Icon[]} */
-  let l = filenames
+  let l = fs
+    .readdirSync(assets_dir, 'utf-8')
     .filter((filename) => filename.endsWith('svg'))
     .map((filename) => {
       const {name, base} = path.parse(filename);
@@ -39,7 +37,7 @@ export function get_icons() {
       /** @type {string} */
       let content = '';
 
-      content = fs.readFileSync(location, {encoding: 'utf-8'});
+      content = fs.readFileSync(location, 'utf-8');
       content = svgson.stringify(svgson.parseSync(content), {
         transformNode(node) {
           if (node.name === 'svg') {

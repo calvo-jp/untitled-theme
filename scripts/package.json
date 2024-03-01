@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "generate:icons": "node ./src/icons/generate-icons.mjs",
+    "generate:icons": "node --max_old_space_size=4096 ./src/icons/generate-icons.mjs",
     "generate:database": "node ./src/website/generate-database.mjs",
     "typecheck": "tsc -p jsconfig.json"
   },

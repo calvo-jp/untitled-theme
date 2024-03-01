@@ -3,7 +3,7 @@ import svgson from 'svgson';
 import {create_lru_cache} from '../utils/create-lru-cache.mjs';
 
 /** @type {import('../utils/create-lru-cache.mjs').LruCache<string,string>} */
-let cache = create_lru_cache(1000);
+const cache = create_lru_cache(1000);
 
 /**
  * @param {string} svg
