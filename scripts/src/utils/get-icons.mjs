@@ -33,10 +33,9 @@ export async function get_icons() {
         const details = path.parse(filename);
         const fullpath = path.join(assets_dir, filename);
         const content = await fs.readFile(fullpath, {encoding: 'utf-8'});
-        const parsed = await svgson.parse(content);
 
         return {
-          content: svgson.stringify(parsed, {
+          content: svgson.stringify(svgson.parseSync(content), {
             transformNode(node) {
               if (node.name === 'svg') {
                 return {
@@ -45,23 +44,22 @@ export async function get_icons() {
                   attributes: {
                     ...node.attributes,
 
-                    ['width']: '24',
-                    ['height']: '24',
-                    ['viewBox']: '0 0 24 24',
-                    ['stroke']: 'currentColor',
-                    ['stroke-width']: '2',
-                    ['aria-hidden']: 'true',
+                    width: '24',
+                    height: '24',
+                    viewBox: '0 0 24 24',
+                    stroke: 'currentColor',
+                    'stroke-width': '2',
+                    'stroke-linecap': 'round',
+                    'stroke-linejoin': 'round',
+                    'aria-hidden': 'true',
                   },
                 };
               }
 
-              if (node.attributes['stroke']) {
-                delete node.attributes['stroke'];
-              }
-
-              if (node.attributes['stroke-width']) {
-                delete node.attributes['stroke-width'];
-              }
+              if (node.attributes['stroke']) delete node.attributes['stroke'];
+              if (node.attributes['stroke-width']) delete node.attributes['stroke-width'];
+              if (node.attributes['stroke-linecap']) delete node.attributes['stroke-linecap'];
+              if (node.attributes['stroke-linejoin']) delete node.attributes['stroke-linejoin'];
 
               return node;
             },
