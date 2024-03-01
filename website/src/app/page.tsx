@@ -1,4 +1,4 @@
-/** BUILD: 0 */
+/** BUILD: 1x */
 
 import Link from 'next/link';
 import {Searchbar} from './searchbar';
