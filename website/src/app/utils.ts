@@ -52,7 +52,6 @@ async function toReactSnippet(svg: Html, name: string) {
             ...node.attributes,
             width: '24',
             height: '24',
-            viewBox: '0 0 24 24',
             [REST]: '',
           },
         };
@@ -118,7 +117,6 @@ async function toSvelteSnippet(svg: Html) {
             ...node.attributes,
             width: '24',
             height: '24',
-            viewBox: '0 0 24 24',
             [REST]: '',
           },
         };
@@ -181,7 +179,6 @@ async function toHtmlSnippet(svg: Html) {
             ...node.attributes,
             width: '24',
             height: '24',
-            viewBox: '0 0 24 24',
           },
         };
       }
