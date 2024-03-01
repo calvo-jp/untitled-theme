@@ -81,7 +81,7 @@ async function to_svelte_component(icon) {
       } else if (key === 'stroke-width') {
         return `${key}="${config.strokeWidth}"`;
       } else if (key === 'class') {
-        return `${key}="{class_}"`;
+        return `${key}="{className}"`;
       } else {
         return `${key}="${esc(value)}"`;
       }
@@ -124,7 +124,7 @@ function template(config) {
       const cx = (...classes: (string | null | undefined)[]) => classes.filter(Boolean).join(' ');
 
 			let {class: classProp, ...props} = $props<SVGAttributes<SVGSVGElement>>(); 
-      let class_ = $derived(cx('${`untitled-icon ${classProps}`.trim()}', classProp)); 
+      let className = $derived(cx('${`untitled-icon ${classProps}`.trim()}', classProp)); 
 		</script>
 
 		<!-- @component ${config.jsdoc} -->
