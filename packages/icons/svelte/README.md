@@ -22,7 +22,7 @@ or
 
 ```svelte
 <script>
-  import Rocket01Icon from '@untitled-theme/icons-svelte/rocket-01';
+  import Rocket01Icon from '@untitled-theme/icons-svelte/Rocket01Icon.svelte';
 </script>
 
 <Rocket01Icon />

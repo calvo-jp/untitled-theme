@@ -21,7 +21,7 @@ function Component() {
 or
 
 ```jsx
-import Rocket01Icon from '@untitled-theme/icons-react/rocket-01';
+import Rocket01Icon from '@untitled-theme/icons-react/Rocket01Icon';
 
 function Component() {
   return <Rocket01Icon />;
