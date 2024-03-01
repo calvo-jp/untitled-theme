@@ -23,8 +23,8 @@
       "svelte": "./dist/index.js"
     },
     "./*": {
-      "types": "./dist/*.svelte.d.ts",
-      "svelte": "./dist/*.svelte"
+      "types": "./dist/*.d.ts",
+      "svelte": "./dist/*"
     },
     "./package.json": {
       "default": "./package.json"
