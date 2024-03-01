@@ -1,12 +1,24 @@
 import type {MetadataRoute} from 'next';
+import {getIcons} from './utils';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+const url = 'https://untitled-theme-docs.vercel.app';
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const icons = await getIcons();
+
   return [
     {
-      url: 'https://untitled-theme-docs.vercel.app',
+      url,
+      priority: 1,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 1,
     },
+
+    ...icons.map<MetadataRoute.Sitemap[number]>((icon) => ({
+      url: `${url}/icons/${icon.slug}`,
+      priority: 0.8,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+    })),
   ];
 }
