@@ -1,51 +1,32 @@
-import fs from 'node:fs/promises';
+import fs from 'node:fs';
 import path from 'node:path';
 import svgson from 'svgson';
-import {dash_to_pascal} from '../utils/dash-to-pascal.mjs';
 import {format_json} from '../utils/formatter.mjs';
 import {get_icons} from '../utils/get-icons.mjs';
 import {get_workspace_root} from '../utils/get-workspace-root.mjs';
 
-/**
- * @typedef {Object} Data
- * @property {string} slug
- * @property {string} name
- * @property {string} html
- */
-
-async function generate_database() {
-  const icons = await get_icons();
-
-  /**
-   * @type {Data[]}
-   */
-  const items = icons.map((icon) => {
-    const html = svgson.stringify(svgson.parseSync(icon.content), {
-      transformNode(node) {
-        if (node.name === 'svg') {
-          node.attributes['width'] = '32';
-          node.attributes['height'] = '32';
-          node.attributes['stroke-width'] = '1.5';
-        }
-
-        return node;
-      },
-    });
-
+function generate_database() {
+  const items = get_icons().map((icon) => {
     return {
-      slug: icon.filename,
-      name: `${dash_to_pascal(icon.filename)}Icon`,
-      html,
+      ...icon,
+
+      html: svgson.stringify(svgson.parseSync(icon.html), {
+        transformNode(node) {
+          if (node.name === 'svg') {
+            node.attributes['width'] = '32';
+            node.attributes['height'] = '32';
+            node.attributes['stroke-width'] = '1.5';
+          }
+
+          return node;
+        },
+      }),
     };
   });
 
-  await fs.writeFile(
-    path.join(get_workspace_root(), 'website/src/app/database.json'),
-    await format_json(JSON.stringify(items)),
-    {
-      encoding: 'utf-8',
-    },
-  );
+  const out_file = path.join(get_workspace_root(), 'website/src/app/database.json');
+
+  fs.writeFileSync(out_file, format_json(JSON.stringify(items)), 'utf-8');
 }
 
 generate_database();

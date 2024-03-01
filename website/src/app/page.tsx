@@ -48,7 +48,7 @@ export default async function IconsPage({searchParams}: Props) {
             dangerouslySetInnerHTML={{
               __html: icon.html,
             }}
-            aria-label={icon.name}
+            aria-label={icon.name.formal}
           />
         ))}
       </div>

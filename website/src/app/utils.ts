@@ -17,7 +17,10 @@ export const getIcons = cache(
 
     if (search) {
       l = l.filter((icon) =>
-        icon.name.toLowerCase().replace(/ /g, '').includes(search.toLowerCase().replace(/ /g, '')),
+        icon.name.formal
+          .toLowerCase()
+          .replace(/ /g, '')
+          .includes(search.toLowerCase().replace(/ /g, '')),
       );
     }
 
@@ -225,7 +228,7 @@ export const getIcon = cache(
       ...item,
       snippet: {
         html: await toHtmlSnippet(item.html),
-        react: await toReactSnippet(item.html, item.name),
+        react: await toReactSnippet(item.html, item.name.pascal),
         svelte: await toSvelteSnippet(item.html),
       },
     };

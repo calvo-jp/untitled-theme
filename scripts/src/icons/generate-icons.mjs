@@ -10,13 +10,13 @@ const REACT = 'react';
 const SVELTE = 'svelte';
 
 async function generate_icons() {
-  const argv = await yargs(hideBin(process.argv))
+  const argv = yargs(hideBin(process.argv))
     .option('framework', {
       type: 'array',
       alias: 'f',
       choices: [REACT, SVELTE],
     })
-    .parseAsync();
+    .parseSync();
 
   p.intro('Generate icons');
 
@@ -43,19 +43,12 @@ async function generate_icons() {
     process.exit(0);
   }
 
-  /**
-   * @type {Promise<void>[]}
-   */
-  const promises = [];
   const spinner = p.spinner();
-
   spinner.start('Generating icons');
 
-  if (selectedFrameworks.includes(REACT)) promises.push(generate_icons_react());
-  if (selectedFrameworks.includes(SVELTE)) promises.push(generate_icons_svelte());
-
   try {
-    await Promise.all(promises);
+    if (selectedFrameworks.includes(REACT)) generate_icons_react();
+    if (selectedFrameworks.includes(SVELTE)) generate_icons_svelte();
   } catch {
     spinner.message('Something went wrong');
   } finally {

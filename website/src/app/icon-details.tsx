@@ -35,7 +35,7 @@ export async function IconDetails({data}: Props) {
       />
 
       <div className="mt-5 flex max-h-screen w-fit items-center gap-5 overflow-y-auto rounded-sm bg-gray-true-100 px-3 py-2 dark:bg-gray-true-800/25">
-        <code>&lt;{data.name}&nbsp;&#47;&gt;</code>
+        <code>&lt;{data.name.pascal}&nbsp;&#47;&gt;</code>
 
         <Clipboard.Root className="flex">
           <Clipboard.Label className="sr-only">Copy</Clipboard.Label>

@@ -9,8 +9,12 @@ export type Snippet = Alias<string>;
 export type Icon<WithSnippet extends boolean = false> = WithSnippet extends true
   ? {
       slug: string;
-      name: string;
       html: Html;
+      name: {
+        formal: string;
+        pascal: string;
+        kebab: string;
+      };
       snippet: {
         html: Snippet;
         react: Snippet;
@@ -19,6 +23,10 @@ export type Icon<WithSnippet extends boolean = false> = WithSnippet extends true
     }
   : {
       slug: string;
-      name: string;
       html: Html;
+      name: {
+        formal: string;
+        pascal: string;
+        kebab: string;
+      };
     };

@@ -1,7 +1,6 @@
-import fs from 'node:fs/promises';
+import fs from 'node:fs';
 import path from 'node:path';
 import svgson from 'svgson';
-import {dash_to_pascal} from '../utils/dash-to-pascal.mjs';
 import {format_ts} from '../utils/formatter.mjs';
 import {get_icons} from '../utils/get-icons.mjs';
 import {get_workspace_root} from '../utils/get-workspace-root.mjs';
@@ -11,36 +10,32 @@ import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
 
 const outdir = path.join(get_workspace_root(), 'packages/icons/react/src');
 
-export async function generate_icons_react() {
-  const icons = await get_icons();
+export function generate_icons_react() {
+  create_clean_dir(outdir);
 
-  await create_clean_dir(outdir);
+  const items = get_icons().map((icon) => {
+    const component = to_react_component(icon);
+    const destination = path.join(outdir, `${icon.name.pascal}.tsx`);
 
-  const items = await Promise.all(
-    icons.map(async (icon) => {
-      const Component = await to_react_component(icon);
-      const destination = path.join(outdir, `${Component.name}.tsx`);
+    fs.writeFileSync(destination, format_ts(component), {encoding: 'utf-8'});
 
-      await fs.writeFile(destination, await format_ts(Component.content), {encoding: 'utf-8'});
+    /**
+     * @type {import('./create-barrel-file.mjs').BarrelItem}
+     */
+    const item = {
+      path: `./${icon.name.pascal}.tsx`,
+      modules: [
+        {
+          name: 'default',
+          as: icon.name.pascal,
+        },
+      ],
+    };
 
-      /**
-       * @type {import('./create-barrel-file.mjs').BarrelItem}
-       */
-      const item = {
-        path: `./${Component.name}.tsx`,
-        modules: [
-          {
-            name: 'default',
-            as: Component.name,
-          },
-        ],
-      };
+    return item;
+  });
 
-      return item;
-    }),
-  );
-
-  await create_barrel_file(outdir, items);
+  create_barrel_file(outdir, items);
 }
 
 const REF = 'REF';
@@ -50,8 +45,8 @@ const REST_PROPS = 'REST_PROPS';
 /**
  * @param {import('../utils/get-icons.mjs').Icon} icon
  */
-async function to_react_component(icon) {
-  const node = await svgson.parse(icon.content, {
+function to_react_component(icon) {
+  const node = svgson.parseSync(icon.html, {
     camelcase: true,
     transformNode(node) {
       if (node.name === 'svg') {
@@ -81,7 +76,7 @@ async function to_react_component(icon) {
       }
 
       if (key === CLASSNAME) {
-        const cls = `"untitled-icon ${icon.filename}-icon"`;
+        const cls = `"untitled-icon ${icon.name.kebab}"`;
 
         return `className={cx(${cls}, className)}`;
       }
@@ -94,26 +89,20 @@ async function to_react_component(icon) {
     },
   });
 
-  const component_name = `${dash_to_pascal(icon.filename)}Icon`;
-
   const react_component = template({
-    name: component_name,
-    content: react_svg,
-    jsdoc: await generate_jsdoc_preview(icon.content),
+    name: icon.name.pascal,
+    html: react_svg,
+    comment: generate_jsdoc_preview(icon.html),
   });
 
-  return {
-    name: component_name,
-    content: react_component,
-  };
+  return react_component;
 }
 
 /**
  * @typedef TemplateConfig
  * @property {string} name
- * @property {string} content
- * @property {string} [jsdoc]
- *
+ * @property {string} html
+ * @property {string} [comment]
  */
 
 /**
@@ -125,13 +114,13 @@ function template(config) {
 		import * as React from 'react';
 
 		/**
-		 * ${config.jsdoc}
+		 * ${config.comment}
 		 */
 		const ${config.name} = React.forwardRef<
       SVGSVGElement,
       React.SVGProps<SVGSVGElement>
     >(({className, ...props}, ref) => {
-			return ${config.content};
+			return ${config.html};
 		});
 
     const cx = (...classes: (string | undefined)[]) => classes.filter(Boolean).join(' ');

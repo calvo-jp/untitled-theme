@@ -1,7 +1,6 @@
-import fs from 'node:fs/promises';
+import fs from 'node:fs';
 import path from 'node:path';
 import svgson from 'svgson';
-import {dash_to_pascal} from '../utils/dash-to-pascal.mjs';
 import {format_html} from '../utils/formatter.mjs';
 import {get_icons} from '../utils/get-icons.mjs';
 import {get_workspace_root} from '../utils/get-workspace-root.mjs';
@@ -11,36 +10,32 @@ import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
 
 const outdir = path.join(get_workspace_root(), 'packages/icons/svelte/src');
 
-export async function generate_icons_svelte() {
-  const icons = await get_icons();
+export function generate_icons_svelte() {
+  create_clean_dir(outdir);
 
-  await create_clean_dir(outdir);
+  const items = get_icons().map((icon) => {
+    const component = to_svelte_component(icon);
+    const destination = path.join(outdir, `${icon.name.pascal}.svelte`);
 
-  const items = await Promise.all(
-    icons.map(async (icon) => {
-      const Component = await to_svelte_component(icon);
-      const destination = path.join(outdir, `${Component.name}.svelte`);
+    fs.writeFileSync(destination, format_html(component), {encoding: 'utf-8'});
 
-      await fs.writeFile(destination, await format_html(Component.content), {encoding: 'utf-8'});
+    /**
+     * @type {import('./create-barrel-file.mjs').BarrelItem}
+     */
+    const item = {
+      path: `./${icon.name.pascal}.svelte`,
+      modules: [
+        {
+          name: 'default',
+          as: icon.name.pascal,
+        },
+      ],
+    };
 
-      /**
-       * @type {import('./create-barrel-file.mjs').BarrelItem}
-       */
-      const item = {
-        path: `./${Component.name}.svelte`,
-        modules: [
-          {
-            name: 'default',
-            as: Component.name,
-          },
-        ],
-      };
+    return item;
+  });
 
-      return item;
-    }),
-  );
-
-  await create_barrel_file(outdir, items);
+  create_barrel_file(outdir, items);
 }
 
 const CLASSNAME = 'CLASSNAME';
@@ -49,8 +44,8 @@ const REST_PROPS = 'REST_PROPS';
 /**
  * @param {import('../utils/get-icons.mjs').Icon} icon
  */
-async function to_svelte_component(icon) {
-  const node = await svgson.parse(icon.content, {
+function to_svelte_component(icon) {
+  const node = svgson.parseSync(icon.html, {
     transformNode(node) {
       if (node.name === 'svg') {
         return {
@@ -84,27 +79,22 @@ async function to_svelte_component(icon) {
     },
   });
 
-  const component_name = `${dash_to_pascal(icon.filename)}Icon`;
-
   const svelte_component = template({
-    content: svelte_svg,
-    jsdoc: await generate_jsdoc_preview(icon.content),
+    html: svelte_svg,
+    comment: generate_jsdoc_preview(icon.html),
     props: {
-      class: `untitled-icon ${icon.filename}-icon`,
+      class: `untitled-icon ${icon.name.kebab}`,
     },
   });
 
-  return {
-    name: component_name,
-    content: svelte_component,
-  };
+  return svelte_component;
 }
 
 /**
  * @typedef TemplateConfig
- * @property {string} content
- * @property {string} [jsdoc]
+ * @property {string} html
  * @property {Record<string, any>} [props]
+ * @property {string} [comment]
  */
 
 /**
@@ -123,8 +113,8 @@ function template(config) {
       let className = $derived(cx('${classProps}', classProp)); 
 		</script>
 
-		<!-- @component ${config.jsdoc} -->
+		<!-- @component ${config.comment} -->
 
-		${config.content}
+		${config.html}
 	`;
 }

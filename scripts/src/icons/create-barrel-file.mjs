@@ -1,4 +1,4 @@
-import fs from 'node:fs/promises';
+import fs from 'node:fs';
 import path from 'node:path';
 import {format_ts} from '../utils/formatter.mjs';
 
@@ -52,7 +52,7 @@ export async function create_barrel_file(directory, content) {
     })
     .join('\n');
 
-  await fs.writeFile(path.join(directory, 'index.ts'), await format_ts(c), {encoding: 'utf-8'});
+  fs.writeFileSync(path.join(directory, 'index.ts'), await format_ts(c), {encoding: 'utf-8'});
 }
 
 /**
