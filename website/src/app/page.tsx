@@ -1,3 +1,5 @@
+/** BUILD: 0 */
+
 import Link from 'next/link';
 import {Searchbar} from './searchbar';
 import {getIcons} from './utils';
