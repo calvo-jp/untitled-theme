@@ -13,7 +13,6 @@ import {get_workspace_root} from './get-workspace-root.mjs';
 /**
  * @typedef {Object} Icon
  * @property {string} slug file unique identifier
- * @property {string} path the location of the file
  * @property {string} html the content of the file
  * @property {Name} name
  */
@@ -21,10 +20,10 @@ import {get_workspace_root} from './get-workspace-root.mjs';
 const assets_dir = path.join(get_workspace_root(), 'assets/icons');
 
 /** @type {Icon[]|null} */
-let previously_fetched_icons = null;
+let previously_loaded_icons = null;
 
 export async function get_icons() {
-  if (previously_fetched_icons) return previously_fetched_icons;
+  if (previously_loaded_icons) return previously_loaded_icons;
 
   const filenames = await fs.readdir(assets_dir, 'utf-8');
   const promises = filenames
@@ -60,7 +59,6 @@ export async function get_icons() {
       const o = {
         slug: name,
         html: content,
-        path: location,
         name: {
           kebab: `${name}-icon`,
           formal: [...name.split(/-/g), 'icon'].map(uc_first).join(' '),
@@ -73,7 +71,7 @@ export async function get_icons() {
 
   const icons = await Promise.all(promises);
 
-  previously_fetched_icons = icons;
+  previously_loaded_icons = icons;
 
   return icons;
 }

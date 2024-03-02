@@ -116,6 +116,9 @@ importers:
       '@untitled-theme/colors':
         specifier: workspace:*
         version: link:../packages/core/colors
+      prettier:
+        specifier: 3.2.5
+        version: 3.2.5
       svg64:
         specifier: 2.0.0
         version: 2.0.0
@@ -5546,7 +5549,6 @@ packages:
     resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
     engines: {node: '>=14'}
     hasBin: true
-    dev: true
 
   /promise.allsettled@1.0.7:
     resolution: {integrity: sha512-hezvKvQQmsFkOdrZfYxUxkyxl8mgFQeT259Ajj9PXdbg9VzBCWrItOev72JyWxkCD5VSSqAeHmlN3tWx4DlmsA==}

@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import svgson from 'svgson';
+import {format_typescript} from '../utils/formatter.mjs';
 import {get_icons} from '../utils/get-icons.mjs';
 import {get_workspace_root} from '../utils/get-workspace-root.mjs';
 import {create_barrel_file} from './create-barrel-file.mjs';
@@ -17,7 +18,7 @@ export async function generate_icons_solid() {
     const component = await to_solid_component(icon);
     const destination = path.join(outdir, `${icon.name.pascal}.tsx`);
 
-    await fs.writeFile(destination, component, 'utf-8');
+    await fs.writeFile(destination, await format_typescript(component), 'utf-8');
 
     /**
      * @type {import('./create-barrel-file.mjs').BarrelItem}

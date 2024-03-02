@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import {format_typescript} from '../utils/formatter.mjs';
 
 /**
  * @typedef {Object} Module
@@ -33,7 +34,7 @@ import path from 'node:path';
  * @param {BarrelItem[]} content
  */
 export async function create_barrel_file(directory, content) {
-  const c = content
+  const code = content
     .map((o) => {
       if (o.exportAll) return `export ${typeOnly(o.type)} * from '${o.path}';`;
 
@@ -51,7 +52,7 @@ export async function create_barrel_file(directory, content) {
     })
     .join('\n');
 
-  await fs.writeFile(path.join(directory, 'index.ts'), c, 'utf-8');
+  await fs.writeFile(path.join(directory, 'index.ts'), await format_typescript(code), 'utf-8');
 }
 
 /**

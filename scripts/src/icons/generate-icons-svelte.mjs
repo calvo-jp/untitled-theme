@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import svgson from 'svgson';
+import {format_html} from '../utils/formatter.mjs';
 import {get_icons} from '../utils/get-icons.mjs';
 import {get_workspace_root} from '../utils/get-workspace-root.mjs';
 import {create_barrel_file} from './create-barrel-file.mjs';
@@ -17,7 +18,7 @@ export async function generate_icons_svelte() {
     const component = await to_svelte_component(icon);
     const destination = path.join(outdir, `${icon.name.pascal}.svelte`);
 
-    await fs.writeFile(destination, component, 'utf-8');
+    await fs.writeFile(destination, await format_html(component), 'utf-8');
 
     /**
      * @type {import('./create-barrel-file.mjs').BarrelItem}
@@ -70,7 +71,7 @@ async function to_svelte_component(icon) {
     selfClose: true,
     transformAttr(key, value, esc) {
       if (key === CLASSNAME) {
-        return `class={className}`;
+        return `class="{className}"`;
       }
 
       if (key === REST_PROPS) {

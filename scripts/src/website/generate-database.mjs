@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import svgson from 'svgson';
+import {format_json} from '../utils/formatter.mjs';
 import {get_icons} from '../utils/get-icons.mjs';
 import {get_workspace_root} from '../utils/get-workspace-root.mjs';
 
@@ -25,9 +26,9 @@ async function generate_database() {
   });
 
   const items = await Promise.all(promises);
-  const outfile = path.join(get_workspace_root(), 'website/src/app/database.json');
+  const output_file = path.join(get_workspace_root(), 'website/src/app/database.json');
 
-  await fs.writeFile(outfile, JSON.stringify(items, null, 2), 'utf-8');
+  await fs.writeFile(output_file, await format_json(JSON.stringify(items)), 'utf-8');
 }
 
 generate_database();
