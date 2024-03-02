@@ -1,0 +1,69 @@
+{
+  "name": "@untitled-theme/icons-solid",
+  "type": "module",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Untitled UI Icons for Solid",
+  "keywords": [
+    "svg",
+    "icon",
+    "icons",
+    "solid",
+    "untitled ui",
+    "component library"
+  ],
+  "repository": "https://github.com/calvo-jp/untitled-theme",
+  "bugs": {
+    "url": "https://github.com/calvo-jp/untitled-theme/issues"
+  },
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "vite build",
+    "prebuild": "pnpm --filter @untitled-theme/scripts run generate:icons -f solid",
+    "release": "release-it"
+  },
+  "devDependencies": {
+    "release-it": "17.1.1",
+    "solid-js": "1.8.15",
+    "typescript": "5.3.3",
+    "vite": "5.1.4",
+    "vite-plugin-dts": "3.7.3",
+    "vite-plugin-solid": "2.10.1"
+  },
+  "peerDependencies": {
+    "solid-js": ">=1.8.15"
+  },
+  "release-it": {
+    "hooks": {
+      "after:bump": [
+        "pnpm build"
+      ]
+    },
+    "git": {
+      "commitMessage": "chore: release ${npm.name} v${version}",
+      "tagName": "${npm.name}@${version}"
+    },
+    "github": {
+      "release": false
+    }
+  }
+}
