@@ -105,6 +105,64 @@ async function toReactSnippet(svg: Html, name: string) {
   );
 }
 
+async function toSolidSnippet(svg: Html, name: string) {
+  const node = await svgson.parse(svg, {
+    transformNode(node) {
+      if (node.name === 'svg') {
+        return {
+          ...node,
+          attributes: {
+            ...node.attributes,
+
+            width: '24',
+            height: '24',
+            [REST]: '',
+          },
+        };
+      }
+
+      return node;
+    },
+  });
+
+  const solidSvg = svgson.stringify(node, {
+    selfClose: true,
+    transformAttr(key, value, esc) {
+      if (key === REST) {
+        return '{...props}';
+      } else if (key === 'stroke') {
+        return `${key}="currentColor"`;
+      } else if (key === 'stroke-width') {
+        return `${key}="2"`;
+      } else {
+        return `${key}="${esc(value)}"`;
+      }
+    },
+  });
+
+  const component = `
+		import type { ComponentProps } from 'solid-js';
+
+		export default function ${name}(props: ComponentProps<'svg'>) {
+			return ${solidSvg};
+		}
+  `;
+
+  return await codeToHtml(
+    await prettier.format(component, {
+      parser: 'typescript',
+      printWidth: 80,
+    }),
+    {
+      lang: 'typescript',
+      themes: {
+        dark: 'vitesse-dark',
+        light: 'vitesse-light',
+      },
+    },
+  );
+}
+
 async function toSvelteSnippet(svg: Html) {
   const node = await svgson.parse(svg, {
     camelcase: true,
@@ -226,6 +284,7 @@ export const getIcon = cache(
       snippet: {
         html: await toHtmlSnippet(item.html),
         react: await toReactSnippet(item.html, item.name.pascal),
+        solid: await toSolidSnippet(item.html, item.name.pascal),
         svelte: await toSvelteSnippet(item.html),
       },
     };

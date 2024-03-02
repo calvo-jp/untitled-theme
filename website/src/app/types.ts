@@ -18,6 +18,7 @@ export type Icon<WithSnippet extends boolean = false> = WithSnippet extends true
       snippet: {
         html: Snippet;
         react: Snippet;
+        solid: Snippet;
         svelte: Snippet;
       };
     }

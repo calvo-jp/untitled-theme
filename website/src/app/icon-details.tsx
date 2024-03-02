@@ -23,6 +23,11 @@ export async function IconDetails({data}: Props) {
       value: 'Svelte',
       content: data.snippet.svelte,
     },
+    {
+      label: 'Solid',
+      value: 'Solid',
+      content: data.snippet.solid,
+    },
   ];
 
   return (
