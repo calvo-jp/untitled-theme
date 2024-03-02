@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import svgson from 'svgson';
 import {get_icons} from '../utils/get-icons.mjs';
 import {get_workspace_root} from '../utils/get-workspace-root.mjs';
@@ -9,14 +9,15 @@ import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
 
 const outdir = path.join(get_workspace_root(), 'packages/icons/solid/src');
 
-export function generate_icons_solid() {
-  create_clean_dir(outdir);
+export async function generate_icons_solid() {
+  await create_clean_dir(outdir);
 
-  const items = get_icons().map((icon) => {
-    const component = to_solid_component(icon);
+  const icons = await get_icons();
+  const promises = icons.map(async (icon) => {
+    const component = await to_solid_component(icon);
     const destination = path.join(outdir, `${icon.name.pascal}.tsx`);
 
-    fs.writeFileSync(destination, component, 'utf-8');
+    await fs.writeFile(destination, component, 'utf-8');
 
     /**
      * @type {import('./create-barrel-file.mjs').BarrelItem}
@@ -34,7 +35,9 @@ export function generate_icons_solid() {
     return item;
   });
 
-  create_barrel_file(outdir, items);
+  const items = await Promise.all(promises);
+
+  await create_barrel_file(outdir, items);
 }
 
 const CLASSNAME = 'CLASSNAME';
@@ -43,7 +46,7 @@ const REST_PROPS = 'REST_PROPS';
 /**
  * @param {import('../utils/get-icons.mjs').Icon} icon
  */
-function to_solid_component(icon) {
+async function to_solid_component(icon) {
   const node = svgson.parseSync(icon.html, {
     transformNode(node) {
       if (node.name === 'svg') {
@@ -81,7 +84,7 @@ function to_solid_component(icon) {
   return template
     .replaceAll('%name%', icon.name.pascal)
     .replaceAll('%html%', solid_svg)
-    .replaceAll('%comment%', generate_jsdoc_preview(icon.html));
+    .replaceAll('%comment%', await generate_jsdoc_preview(icon.html));
 }
 
 const template = `

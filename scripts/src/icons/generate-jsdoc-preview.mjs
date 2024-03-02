@@ -8,12 +8,12 @@ const cache = create_lru_cache(1000);
 /**
  * @param {string} svg
  */
-export function generate_jsdoc_preview(svg) {
+export async function generate_jsdoc_preview(svg) {
   let v = cache.get(svg);
 
   if (v) return v;
 
-  const p = svgson.parseSync(svg, {
+  const p = await svgson.parse(svg, {
     transformNode(node) {
       if (node.name === 'svg') {
         node.attributes.stroke = '#111827';

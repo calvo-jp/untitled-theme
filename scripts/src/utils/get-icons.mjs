@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import svgson from 'svgson';
 import {get_workspace_root} from './get-workspace-root.mjs';
 
@@ -21,24 +21,23 @@ import {get_workspace_root} from './get-workspace-root.mjs';
 const assets_dir = path.join(get_workspace_root(), 'assets/icons');
 
 /** @type {Icon[]|null} */
-let icons = null;
+let previously_fetched_icons = null;
 
-export function get_icons() {
-  if (icons) return icons;
+export async function get_icons() {
+  if (previously_fetched_icons) return previously_fetched_icons;
 
-  /** @type {Icon[]} */
-  let l = fs
-    .readdirSync(assets_dir, 'utf-8')
+  const filenames = await fs.readdir(assets_dir, 'utf-8');
+  const promises = filenames
     .filter((filename) => filename.endsWith('svg'))
-    .map((filename) => {
+    .map(async (filename) => {
       const {name, base} = path.parse(filename);
       const location = path.join(assets_dir, base);
 
       /** @type {string} */
       let content = '';
 
-      content = fs.readFileSync(location, 'utf-8');
-      content = svgson.stringify(svgson.parseSync(content), {
+      content = await fs.readFile(location, 'utf-8');
+      content = svgson.stringify(await svgson.parse(content), {
         transformNode(node) {
           if (node.name === 'svg') {
             return {
@@ -57,7 +56,8 @@ export function get_icons() {
         },
       });
 
-      return {
+      /** @type {Icon} */
+      const o = {
         slug: name,
         html: content,
         path: location,
@@ -67,10 +67,15 @@ export function get_icons() {
           pascal: [...name.split(/-/g), 'icon'].map(uc_first).join(''),
         },
       };
+
+      return o;
     });
 
-  icons = l;
-  return l;
+  const icons = await Promise.all(promises);
+
+  previously_fetched_icons = icons;
+
+  return icons;
 }
 
 /**

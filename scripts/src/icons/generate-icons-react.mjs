@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import svgson from 'svgson';
 import {get_icons} from '../utils/get-icons.mjs';
 import {get_workspace_root} from '../utils/get-workspace-root.mjs';
@@ -9,14 +9,15 @@ import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
 
 const outdir = path.join(get_workspace_root(), 'packages/icons/react/src');
 
-export function generate_icons_react() {
-  create_clean_dir(outdir);
+export async function generate_icons_react() {
+  await create_clean_dir(outdir);
 
-  const items = get_icons().map((icon) => {
-    const component = to_react_component(icon);
+  const icons = await get_icons();
+  const promises = icons.map(async (icon) => {
+    const component = await to_react_component(icon);
     const destination = path.join(outdir, `${icon.name.pascal}.tsx`);
 
-    fs.writeFileSync(destination, component, 'utf-8');
+    await fs.writeFile(destination, component, 'utf-8');
 
     /**
      * @type {import('./create-barrel-file.mjs').BarrelItem}
@@ -34,7 +35,9 @@ export function generate_icons_react() {
     return item;
   });
 
-  create_barrel_file(outdir, items);
+  const items = await Promise.all(promises);
+
+  await create_barrel_file(outdir, items);
 }
 
 const REF = 'REF';
@@ -44,7 +47,7 @@ const REST_PROPS = 'REST_PROPS';
 /**
  * @param {import('../utils/get-icons.mjs').Icon} icon
  */
-function to_react_component(icon) {
+async function to_react_component(icon) {
   const node = svgson.parseSync(icon.html, {
     camelcase: true,
     transformNode(node) {
@@ -89,7 +92,7 @@ function to_react_component(icon) {
   return template
     .replaceAll('%name%', icon.name.pascal)
     .replaceAll('%html%', react_svg)
-    .replaceAll('%comment%', generate_jsdoc_preview(icon.html));
+    .replaceAll('%comment%', await generate_jsdoc_preview(icon.html));
 }
 
 const template = `

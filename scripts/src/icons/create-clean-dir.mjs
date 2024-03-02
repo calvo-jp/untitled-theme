@@ -1,9 +1,9 @@
-import fs from 'fs';
+import fs from 'node:fs/promises';
 
 /**
  * @param {string} location
  */
-export function create_clean_dir(location) {
-  fs.rmSync(location, {force: true, recursive: true});
-  fs.mkdirSync(location, {recursive: true});
+export async function create_clean_dir(location) {
+  await fs.rm(location, {force: true, recursive: true});
+  await fs.mkdir(location, {recursive: true});
 }

@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 
 /**
  * @typedef {Object} Module
@@ -51,7 +51,7 @@ export async function create_barrel_file(directory, content) {
     })
     .join('\n');
 
-  fs.writeFileSync(path.join(directory, 'index.ts'), c, 'utf-8');
+  await fs.writeFile(path.join(directory, 'index.ts'), c, 'utf-8');
 }
 
 /**
