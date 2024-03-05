@@ -11,8 +11,6 @@ export function Modal({children}: PropsWithChildren) {
   return (
     <Dialog.Root
       open
-      lazyMount
-      unmountOnExit
       onOpenChange={({open}) => {
         if (!open) router.back();
       }}
