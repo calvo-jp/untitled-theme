@@ -16,6 +16,10 @@
   "bugs": {
     "url": "https://github.com/calvo-jp/untitled-theme/issues"
   },
+  "author": {
+    "name": "John Paul Calvo",
+    "email": "calvojp92@gmail.com"
+  },
   "main": "dist/index.js",
   "exports": {
     ".": {
