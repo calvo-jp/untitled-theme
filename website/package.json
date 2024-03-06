@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ark-ui/react": "2.2.2",
+    "@ark-ui/react": "2.2.3",
     "@untitled-theme/colors": "workspace:*",
     "@untitled-theme/icons-react": "workspace:*",
     "geist": "1.2.2",

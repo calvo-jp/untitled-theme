@@ -135,8 +135,8 @@ importers:
   website:
     dependencies:
       '@ark-ui/react':
-        specifier: 2.2.2
-        version: 2.2.2(@internationalized/date@3.5.2)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 2.2.3
+        version: 2.2.3(@internationalized/date@3.5.2)(react-dom@18.2.0)(react@18.2.0)
       '@untitled-theme/colors':
         specifier: workspace:*
         version: link:../packages/core/colors
@@ -264,8 +264,8 @@ packages:
       - '@internationalized/date'
     dev: false
 
-  /@ark-ui/react@2.2.2(@internationalized/date@3.5.2)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-M32c1gHrwOQE0Ku0gJtYfVLdyiBgjWIruLqQWUhrXdBeLkXY72eT1sWPT9VMGZIZJ0eZBfqnvBAbKvj+ZGduVQ==}
+  /@ark-ui/react@2.2.3(@internationalized/date@3.5.2)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-W43rbimG1f7v1jk8J+PG/3um8/PaL1lQZEnRPzaXtQjEoiBlXH4yFyJakoEldxoZEQGB8x7SUkjHxZ93cRceuQ==}
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
