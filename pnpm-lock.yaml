@@ -30,11 +30,11 @@ importers:
   packages/icons/react:
     devDependencies:
       '@tsconfig/vite-react':
-        specifier: 3.0.0
-        version: 3.0.0
+        specifier: 3.0.1
+        version: 3.0.1
       '@types/react':
         specifier: 18.2.62
-        version: 18.2.63
+        version: 18.2.62
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -1457,8 +1457,8 @@ packages:
     resolution: {integrity: sha512-BRbo1fOtyVbhfLyuCWw6wAWp+U8UQle+ZXu84MYYWzYSEB28dyfnRBIE99eoG+qdAC0po6L2ScIEivcT07UaMA==}
     dev: true
 
-  /@tsconfig/vite-react@3.0.0:
-    resolution: {integrity: sha512-haOFbphpavQ1+eyQjeqvlz7sRkQue/bS0GvFmraHml31Ufhv+7juUSc8PVe0In7sly+n+5zTLmzc287KciiGXg==}
+  /@tsconfig/vite-react@3.0.1:
+    resolution: {integrity: sha512-yrAEQWgWZdbfNt/11TrvUPkh0AJrJy+DP9qc4c5zPt8POGwYfEp8dB2LnBC9DBm/zpycsasRJh8Z9uVB17yxCw==}
     dev: true
 
   /@types/argparse@1.0.38:
@@ -1522,7 +1522,15 @@ packages:
   /@types/react-dom@18.2.20:
     resolution: {integrity: sha512-HXN/biJY8nv20Cn9ZbCFq3liERd4CozVZmKbaiZ9KiKTrWqsP7eoGDO6OOGvJQwoVFuiXaiJ7nBBjiFFbRmQMQ==}
     dependencies:
-      '@types/react': 18.2.63
+      '@types/react': 18.2.62
+    dev: true
+
+  /@types/react@18.2.62:
+    resolution: {integrity: sha512-l3f57BbaEKP0xcFzf+5qRG8/PXykZiuVM6eEoPtqBPCp6dxO3HhDkLIgIyXPhPKNAeXn3KO2pEaNgzaEo/asaw==}
+    dependencies:
+      '@types/prop-types': 15.7.11
+      '@types/scheduler': 0.16.8
+      csstype: 3.1.3
     dev: true
 
   /@types/react@18.2.63:
