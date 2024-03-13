@@ -205,7 +205,7 @@ async function toSvelteSnippet(svg: Html) {
 		<script lang="ts">
 			import type {SVGAttributes} from 'svelte/elements';
 
-			let {...props} = $props<SVGAttributes<SVGSVGElement>>();  
+			let {...props}: SVGAttributes<SVGSVGElement> = $props();  
 		</script>
 
 		${svelteSvg}
