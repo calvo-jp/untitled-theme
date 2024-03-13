@@ -37,7 +37,6 @@ export default function RootLayout(props: Readonly<{modal: ReactNode; children: 
           enableSystem
           disableTransitionOnChange
         >
-          {props.children}
           <Navbar />
           <main className="mx-auto max-w-screen-lg p-4 md:p-8 lg:p-12">{props.children}</main>
 
