@@ -95,7 +95,7 @@ const template = `
 
   const cx = (...args: (string | null | undefined)[]) => args.filter(Boolean).join(' ');
   
-  let {class: classProp, ...props}: SVGAttributes<SVGSVGElement> = $props(); 
+  let {class: classProp, ...props} = $props<SVGAttributes<SVGSVGElement>>(); 
   let className = $derived(cx('%class%', classProp)); 
 </script>
 
