@@ -105,8 +105,8 @@ importers:
         specifier: 0.7.0
         version: 0.7.0
       '@tsconfig/recommended':
-        specifier: 1.0.3
-        version: 1.0.3
+        specifier: 1.0.4
+        version: 1.0.4
       '@types/node':
         specifier: 20.11.30
         version: 20.11.30
@@ -1743,8 +1743,8 @@ packages:
     resolution: {integrity: sha512-XeWn6Gms5MaQWdj+C4fuxuo/Icy8ckh+BwAIijhX2LKRHHt1OuctLLLlB0F4EPi55m2IUJNTnv8FH9kSBI7Ogw==}
     dev: true
 
-  /@tsconfig/recommended@1.0.3:
-    resolution: {integrity: sha512-+jby/Guq9H8O7NWgCv6X8VAiQE8Dr/nccsCtL74xyHKhu2Knu5EAKmOZj3nLCnLm1KooUzKY+5DsnGVqhM8/wQ==}
+  /@tsconfig/recommended@1.0.4:
+    resolution: {integrity: sha512-7RfsHlJYsqASGpV7R7zJ72baBBoqvbTj9dD4SHYSeLSMkMjSUhi15SZQK/7GQPCAmOhEoEC87HneaXihVXF6YA==}
     dev: false
 
   /@tsconfig/svelte@5.0.3:
