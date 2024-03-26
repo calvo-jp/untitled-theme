@@ -1,6 +1,7 @@
 /** BUILD: 2x */
 
 import Link from 'next/link';
+import {Suspense} from 'react';
 import {Searchbar} from './searchbar';
 import {getIcons} from './utils';
 
@@ -29,7 +30,9 @@ export default async function IconsPage({searchParams}: Props) {
 
   return (
     <>
-      <Searchbar />
+      <Suspense>
+        <Searchbar />
+      </Suspense>
 
       <div
         className="mb-3 mt-5 text-sm lg:mt-8"
