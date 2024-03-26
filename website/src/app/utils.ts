@@ -1,7 +1,7 @@
-import type { Html, Icon } from '@/app/types';
-import { unstable_cache as cache } from 'next/cache';
+import type {Html, Icon} from '@/app/types';
+import {unstable_cache as cache} from 'next/cache';
 import prettier from 'prettier';
-import { codeToHtml } from 'shiki';
+import {codeToHtml} from 'shiki';
 import * as svgson from 'svgson';
 import database from './database.json';
 
@@ -165,7 +165,6 @@ async function toSolidSnippet(svg: Html, name: string) {
 
 async function toSvelteSnippet(svg: Html) {
   const node = await svgson.parse(svg, {
-    camelcase: true,
     transformNode(node) {
       if (node.name === 'svg') {
         return {
