@@ -5,7 +5,7 @@
   "scripts": {
     "generate:icons": "tsx ./src/icons/generate-icons.ts",
     "generate:database": "tsx ./src/website/generate-database.ts",
-    "typecheck": "tsc -p jsconfig.json"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@clack/prompts": "0.7.0",
