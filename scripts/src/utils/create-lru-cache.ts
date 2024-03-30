@@ -28,6 +28,7 @@ export function createLruCache<Key, Value>(maxCacheSize: number) {
       if (value !== undefined) {
         return value;
       }
+
       if ((value = previousCache.get(key)) !== undefined) {
         update(key, value);
         return value;
