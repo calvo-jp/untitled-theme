@@ -10,7 +10,6 @@
   "dependencies": {
     "@clack/prompts": "0.7.0",
     "@tsconfig/node20": "20.1.4",
-    "@tsconfig/recommended": "1.0.5",
     "@types/node": "20.12.2",
     "@types/yargs": "17.0.32",
     "@untitled-theme/colors": "workspace:*",
