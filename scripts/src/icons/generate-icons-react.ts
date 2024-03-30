@@ -1,29 +1,26 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import svgson from 'svgson';
-import {format_typescript} from '../utils/formatter.mjs';
-import {get_icons} from '../utils/get-icons.mjs';
-import {get_workspace_root} from '../utils/get-workspace-root.mjs';
-import {create_barrel_file} from './create-barrel-file.mjs';
-import {create_clean_dir} from './create-clean-dir.mjs';
-import {generate_jsdoc_preview} from './generate-jsdoc-preview.mjs';
+import {formatTypescript} from '../utils/formatter.js';
+import {Icon, getIcons} from '../utils/get-icons.js';
+import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
+import {BarrelItem, createBarrelFile} from './create-barrel-file.js';
+import {createCleanDir} from './create-clean-dir.js';
+import {generateJsdocPreview} from './generate-jsdoc-preview.js';
 
-const outdir = path.join(get_workspace_root(), 'packages/icons/react/src');
+const outdir = path.join(getWorkspaceRoot(), 'packages/icons/react/src');
 
-export async function generate_icons_react() {
-  await create_clean_dir(outdir);
+export async function generateIconsReact() {
+  await createCleanDir(outdir);
 
-  const icons = await get_icons();
+  const icons = await getIcons();
   const promises = icons.map(async (icon) => {
-    const component = await to_react_component(icon);
+    const component = await toReactComponent(icon);
     const destination = path.join(outdir, `${icon.name.pascal}.tsx`);
 
-    await fs.writeFile(destination, await format_typescript(component), 'utf-8');
+    await fs.writeFile(destination, await formatTypescript(component), 'utf-8');
 
-    /**
-     * @type {import('./create-barrel-file.mjs').BarrelItem}
-     */
-    const item = {
+    const item: BarrelItem = {
       path: `./${icon.name.pascal}`,
       modules: [
         {
@@ -38,17 +35,14 @@ export async function generate_icons_react() {
 
   const items = await Promise.all(promises);
 
-  await create_barrel_file(outdir, items);
+  await createBarrelFile(outdir, items);
 }
 
 const REF = 'REF';
 const CLASSNAME = 'CLASSNAME';
 const REST_PROPS = 'REST_PROPS';
 
-/**
- * @param {import('../utils/get-icons.mjs').Icon} icon
- */
-async function to_react_component(icon) {
+async function toReactComponent(icon: Icon) {
   const node = svgson.parseSync(icon.html, {
     camelcase: true,
     transformNode(node) {
@@ -71,7 +65,7 @@ async function to_react_component(icon) {
     },
   });
 
-  const react_svg = svgson.stringify(node, {
+  const reactSvg = svgson.stringify(node, {
     selfClose: true,
     transformAttr(key, value, esc) {
       if (key === REF) {
@@ -92,8 +86,8 @@ async function to_react_component(icon) {
 
   return template
     .replaceAll('%name%', icon.name.pascal)
-    .replaceAll('%html%', react_svg)
-    .replaceAll('%comment%', await generate_jsdoc_preview(icon.html));
+    .replaceAll('%html%', reactSvg)
+    .replaceAll('%comment%', await generateJsdocPreview(icon.html));
 }
 
 const template = `

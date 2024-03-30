@@ -1,14 +1,10 @@
-import svg64 from 'svg64';
+import {Buffer} from 'node:buffer';
 import svgson from 'svgson';
-import {create_lru_cache} from '../utils/create-lru-cache.mjs';
+import {createLruCache} from '../utils/create-lru-cache.js';
 
-/** @type {import('../utils/create-lru-cache.mjs').LruCache<string,string>} */
-const cache = create_lru_cache(1000);
+const cache = createLruCache<string, string>(1000);
 
-/**
- * @param {string} svg
- */
-export async function generate_jsdoc_preview(svg) {
+export async function generateJsdocPreview(svg: string) {
   let v = cache.get(svg);
 
   if (v) return v;
@@ -34,7 +30,10 @@ export async function generate_jsdoc_preview(svg) {
     },
   });
 
-  v = `![img](${svg64(svgson.stringify(p))})`;
+  v = Buffer.from(svgson.stringify(p)).toString('base64');
+  v = `![img](data:image/svg+xml;base64,${v})`;
+
   cache.set(svg, v);
+
   return v;
 }
