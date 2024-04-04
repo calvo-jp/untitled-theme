@@ -47,7 +47,7 @@
     "@tsconfig/node20": "20.1.4",
     "release-it": "17.1.1",
     "tsup": "8.0.2",
-    "typescript": "5.4.3"
+    "typescript": "5.4.4"
   },
   "tsup": {
     "dts": true,

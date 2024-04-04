@@ -52,7 +52,7 @@
     "release-it": "17.1.1",
     "svelte": "5.0.0-next.94",
     "svelte-preprocess": "5.1.3",
-    "typescript": "5.4.3",
+    "typescript": "5.4.4",
     "vite": "5.2.8"
   },
   "peerDependencies": {

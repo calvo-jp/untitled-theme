@@ -19,13 +19,13 @@ importers:
         version: 20.1.4
       release-it:
         specifier: 17.1.1
-        version: 17.1.1(typescript@5.4.3)
+        version: 17.1.1(typescript@5.4.4)
       tsup:
         specifier: 8.0.2
-        version: 8.0.2(typescript@5.4.3)
+        version: 8.0.2(typescript@5.4.4)
       typescript:
-        specifier: 5.4.3
-        version: 5.4.3
+        specifier: 5.4.4
+        version: 5.4.4
 
   packages/icons/react:
     devDependencies:
@@ -40,34 +40,34 @@ importers:
         version: 18.2.0
       release-it:
         specifier: 17.1.1
-        version: 17.1.1(typescript@5.4.3)
+        version: 17.1.1(typescript@5.4.4)
       typescript:
-        specifier: 5.4.3
-        version: 5.4.3
+        specifier: 5.4.4
+        version: 5.4.4
       vite:
         specifier: 5.2.8
         version: 5.2.8
       vite-plugin-dts:
         specifier: 3.8.1
-        version: 3.8.1(typescript@5.4.3)(vite@5.2.8)
+        version: 3.8.1(typescript@5.4.4)(vite@5.2.8)
 
   packages/icons/solid:
     devDependencies:
       release-it:
         specifier: 17.1.1
-        version: 17.1.1(typescript@5.4.3)
+        version: 17.1.1(typescript@5.4.4)
       solid-js:
         specifier: 1.8.16
         version: 1.8.16
       typescript:
-        specifier: 5.4.3
-        version: 5.4.3
+        specifier: 5.4.4
+        version: 5.4.4
       vite:
         specifier: 5.2.8
         version: 5.2.8
       vite-plugin-dts:
         specifier: 3.8.1
-        version: 3.8.1(typescript@5.4.3)(vite@5.2.8)
+        version: 3.8.1(typescript@5.4.4)(vite@5.2.8)
       vite-plugin-solid:
         specifier: 2.10.2
         version: 2.10.2(solid-js@1.8.16)(vite@5.2.8)
@@ -76,7 +76,7 @@ importers:
     devDependencies:
       '@sveltejs/package':
         specifier: 2.3.0
-        version: 2.3.0(svelte@5.0.0-next.94)(typescript@5.4.3)
+        version: 2.3.0(svelte@5.0.0-next.94)(typescript@5.4.4)
       '@sveltejs/vite-plugin-svelte':
         specifier: 3.0.2
         version: 3.0.2(svelte@5.0.0-next.94)(vite@5.2.8)
@@ -85,16 +85,16 @@ importers:
         version: 5.0.4
       release-it:
         specifier: 17.1.1
-        version: 17.1.1(typescript@5.4.3)
+        version: 17.1.1(typescript@5.4.4)
       svelte:
         specifier: 5.0.0-next.94
         version: 5.0.0-next.94
       svelte-preprocess:
         specifier: 5.1.3
-        version: 5.1.3(svelte@5.0.0-next.94)(typescript@5.4.3)
+        version: 5.1.3(svelte@5.0.0-next.94)(typescript@5.4.4)
       typescript:
-        specifier: 5.4.3
-        version: 5.4.3
+        specifier: 5.4.4
+        version: 5.4.4
       vite:
         specifier: 5.2.8
         version: 5.2.8
@@ -126,8 +126,8 @@ importers:
         specifier: 4.7.2
         version: 4.7.2
       typescript:
-        specifier: 5.4.3
-        version: 5.4.3
+        specifier: 5.4.4
+        version: 5.4.4
       yargs:
         specifier: 17.7.2
         version: 17.7.2
@@ -1654,7 +1654,7 @@ packages:
     engines: {node: '>=18'}
     dev: true
 
-  /@sveltejs/package@2.3.0(svelte@5.0.0-next.94)(typescript@5.4.3):
+  /@sveltejs/package@2.3.0(svelte@5.0.0-next.94)(typescript@5.4.4):
     resolution: {integrity: sha512-wmtwEfi3gQnmtotAjygRHR6cmLfpblQl1dU764f3N2I5DPe34llFs44bHOYcuk91Bp2sSq6bWUmNwxGlYCchOA==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
@@ -1666,7 +1666,7 @@ packages:
       sade: 1.8.1
       semver: 7.6.0
       svelte: 5.0.0-next.94
-      svelte2tsx: 0.7.1(svelte@5.0.0-next.94)(typescript@5.4.3)
+      svelte2tsx: 0.7.1(svelte@5.0.0-next.94)(typescript@5.4.4)
     transitivePeerDependencies:
       - typescript
     dev: true
@@ -1925,7 +1925,7 @@ packages:
       '@vue/shared': 3.3.4
     dev: true
 
-  /@vue/language-core@1.8.27(typescript@5.4.3):
+  /@vue/language-core@1.8.27(typescript@5.4.4):
     resolution: {integrity: sha512-L8Kc27VdQserNaCUNiSFdDl9LWT24ly8Hpwf1ECy3aFb9m6bDhBGQYOujDm21N7EW3moKIOKEanQwe1q5BK+mA==}
     peerDependencies:
       typescript: '*'
@@ -1941,7 +1941,7 @@ packages:
       minimatch: 9.0.3
       muggle-string: 0.3.1
       path-browserify: 1.0.1
-      typescript: 5.4.3
+      typescript: 5.4.4
       vue-template-compiler: 2.7.16
     dev: true
 
@@ -3152,7 +3152,7 @@ packages:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
     dev: true
 
-  /cosmiconfig@9.0.0(typescript@5.4.3):
+  /cosmiconfig@9.0.0(typescript@5.4.4):
     resolution: {integrity: sha512-itvL5h8RETACmOTFc4UfIyB2RfEHi71Ax6E/PivVxq9NseKbOWpeyHEOIbmAw1rs8Ak0VursQNww7lf7YtUwzg==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -3165,7 +3165,7 @@ packages:
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       parse-json: 5.2.0
-      typescript: 5.4.3
+      typescript: 5.4.4
     dev: true
 
   /cross-spawn@7.0.3:
@@ -6066,7 +6066,7 @@ packages:
       rc: 1.2.8
     dev: true
 
-  /release-it@17.1.1(typescript@5.4.3):
+  /release-it@17.1.1(typescript@5.4.4):
     resolution: {integrity: sha512-b+4Tu2eb5f2wIdIe5E9hre0evbMQrXp/kRq0natHsHYJVqu1Bd4/h2a+swFi0faGmC3cJdB16uYR6LscG9SchQ==}
     engines: {node: '>=18'}
     hasBin: true
@@ -6075,7 +6075,7 @@ packages:
       '@octokit/rest': 20.0.2
       async-retry: 1.3.3
       chalk: 5.3.0
-      cosmiconfig: 9.0.0(typescript@5.4.3)
+      cosmiconfig: 9.0.0(typescript@5.4.4)
       execa: 8.0.1
       git-url-parse: 14.0.0
       globby: 14.0.1
@@ -6725,7 +6725,7 @@ packages:
       svelte: 5.0.0-next.94
     dev: true
 
-  /svelte-preprocess@5.1.3(svelte@5.0.0-next.94)(typescript@5.4.3):
+  /svelte-preprocess@5.1.3(svelte@5.0.0-next.94)(typescript@5.4.4):
     resolution: {integrity: sha512-xxAkmxGHT+J/GourS5mVJeOXZzne1FR5ljeOUAMXUkfEhkLEllRreXpbl3dIYJlcJRfL1LO1uIAPpBpBfiqGPw==}
     engines: {node: '>= 16.0.0', pnpm: ^8.0.0}
     requiresBuild: true
@@ -6769,10 +6769,10 @@ packages:
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 5.0.0-next.94
-      typescript: 5.4.3
+      typescript: 5.4.4
     dev: true
 
-  /svelte2tsx@0.7.1(svelte@5.0.0-next.94)(typescript@5.4.3):
+  /svelte2tsx@0.7.1(svelte@5.0.0-next.94)(typescript@5.4.4):
     resolution: {integrity: sha512-0lKa6LrqJxRan0bDmBd/uFsVzYSXnoFUDaczaH0znke/XI79oy1JjFaF51J9EsOvpn8lXPlrUc3n/MA/ORNxBg==}
     peerDependencies:
       svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
@@ -6781,7 +6781,7 @@ packages:
       dedent-js: 1.0.1
       pascal-case: 3.1.2
       svelte: 5.0.0-next.94
-      typescript: 5.4.3
+      typescript: 5.4.4
     dev: true
 
   /svelte@5.0.0-next.94:
@@ -6928,7 +6928,7 @@ packages:
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
-  /tsup@8.0.2(typescript@5.4.3):
+  /tsup@8.0.2(typescript@5.4.4):
     resolution: {integrity: sha512-NY8xtQXdH7hDUAZwcQdY/Vzlw9johQsaqf7iwZ6g1DOUlFYQ5/AtVAjTvihhEyeRlGo4dLRVHtrRaL35M1daqQ==}
     engines: {node: '>=18'}
     hasBin: true
@@ -6961,7 +6961,7 @@ packages:
       source-map: 0.8.0-beta.0
       sucrase: 3.35.0
       tree-kill: 1.2.2
-      typescript: 5.4.3
+      typescript: 5.4.4
     transitivePeerDependencies:
       - supports-color
       - ts-node
@@ -7059,6 +7059,12 @@ packages:
     resolution: {integrity: sha512-KrPd3PKaCLr78MalgiwJnA25Nm8HAmdwN3mYUYZgG/wizIo9EainNVQI9/yDavtVFRN2h3k8uf3GLHuhDMgEHg==}
     engines: {node: '>=14.17'}
     hasBin: true
+    dev: true
+
+  /typescript@5.4.4:
+    resolution: {integrity: sha512-dGE2Vv8cpVvw28v8HCPqyb08EzbBURxDpuhJvTrusShUfGnhHBafDsLdS1EhhxyL6BJQE+2cT3dDPAv+MQ6oLw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
 
   /unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
@@ -7151,7 +7157,7 @@ packages:
     engines: {node: '>= 0.10'}
     dev: true
 
-  /vite-plugin-dts@3.8.1(typescript@5.4.3)(vite@5.2.8):
+  /vite-plugin-dts@3.8.1(typescript@5.4.4)(vite@5.2.8):
     resolution: {integrity: sha512-zEYyQxH7lKto1VTKZHF3ZZeOPkkJgnMrePY4VxDHfDSvDjmYMMfWjZxYmNwW8QxbaItWJQhhXY+geAbyNphI7g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -7163,13 +7169,13 @@ packages:
     dependencies:
       '@microsoft/api-extractor': 7.43.0
       '@rollup/pluginutils': 5.1.0
-      '@vue/language-core': 1.8.27(typescript@5.4.3)
+      '@vue/language-core': 1.8.27(typescript@5.4.4)
       debug: 4.3.4
       kolorist: 1.8.0
       magic-string: 0.30.8
-      typescript: 5.4.3
+      typescript: 5.4.4
       vite: 5.2.8
-      vue-tsc: 1.8.27(typescript@5.4.3)
+      vue-tsc: 1.8.27(typescript@5.4.4)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
@@ -7251,16 +7257,16 @@ packages:
       he: 1.2.0
     dev: true
 
-  /vue-tsc@1.8.27(typescript@5.4.3):
+  /vue-tsc@1.8.27(typescript@5.4.4):
     resolution: {integrity: sha512-WesKCAZCRAbmmhuGl3+VrdWItEvfoFIPXOvUJkjULi+x+6G/Dy69yO3TBRJDr9eUlmsNAwVmxsNZxvHKzbkKdg==}
     hasBin: true
     peerDependencies:
       typescript: '*'
     dependencies:
       '@volar/typescript': 1.11.1
-      '@vue/language-core': 1.8.27(typescript@5.4.3)
+      '@vue/language-core': 1.8.27(typescript@5.4.4)
       semver: 7.6.0
-      typescript: 5.4.3
+      typescript: 5.4.4
     dev: true
 
   /wcwidth@1.0.1:
