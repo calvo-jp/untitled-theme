@@ -4,27 +4,38 @@ export type Pretty<T extends GenericObject> = {} & {[P in keyof T]: T[P]};
 export type Assign<Target extends GenericObject, Source extends GenericObject> = Pretty<
   Source & Omit<Target, keyof Source>
 >;
-export type Html = Alias<string>;
-export type Snippet = Alias<string>;
+
 export type Icon<WithSnippet extends boolean = false> = WithSnippet extends true
   ? {
       slug: string;
-      html: Html;
+      html: string;
       name: {
         formal: string;
         pascal: string;
         kebab: string;
       };
       snippet: {
-        html: Snippet;
-        react: Snippet;
-        solid: Snippet;
-        svelte: Snippet;
+        html: {
+          raw: string;
+          html: string;
+        };
+        react: {
+          raw: string;
+          html: string;
+        };
+        solid: {
+          raw: string;
+          html: string;
+        };
+        svelte: {
+          raw: string;
+          html: string;
+        };
       };
     }
   : {
       slug: string;
-      html: Html;
+      html: string;
       name: {
         formal: string;
         pascal: string;

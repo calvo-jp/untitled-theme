@@ -68,7 +68,7 @@ export async function IconDetails({data}: {data: Icon<true>}) {
             <Tabs.Content key={item.value} value={item.value} asChild>
               <div className="relative mt-5 rounded-sm text-sm">
                 <Clipboard.Root
-                  value={item.content}
+                  value={item.content.raw}
                   className="absolute right-4 top-4 flex items-center justify-center rounded-lg bg-white/50 p-0.5 backdrop-blur-sm dark:bg-gray-true-950/50"
                 >
                   <Clipboard.Label className="sr-only">Copy</Clipboard.Label>
@@ -85,7 +85,7 @@ export async function IconDetails({data}: {data: Icon<true>}) {
 
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: item.content,
+                    __html: item.content.html,
                   }}
                 />
               </div>

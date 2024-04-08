@@ -1,4 +1,4 @@
-import type {Html, Icon} from '@/app/types';
+import type {Icon} from '@/app/types';
 import {unstable_cache as cache} from 'next/cache';
 import prettier from 'prettier';
 import {codeToHtml} from 'shiki';
@@ -10,11 +10,6 @@ interface GetIconsArgs {
   offset?: number;
   search?: string;
 }
-
-const CacheID = {
-  icons: '1',
-  icon: '2',
-};
 
 export const getIcons = cache(
   async ({search, limit, offset}: GetIconsArgs = {}) => {
@@ -39,13 +34,13 @@ export const getIcons = cache(
 
     return l;
   },
-  [CacheID.icons],
+  ['icons'],
 );
 
 const REF = 'REF';
 const REST = 'REST';
 
-async function toReactSnippet(svg: Html, name: string) {
+async function toReactSnippet(svg: string, name: string) {
   const node = await svgson.parse(svg, {
     camelcase: true,
     transformNode(node) {
@@ -95,22 +90,25 @@ async function toReactSnippet(svg: Html, name: string) {
     export default ${name};
 	`;
 
-  return await codeToHtml(
-    await prettier.format(component, {
-      parser: 'typescript',
-      printWidth: 80,
-    }),
-    {
-      lang: 'typescript',
-      themes: {
-        dark: 'vitesse-dark',
-        light: 'vitesse-light',
+  return {
+    raw: component,
+    html: await codeToHtml(
+      await prettier.format(component, {
+        parser: 'typescript',
+        printWidth: 80,
+      }),
+      {
+        lang: 'typescript',
+        themes: {
+          dark: 'vitesse-dark',
+          light: 'vitesse-light',
+        },
       },
-    },
-  );
+    ),
+  };
 }
 
-async function toSolidSnippet(svg: Html, name: string) {
+async function toSolidSnippet(svg: string, name: string) {
   const node = await svgson.parse(svg, {
     transformNode(node) {
       if (node.name === 'svg') {
@@ -153,22 +151,25 @@ async function toSolidSnippet(svg: Html, name: string) {
 		}
   `;
 
-  return await codeToHtml(
-    await prettier.format(component, {
-      parser: 'typescript',
-      printWidth: 80,
-    }),
-    {
-      lang: 'typescript',
-      themes: {
-        dark: 'vitesse-dark',
-        light: 'vitesse-light',
+  return {
+    raw: component,
+    html: await codeToHtml(
+      await prettier.format(component, {
+        parser: 'typescript',
+        printWidth: 80,
+      }),
+      {
+        lang: 'typescript',
+        themes: {
+          dark: 'vitesse-dark',
+          light: 'vitesse-light',
+        },
       },
-    },
-  );
+    ),
+  };
 }
 
-async function toSvelteSnippet(svg: Html) {
+async function toSvelteSnippet(svg: string) {
   const node = await svgson.parse(svg, {
     transformNode(node) {
       if (node.name === 'svg') {
@@ -215,22 +216,25 @@ async function toSvelteSnippet(svg: Html) {
 		${svelteSvg}
 	`;
 
-  return await codeToHtml(
-    await prettier.format(component, {
-      parser: 'html',
-      printWidth: 80,
-    }),
-    {
-      lang: 'svelte',
-      themes: {
-        dark: 'vitesse-dark',
-        light: 'vitesse-light',
+  return {
+    raw: component,
+    html: await codeToHtml(
+      await prettier.format(component, {
+        parser: 'html',
+        printWidth: 80,
+      }),
+      {
+        lang: 'svelte',
+        themes: {
+          dark: 'vitesse-dark',
+          light: 'vitesse-light',
+        },
       },
-    },
-  );
+    ),
+  };
 }
 
-async function toHtmlSnippet(svg: Html) {
+async function toHtmlSnippet(svg: string) {
   const node = await svgson.parse(svg, {
     transformNode(node) {
       if (node.name === 'svg') {
@@ -248,7 +252,7 @@ async function toHtmlSnippet(svg: Html) {
     },
   });
 
-  const htmlSvg = svgson.stringify(node, {
+  const component = svgson.stringify(node, {
     selfClose: false,
     transformAttr(key, value, esc) {
       if (key === 'stroke') {
@@ -261,19 +265,22 @@ async function toHtmlSnippet(svg: Html) {
     },
   });
 
-  return await codeToHtml(
-    await prettier.format(htmlSvg, {
-      parser: 'html',
-      printWidth: 80,
-    }),
-    {
-      lang: 'html',
-      themes: {
-        dark: 'vitesse-dark',
-        light: 'vitesse-light',
+  return {
+    raw: component,
+    html: await codeToHtml(
+      await prettier.format(component, {
+        parser: 'html',
+        printWidth: 80,
+      }),
+      {
+        lang: 'html',
+        themes: {
+          dark: 'vitesse-dark',
+          light: 'vitesse-light',
+        },
       },
-    },
-  );
+    ),
+  };
 }
 
 export const getIcon = cache(
@@ -292,5 +299,5 @@ export const getIcon = cache(
       },
     };
   },
-  [CacheID.icon],
+  ['icons[id]'],
 );
