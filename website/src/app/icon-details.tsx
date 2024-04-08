@@ -1,6 +1,6 @@
-import {Clipboard, Tabs} from '@ark-ui/react';
-import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-react';
-import {Icon} from './types';
+import { Clipboard, Tabs } from '@ark-ui/react';
+import { CheckIcon, Copy01Icon } from '@untitled-theme/icons-react';
+import { Icon } from './types';
 
 export async function IconDetails({data}: {data: Icon<true>}) {
   const items = [
@@ -38,7 +38,7 @@ export async function IconDetails({data}: {data: Icon<true>}) {
       <div className="mt-5 flex max-h-screen w-fit items-center gap-5 overflow-y-auto rounded-sm bg-gray-true-100 px-3 py-2 dark:bg-gray-true-800/25">
         <code>&lt;{data.name.pascal}&nbsp;&#47;&gt;</code>
 
-        <Clipboard.Root className="flex">
+        <Clipboard.Root className="flex" value={data.html}>
           <Clipboard.Label className="sr-only">Copy</Clipboard.Label>
           <Clipboard.Trigger className="p-1">
             <Clipboard.Indicator
