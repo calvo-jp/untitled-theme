@@ -11,6 +11,11 @@ interface GetIconsArgs {
   search?: string;
 }
 
+const CacheID = {
+  icons: '1',
+  icon: '2',
+};
+
 export const getIcons = cache(
   async ({search, limit, offset}: GetIconsArgs = {}) => {
     let l = database;
@@ -34,7 +39,7 @@ export const getIcons = cache(
 
     return l;
   },
-  ['icons'],
+  [CacheID.icons],
 );
 
 const REF = 'REF';
@@ -287,5 +292,5 @@ export const getIcon = cache(
       },
     };
   },
-  ['icon'],
+  [CacheID.icon],
 );
