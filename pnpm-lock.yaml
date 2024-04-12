@@ -48,8 +48,8 @@ importers:
         specifier: 5.2.8
         version: 5.2.8
       vite-plugin-dts:
-        specifier: 3.8.1
-        version: 3.8.1(typescript@5.4.5)(vite@5.2.8)
+        specifier: 3.8.2
+        version: 3.8.2(typescript@5.4.5)(vite@5.2.8)
 
   packages/icons/solid:
     devDependencies:
@@ -66,8 +66,8 @@ importers:
         specifier: 5.2.8
         version: 5.2.8
       vite-plugin-dts:
-        specifier: 3.8.1
-        version: 3.8.1(typescript@5.4.5)(vite@5.2.8)
+        specifier: 3.8.2
+        version: 3.8.2(typescript@5.4.5)(vite@5.2.8)
       vite-plugin-solid:
         specifier: 2.10.2
         version: 2.10.2(solid-js@1.8.16)(vite@5.2.8)
@@ -1943,7 +1943,7 @@ packages:
       '@vue/compiler-dom': 3.3.4
       '@vue/shared': 3.3.4
       computeds: 0.0.1
-      minimatch: 9.0.3
+      minimatch: 9.0.4
       muggle-string: 0.3.1
       path-browserify: 1.0.1
       typescript: 5.4.5
@@ -7153,8 +7153,8 @@ packages:
     engines: {node: '>= 0.10'}
     dev: true
 
-  /vite-plugin-dts@3.8.1(typescript@5.4.5)(vite@5.2.8):
-    resolution: {integrity: sha512-zEYyQxH7lKto1VTKZHF3ZZeOPkkJgnMrePY4VxDHfDSvDjmYMMfWjZxYmNwW8QxbaItWJQhhXY+geAbyNphI7g==}
+  /vite-plugin-dts@3.8.2(typescript@5.4.5)(vite@5.2.8):
+    resolution: {integrity: sha512-GPkLNBUU+ztskHj37nelNsgRLurFuqXxqICSd/IxjRmgee1T6IIYlRCanugc9QtgWjYVPC/HJzSfpXJSy9OLUA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       typescript: '*'
@@ -7168,7 +7168,7 @@ packages:
       '@vue/language-core': 1.8.27(typescript@5.4.5)
       debug: 4.3.4
       kolorist: 1.8.0
-      magic-string: 0.30.8
+      magic-string: 0.30.9
       typescript: 5.4.5
       vite: 5.2.8
       vue-tsc: 1.8.27(typescript@5.4.5)
