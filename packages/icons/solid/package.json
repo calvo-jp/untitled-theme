@@ -46,7 +46,7 @@
     "release": "release-it"
   },
   "devDependencies": {
-    "release-it": "17.2.1",
+    "release-it": "17.3.0",
     "solid-js": "1.8.17",
     "typescript": "5.4.5",
     "vite": "5.2.11",
