@@ -10,17 +10,17 @@ type CoreToPanda<T extends ColorPalette> = {
 
 type Pretty<T extends Record<string, unknown>> = {[P in keyof T]: T[P]} & {};
 
-export function core_to_panda<T extends ColorPalette>(value: T) {
+export function coreToPanda<T extends ColorPalette>(value: T) {
   const o: Record<string, any> = {};
 
-  Object.entries(value).forEach(([k_0, v_0]) => {
-    if (typeof v_0 === 'string') {
-      o[k_0] = {value: v_0};
+  Object.entries(value).forEach(([k0, v0]) => {
+    if (typeof v0 === 'string') {
+      o[k0] = {value: v0};
     } else {
-      o[k_0] = {};
+      o[k0] = {};
 
-      Object.entries(v_0).forEach(([k_1, v_1]) => {
-        o[k_0][k_1] = {value: v_1};
+      Object.entries(v0).forEach(([k1, v1]) => {
+        o[k0][k1] = {value: v1};
       });
     }
   });
