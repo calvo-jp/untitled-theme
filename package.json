@@ -8,8 +8,7 @@
     "icons-react": "pnpm --filter @untitled-theme/icons-react",
     "icons-svelte": "pnpm --filter @untitled-theme/icons-svelte",
     "icons-solid": "pnpm --filter @untitled-theme/icons-solid",
-    "typecheck": "pnpm --filter @untitled-theme/scripts --filter @untitled-theme/colors run typecheck",
-    "prepare": "pnpm --filter @untitled-theme/icons-react run build && pnpm --filter @untitled-theme/colors run build"
+    "typecheck": "pnpm --filter @untitled-theme/scripts --filter @untitled-theme/colors run typecheck"
   },
   "devDependencies": {
     "prettier": "3.2.5"

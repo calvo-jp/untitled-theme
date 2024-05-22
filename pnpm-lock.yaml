@@ -138,11 +138,11 @@ importers:
         specifier: 2.2.3
         version: 2.2.3(@internationalized/date@3.5.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@untitled-theme/colors':
-        specifier: workspace:*
-        version: link:../packages/core/colors
+        specifier: 0.1.0
+        version: 0.1.0
       '@untitled-theme/icons-react':
-        specifier: workspace:*
-        version: link:../packages/icons/react
+        specifier: 0.9.0
+        version: 0.9.0(@types/react@18.3.2)(react@18.3.1)
       geist:
         specifier: 1.3.0
         version: 1.3.0(next@14.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
@@ -1150,6 +1150,18 @@ packages:
 
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+
+  '@untitled-theme/colors@0.1.0':
+    resolution: {integrity: sha512-In9q993z5Ys7dGpfCBzeJYs8HRj9JLI3CHV889gNtn8HTwjK984cOCjW1Zav1xKrnaJOV1ghD/9Ox8yz0fapIg==}
+
+  '@untitled-theme/icons-react@0.9.0':
+    resolution: {integrity: sha512-BS2imNBmh2t8+xu7nhNXG7g4/sTkb3YBwL7uYSq9+6LGXyyncS2BSU9bxnLIEqqVovKwwGxXwyTm/c36Q5G6DQ==}
+    peerDependencies:
+      '@types/react': '>=18.0.0'
+      react: '>=18.0.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
 
   '@volar/language-core@1.11.1':
     resolution: {integrity: sha512-dOcNn3i9GgZAcJt43wuaEykSluAuOkQgzni1cuxLxTV0nJKanQztp7FxyswdRILaKH+P2XZMPRp2S4MV/pElCw==}
@@ -4951,6 +4963,14 @@ snapshots:
       eslint-visitor-keys: 3.4.3
 
   '@ungap/structured-clone@1.2.0': {}
+
+  '@untitled-theme/colors@0.1.0': {}
+
+  '@untitled-theme/icons-react@0.9.0(@types/react@18.3.2)(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+    optionalDependencies:
+      '@types/react': 18.3.2
 
   '@volar/language-core@1.11.1':
     dependencies:
