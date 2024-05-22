@@ -138,8 +138,8 @@ importers:
         specifier: 2.2.3
         version: 2.2.3(@internationalized/date@3.5.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@untitled-theme/colors':
-        specifier: 0.1.0
-        version: 0.1.0
+        specifier: 0.2.0
+        version: 0.2.0
       '@untitled-theme/icons-react':
         specifier: 0.9.0
         version: 0.9.0(@types/react@18.3.2)(react@18.3.1)
@@ -1151,8 +1151,8 @@ packages:
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
-  '@untitled-theme/colors@0.1.0':
-    resolution: {integrity: sha512-In9q993z5Ys7dGpfCBzeJYs8HRj9JLI3CHV889gNtn8HTwjK984cOCjW1Zav1xKrnaJOV1ghD/9Ox8yz0fapIg==}
+  '@untitled-theme/colors@0.2.0':
+    resolution: {integrity: sha512-5NSFPYNRbfmPZw6F/RXKAkvl238cXPMw6ZtNDpuciNcTTXh7xCxVq+iqyiFr+INlFlB5t3LHC9M2TQeNMxMObA==}
 
   '@untitled-theme/icons-react@0.9.0':
     resolution: {integrity: sha512-BS2imNBmh2t8+xu7nhNXG7g4/sTkb3YBwL7uYSq9+6LGXyyncS2BSU9bxnLIEqqVovKwwGxXwyTm/c36Q5G6DQ==}
@@ -4964,7 +4964,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@untitled-theme/colors@0.1.0': {}
+  '@untitled-theme/colors@0.2.0': {}
 
   '@untitled-theme/icons-react@0.9.0(@types/react@18.3.2)(react@18.3.1)':
     dependencies:
