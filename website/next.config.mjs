@@ -7,8 +7,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   experimental: {
-    optimizePackageImports: ['@untitled-theme/icons-react', '@ark-ui/react'],
-    serverMinification: true,
+    optimizePackageImports: ['@untitled-theme/icons-react', '@ark-ui/react', 'shiki'],
   },
 };
 
