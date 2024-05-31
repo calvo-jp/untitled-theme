@@ -136,7 +136,7 @@ importers:
     dependencies:
       '@ark-ui/react':
         specifier: 3.0.2
-        version: 3.0.2(@internationalized/date@3.5.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 3.0.2(@internationalized/date@3.5.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@untitled-theme/colors':
         specifier: 0.2.0
         version: 0.2.0
@@ -193,8 +193,8 @@ importers:
         specifier: 3.2.5
         version: 3.2.5
       prettier-plugin-tailwindcss:
-        specifier: 0.6.0
-        version: 0.6.0(prettier@3.2.5)
+        specifier: 0.6.1
+        version: 0.6.1(prettier@3.2.5)
       tailwindcss:
         specifier: 3.4.3
         version: 3.4.3
@@ -3326,8 +3326,8 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier-plugin-tailwindcss@0.6.0:
-    resolution: {integrity: sha512-l5F3iG54XbOq/2DOPP/YA+c6VE3/qXrcBccntq2v7PSxtEc+J6SwsuTyDHxoFK1+jAlcU/hECBfzn6MON6ENBg==}
+  prettier-plugin-tailwindcss@0.6.1:
+    resolution: {integrity: sha512-AnbeYZu0WGj+QgKciUgdMnRxrqcxltleZPgdwfA5104BHM3siBLONN/HLW1yS2HvzSNkzpQ/JAj+LN0jcJO+0w==}
     engines: {node: '>=14.21.3'}
     peerDependencies:
       '@ianvs/prettier-plugin-sort-imports': '*'
@@ -4240,7 +4240,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@ark-ui/anatomy@3.2.0(@internationalized/date@3.5.4)':
+  '@ark-ui/anatomy@3.2.0(@internationalized/date@3.5.3)':
     dependencies:
       '@zag-js/accordion': 0.51.1
       '@zag-js/anatomy': 0.51.1
@@ -4253,7 +4253,7 @@ snapshots:
       '@zag-js/color-utils': 0.51.1
       '@zag-js/combobox': 0.51.1
       '@zag-js/date-picker': 0.51.1
-      '@zag-js/date-utils': 0.51.1(@internationalized/date@3.5.4)
+      '@zag-js/date-utils': 0.51.1(@internationalized/date@3.5.3)
       '@zag-js/dialog': 0.51.1
       '@zag-js/editable': 0.51.1
       '@zag-js/file-upload': 0.51.1
@@ -4280,9 +4280,9 @@ snapshots:
     transitivePeerDependencies:
       - '@internationalized/date'
 
-  '@ark-ui/react@3.0.2(@internationalized/date@3.5.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@ark-ui/react@3.0.2(@internationalized/date@3.5.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@ark-ui/anatomy': 3.2.0(@internationalized/date@3.5.4)
+      '@ark-ui/anatomy': 3.2.0(@internationalized/date@3.5.3)
       '@zag-js/accordion': 0.51.2
       '@zag-js/avatar': 0.51.2
       '@zag-js/carousel': 0.51.2
@@ -4294,7 +4294,7 @@ snapshots:
       '@zag-js/combobox': 0.51.2
       '@zag-js/core': 0.51.2
       '@zag-js/date-picker': 0.51.2
-      '@zag-js/date-utils': 0.51.2(@internationalized/date@3.5.4)
+      '@zag-js/date-utils': 0.51.2(@internationalized/date@3.5.3)
       '@zag-js/dialog': 0.51.2
       '@zag-js/dom-query': 0.51.2
       '@zag-js/editable': 0.51.2
@@ -5437,9 +5437,9 @@ snapshots:
     dependencies:
       '@internationalized/date': 3.5.3
 
-  '@zag-js/date-utils@0.51.1(@internationalized/date@3.5.4)':
+  '@zag-js/date-utils@0.51.2(@internationalized/date@3.5.3)':
     dependencies:
-      '@internationalized/date': 3.5.4
+      '@internationalized/date': 3.5.3
 
   '@zag-js/date-utils@0.51.2(@internationalized/date@3.5.4)':
     dependencies:
@@ -8043,7 +8043,7 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-tailwindcss@0.6.0(prettier@3.2.5):
+  prettier-plugin-tailwindcss@0.6.1(prettier@3.2.5):
     dependencies:
       prettier: 3.2.5
 
