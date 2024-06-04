@@ -123,8 +123,8 @@ importers:
         specifier: 5.3.1
         version: 5.3.1
       tsx:
-        specifier: 4.11.0
-        version: 4.11.0
+        specifier: 4.11.2
+        version: 4.11.2
       typescript:
         specifier: 5.4.5
         version: 5.4.5
@@ -136,7 +136,7 @@ importers:
     dependencies:
       '@ark-ui/react':
         specifier: 3.0.2
-        version: 3.0.2(@internationalized/date@3.5.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 3.0.2(@internationalized/date@3.5.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@untitled-theme/colors':
         specifier: 0.2.0
         version: 0.2.0
@@ -3953,8 +3953,8 @@ packages:
       typescript:
         optional: true
 
-  tsx@4.11.0:
-    resolution: {integrity: sha512-vzGGELOgAupsNVssAmZjbUDfdm/pWP4R+Kg8TVdsonxbXk0bEpE1qh0yV6/QxUVXaVlNemgcPajGdJJ82n3stg==}
+  tsx@4.11.2:
+    resolution: {integrity: sha512-V5DL5v1BuItjsQ2FN9+4OjR7n5cr8hSgN+VGmm/fd2/0cgQdBIWHcQ3bFYm/5ZTmyxkTDBUIaRuW2divgfPe0A==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -4240,7 +4240,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@ark-ui/anatomy@3.2.0(@internationalized/date@3.5.3)':
+  '@ark-ui/anatomy@3.2.0(@internationalized/date@3.5.4)':
     dependencies:
       '@zag-js/accordion': 0.51.1
       '@zag-js/anatomy': 0.51.1
@@ -4253,7 +4253,7 @@ snapshots:
       '@zag-js/color-utils': 0.51.1
       '@zag-js/combobox': 0.51.1
       '@zag-js/date-picker': 0.51.1
-      '@zag-js/date-utils': 0.51.1(@internationalized/date@3.5.3)
+      '@zag-js/date-utils': 0.51.1(@internationalized/date@3.5.4)
       '@zag-js/dialog': 0.51.1
       '@zag-js/editable': 0.51.1
       '@zag-js/file-upload': 0.51.1
@@ -4280,9 +4280,9 @@ snapshots:
     transitivePeerDependencies:
       - '@internationalized/date'
 
-  '@ark-ui/react@3.0.2(@internationalized/date@3.5.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@ark-ui/react@3.0.2(@internationalized/date@3.5.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@ark-ui/anatomy': 3.2.0(@internationalized/date@3.5.3)
+      '@ark-ui/anatomy': 3.2.0(@internationalized/date@3.5.4)
       '@zag-js/accordion': 0.51.2
       '@zag-js/avatar': 0.51.2
       '@zag-js/carousel': 0.51.2
@@ -4294,7 +4294,7 @@ snapshots:
       '@zag-js/combobox': 0.51.2
       '@zag-js/core': 0.51.2
       '@zag-js/date-picker': 0.51.2
-      '@zag-js/date-utils': 0.51.2(@internationalized/date@3.5.3)
+      '@zag-js/date-utils': 0.51.2(@internationalized/date@3.5.4)
       '@zag-js/dialog': 0.51.2
       '@zag-js/dom-query': 0.51.2
       '@zag-js/editable': 0.51.2
@@ -5437,9 +5437,9 @@ snapshots:
     dependencies:
       '@internationalized/date': 3.5.3
 
-  '@zag-js/date-utils@0.51.2(@internationalized/date@3.5.3)':
+  '@zag-js/date-utils@0.51.1(@internationalized/date@3.5.4)':
     dependencies:
-      '@internationalized/date': 3.5.3
+      '@internationalized/date': 3.5.4
 
   '@zag-js/date-utils@0.51.2(@internationalized/date@3.5.4)':
     dependencies:
@@ -8705,7 +8705,7 @@ snapshots:
       - supports-color
       - ts-node
 
-  tsx@4.11.0:
+  tsx@4.11.2:
     dependencies:
       esbuild: 0.20.2
       get-tsconfig: 4.7.5
