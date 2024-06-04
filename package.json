@@ -11,7 +11,7 @@
     "typecheck": "pnpm --filter @untitled-theme/scripts --filter @untitled-theme/colors run typecheck"
   },
   "devDependencies": {
-    "prettier": "3.2.5"
+    "prettier": "3.3.0"
   },
   "packageManager": "pnpm@9.1.4"
 }
