@@ -1,10 +1,11 @@
-import {GeistMono} from 'geist/font/mono';
-import {GeistSans} from 'geist/font/sans';
+import './globals.css';
+
+import {cx} from '@/styled-system/css';
+import {styled} from '@/styled-system/jsx';
 import type {Metadata} from 'next';
 import {ThemeProvider} from 'next-themes';
+import {Inter, JetBrains_Mono} from 'next/font/google';
 import type {ReactNode} from 'react';
-import {twMerge} from 'tailwind-merge';
-import './globals.css';
 import {Navbar} from './navbar';
 
 export const metadata: Metadata = {
@@ -22,14 +23,58 @@ export const metadata: Metadata = {
   },
 };
 
+const sans = Inter({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  preload: true,
+  variable: '--font-sans',
+});
+
+const mono = JetBrains_Mono({
+  weight: ['400'],
+  subsets: ['latin'],
+  preload: true,
+  variable: '--font-mono',
+});
+
 export default function RootLayout(props: Readonly<{modal: ReactNode; children: ReactNode}>) {
   return (
-    <html
+    <styled.html
       lang="en"
-      className={twMerge(GeistSans.variable, GeistMono.variable)}
+      scrollBehavior="smooth"
+      className={cx(sans.variable, mono.variable)}
       suppressHydrationWarning
     >
-      <body>
+      <styled.body
+        bg={{
+          base: 'white',
+          _dark: 'gray-true.900',
+        }}
+        color={{
+          base: 'gray-true.700',
+          _dark: 'gray-true.400',
+        }}
+        minH="dvh"
+        fontFamily="sans"
+        colorScheme={{
+          base: 'light',
+          _dark: 'dark',
+        }}
+        css={{
+          '& *, & *::after, & *::before': {
+            borderColor: {
+              base: 'gray-true.200',
+              _dark: 'gray-true.800',
+            },
+          },
+          '& ::placeholder': {
+            color: {
+              base: 'gray-true.300',
+              _dark: 'gray-true.400',
+            },
+          },
+        }}
+      >
         <ThemeProvider
           themes={['system', 'dark', 'light']}
           defaultTheme="system"
@@ -38,11 +83,22 @@ export default function RootLayout(props: Readonly<{modal: ReactNode; children: 
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="mx-auto max-w-screen-lg p-4 md:p-8 lg:p-12">{props.children}</main>
+
+          <styled.main
+            maxW="1024px"
+            mx="auto"
+            p={{
+              base: '4',
+              md: '8',
+              lg: '12',
+            }}
+          >
+            {props.children}
+          </styled.main>
 
           {props.modal}
         </ThemeProvider>
-      </body>
-    </html>
+      </styled.body>
+    </styled.html>
   );
 }
