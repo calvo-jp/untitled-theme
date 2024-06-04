@@ -1,6 +1,18 @@
 'use client';
 
-import {Select, ark} from '@ark-ui/react';
+import {Icon} from '@/lib/icon';
+import {
+  Select,
+  SelectContent,
+  SelectControl,
+  SelectItem,
+  SelectItemIndicator,
+  SelectItemText,
+  SelectPositioner,
+  SelectTrigger,
+  SelectValueText,
+} from '@/lib/select';
+import {VisuallyHidden, styled} from '@/styled-system/jsx';
 import {CheckIcon, CloudMoonIcon, CloudSun02Icon, Monitor01Icon} from '@untitled-theme/icons-react';
 import {useTheme} from 'next-themes';
 import {useEffect, useState} from 'react';
@@ -14,7 +26,7 @@ export function ThemePicker() {
   const selected = themes.find(({value}) => theme.theme === value) ?? themes[0];
 
   return (
-    <Select.Root
+    <Select
       items={themes}
       value={[selected.value]}
       onValueChange={(o) => {
@@ -23,43 +35,74 @@ export function ThemePicker() {
       lazyMount
       unmountOnExit
     >
-      <Select.Control>
-        <Select.Trigger className="flex aspect-square items-center gap-2 rounded border px-2 py-1 focus:shadow-outline">
-          <Select.ValueText className="flex grow items-center gap-1 text-left">
-            <ark.svg className="h-5 w-5" asChild>
-              {selected.icon}
-            </ark.svg>
-            <span className="sr-only">{selected.label}</span>
-          </Select.ValueText>
-        </Select.Trigger>
-      </Select.Control>
+      <SelectControl>
+        <SelectTrigger
+          display="flex"
+          alignItems="center"
+          gap="2"
+          rounded="md"
+          borderWidth="1px"
+          px="2"
+          py="1"
+          aspectRatio="square"
+        >
+          <SelectValueText display="flex" flexGrow={1} alignItems="center" gap="1" textAlign="left">
+            <Icon>{selected.icon}</Icon>
+            <VisuallyHidden>{selected.label}</VisuallyHidden>
+          </SelectValueText>
+        </SelectTrigger>
+      </SelectControl>
 
-      <Select.Positioner className="z-dropdown">
-        <Select.Content className="rounded border bg-white p-2 data-open:animate-fade-in data-closed:animate-fade-out dark:bg-gray-true-900">
+      <SelectPositioner zIndex="dropdown">
+        <SelectContent
+          rounded="md"
+          borderWidth="1px"
+          p="2"
+          bg={{
+            base: 'white',
+            _dark: 'gray-true.900',
+          }}
+        >
           {themes.map(({icon, label, value}) => (
-            <Select.Item
+            <SelectItem
               key={value}
               item={{
                 icon,
                 label,
                 value,
               }}
-              className="flex w-32 cursor-default items-center gap-4 rounded px-2 py-1 data-highlighted:bg-gray-true-50 dark:data-highlighted:bg-gray-true-800/10"
+              w="32"
+              px="2"
+              py="1"
+              display="flex"
+              alignItems="center"
+              gap="4"
+              cursor="pointer"
+              rounded="md"
             >
-              <Select.ItemText className="flex grow items-center gap-2">
-                <ark.svg asChild className="h-4 w-4">
+              <SelectItemText display="flex" alignItems="center" flexGrow="1" gap="2">
+                <Icon w="4" h="4">
                   {icon}
-                </ark.svg>
-                <span>{label}</span>
-              </Select.ItemText>
-              <Select.ItemIndicator>
-                <CheckIcon className="h-4 w-4 text-success-500 dark:text-success-300" />
-              </Select.ItemIndicator>
-            </Select.Item>
+                </Icon>
+                <styled.span>{label}</styled.span>
+              </SelectItemText>
+              <SelectItemIndicator>
+                <Icon
+                  w="4"
+                  h="4"
+                  color={{
+                    base: 'success.500',
+                    _dark: 'success.400',
+                  }}
+                >
+                  <CheckIcon />
+                </Icon>
+              </SelectItemIndicator>
+            </SelectItem>
           ))}
-        </Select.Content>
-      </Select.Positioner>
-    </Select.Root>
+        </SelectContent>
+      </SelectPositioner>
+    </Select>
   );
 }
 

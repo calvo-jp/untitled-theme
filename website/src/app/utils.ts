@@ -1,4 +1,4 @@
-import type {Icon} from '@/app/types';
+import type {IIcon} from '@/app/types';
 import {unstable_cache as cache} from 'next/cache';
 import prettier from 'prettier';
 import {codeToHtml} from 'shiki';
@@ -284,7 +284,7 @@ async function toHtmlSnippet(svg: string) {
 }
 
 export const getIcon = cache(
-  async (slug: string): Promise<Icon<true> | null> => {
+  async (slug: string): Promise<IIcon<true> | null> => {
     const item = database.find((icon) => icon.slug === slug);
 
     if (!item) return null;

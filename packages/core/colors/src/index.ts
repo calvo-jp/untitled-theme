@@ -129,7 +129,7 @@ const colors = {
     900: '#121926',
     950: '#0D121C',
   },
-  'gray-neutral': {
+  'gray-true': {
     25: '#FCFCFD',
     50: '#F9FAFB',
     100: '#F3F4F6',

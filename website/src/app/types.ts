@@ -5,7 +5,7 @@ export type Assign<Target extends GenericObject, Source extends GenericObject> =
   Source & Omit<Target, keyof Source>
 >;
 
-export type Icon<WithSnippet extends boolean = false> = WithSnippet extends true
+export type IIcon<WithSnippet extends boolean = false> = WithSnippet extends true
   ? {
       slug: string;
       html: string;
