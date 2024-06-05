@@ -3,7 +3,7 @@
 	"type": "module",
 	"version": "0.0.1",
 	"license": "MIT",
-	"description": "Untitled UI preset for panda",
+	"description": "Panda CSS Preset for Untitled UI",
 	"keywords": ["Ark UI", "Panda CSS", "Preset", "Untitled UI"],
 	"repository": "https://github.com/calvo-jp/untitled-theme",
 	"bugs": {
