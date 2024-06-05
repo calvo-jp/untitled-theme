@@ -1,7 +1,5 @@
 {
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": "always"
-  },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "eslint.workingDirectories": ["website"]
+	"editor.codeActionsOnSave": {
+		"quickfix.biome": "always"
+	}
 }

@@ -1,6 +1,7 @@
 {
   "name": "@untitled-theme/root",
   "private": true,
+  "packageManager": "pnpm@9.1.4",
   "scripts": {
     "website": "pnpm --filter @untitled-theme/website",
     "scripts": "pnpm --filter @untitled-theme/scripts",
@@ -12,7 +13,6 @@
     "prepare": "pnpm --filter @untitled-theme/website prepare"
   },
   "devDependencies": {
-    "prettier": "3.3.0"
-  },
-  "packageManager": "pnpm@9.1.4"
+    "@biomejs/biome": "1.8.0"
+  }
 }
