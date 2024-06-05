@@ -9,7 +9,7 @@
 	"dependencies": {
 		"@clack/prompts": "0.7.0",
 		"@tsconfig/node20": "20.1.4",
-		"@types/node": "20.14.1",
+		"@types/node": "20.14.2",
 		"@types/yargs": "17.0.32",
 		"@untitled-theme/colors": "workspace:*",
 		"prettier": "3.3.1",
