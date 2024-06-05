@@ -9,8 +9,8 @@
 		"icons-react": "pnpm --filter @untitled-theme/icons-react",
 		"icons-svelte": "pnpm --filter @untitled-theme/icons-svelte",
 		"icons-solid": "pnpm --filter @untitled-theme/icons-solid",
-		"typecheck": "pnpm --filter @untitled-theme/scripts --filter @untitled-theme/colors run typecheck",
-		"prepare": "pnpm --filter @untitled-theme/website prepare"
+		"preset-panda": "pnpm --filter @untitled-theme/preset-panda",
+		"typecheck": "pnpm --filter @untitled-theme/scripts --filter @untitled-theme/colors run typecheck"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.0"

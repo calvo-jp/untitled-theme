@@ -1,6 +1,6 @@
 import colors from './index';
 import {coreToPanda} from './utils';
 
-const panda_colors = coreToPanda(colors);
+const pandaColors = coreToPanda(colors);
 
-export default panda_colors;
+export default pandaColors;
