@@ -6,79 +6,79 @@ import * as svgson from 'svgson';
 import database from './database.json';
 
 interface GetIconsArgs {
-  limit?: number;
-  offset?: number;
-  search?: string;
+	limit?: number;
+	offset?: number;
+	search?: string;
 }
 
 export const getIcons = cache(
-  async ({search, limit, offset}: GetIconsArgs = {}) => {
-    let l = database;
+	async ({search, limit, offset}: GetIconsArgs = {}) => {
+		let l = database;
 
-    if (search) {
-      l = l.filter((icon) =>
-        icon.name.formal
-          .toLowerCase()
-          .replace(/ /g, '')
-          .includes(search.toLowerCase().replace(/ /g, '')),
-      );
-    }
+		if (search) {
+			l = l.filter((icon) =>
+				icon.name.formal
+					.toLowerCase()
+					.replace(/ /g, '')
+					.includes(search.toLowerCase().replace(/ /g, '')),
+			);
+		}
 
-    if (offset) {
-      l = l.slice(offset);
-    }
+		if (offset) {
+			l = l.slice(offset);
+		}
 
-    if (limit) {
-      l = l.slice(0, limit);
-    }
+		if (limit) {
+			l = l.slice(0, limit);
+		}
 
-    return l;
-  },
-  ['icons'],
+		return l;
+	},
+	['icons'],
 );
 
 const REF = 'REF';
 const REST = 'REST';
 
 async function toReactSnippet(svg: string, name: string) {
-  const node = await svgson.parse(svg, {
-    camelcase: true,
-    transformNode(node) {
-      if (node.name === 'svg') {
-        return {
-          ...node,
-          attributes: {
-            [REF]: '',
-            ...node.attributes,
-            width: '24',
-            height: '24',
-            [REST]: '',
-          },
-        };
-      }
+	const node = await svgson.parse(svg, {
+		camelcase: true,
+		transformNode(node) {
+			if (node.name === 'svg') {
+				return {
+					...node,
+					attributes: {
+						[REF]: '',
+						...node.attributes,
+						width: '24',
+						height: '24',
+						[REST]: '',
+					},
+				};
+			}
 
-      return node;
-    },
-  });
+			return node;
+		},
+	});
 
-  const reactSvg = svgson.stringify(node, {
-    selfClose: true,
-    transformAttr(key, value, esc) {
-      if (key === REF) {
-        return 'ref={ref}';
-      } else if (key === REST) {
-        return '{...props}';
-      } else if (key === 'stroke') {
-        return `${key}="currentColor"`;
-      } else if (key === 'strokeWidth') {
-        return `${key}="2"`;
-      } else {
-        return `${key}="${esc(value)}"`;
-      }
-    },
-  });
+	const reactSvg = svgson.stringify(node, {
+		selfClose: true,
+		transformAttr(key, value, esc) {
+			if (key === REF) {
+				return 'ref={ref}';
+			} else if (key === REST) {
+				return '{...props}';
+			} else if (key === 'stroke') {
+				return `${key}="currentColor"`;
+			} else if (key === 'strokeWidth') {
+				return `${key}="2"`;
+			} else {
+				return `${key}="${esc(value)}"`;
+			}
+		},
+	});
 
-  const component = `
+	const component = `
 		import * as React from 'react';
 
 		export const ${name} = React.forwardRef<SVGSVGElement, React.SVGProps<SVGSVGElement>>((props, ref) => {
@@ -90,60 +90,60 @@ async function toReactSnippet(svg: string, name: string) {
     export default ${name};
 	`;
 
-  return {
-    raw: component,
-    html: await codeToHtml(
-      await prettier.format(component, {
-        parser: 'typescript',
-        printWidth: 80,
-      }),
-      {
-        lang: 'typescript',
-        themes: {
-          dark: 'vitesse-dark',
-          light: 'vitesse-light',
-        },
-      },
-    ),
-  };
+	return {
+		raw: component,
+		html: await codeToHtml(
+			await prettier.format(component, {
+				parser: 'typescript',
+				printWidth: 80,
+			}),
+			{
+				lang: 'typescript',
+				themes: {
+					dark: 'vitesse-dark',
+					light: 'vitesse-light',
+				},
+			},
+		),
+	};
 }
 
 async function toSolidSnippet(svg: string, name: string) {
-  const node = await svgson.parse(svg, {
-    transformNode(node) {
-      if (node.name === 'svg') {
-        return {
-          ...node,
-          attributes: {
-            ...node.attributes,
+	const node = await svgson.parse(svg, {
+		transformNode(node) {
+			if (node.name === 'svg') {
+				return {
+					...node,
+					attributes: {
+						...node.attributes,
 
-            width: '24',
-            height: '24',
-            [REST]: '',
-          },
-        };
-      }
+						width: '24',
+						height: '24',
+						[REST]: '',
+					},
+				};
+			}
 
-      return node;
-    },
-  });
+			return node;
+		},
+	});
 
-  const solidSvg = svgson.stringify(node, {
-    selfClose: true,
-    transformAttr(key, value, esc) {
-      if (key === REST) {
-        return '{...props}';
-      } else if (key === 'stroke') {
-        return `${key}="currentColor"`;
-      } else if (key === 'stroke-width') {
-        return `${key}="2"`;
-      } else {
-        return `${key}="${esc(value)}"`;
-      }
-    },
-  });
+	const solidSvg = svgson.stringify(node, {
+		selfClose: true,
+		transformAttr(key, value, esc) {
+			if (key === REST) {
+				return '{...props}';
+			} else if (key === 'stroke') {
+				return `${key}="currentColor"`;
+			} else if (key === 'stroke-width') {
+				return `${key}="2"`;
+			} else {
+				return `${key}="${esc(value)}"`;
+			}
+		},
+	});
 
-  const component = `
+	const component = `
 		import type { ComponentProps } from 'solid-js';
 
 		export default function ${name}(props: ComponentProps<'svg'>) {
@@ -151,62 +151,62 @@ async function toSolidSnippet(svg: string, name: string) {
 		}
   `;
 
-  return {
-    raw: component,
-    html: await codeToHtml(
-      await prettier.format(component, {
-        parser: 'typescript',
-        printWidth: 80,
-      }),
-      {
-        lang: 'typescript',
-        themes: {
-          dark: 'vitesse-dark',
-          light: 'vitesse-light',
-        },
-      },
-    ),
-  };
+	return {
+		raw: component,
+		html: await codeToHtml(
+			await prettier.format(component, {
+				parser: 'typescript',
+				printWidth: 80,
+			}),
+			{
+				lang: 'typescript',
+				themes: {
+					dark: 'vitesse-dark',
+					light: 'vitesse-light',
+				},
+			},
+		),
+	};
 }
 
 async function toSvelteSnippet(svg: string) {
-  const node = await svgson.parse(svg, {
-    transformNode(node) {
-      if (node.name === 'svg') {
-        return {
-          ...node,
-          attributes: {
-            [REF]: '',
-            ...node.attributes,
-            width: '24',
-            height: '24',
-            [REST]: '',
-          },
-        };
-      }
+	const node = await svgson.parse(svg, {
+		transformNode(node) {
+			if (node.name === 'svg') {
+				return {
+					...node,
+					attributes: {
+						[REF]: '',
+						...node.attributes,
+						width: '24',
+						height: '24',
+						[REST]: '',
+					},
+				};
+			}
 
-      return node;
-    },
-  });
+			return node;
+		},
+	});
 
-  const svelteSvg = svgson.stringify(node, {
-    selfClose: true,
-    transformAttr(key, value, esc) {
-      if (key === REF) {
-        return 'ref={ref}';
-      } else if (key === REST) {
-        return '{...props}';
-      } else if (key === 'stroke') {
-        return `${key}="currentColor"`;
-      } else if (key === 'strokeWidth') {
-        return `${key}="2"`;
-      } else {
-        return `${key}="${esc(value)}"`;
-      }
-    },
-  });
+	const svelteSvg = svgson.stringify(node, {
+		selfClose: true,
+		transformAttr(key, value, esc) {
+			if (key === REF) {
+				return 'ref={ref}';
+			} else if (key === REST) {
+				return '{...props}';
+			} else if (key === 'stroke') {
+				return `${key}="currentColor"`;
+			} else if (key === 'strokeWidth') {
+				return `${key}="2"`;
+			} else {
+				return `${key}="${esc(value)}"`;
+			}
+		},
+	});
 
-  const component = `
+	const component = `
 		<script lang="ts">
 			import type {SVGAttributes} from 'svelte/elements';
 
@@ -216,88 +216,88 @@ async function toSvelteSnippet(svg: string) {
 		${svelteSvg}
 	`;
 
-  return {
-    raw: component,
-    html: await codeToHtml(
-      await prettier.format(component, {
-        parser: 'html',
-        printWidth: 80,
-      }),
-      {
-        lang: 'svelte',
-        themes: {
-          dark: 'vitesse-dark',
-          light: 'vitesse-light',
-        },
-      },
-    ),
-  };
+	return {
+		raw: component,
+		html: await codeToHtml(
+			await prettier.format(component, {
+				parser: 'html',
+				printWidth: 80,
+			}),
+			{
+				lang: 'svelte',
+				themes: {
+					dark: 'vitesse-dark',
+					light: 'vitesse-light',
+				},
+			},
+		),
+	};
 }
 
 async function toHtmlSnippet(svg: string) {
-  const node = await svgson.parse(svg, {
-    transformNode(node) {
-      if (node.name === 'svg') {
-        return {
-          ...node,
-          attributes: {
-            ...node.attributes,
-            width: '24',
-            height: '24',
-          },
-        };
-      }
+	const node = await svgson.parse(svg, {
+		transformNode(node) {
+			if (node.name === 'svg') {
+				return {
+					...node,
+					attributes: {
+						...node.attributes,
+						width: '24',
+						height: '24',
+					},
+				};
+			}
 
-      return node;
-    },
-  });
+			return node;
+		},
+	});
 
-  const component = svgson.stringify(node, {
-    selfClose: false,
-    transformAttr(key, value, esc) {
-      if (key === 'stroke') {
-        return `${key}="currentColor"`;
-      } else if (key === 'strokeWidth') {
-        return `${key}="2"`;
-      } else {
-        return `${key}="${esc(value)}"`;
-      }
-    },
-  });
+	const component = svgson.stringify(node, {
+		selfClose: false,
+		transformAttr(key, value, esc) {
+			if (key === 'stroke') {
+				return `${key}="currentColor"`;
+			} else if (key === 'strokeWidth') {
+				return `${key}="2"`;
+			} else {
+				return `${key}="${esc(value)}"`;
+			}
+		},
+	});
 
-  return {
-    raw: component,
-    html: await codeToHtml(
-      await prettier.format(component, {
-        parser: 'html',
-        printWidth: 80,
-      }),
-      {
-        lang: 'html',
-        themes: {
-          dark: 'vitesse-dark',
-          light: 'vitesse-light',
-        },
-      },
-    ),
-  };
+	return {
+		raw: component,
+		html: await codeToHtml(
+			await prettier.format(component, {
+				parser: 'html',
+				printWidth: 80,
+			}),
+			{
+				lang: 'html',
+				themes: {
+					dark: 'vitesse-dark',
+					light: 'vitesse-light',
+				},
+			},
+		),
+	};
 }
 
 export const getIcon = cache(
-  async (slug: string): Promise<IIcon<true> | null> => {
-    const item = database.find((icon) => icon.slug === slug);
+	async (slug: string): Promise<IIcon<true> | null> => {
+		const item = database.find((icon) => icon.slug === slug);
 
-    if (!item) return null;
+		if (!item) return null;
 
-    return {
-      ...item,
-      snippet: {
-        html: await toHtmlSnippet(item.html),
-        react: await toReactSnippet(item.html, item.name.pascal),
-        solid: await toSolidSnippet(item.html, item.name.pascal),
-        svelte: await toSvelteSnippet(item.html),
-      },
-    };
-  },
-  ['icons[id]'],
+		return {
+			...item,
+			snippet: {
+				html: await toHtmlSnippet(item.html),
+				react: await toReactSnippet(item.html, item.name.pascal),
+				solid: await toSolidSnippet(item.html, item.name.pascal),
+				svelte: await toSvelteSnippet(item.html),
+			},
+		};
+	},
+	['icons[id]'],
 );

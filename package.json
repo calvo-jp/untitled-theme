@@ -1,18 +1,18 @@
 {
-  "name": "@untitled-theme/root",
-  "private": true,
-  "scripts": {
-    "website": "pnpm --filter @untitled-theme/website",
-    "scripts": "pnpm --filter @untitled-theme/scripts",
-    "colors": "pnpm --filter @untitled-theme/colors",
-    "icons-react": "pnpm --filter @untitled-theme/icons-react",
-    "icons-svelte": "pnpm --filter @untitled-theme/icons-svelte",
-    "icons-solid": "pnpm --filter @untitled-theme/icons-solid",
-    "typecheck": "pnpm --filter @untitled-theme/scripts --filter @untitled-theme/colors run typecheck",
-    "prepare": "pnpm --filter @untitled-theme/website prepare"
-  },
-  "devDependencies": {
-    "prettier": "3.3.0"
-  },
-  "packageManager": "pnpm@9.1.4"
+	"name": "@untitled-theme/root",
+	"private": true,
+	"packageManager": "pnpm@9.1.4",
+	"scripts": {
+		"website": "pnpm --filter @untitled-theme/website",
+		"scripts": "pnpm --filter @untitled-theme/scripts",
+		"colors": "pnpm --filter @untitled-theme/colors",
+		"icons-react": "pnpm --filter @untitled-theme/icons-react",
+		"icons-svelte": "pnpm --filter @untitled-theme/icons-svelte",
+		"icons-solid": "pnpm --filter @untitled-theme/icons-solid",
+		"typecheck": "pnpm --filter @untitled-theme/scripts --filter @untitled-theme/colors run typecheck",
+		"prepare": "pnpm --filter @untitled-theme/website prepare"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.0"
+	}
 }

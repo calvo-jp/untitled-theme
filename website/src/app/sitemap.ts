@@ -4,21 +4,21 @@ import {getIcons} from './utils';
 const url = 'https://untitled-theme-docs.vercel.app';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const icons = await getIcons();
+	const icons = await getIcons();
 
-  return [
-    {
-      url,
-      priority: 1,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-    },
+	return [
+		{
+			url,
+			priority: 1,
+			lastModified: new Date(),
+			changeFrequency: 'monthly',
+		},
 
-    ...icons.map<MetadataRoute.Sitemap[number]>((icon) => ({
-      url: `${url}/icons/${icon.slug}`,
-      priority: 0.8,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-    })),
-  ];
+		...icons.map<MetadataRoute.Sitemap[number]>((icon) => ({
+			url: `${url}/icons/${icon.slug}`,
+			priority: 0.8,
+			lastModified: new Date(),
+			changeFrequency: 'monthly',
+		})),
+	];
 }

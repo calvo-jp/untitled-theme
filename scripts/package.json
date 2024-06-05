@@ -1,21 +1,21 @@
 {
-  "name": "@untitled-theme/scripts",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "generate:icons": "tsx ./src/icons/generate-icons.ts",
-    "generate:database": "tsx ./src/website/generate-database.ts"
-  },
-  "dependencies": {
-    "@clack/prompts": "0.7.0",
-    "@tsconfig/node20": "20.1.4",
-    "@types/node": "20.14.1",
-    "@types/yargs": "17.0.32",
-    "@untitled-theme/colors": "workspace:*",
-    "prettier": "3.3.0",
-    "svgson": "5.3.1",
-    "tsx": "4.11.2",
-    "typescript": "5.4.5",
-    "yargs": "17.7.2"
-  }
+	"name": "@untitled-theme/scripts",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"generate:icons": "tsx ./src/icons/generate-icons.ts",
+		"generate:database": "tsx ./src/website/generate-database.ts"
+	},
+	"dependencies": {
+		"@clack/prompts": "0.7.0",
+		"@tsconfig/node20": "20.1.4",
+		"@types/node": "20.14.1",
+		"@types/yargs": "17.0.32",
+		"@untitled-theme/colors": "workspace:*",
+		"prettier": "3.3.0",
+		"svgson": "5.3.1",
+		"tsx": "4.11.2",
+		"typescript": "5.4.5",
+		"yargs": "17.7.2"
+	}
 }

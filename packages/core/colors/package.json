@@ -1,79 +1,67 @@
 {
-  "name": "@untitled-theme/colors",
-  "version": "0.2.0",
-  "license": "MIT",
-  "description": "Untitled UI Colors",
-  "keywords": [
-    "untitled ui",
-    "colors",
-    "tailwind",
-    "panda"
-  ],
-  "repository": "https://github.com/calvo-jp/untitled-theme",
-  "bugs": {
-    "url": "https://github.com/calvo-jp/untitled-theme/issues"
-  },
-  "author": {
-    "name": "John Paul Calvo",
-    "email": "calvojp92@gmail.com"
-  },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    },
-    "./panda": {
-      "types": "./dist/panda.d.ts",
-      "import": "./dist/panda.mjs",
-      "require": "./dist/panda.js"
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "build": "tsup",
-    "release": "release-it"
-  },
-  "devDependencies": {
-    "@tsconfig/node20": "20.1.4",
-    "release-it": "17.3.0",
-    "tsup": "8.1.0",
-    "typescript": "5.4.5"
-  },
-  "tsup": {
-    "dts": true,
-    "clean": true,
-    "entry": {
-      "index": "src/index.ts",
-      "panda": "src/panda.ts"
-    },
-    "format": [
-      "esm",
-      "cjs"
-    ],
-    "splitting": false,
-    "sourcemap": "inline"
-  },
-  "release-it": {
-    "hooks": {
-      "after:bump": [
-        "pnpm build"
-      ]
-    },
-    "git": {
-      "commitMessage": "chore: release ${npm.name} v${version}",
-      "tagName": "${npm.name}@${version}"
-    },
-    "github": {
-      "release": false
-    }
-  }
+	"name": "@untitled-theme/colors",
+	"version": "0.2.0",
+	"license": "MIT",
+	"description": "Untitled UI Colors",
+	"keywords": ["untitled ui", "colors", "tailwind", "panda"],
+	"repository": "https://github.com/calvo-jp/untitled-theme",
+	"bugs": {
+		"url": "https://github.com/calvo-jp/untitled-theme/issues"
+	},
+	"author": {
+		"name": "John Paul Calvo",
+		"email": "calvojp92@gmail.com"
+	},
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js"
+		},
+		"./panda": {
+			"types": "./dist/panda.d.ts",
+			"import": "./dist/panda.mjs",
+			"require": "./dist/panda.js"
+		}
+	},
+	"files": ["dist"],
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"build": "tsup",
+		"release": "release-it"
+	},
+	"devDependencies": {
+		"@tsconfig/node20": "20.1.4",
+		"release-it": "17.3.0",
+		"tsup": "8.1.0",
+		"typescript": "5.4.5"
+	},
+	"tsup": {
+		"dts": true,
+		"clean": true,
+		"entry": {
+			"index": "src/index.ts",
+			"panda": "src/panda.ts"
+		},
+		"format": ["esm", "cjs"],
+		"splitting": false,
+		"sourcemap": "inline"
+	},
+	"release-it": {
+		"hooks": {
+			"after:bump": ["pnpm build"]
+		},
+		"git": {
+			"commitMessage": "chore: release ${npm.name} v${version}",
+			"tagName": "${npm.name}@${version}"
+		},
+		"github": {
+			"release": false
+		}
+	}
 }

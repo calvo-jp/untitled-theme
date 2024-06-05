@@ -2,85 +2,85 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import svgson from 'svgson';
 import {formatHtml} from '../utils/formatter.js';
-import {Icon, getIcons} from '../utils/get-icons.js';
+import {getIcons, type Icon} from '../utils/get-icons.js';
 import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
-import {BarrelItem, createBarrelFile} from './create-barrel-file.js';
+import {createBarrelFile, type BarrelItem} from './create-barrel-file.js';
 import {createCleanDir} from './create-clean-dir.js';
 import {generateJsdocPreview} from './generate-jsdoc-preview.js';
 
 const outdir = path.join(getWorkspaceRoot(), 'packages/icons/svelte/src');
 
 export async function generateIconsSvelte() {
-  await createCleanDir(outdir);
+	await createCleanDir(outdir);
 
-  const icons = await getIcons();
-  const promises = icons.map(async (icon) => {
-    const component = await toSvelteComponent(icon);
-    const destination = path.join(outdir, `${icon.name.pascal}.svelte`);
+	const icons = await getIcons();
+	const promises = icons.map(async (icon) => {
+		const component = await toSvelteComponent(icon);
+		const destination = path.join(outdir, `${icon.name.pascal}.svelte`);
 
-    await fs.writeFile(destination, await formatHtml(component), 'utf-8');
+		await fs.writeFile(destination, await formatHtml(component), 'utf-8');
 
-    const item: BarrelItem = {
-      path: `./${icon.name.pascal}.svelte`,
-      modules: [
-        {
-          name: 'default',
-          as: icon.name.pascal,
-        },
-      ],
-    };
+		const item: BarrelItem = {
+			path: `./${icon.name.pascal}.svelte`,
+			modules: [
+				{
+					name: 'default',
+					as: icon.name.pascal,
+				},
+			],
+		};
 
-    return item;
-  });
+		return item;
+	});
 
-  const items = await Promise.all(promises);
+	const items = await Promise.all(promises);
 
-  await createBarrelFile(outdir, items);
+	await createBarrelFile(outdir, items);
 }
 
 const CLASSNAME = 'CLASSNAME';
 const REST_PROPS = 'REST_PROPS';
 
 async function toSvelteComponent(icon: Icon) {
-  const node = svgson.parseSync(icon.html, {
-    transformNode(node) {
-      if (node.name === 'svg') {
-        return {
-          ...node,
+	const node = svgson.parseSync(icon.html, {
+		transformNode(node) {
+			if (node.name === 'svg') {
+				return {
+					...node,
 
-          attributes: {
-            ...node.attributes,
+					attributes: {
+						...node.attributes,
 
-            [CLASSNAME]: '',
-            [REST_PROPS]: '',
-          },
-        };
-      }
+						[CLASSNAME]: '',
+						[REST_PROPS]: '',
+					},
+				};
+			}
 
-      return node;
-    },
-  });
+			return node;
+		},
+	});
 
-  const svelteSvg = svgson.stringify(node, {
-    selfClose: true,
-    transformAttr(key, value, esc) {
-      if (key === CLASSNAME) {
-        return `class="{className}"`;
-      }
+	const svelteSvg = svgson.stringify(node, {
+		selfClose: true,
+		transformAttr(key, value, esc) {
+			if (key === CLASSNAME) {
+				return `class="{className}"`;
+			}
 
-      if (key === REST_PROPS) {
-        return '{...props}';
-      }
+			if (key === REST_PROPS) {
+				return '{...props}';
+			}
 
-      return `${key}="${esc(value)}"`;
-    },
-  });
+			return `${key}="${esc(value)}"`;
+		},
+	});
 
-  return template
-    .replaceAll('%name%', icon.name.pascal)
-    .replaceAll('%html%', svelteSvg)
-    .replaceAll('%comment%', await generateJsdocPreview(icon.html))
-    .replaceAll('%class%', 'lucide-icon ' + icon.name.kebab);
+	return template
+		.replaceAll('%name%', icon.name.pascal)
+		.replaceAll('%html%', svelteSvg)
+		.replaceAll('%comment%', await generateJsdocPreview(icon.html))
+		.replaceAll('%class%', `lucide-icon ${icon.name.kebab}`);
 }
 
 const template = `
