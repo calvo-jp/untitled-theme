@@ -6,13 +6,16 @@
 	"files": {
 		"ignore": [
 			"node_modules",
+			"pnpm-lock.yaml",
 			"out",
 			"dist",
 			"build",
 			".next",
 			".vercel",
 			".svelte-kit",
+			"assets",
 			"styled-system",
+			"styled-system-studio",
 			"packages/icons/react/src",
 			"packages/icons/svelte/src",
 			"packages/icons/solid/src",
@@ -28,6 +31,9 @@
 			},
 			"security": {
 				"noDangerouslySetInnerHtml": "off"
+			},
+			"complexity": {
+				"noForEach": "off"
 			}
 		}
 	},
@@ -41,7 +47,6 @@
 		"formatter": {
 			"quoteStyle": "single",
 			"bracketSpacing": false
-		},
-		"linter": {}
+		}
 	}
 }
