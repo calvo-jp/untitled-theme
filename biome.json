@@ -27,8 +27,7 @@
 				"noUselessElse": "off"
 			},
 			"security": {
-				"noDangerouslySetInnerHtml": "off",
-				"noDangerouslySetInnerHtmlWithChildren": "off"
+				"noDangerouslySetInnerHtml": "off"
 			}
 		}
 	},
@@ -42,6 +41,7 @@
 		"formatter": {
 			"quoteStyle": "single",
 			"bracketSpacing": false
-		}
+		},
+		"linter": {}
 	}
 }
