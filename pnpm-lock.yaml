@@ -101,16 +101,16 @@ importers:
 
   packages/presets/panda:
     dependencies:
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
-      react-router-dom:
-        specifier: 6.23.1
-        version: 6.23.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@ark-ui/anatomy':
+        specifier: 3.2.0
+        version: 3.2.0(@internationalized/date@3.5.3)
+      '@untitled-theme/colors':
+        specifier: 0.2.1
+        version: 0.2.1
     devDependencies:
+      '@ark-ui/react':
+        specifier: 3.1.0
+        version: 3.1.0(@internationalized/date@3.5.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@pandacss/dev':
         specifier: 0.40.1
         version: 0.40.1(typescript@5.2.2)
@@ -120,9 +120,21 @@ importers:
       '@types/react-dom':
         specifier: 18.2.22
         version: 18.2.22
+      '@untitled-theme/icons-react':
+        specifier: 0.10.0
+        version: 0.10.0(@types/react@18.2.66)(react@18.2.0)
       '@vitejs/plugin-react-swc':
         specifier: 3.5.0
         version: 3.5.0(@swc/helpers@0.5.6)(vite@5.2.0(@types/node@20.14.1)(lightningcss@1.23.0))
+      react:
+        specifier: 18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: 18.2.0
+        version: 18.2.0(react@18.2.0)
+      react-router-dom:
+        specifier: 6.23.1
+        version: 6.23.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       release-it:
         specifier: 17.3.0
         version: 17.3.0(typescript@5.2.2)
@@ -135,6 +147,9 @@ importers:
       vite-plugin-dts:
         specifier: 3.9.1
         version: 3.9.1(@types/node@20.14.1)(rollup@4.13.0)(typescript@5.2.2)(vite@5.2.0(@types/node@20.14.1)(lightningcss@1.23.0))
+      vite-tsconfig-paths:
+        specifier: 4.3.2
+        version: 4.3.2(typescript@5.2.2)(vite@5.2.0(@types/node@20.14.1)(lightningcss@1.23.0))
 
   scripts:
     dependencies:
@@ -2335,6 +2350,9 @@ packages:
     resolution: {integrity: sha512-jOMLD2Z7MAhyG8aJpNOpmziMOP4rPLcc95oQPKXBazW82z+CEgPFBQvEpRUa1KeIMUJo4Wsm+q6uzO/Q/4BksQ==}
     engines: {node: '>=18'}
 
+  globrex@0.1.2:
+    resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
+
   gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
 
@@ -3852,6 +3870,16 @@ packages:
       typescript:
         optional: true
 
+  tsconfck@3.1.0:
+    resolution: {integrity: sha512-CMjc5zMnyAjcS9sPLytrbFmj89st2g+JYtY/c02ug4Q+CZaAtCgbyviI0n1YvjZE/pzoc6FbNsINS13DOL1B9w==}
+    engines: {node: ^18 || >=20}
+    hasBin: true
+    peerDependencies:
+      typescript: ^5.0.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
@@ -4002,6 +4030,14 @@ packages:
       vite: ^3.0.0 || ^4.0.0 || ^5.0.0
     peerDependenciesMeta:
       '@testing-library/jest-dom':
+        optional: true
+
+  vite-tsconfig-paths@4.3.2:
+    resolution: {integrity: sha512-0Vd/a6po6Q+86rPlntHye7F31zA2URZMbH8M3saAZ/xR9QoGN/L21bxEGfXdWmFdNkqPpRdxFT7nmNe12e9/uA==}
+    peerDependencies:
+      vite: '*'
+    peerDependenciesMeta:
+      vite:
         optional: true
 
   vite@5.2.0:
@@ -4187,6 +4223,46 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
+  '@ark-ui/anatomy@3.2.0(@internationalized/date@3.5.3)':
+    dependencies:
+      '@zag-js/accordion': 0.51.1
+      '@zag-js/anatomy': 0.51.1
+      '@zag-js/avatar': 0.51.1
+      '@zag-js/carousel': 0.51.1
+      '@zag-js/checkbox': 0.51.1
+      '@zag-js/clipboard': 0.51.1
+      '@zag-js/collapsible': 0.51.1
+      '@zag-js/color-picker': 0.51.1
+      '@zag-js/color-utils': 0.51.1
+      '@zag-js/combobox': 0.51.1
+      '@zag-js/date-picker': 0.51.1
+      '@zag-js/date-utils': 0.51.1(@internationalized/date@3.5.3)
+      '@zag-js/dialog': 0.51.1
+      '@zag-js/editable': 0.51.1
+      '@zag-js/file-upload': 0.51.1
+      '@zag-js/hover-card': 0.51.1
+      '@zag-js/menu': 0.51.1
+      '@zag-js/number-input': 0.51.1
+      '@zag-js/pagination': 0.51.1
+      '@zag-js/pin-input': 0.51.1
+      '@zag-js/popover': 0.51.1
+      '@zag-js/presence': 0.51.1
+      '@zag-js/progress': 0.51.1
+      '@zag-js/radio-group': 0.51.1
+      '@zag-js/rating-group': 0.51.1
+      '@zag-js/select': 0.51.1
+      '@zag-js/slider': 0.51.1
+      '@zag-js/splitter': 0.51.1
+      '@zag-js/switch': 0.51.1
+      '@zag-js/tabs': 0.51.1
+      '@zag-js/tags-input': 0.51.1
+      '@zag-js/toast': 0.51.1
+      '@zag-js/toggle-group': 0.51.1
+      '@zag-js/tooltip': 0.51.1
+      '@zag-js/tree-view': 0.51.1
+    transitivePeerDependencies:
+      - '@internationalized/date'
+
   '@ark-ui/anatomy@3.2.0(@internationalized/date@3.5.4)':
     dependencies:
       '@zag-js/accordion': 0.51.1
@@ -4224,6 +4300,54 @@ snapshots:
       '@zag-js/toggle-group': 0.51.1
       '@zag-js/tooltip': 0.51.1
       '@zag-js/tree-view': 0.51.1
+    transitivePeerDependencies:
+      - '@internationalized/date'
+
+  '@ark-ui/react@3.1.0(@internationalized/date@3.5.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+    dependencies:
+      '@ark-ui/anatomy': 3.2.0(@internationalized/date@3.5.3)
+      '@zag-js/accordion': 0.53.0
+      '@zag-js/avatar': 0.53.0
+      '@zag-js/carousel': 0.53.0
+      '@zag-js/checkbox': 0.53.0
+      '@zag-js/clipboard': 0.53.0
+      '@zag-js/collapsible': 0.53.0
+      '@zag-js/color-picker': 0.53.0
+      '@zag-js/color-utils': 0.53.0
+      '@zag-js/combobox': 0.53.0
+      '@zag-js/core': 0.53.0
+      '@zag-js/date-picker': 0.53.0
+      '@zag-js/date-utils': 0.53.0(@internationalized/date@3.5.3)
+      '@zag-js/dialog': 0.53.0
+      '@zag-js/dom-query': 0.53.0
+      '@zag-js/editable': 0.53.0
+      '@zag-js/file-upload': 0.53.0
+      '@zag-js/file-utils': 0.53.0
+      '@zag-js/hover-card': 0.53.0
+      '@zag-js/i18n-utils': 0.53.0
+      '@zag-js/menu': 0.53.0
+      '@zag-js/number-input': 0.53.0
+      '@zag-js/pagination': 0.53.0
+      '@zag-js/pin-input': 0.53.0
+      '@zag-js/popover': 0.53.0
+      '@zag-js/presence': 0.53.0
+      '@zag-js/progress': 0.53.0
+      '@zag-js/radio-group': 0.53.0
+      '@zag-js/rating-group': 0.53.0
+      '@zag-js/react': 0.53.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@zag-js/select': 0.53.0
+      '@zag-js/slider': 0.53.0
+      '@zag-js/splitter': 0.53.0
+      '@zag-js/switch': 0.53.0
+      '@zag-js/tabs': 0.53.0
+      '@zag-js/tags-input': 0.53.0
+      '@zag-js/toast': 0.53.0
+      '@zag-js/toggle-group': 0.53.0
+      '@zag-js/tooltip': 0.53.0
+      '@zag-js/tree-view': 0.53.0
+      '@zag-js/types': 0.53.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
       - '@internationalized/date'
 
@@ -5338,6 +5462,12 @@ snapshots:
 
   '@untitled-theme/colors@0.2.1': {}
 
+  '@untitled-theme/icons-react@0.10.0(@types/react@18.2.66)(react@18.2.0)':
+    dependencies:
+      react: 18.2.0
+    optionalDependencies:
+      '@types/react': 18.2.66
+
   '@untitled-theme/icons-react@0.10.0(@types/react@18.3.3)(react@18.3.1)':
     dependencies:
       react: 18.3.1
@@ -5661,6 +5791,10 @@ snapshots:
   '@zag-js/date-utils@0.51.1(@internationalized/date@3.5.4)':
     dependencies:
       '@internationalized/date': 3.5.4
+
+  '@zag-js/date-utils@0.53.0(@internationalized/date@3.5.3)':
+    dependencies:
+      '@internationalized/date': 3.5.3
 
   '@zag-js/date-utils@0.53.0(@internationalized/date@3.5.4)':
     dependencies:
@@ -6021,6 +6155,15 @@ snapshots:
       '@zag-js/form-utils': 0.53.0
       '@zag-js/types': 0.53.0
       '@zag-js/utils': 0.53.0
+
+  '@zag-js/react@0.53.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+    dependencies:
+      '@zag-js/core': 0.53.0
+      '@zag-js/store': 0.53.0
+      '@zag-js/types': 0.53.0
+      proxy-compare: 3.0.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
 
   '@zag-js/react@0.53.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -7109,6 +7252,8 @@ snapshots:
       path-type: 5.0.0
       slash: 5.1.0
       unicorn-magic: 0.1.0
+
+  globrex@0.1.2: {}
 
   gopd@1.0.1:
     dependencies:
@@ -8610,6 +8755,10 @@ snapshots:
     optionalDependencies:
       typescript: 5.4.5
 
+  tsconfck@3.1.0(typescript@5.2.2):
+    optionalDependencies:
+      typescript: 5.2.2
+
   tslib@2.6.2: {}
 
   tsup@8.1.0(@microsoft/api-extractor@7.43.0)(@swc/core@1.5.24)(postcss@8.4.38)(typescript@5.4.5):
@@ -8791,6 +8940,17 @@ snapshots:
       vitefu: 0.2.5(vite@5.2.12(@types/node@20.14.1)(lightningcss@1.23.0))
     transitivePeerDependencies:
       - supports-color
+
+  vite-tsconfig-paths@4.3.2(typescript@5.2.2)(vite@5.2.0(@types/node@20.14.1)(lightningcss@1.23.0)):
+    dependencies:
+      debug: 4.3.4
+      globrex: 0.1.2
+      tsconfck: 3.1.0(typescript@5.2.2)
+    optionalDependencies:
+      vite: 5.2.0(@types/node@20.14.1)(lightningcss@1.23.0)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
 
   vite@5.2.0(@types/node@20.14.1)(lightningcss@1.23.0):
     dependencies:
