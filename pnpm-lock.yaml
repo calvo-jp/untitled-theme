@@ -138,8 +138,8 @@ importers:
         specifier: 3.1.0
         version: 3.1.0(@internationalized/date@3.5.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@untitled-theme/colors':
-        specifier: 0.2.0
-        version: 0.2.0
+        specifier: 0.2.1
+        version: 0.2.1
       '@untitled-theme/icons-react':
         specifier: 0.10.0
         version: 0.10.0(@types/react@18.3.3)(react@18.3.1)
@@ -1104,8 +1104,8 @@ packages:
   '@types/yargs@17.0.32':
     resolution: {integrity: sha512-xQ67Yc/laOG5uMfX/093MRlGGCIBzZMarVa+gfNKJxWAIgykYpVGkBdbqEzGDDfCrVUj6Hiff4mTZ5BA6TmAog==}
 
-  '@untitled-theme/colors@0.2.0':
-    resolution: {integrity: sha512-5NSFPYNRbfmPZw6F/RXKAkvl238cXPMw6ZtNDpuciNcTTXh7xCxVq+iqyiFr+INlFlB5t3LHC9M2TQeNMxMObA==}
+  '@untitled-theme/colors@0.2.1':
+    resolution: {integrity: sha512-lUmFyxWeZI5jyGpZT0GaZ8O4G1mpSx38NXr2FO05+/GgNU2auZMxQ6KX3Glsr5woFOLf3y6LKR3OYyhW55qC9A==}
 
   '@untitled-theme/icons-react@0.10.0':
     resolution: {integrity: sha512-+LaiusJXKpob5ZH4qYLthllp5PQneKOOh9TJqhUUoFr6SjtrDwrTRASz8G1To9PGs1U5lLZTi07Ysip/vlchUg==}
@@ -5014,7 +5014,7 @@ snapshots:
     dependencies:
       '@types/yargs-parser': 21.0.3
 
-  '@untitled-theme/colors@0.2.0': {}
+  '@untitled-theme/colors@0.2.1': {}
 
   '@untitled-theme/icons-react@0.10.0(@types/react@18.3.3)(react@18.3.1)':
     dependencies:
