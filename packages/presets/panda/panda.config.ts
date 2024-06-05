@@ -1,5 +1,5 @@
 import {defineConfig} from '@pandacss/dev';
-import preset from './preset';
+import {preset} from './preset';
 
 export default defineConfig({
 	preflight: true,
