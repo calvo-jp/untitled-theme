@@ -1,7 +1,7 @@
 import {StrictMode} from 'react';
 import {createRoot} from 'react-dom/client';
 import {App} from './app';
-import './index.css';
+import './root.css';
 
 // biome-ignore lint/style/noNonNullAssertion: ""
 createRoot(document.getElementById('root')!).render(
