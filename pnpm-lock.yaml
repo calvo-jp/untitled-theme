@@ -169,8 +169,8 @@ importers:
         specifier: workspace:*
         version: link:../packages/core/colors
       prettier:
-        specifier: 3.3.0
-        version: 3.3.0
+        specifier: 3.3.1
+        version: 3.3.1
       svgson:
         specifier: 5.3.1
         version: 5.3.1
@@ -202,8 +202,8 @@ importers:
         specifier: 0.3.0
         version: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       prettier:
-        specifier: 3.3.0
-        version: 3.3.0
+        specifier: 3.3.1
+        version: 3.3.1
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -3317,8 +3317,8 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
-  prettier@3.3.0:
-    resolution: {integrity: sha512-J9odKxERhCQ10OC2yb93583f6UnYutOeiV5i0zEDS7UGTdUt0u+y8erxl3lBKvwo/JHyyoEdXjwp4dke9oyZ/g==}
+  prettier@3.3.1:
+    resolution: {integrity: sha512-7CAwy5dRsxs8PHXT3twixW9/OEll8MLE0VRPCJyl7CkS6VHGPSlsVaWTiASPTyGyYRyApxlaWTzwUxVNrhcwDg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -8077,7 +8077,7 @@ snapshots:
 
   prettier@3.2.5: {}
 
-  prettier@3.3.0: {}
+  prettier@3.3.1: {}
 
   promise.allsettled@1.0.7:
     dependencies:
