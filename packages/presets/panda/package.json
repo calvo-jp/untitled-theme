@@ -1,13 +1,30 @@
 {
 	"name": "@untitled-theme/preset-panda",
-	"private": true,
-	"version": "0.0.0",
 	"type": "module",
+	"version": "0.0.1",
+	"license": "MIT",
+	"description": "Untitled UI preset for panda",
+	"keywords": ["Ark UI", "Panda CSS", "Preset", "Untitled UI"],
+	"repository": "https://github.com/calvo-jp/untitled-theme",
+	"bugs": {
+		"url": "https://github.com/calvo-jp/untitled-theme/issues"
+	},
+	"author": {
+		"name": "John Paul Calvo",
+		"email": "calvojp92@gmail.com"
+	},
+	"main": "dist/index.js",
+	"typings": "dist/index.d.ts",
+	"files": ["dist"],
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build --mode library",
-		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-		"preview": "vite preview",
+		"release": "release-it",
+		"prepack": "clean-package",
+		"postpack": "clean-package restore",
 		"postinstall": "panda codegen"
 	},
 	"dependencies": {
@@ -21,7 +38,6 @@
 		"@types/react-dom": "18.2.22",
 		"@untitled-theme/icons-react": "0.10.0",
 		"@vitejs/plugin-react-swc": "3.5.0",
-		"clean-package": "2.2.0",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"react-router-dom": "6.23.1",
@@ -38,6 +54,18 @@
 	"peerDependenciesMeta": {
 		"@ark-ui/react": {
 			"optional": true
+		}
+	},
+	"release-it": {
+		"hooks": {
+			"after:bump": ["pnpm build"]
+		},
+		"git": {
+			"commitMessage": "chore: release ${npm.name} v${version}",
+			"tagName": "${npm.name}@${version}"
+		},
+		"github": {
+			"release": false
 		}
 	}
 }

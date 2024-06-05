@@ -7,7 +7,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 const libConfig = defineConfig({
 	plugins: [
 		dts({
-			include: ['src/lib'],
+			include: ['preset'],
 		}),
 	],
 	build: {
@@ -16,7 +16,7 @@ const libConfig = defineConfig({
 		sourcemap: true,
 		lib: {
 			name: 'preset-panda',
-			entry: path.resolve(__dirname, 'src/lib/index.ts'),
+			entry: path.resolve(__dirname, 'preset/index.ts'),
 			formats: ['es'],
 			fileName(_, name) {
 				return `${name}.js`;
