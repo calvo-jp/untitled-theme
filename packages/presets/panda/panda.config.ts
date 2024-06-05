@@ -6,6 +6,7 @@ export default defineConfig({
 	include: ['./src/**/*.{ts,tsx}'],
 	exclude: [],
 	presets: ['@pandacss/preset-base', preset],
+	watch: true,
 	clean: true,
 	outdir: 'styled-system',
 	jsxFramework: 'react',
