@@ -1,0 +1,29 @@
+{
+	"name": "@untitled-theme/preset-panda",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"build:library": "vite build --mode library",
+		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"preview": "vite preview",
+		"postinstall": "panda codegen"
+	},
+	"dependencies": {
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-router-dom": "6.23.1"
+	},
+	"devDependencies": {
+		"@pandacss/dev": "0.40.1",
+		"@types/react": "18.2.66",
+		"@types/react-dom": "18.2.22",
+		"@vitejs/plugin-react-swc": "3.5.0",
+		"release-it": "17.3.0",
+		"typescript": "5.2.2",
+		"vite": "5.2.0",
+		"vite-plugin-dts": "3.9.1"
+	}
+}
