@@ -55,12 +55,18 @@ export function Modal({children}: PropsWithChildren) {
 						base: 'gray-true.400',
 						_dark: 'gray-true.800',
 					}}
+					_open={{
+						animation: 'slide-up',
+					}}
+					_closed={{
+						animation: 'slide-down',
+					}}
 				>
 					<Box
 						css={{
 							w: {
 								base: 'full',
-								lg: '75%',
+								lg: '40rem',
 							},
 							maxW: {
 								base: 'full',

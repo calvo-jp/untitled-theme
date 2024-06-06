@@ -34,7 +34,7 @@ export const getIcons = cache(
 
 		return l;
 	},
-	['icons'],
+	['untitled-theme/icons'],
 );
 
 const prettierConfig: Options = {
@@ -276,5 +276,5 @@ export const getIcon = cache(
 			},
 		};
 	},
-	['icons[id]'],
+	['untitled-theme/icons/[id]'],
 );

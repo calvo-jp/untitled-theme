@@ -31,6 +31,8 @@ export default defineConfig({
 				animations: {
 					'fade-in': {value: 'fade-in 0.3s ease-in-out'},
 					'fade-out': {value: 'fade-out 0.3s ease-in-out'},
+					'slide-up': {value: 'slide-up 0.3s ease-in-out'},
+					'slide-down': {value: 'slide-down 0.3s ease-in-out'},
 				},
 			},
 			keyframes: {
@@ -41,6 +43,14 @@ export default defineConfig({
 				'fade-out': {
 					'0%': {opacity: '1'},
 					'100%': {opacity: '0'},
+				},
+				'slide-up': {
+					'0%': {transform: 'translateY(100%)'},
+					'100%': {transform: 'translateY(0)'},
+				},
+				'slide-down': {
+					'0%': {transform: 'translateY(0)'},
+					'100%': {transform: 'translateY(100%)'},
 				},
 			},
 		},
