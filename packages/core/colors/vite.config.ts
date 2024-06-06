@@ -7,7 +7,10 @@ export default defineConfig({
 	build: {
 		lib: {
 			name: 'colors',
-			entry: path.resolve(__dirname, 'src/index.ts'),
+			entry: {
+				index: path.resolve(__dirname, 'src/index.ts'),
+				panda: path.resolve(__dirname, 'src/panda.ts'),
+			},
 			formats: ['es'],
 			fileName: (_, name) => `${name}.js`,
 		},

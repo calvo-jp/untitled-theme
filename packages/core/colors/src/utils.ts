@@ -10,21 +10,25 @@ type CoreToPanda<T extends ColorPalette> = {
 
 type Pretty<T extends Record<string, unknown>> = {[P in keyof T]: T[P]} & {};
 
-export function coreToPanda<T extends ColorPalette>(value: T) {
+export function coreToPanda<T extends ColorPalette>(obj: T) {
 	// biome-ignore lint/suspicious/noExplicitAny: ""
 	const o: Record<string, any> = {};
 
-	Object.entries(value).forEach(([k0, v0]) => {
-		if (typeof v0 === 'string') {
-			o[k0] = {value: v0};
-		} else {
-			o[k0] = {};
+	for (const k1 in obj) {
+		const v1 = obj[k1];
 
-			Object.entries(v0).forEach(([k1, v1]) => {
-				o[k0][k1] = {value: v1};
-			});
+		if (typeof v1 === 'string') {
+			o[k1] = {value: v1};
+		} else {
+			o[k1] = {};
+
+			for (const k2 in v1) {
+				const v2 = v1[k2];
+
+				o[k1][k2] = {value: v2};
+			}
 		}
-	});
+	}
 
 	return o as Pretty<CoreToPanda<T>>;
 }
