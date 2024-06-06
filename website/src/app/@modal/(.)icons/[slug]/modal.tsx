@@ -11,16 +11,28 @@ import {Icon} from '@/lib/icon';
 import {Box} from '@/styled-system/jsx';
 import {XCloseIcon} from '@untitled-theme/icons-react';
 import {useRouter} from 'next/navigation';
-import type {PropsWithChildren} from 'react';
+import {useEffect, useState, type PropsWithChildren} from 'react';
 
 export function Modal({children}: PropsWithChildren) {
 	const router = useRouter();
+	const [open, setOpen] = useState(true);
+
+	useEffect(() => {
+		return () => {
+			setOpen(true);
+		};
+	}, []);
 
 	return (
 		<Dialog
-			open
+			open={open}
 			onOpenChange={({open}) => {
-				if (!open) router.back();
+				if (!open) {
+					setOpen(false);
+					setTimeout(() => {
+						router.back();
+					}, 300);
+				}
 			}}
 		>
 			<DialogBackdrop
