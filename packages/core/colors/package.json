@@ -1,9 +1,14 @@
 {
 	"name": "@untitled-theme/colors",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"license": "MIT",
 	"description": "Untitled UI Colors for Tailwind and Panda CSS",
-	"keywords": ["untitled ui", "colors", "tailwind", "panda"],
+	"keywords": [
+		"untitled ui",
+		"colors",
+		"tailwind",
+		"panda"
+	],
 	"repository": "https://github.com/calvo-jp/untitled-theme",
 	"bugs": {
 		"url": "https://github.com/calvo-jp/untitled-theme/issues"
@@ -27,7 +32,9 @@
 			"require": "./dist/panda.js"
 		}
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"publishConfig": {
 		"access": "public"
 	},
@@ -48,13 +55,18 @@
 			"index": "src/index.ts",
 			"panda": "src/panda.ts"
 		},
-		"format": ["esm", "cjs"],
+		"format": [
+			"esm",
+			"cjs"
+		],
 		"splitting": false,
 		"sourcemap": "inline"
 	},
 	"release-it": {
 		"hooks": {
-			"after:bump": ["pnpm build"]
+			"after:bump": [
+				"pnpm build"
+			]
 		},
 		"git": {
 			"commitMessage": "chore: release ${npm.name} v${version}",
