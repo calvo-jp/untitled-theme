@@ -1,4 +1,4 @@
-import type {ColorPalette} from './types';
+import type {ColorPalette} from './types.js';
 
 const colors = {
 	white: '#FFFFFF',

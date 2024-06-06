@@ -1,14 +1,10 @@
 {
 	"name": "@untitled-theme/colors",
+	"type": "module",
 	"version": "0.2.2",
 	"license": "MIT",
-	"description": "Untitled UI Colors for Tailwind and Panda CSS",
-	"keywords": [
-		"untitled ui",
-		"colors",
-		"tailwind",
-		"panda"
-	],
+	"description": "Untitled UI colors for Tailwind and Panda CSS",
+	"keywords": ["Untitled UI", "Tailwind", "Panda CSS", "colors"],
 	"repository": "https://github.com/calvo-jp/untitled-theme",
 	"bugs": {
 		"url": "https://github.com/calvo-jp/untitled-theme/issues"
@@ -32,41 +28,24 @@
 			"require": "./dist/panda.js"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"publishConfig": {
 		"access": "public"
 	},
 	"scripts": {
-		"build": "tsup",
+		"build": "vite build",
 		"release": "release-it"
 	},
 	"devDependencies": {
 		"@tsconfig/node20": "20.1.4",
 		"release-it": "17.3.0",
-		"tsup": "8.1.0",
-		"typescript": "5.4.5"
-	},
-	"tsup": {
-		"dts": true,
-		"clean": true,
-		"entry": {
-			"index": "src/index.ts",
-			"panda": "src/panda.ts"
-		},
-		"format": [
-			"esm",
-			"cjs"
-		],
-		"splitting": false,
-		"sourcemap": "inline"
+		"typescript": "5.4.5",
+		"vite": "5.2.12",
+		"vite-plugin-dts": "3.9.1"
 	},
 	"release-it": {
 		"hooks": {
-			"after:bump": [
-				"pnpm build"
-			]
+			"after:bump": ["pnpm build"]
 		},
 		"git": {
 			"commitMessage": "chore: release ${npm.name} v${version}",
