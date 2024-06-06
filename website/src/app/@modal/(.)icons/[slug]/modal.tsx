@@ -58,8 +58,14 @@ export function Modal({children}: PropsWithChildren) {
 				>
 					<Box
 						css={{
-							w: '75%',
-							maxW: '40rem',
+							w: {
+								base: 'full',
+								lg: '75%',
+							},
+							maxW: {
+								base: 'full',
+								lg: '75%',
+							},
 							'& .shiki': {
 								maxHeight: '50vh',
 							},
