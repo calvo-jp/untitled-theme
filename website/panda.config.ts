@@ -29,10 +29,10 @@ export default defineConfig({
 					tooltip: {value: '1800'},
 				},
 				animations: {
-					'fade-in': {value: 'fade-in 0.3s ease-in-out'},
-					'fade-out': {value: 'fade-out 0.3s ease-in-out'},
-					'slide-up': {value: 'slide-up 0.3s ease-in-out'},
-					'slide-down': {value: 'slide-down 0.3s ease-in-out'},
+					'fade-in': {value: 'fade-in 250ms ease-in-out'},
+					'fade-out': {value: 'fade-out 150ms ease-in-out'},
+					'slide-up': {value: 'slide-up 250ms ease-in-out'},
+					'slide-down': {value: 'slide-down 150ms ease-in-out'},
 				},
 			},
 			keyframes: {

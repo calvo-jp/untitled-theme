@@ -31,7 +31,7 @@ export function Modal({children}: PropsWithChildren) {
 					setOpen(false);
 					setTimeout(() => {
 						router.back();
-					}, 300);
+					}, 150);
 				}
 			}}
 		>
