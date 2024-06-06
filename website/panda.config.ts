@@ -10,8 +10,8 @@ export default defineConfig({
 			tokens: {
 				colors,
 				fonts: {
-					sans: {value: 'var(--font-sans)'},
-					mono: {value: 'var(--font-mono)'},
+					sans: {value: 'var(--font-geist-sans)'},
+					mono: {value: 'var(--font-geist-mono)'},
 				},
 				zIndex: {
 					hide: {value: '-1'},

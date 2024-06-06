@@ -2,9 +2,10 @@ import './globals.css';
 
 import {cx} from '@/styled-system/css';
 import {styled} from '@/styled-system/jsx';
+import {GeistMono} from 'geist/font/mono';
+import {GeistSans} from 'geist/font/sans';
 import type {Metadata} from 'next';
 import {ThemeProvider} from 'next-themes';
-import {Inter, JetBrains_Mono} from 'next/font/google';
 import type {ReactNode} from 'react';
 import {Navbar} from './navbar';
 
@@ -23,26 +24,12 @@ export const metadata: Metadata = {
 	},
 };
 
-const sans = Inter({
-	weight: ['400', '500', '600', '700'],
-	subsets: ['latin'],
-	preload: true,
-	variable: '--font-sans',
-});
-
-const mono = JetBrains_Mono({
-	weight: ['400'],
-	subsets: ['latin'],
-	preload: true,
-	variable: '--font-mono',
-});
-
 export default function RootLayout(props: Readonly<{modal: ReactNode; children: ReactNode}>) {
 	return (
 		<styled.html
 			lang="en"
 			scrollBehavior="smooth"
-			className={cx(sans.variable, mono.variable)}
+			className={cx(GeistSans.variable, GeistMono.variable)}
 			suppressHydrationWarning
 		>
 			<styled.body
