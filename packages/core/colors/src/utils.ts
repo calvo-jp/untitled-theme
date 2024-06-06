@@ -1,4 +1,4 @@
-import type {ColorPalette} from './types';
+import type {ColorPalette} from './types.js';
 
 type CoreToPanda<T extends ColorPalette> = {
 	[I in keyof T]: T[I] extends string

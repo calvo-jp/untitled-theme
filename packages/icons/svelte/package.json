@@ -3,8 +3,8 @@
 	"type": "module",
 	"version": "0.10.0",
 	"license": "MIT",
-	"description": "Untitled UI Icons for Svelte",
-	"keywords": ["svg", "icon", "icons", "svelte", "untitled ui", "component library"],
+	"description": "Untitled UI icons for Svelte",
+	"keywords": ["svg", "icon", "icons", "Svelte", "SvelteKit", "Untitled UI"],
 	"repository": "https://github.com/calvo-jp/untitled-theme",
 	"bugs": {
 		"url": "https://github.com/calvo-jp/untitled-theme/issues"

@@ -1,4 +1,4 @@
-import colors from './index';
-import {coreToPanda} from './utils';
+import colors from './index.js';
+import {coreToPanda} from './utils.js';
 
 export default coreToPanda(colors);
