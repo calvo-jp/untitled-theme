@@ -12,7 +12,7 @@
 		"@types/node": "20.14.2",
 		"@types/yargs": "17.0.32",
 		"svgson": "5.3.1",
-		"tsx": "4.11.2",
+		"tsx": "4.12.0",
 		"typescript": "5.4.5",
 		"yargs": "17.7.2"
 	}
