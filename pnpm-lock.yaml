@@ -108,8 +108,8 @@ importers:
         specifier: 3.2.0
         version: 3.2.0(@internationalized/date@3.5.3)
       '@untitled-theme/colors':
-        specifier: 0.2.1
-        version: 0.2.1
+        specifier: 0.3.0
+        version: 0.3.0
     devDependencies:
       '@ark-ui/react':
         specifier: 3.2.0
@@ -1085,9 +1085,6 @@ packages:
 
   '@types/yargs@17.0.32':
     resolution: {integrity: sha512-xQ67Yc/laOG5uMfX/093MRlGGCIBzZMarVa+gfNKJxWAIgykYpVGkBdbqEzGDDfCrVUj6Hiff4mTZ5BA6TmAog==}
-
-  '@untitled-theme/colors@0.2.1':
-    resolution: {integrity: sha512-lUmFyxWeZI5jyGpZT0GaZ8O4G1mpSx38NXr2FO05+/GgNU2auZMxQ6KX3Glsr5woFOLf3y6LKR3OYyhW55qC9A==}
 
   '@untitled-theme/colors@0.3.0':
     resolution: {integrity: sha512-xKq39XgpuIqGA0HnSI4p2jFSR3NWLni7m0PV8Ms+qtrQA4fl0+gMvZ2Oj3awMmZApsOAKQqVSMxA0syFB0J7OA==}
@@ -4953,8 +4950,6 @@ snapshots:
   '@types/yargs@17.0.32':
     dependencies:
       '@types/yargs-parser': 21.0.3
-
-  '@untitled-theme/colors@0.2.1': {}
 
   '@untitled-theme/colors@0.3.0': {}
 

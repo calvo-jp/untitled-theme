@@ -29,7 +29,7 @@
 	},
 	"dependencies": {
 		"@ark-ui/anatomy": "3.2.0",
-		"@untitled-theme/colors": "0.2.1"
+		"@untitled-theme/colors": "0.3.0"
 	},
 	"devDependencies": {
 		"@ark-ui/react": "3.2.0",
