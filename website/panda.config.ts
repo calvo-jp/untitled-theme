@@ -28,6 +28,20 @@ export default defineConfig({
 					toast: {value: '1700'},
 					tooltip: {value: '1800'},
 				},
+				animations: {
+					'fade-in': {value: 'fade-in 0.3s ease-in-out'},
+					'fade-out': {value: 'fade-out 0.3s ease-in-out'},
+				},
+			},
+			keyframes: {
+				'fade-in': {
+					'0%': {opacity: '0'},
+					'100%': {opacity: '1'},
+				},
+				'fade-out': {
+					'0%': {opacity: '1'},
+					'100%': {opacity: '0'},
+				},
 			},
 		},
 	},
@@ -35,6 +49,7 @@ export default defineConfig({
 		cssVar: false,
 		className: true,
 	},
+	watch: true,
 	clean: true,
 	outdir: 'styled-system',
 	jsxFramework: 'react',

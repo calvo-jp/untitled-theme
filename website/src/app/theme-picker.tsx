@@ -62,6 +62,12 @@ export function ThemePicker() {
 						base: 'white',
 						_dark: 'gray-true.900',
 					}}
+					_open={{
+						animation: 'fade-in',
+					}}
+					_closed={{
+						animation: 'fade-out',
+					}}
 				>
 					{themes.map(({icon, label, value}) => (
 						<SelectItem
@@ -79,6 +85,12 @@ export function ThemePicker() {
 							gap="4"
 							cursor="pointer"
 							rounded="md"
+							_highlighted={{
+								bg: {
+									base: 'gray-true.50',
+									_dark: 'gray-true.800/25',
+								},
+							}}
 						>
 							<SelectItemText display="flex" alignItems="center" flexGrow="1" gap="2">
 								<Icon w="4" h="4">
