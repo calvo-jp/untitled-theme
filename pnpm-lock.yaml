@@ -168,12 +168,6 @@ importers:
       '@types/yargs':
         specifier: 17.0.32
         version: 17.0.32
-      '@untitled-theme/colors':
-        specifier: workspace:*
-        version: link:../packages/core/colors
-      prettier:
-        specifier: 3.3.1
-        version: 3.3.1
       svgson:
         specifier: 5.3.1
         version: 5.3.1

@@ -1,7 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import svgson from 'svgson';
-import {formatHtml} from '../utils/formatter.js';
 import {getIcons, type Icon} from '../utils/get-icons.js';
 import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
 import {createBarrelFile, type BarrelItem} from './create-barrel-file.js';
@@ -18,7 +17,7 @@ export async function generateIconsSvelte() {
 		const component = await toSvelteComponent(icon);
 		const destination = path.join(outdir, `${icon.name.pascal}.svelte`);
 
-		await fs.writeFile(destination, await formatHtml(component), 'utf-8');
+		await fs.writeFile(destination, component, 'utf-8');
 
 		const item: BarrelItem = {
 			path: `./${icon.name.pascal}.svelte`,

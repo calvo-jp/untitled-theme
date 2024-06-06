@@ -1,7 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import svgson from 'svgson';
-import {formatTypescript} from '../utils/formatter.js';
 import {getIcons, type Icon} from '../utils/get-icons.js';
 import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
 import {createBarrelFile, type BarrelItem} from './create-barrel-file.js';
@@ -18,7 +17,7 @@ export async function generateIconsSolid() {
 		const component = await toSolidComponent(icon);
 		const destination = path.join(outdir, `${icon.name.pascal}.tsx`);
 
-		await fs.writeFile(destination, await formatTypescript(component), 'utf-8');
+		await fs.writeFile(destination, component, 'utf-8');
 
 		const item: BarrelItem = {
 			path: `./${icon.name.pascal}`,
