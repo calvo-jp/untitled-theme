@@ -103,7 +103,7 @@ export async function IconDetails({data}: {data: IIcon<true>}) {
 				{items.map((item) => {
 					return (
 						<TabsContent key={item.value} value={item.value} asChild>
-							<Box pos="relative" mt="5" fontSize="sm" rounded="sm">
+							<Box pos="relative" mt="5" fontSize="sm">
 								<Clipboard
 									value={item.content.raw}
 									pos="absolute"
@@ -145,18 +145,61 @@ export async function IconDetails({data}: {data: IIcon<true>}) {
 											borderWidth: '1px',
 											fontFamily: 'mono',
 											color: {
-												_dark: 'var(--shiki-dark) !important',
+												base: 'var(--shiki-light)',
+												_dark: 'var(--shiki-dark)',
 											},
 											bg: {
-												_dark: 'var(--shiki-dark-bg) !important',
+												base: 'var(--shiki-light-bg)',
+												_dark: 'var(--shiki-dark-bg)',
+											},
+
+											_scrollbar: {
+												w: '1.5',
+												h: '1.5',
+											},
+											_scrollbarThumb: {
+												rounded: 'full',
+												bg: {
+													base: 'gray-true.400',
+													_dark: 'gray-true.600',
+												},
+											},
+											_scrollbarTrack: {
+												rounded: 'sm',
+												bg: {
+													base: 'gray-true.50',
+													_dark: 'gray-true.800/25',
+												},
 											},
 										},
 										'& .shiki span': {
 											color: {
-												_dark: 'var(--shiki-dark) !important',
+												base: 'var(--shiki-light)',
+												_dark: 'var(--shiki-dark)',
 											},
 											bg: {
-												_dark: 'var(--shiki-dark-bg) !important',
+												base: 'var(--shiki-light-bg)',
+												_dark: 'var(--shiki-dark-bg)',
+											},
+										},
+										'& .shiki code': {
+											counterReset: 'step',
+											counterIncrement: 'step 0',
+										},
+
+										'& .shiki code .line': {
+											_before: {
+												content: 'counter(step)',
+												counterIncrement: 'step',
+												fontFamily: 'mono',
+												textAlign: 'right',
+												display: 'inline-block',
+												mr: '4',
+												w: '2ch',
+												color: {
+													base: 'gray-true.400',
+													_dark: 'gray-true.700',
+												},
 											},
 										},
 									}}

@@ -58,17 +58,17 @@ export function Modal({children}: PropsWithChildren) {
 				>
 					<Box
 						css={{
-							maxW: '36rem',
-
+							w: '75%',
+							maxW: '40rem',
 							'& .shiki': {
-								maxHeight: '48vh',
+								maxHeight: '50vh',
 							},
 						}}
 					>
 						{children}
 					</Box>
 
-					<DialogCloseTrigger pos="absolute" right="3" top="3" p="1">
+					<DialogCloseTrigger pos="absolute" right="3" top="3" p="1" cursor="pointer">
 						<Icon w="6" h="6">
 							<XCloseIcon />
 						</Icon>

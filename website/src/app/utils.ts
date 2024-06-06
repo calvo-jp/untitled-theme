@@ -1,7 +1,7 @@
 import type {IIcon} from '@/app/types';
 import {unstable_cache as cache} from 'next/cache';
-import prettier from 'prettier';
-import {codeToHtml} from 'shiki';
+import prettier, {type Options} from 'prettier';
+import {codeToHtml, type CodeToHastOptions} from 'shiki';
 import * as svgson from 'svgson';
 import database from './database.json';
 
@@ -36,6 +36,19 @@ export const getIcons = cache(
 	},
 	['icons'],
 );
+
+const prettierConfig: Options = {
+	singleQuote: true,
+};
+
+const shikiConfig = {
+	lang: 'typescript',
+	themes: {
+		dark: 'vitesse-dark',
+		light: 'vitesse-light',
+	},
+	defaultColor: false,
+} satisfies CodeToHastOptions;
 
 const REF = 'REF';
 const REST = 'REST';
@@ -93,17 +106,8 @@ async function toReactSnippet(svg: string, name: string) {
 	return {
 		raw: component,
 		html: await codeToHtml(
-			await prettier.format(component, {
-				parser: 'typescript',
-				printWidth: 80,
-			}),
-			{
-				lang: 'typescript',
-				themes: {
-					dark: 'vitesse-dark',
-					light: 'vitesse-light',
-				},
-			},
+			await prettier.format(component, {parser: 'typescript', ...prettierConfig}),
+			shikiConfig,
 		),
 	};
 }
@@ -154,17 +158,8 @@ async function toSolidSnippet(svg: string, name: string) {
 	return {
 		raw: component,
 		html: await codeToHtml(
-			await prettier.format(component, {
-				parser: 'typescript',
-				printWidth: 80,
-			}),
-			{
-				lang: 'typescript',
-				themes: {
-					dark: 'vitesse-dark',
-					light: 'vitesse-light',
-				},
-			},
+			await prettier.format(component, {parser: 'typescript', ...prettierConfig}),
+			shikiConfig,
 		),
 	};
 }
@@ -190,7 +185,7 @@ async function toSvelteSnippet(svg: string) {
 	});
 
 	const svelteSvg = svgson.stringify(node, {
-		selfClose: true,
+		selfClose: false,
 		transformAttr(key, value, esc) {
 			if (key === REF) {
 				return 'ref={ref}';
@@ -218,19 +213,10 @@ async function toSvelteSnippet(svg: string) {
 
 	return {
 		raw: component,
-		html: await codeToHtml(
-			await prettier.format(component, {
-				parser: 'html',
-				printWidth: 80,
-			}),
-			{
-				lang: 'svelte',
-				themes: {
-					dark: 'vitesse-dark',
-					light: 'vitesse-light',
-				},
-			},
-		),
+		html: await codeToHtml(await prettier.format(component, {parser: 'html', ...prettierConfig}), {
+			...shikiConfig,
+			lang: 'svelte',
+		}),
 	};
 }
 
@@ -267,19 +253,10 @@ async function toHtmlSnippet(svg: string) {
 
 	return {
 		raw: component,
-		html: await codeToHtml(
-			await prettier.format(component, {
-				parser: 'html',
-				printWidth: 80,
-			}),
-			{
-				lang: 'html',
-				themes: {
-					dark: 'vitesse-dark',
-					light: 'vitesse-light',
-				},
-			},
-		),
+		html: await codeToHtml(await prettier.format(component, {parser: 'html', ...prettierConfig}), {
+			...shikiConfig,
+			lang: 'html',
+		}),
 	};
 }
 
