@@ -11,8 +11,6 @@
 		"@tsconfig/node20": "20.1.4",
 		"@types/node": "20.14.2",
 		"@types/yargs": "17.0.32",
-		"@untitled-theme/colors": "workspace:*",
-		"prettier": "3.3.1",
 		"svgson": "5.3.1",
 		"tsx": "4.11.2",
 		"typescript": "5.4.5",

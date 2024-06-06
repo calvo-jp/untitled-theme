@@ -1,6 +1,5 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import {formatTypescript} from '../utils/formatter.js';
 
 interface Module {
 	as?: string;
@@ -41,7 +40,7 @@ export async function createBarrelFile(directory: string, content: BarrelItem[])
 		})
 		.join('\n');
 
-	await fs.writeFile(path.join(directory, 'index.ts'), await formatTypescript(code), 'utf-8');
+	await fs.writeFile(path.join(directory, 'index.ts'), code, 'utf-8');
 }
 
 function typeOnly(guard?: boolean) {

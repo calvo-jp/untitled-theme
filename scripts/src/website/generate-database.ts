@@ -2,7 +2,6 @@ import * as p from '@clack/prompts';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import svgson from 'svgson';
-import {formatJson} from '../utils/formatter.js';
 import {getIcons} from '../utils/get-icons.js';
 import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
 
@@ -37,7 +36,7 @@ async function generateDatabase() {
 	const outputFile = path.join(getWorkspaceRoot(), 'website/src/app/database.json');
 
 	spinner.message("Generating 'database.json'");
-	await fs.writeFile(outputFile, await formatJson(JSON.stringify(items)), 'utf-8');
+	await fs.writeFile(outputFile, JSON.stringify(items), 'utf-8');
 
 	spinner.stop();
 	p.outro('Database generated successfully!');
