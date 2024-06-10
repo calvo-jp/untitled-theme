@@ -112,8 +112,8 @@ importers:
         version: 0.3.0
     devDependencies:
       '@ark-ui/react':
-        specifier: 3.2.0
-        version: 3.2.0(@internationalized/date@3.5.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 3.2.1
+        version: 3.2.1(@internationalized/date@3.5.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@pandacss/dev':
         specifier: 0.40.1
         version: 0.40.1(typescript@5.4.5)
@@ -184,8 +184,8 @@ importers:
   website:
     dependencies:
       '@ark-ui/react':
-        specifier: 3.2.0
-        version: 3.2.0(@internationalized/date@3.5.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 3.2.1
+        version: 3.2.1(@internationalized/date@3.5.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@untitled-theme/colors':
         specifier: 0.3.0
         version: 0.3.0
@@ -242,8 +242,8 @@ packages:
   '@ark-ui/anatomy@3.2.0':
     resolution: {integrity: sha512-MGhpa0TvcBqUP3XGiwtfGEQ+v8gqghXwb5e4waUA+nfRxwPQkC/khcwfHPFIOYSj4KFlL6aYW0awNcbboCWQ9w==}
 
-  '@ark-ui/react@3.2.0':
-    resolution: {integrity: sha512-fgoPF/G1SIF5wOnjGK6/YE3K0ML4hWvLHYI3hOebo6Q/sdqTaZPTvPJmffzuM/FTFz3zxt4oisXd/sHQTTGysA==}
+  '@ark-ui/react@3.2.1':
+    resolution: {integrity: sha512-ArXZhrUXdpYCSuOFEX9wgWYiohE2GUa8mtXASIs4S0JbYrpeFhVdYq2710j708Ejays2ShWcnGAi++S0KhQgww==}
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
@@ -3971,7 +3971,7 @@ snapshots:
     transitivePeerDependencies:
       - '@internationalized/date'
 
-  '@ark-ui/react@3.2.0(@internationalized/date@3.5.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@ark-ui/react@3.2.1(@internationalized/date@3.5.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@ark-ui/anatomy': 3.2.0(@internationalized/date@3.5.3)
       '@zag-js/accordion': 0.54.0
@@ -4019,7 +4019,7 @@ snapshots:
     transitivePeerDependencies:
       - '@internationalized/date'
 
-  '@ark-ui/react@3.2.0(@internationalized/date@3.5.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@ark-ui/react@3.2.1(@internationalized/date@3.5.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@ark-ui/anatomy': 3.2.0(@internationalized/date@3.5.4)
       '@zag-js/accordion': 0.54.0
