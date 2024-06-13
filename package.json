@@ -13,6 +13,6 @@
 		"typecheck": "pnpm --filter @untitled-theme/scripts --filter @untitled-theme/colors run typecheck"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.8.0"
+		"@biomejs/biome": "1.8.1"
 	}
 }
