@@ -32,7 +32,7 @@
 		"@untitled-theme/colors": "0.3.0"
 	},
 	"devDependencies": {
-		"@ark-ui/react": "3.2.1",
+		"@ark-ui/react": "3.3.0",
 		"@pandacss/dev": "0.40.1",
 		"@types/react": "18.3.3",
 		"@types/react-dom": "18.3.0",
