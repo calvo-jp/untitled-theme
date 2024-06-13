@@ -28,7 +28,7 @@
 		"postinstall": "panda codegen"
 	},
 	"dependencies": {
-		"@ark-ui/anatomy": "3.2.0",
+		"@ark-ui/anatomy": "3.3.1",
 		"@untitled-theme/colors": "0.3.0"
 	},
 	"devDependencies": {
