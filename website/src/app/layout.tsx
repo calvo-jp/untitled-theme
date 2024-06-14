@@ -1,11 +1,11 @@
 import './globals.css';
 
+import {ThemeProvider} from '@/lib/theme';
 import {cx} from '@/styled-system/css';
 import {styled} from '@/styled-system/jsx';
 import {GeistMono} from 'geist/font/mono';
 import {GeistSans} from 'geist/font/sans';
 import type {Metadata} from 'next';
-import {ThemeProvider} from 'next-themes';
 import type {ReactNode} from 'react';
 import {Navbar} from './navbar';
 
@@ -62,13 +62,7 @@ export default function RootLayout(props: Readonly<{modal: ReactNode; children: 
 					},
 				}}
 			>
-				<ThemeProvider
-					themes={['system', 'dark', 'light']}
-					defaultTheme="system"
-					attribute="data-theme"
-					enableSystem
-					disableTransitionOnChange
-				>
+				<ThemeProvider>
 					<Navbar />
 
 					<styled.main

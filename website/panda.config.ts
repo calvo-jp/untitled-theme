@@ -63,10 +63,4 @@ export default defineConfig({
 	clean: true,
 	outdir: 'styled-system',
 	jsxFramework: 'react',
-	conditions: {
-		extend: {
-			light: '[data-theme=light] &',
-			dark: '[data-theme=dark] &',
-		},
-	},
 });

@@ -12,25 +12,21 @@ import {
 	SelectTrigger,
 	SelectValueText,
 } from '@/lib/select';
+import {useTheme} from '@/lib/theme';
 import {VisuallyHidden, styled} from '@/styled-system/jsx';
 import {CheckIcon, CloudMoonIcon, CloudSun02Icon, Monitor01Icon} from '@untitled-theme/icons-react';
-import {useTheme} from 'next-themes';
-import {useEffect, useState} from 'react';
 
 export function ThemePicker() {
-	const theme = useTheme();
-	const mounted = useMounted();
+	const [theme, setTheme] = useTheme();
 
-	if (!mounted) return null;
-
-	const selected = themes.find(({value}) => theme.theme === value) ?? themes[0];
+	const selected = themes.find(({value}) => theme === value) ?? themes[0];
 
 	return (
 		<Select
 			items={themes}
 			value={[selected.value]}
 			onValueChange={(o) => {
-				theme.setTheme(o.value[0]);
+				setTheme(o.value[0]);
 			}}
 			lazyMount
 			unmountOnExit
@@ -135,13 +131,3 @@ const themes = [
 		value: 'dark',
 	},
 ];
-
-function useMounted() {
-	const [mounted, setMounted] = useState(false);
-
-	useEffect(() => {
-		setMounted(true);
-	}, []);
-
-	return mounted;
-}
