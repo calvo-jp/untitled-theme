@@ -24,11 +24,11 @@ importers:
         specifier: 5.4.5
         version: 5.4.5
       vite:
-        specifier: 5.2.13
-        version: 5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)
+        specifier: 5.3.0
+        version: 5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)
       vite-plugin-dts:
         specifier: 3.9.1
-        version: 3.9.1(@types/node@20.14.2)(rollup@4.13.0)(typescript@5.4.5)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0))
+        version: 3.9.1(@types/node@20.14.2)(rollup@4.13.0)(typescript@5.4.5)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0))
 
   packages/icons/react:
     devDependencies:
@@ -48,11 +48,11 @@ importers:
         specifier: 5.4.5
         version: 5.4.5
       vite:
-        specifier: 5.2.13
-        version: 5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)
+        specifier: 5.3.0
+        version: 5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)
       vite-plugin-dts:
         specifier: 3.9.1
-        version: 3.9.1(@types/node@20.14.2)(rollup@4.13.0)(typescript@5.4.5)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0))
+        version: 3.9.1(@types/node@20.14.2)(rollup@4.13.0)(typescript@5.4.5)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0))
 
   packages/icons/solid:
     devDependencies:
@@ -66,14 +66,14 @@ importers:
         specifier: 5.4.5
         version: 5.4.5
       vite:
-        specifier: 5.2.13
-        version: 5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)
+        specifier: 5.3.0
+        version: 5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)
       vite-plugin-dts:
         specifier: 3.9.1
-        version: 3.9.1(@types/node@20.14.2)(rollup@4.13.0)(typescript@5.4.5)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0))
+        version: 3.9.1(@types/node@20.14.2)(rollup@4.13.0)(typescript@5.4.5)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0))
       vite-plugin-solid:
         specifier: 2.10.2
-        version: 2.10.2(solid-js@1.8.17)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0))
+        version: 2.10.2(solid-js@1.8.17)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0))
 
   packages/icons/svelte:
     devDependencies:
@@ -82,7 +82,7 @@ importers:
         version: 2.3.2(svelte@5.0.0-next.154)(typescript@5.4.5)
       '@sveltejs/vite-plugin-svelte':
         specifier: 3.1.1
-        version: 3.1.1(svelte@5.0.0-next.154)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0))
+        version: 3.1.1(svelte@5.0.0-next.154)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0))
       '@tsconfig/svelte':
         specifier: 5.0.4
         version: 5.0.4
@@ -99,8 +99,8 @@ importers:
         specifier: 5.4.5
         version: 5.4.5
       vite:
-        specifier: 5.2.13
-        version: 5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)
+        specifier: 5.3.0
+        version: 5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)
 
   packages/presets/panda:
     dependencies:
@@ -128,7 +128,7 @@ importers:
         version: 0.10.0(@types/react@18.3.3)(react@18.3.1)
       '@vitejs/plugin-react-swc':
         specifier: 3.7.0
-        version: 3.7.0(@swc/helpers@0.5.6)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0))
+        version: 3.7.0(@swc/helpers@0.5.6)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0))
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -145,14 +145,14 @@ importers:
         specifier: 5.4.5
         version: 5.4.5
       vite:
-        specifier: 5.2.13
-        version: 5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)
+        specifier: 5.3.0
+        version: 5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)
       vite-plugin-dts:
         specifier: 3.9.1
-        version: 3.9.1(@types/node@20.14.2)(rollup@4.13.0)(typescript@5.4.5)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0))
+        version: 3.9.1(@types/node@20.14.2)(rollup@4.13.0)(typescript@5.4.5)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0))
       vite-tsconfig-paths:
         specifier: 4.3.2
-        version: 4.3.2(typescript@5.4.5)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0))
+        version: 4.3.2(typescript@5.4.5)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0))
 
   scripts:
     dependencies:
@@ -3684,8 +3684,8 @@ packages:
       vite:
         optional: true
 
-  vite@5.2.13:
-    resolution: {integrity: sha512-SSq1noJfY9pR3I1TUENL3rQYDQCFqgD+lM6fTRAM8Nv6Lsg5hDLaXkjETVeBt+7vZBCMoibD+6IWnT2mJ+Zb/A==}
+  vite@5.3.0:
+    resolution: {integrity: sha512-hA6vAVK977NyW1Qw+fLvqSo7xDPej7von7C3DwwqPRmnnnK36XEBC/J3j1V5lP8fbt7y0TgTKJbpNGSwM+Bdeg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -4714,26 +4714,26 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@sveltejs/vite-plugin-svelte-inspector@2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.154)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)))(svelte@5.0.0-next.154)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0))':
+  '@sveltejs/vite-plugin-svelte-inspector@2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.154)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)))(svelte@5.0.0-next.154)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 3.1.1(svelte@5.0.0-next.154)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0))
+      '@sveltejs/vite-plugin-svelte': 3.1.1(svelte@5.0.0-next.154)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0))
       debug: 4.3.4
       svelte: 5.0.0-next.154
-      vite: 5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)
+      vite: 5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.154)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0))':
+  '@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.154)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.154)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)))(svelte@5.0.0-next.154)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0))
+      '@sveltejs/vite-plugin-svelte-inspector': 2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.154)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)))(svelte@5.0.0-next.154)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0))
       debug: 4.3.4
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.10
       svelte: 5.0.0-next.154
       svelte-hmr: 0.16.0(svelte@5.0.0-next.154)
-      vite: 5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)
-      vitefu: 0.2.5(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0))
+      vite: 5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)
+      vitefu: 0.2.5(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0))
     transitivePeerDependencies:
       - supports-color
 
@@ -4876,10 +4876,10 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.3
 
-  '@vitejs/plugin-react-swc@3.7.0(@swc/helpers@0.5.6)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0))':
+  '@vitejs/plugin-react-swc@3.7.0(@swc/helpers@0.5.6)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0))':
     dependencies:
       '@swc/core': 1.5.24(@swc/helpers@0.5.6)
-      vite: 5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)
+      vite: 5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -7645,7 +7645,7 @@ snapshots:
 
   validator@13.11.0: {}
 
-  vite-plugin-dts@3.9.1(@types/node@20.14.2)(rollup@4.13.0)(typescript@5.4.5)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)):
+  vite-plugin-dts@3.9.1(@types/node@20.14.2)(rollup@4.13.0)(typescript@5.4.5)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)):
     dependencies:
       '@microsoft/api-extractor': 7.43.0(@types/node@20.14.2)
       '@rollup/pluginutils': 5.1.0(rollup@4.13.0)
@@ -7656,13 +7656,13 @@ snapshots:
       typescript: 5.4.5
       vue-tsc: 1.8.27(typescript@5.4.5)
     optionalDependencies:
-      vite: 5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)
+      vite: 5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
       - supports-color
 
-  vite-plugin-solid@2.10.2(solid-js@1.8.17)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)):
+  vite-plugin-solid@2.10.2(solid-js@1.8.17)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)):
     dependencies:
       '@babel/core': 7.24.0
       '@types/babel__core': 7.20.5
@@ -7670,25 +7670,25 @@ snapshots:
       merge-anything: 5.1.7
       solid-js: 1.8.17
       solid-refresh: 0.6.3(solid-js@1.8.17)
-      vite: 5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)
-      vitefu: 0.2.5(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0))
+      vite: 5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)
+      vitefu: 0.2.5(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0))
     transitivePeerDependencies:
       - supports-color
 
-  vite-tsconfig-paths@4.3.2(typescript@5.4.5)(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)):
+  vite-tsconfig-paths@4.3.2(typescript@5.4.5)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)):
     dependencies:
       debug: 4.3.4
       globrex: 0.1.2
       tsconfck: 3.1.0(typescript@5.4.5)
     optionalDependencies:
-      vite: 5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)
+      vite: 5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0):
+  vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0):
     dependencies:
-      esbuild: 0.20.2
+      esbuild: 0.21.4
       postcss: 8.4.38
       rollup: 4.13.0
     optionalDependencies:
@@ -7696,9 +7696,9 @@ snapshots:
       fsevents: 2.3.3
       lightningcss: 1.23.0
 
-  vitefu@0.2.5(vite@5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)):
+  vitefu@0.2.5(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)):
     optionalDependencies:
-      vite: 5.2.13(@types/node@20.14.2)(lightningcss@1.23.0)
+      vite: 5.3.0(@types/node@20.14.2)(lightningcss@1.23.0)
 
   vue-template-compiler@2.7.16:
     dependencies:
