@@ -19,7 +19,7 @@
 		"prettier": "3.3.2",
 		"react": "18.3.1",
 		"react-dom": "18.3.1",
-		"shiki": "1.6.4",
+		"shiki": "1.6.5",
 		"svgson": "5.3.1"
 	},
 	"devDependencies": {
