@@ -43,10 +43,6 @@ export default function RootLayout(props: Readonly<{modal: ReactNode; children: 
 				}}
 				minH="dvh"
 				fontFamily="sans"
-				colorScheme={{
-					base: 'light',
-					_dark: 'dark',
-				}}
 				css={{
 					'& *, & *::after, & *::before': {
 						borderColor: {

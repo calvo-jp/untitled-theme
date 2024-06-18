@@ -31,13 +31,17 @@ const FLASH_FIX_SCRIPT = `
 
   if (t === 'dark') {
     h.classList.add('dark');
+		h.style.colorScheme = 'dark';
   } else if (t === 'light') {
     h.classList.remove('dark');
+		h.style.colorScheme = 'light';
   } else {
     if (q.matches) {
       h.classList.add('dark');
+			h.style.colorScheme = 'dark';
     } else {
       h.classList.remove('dark');
+			h.style.colorScheme = 'light';
     }
   }
 
@@ -65,12 +69,16 @@ export function ThemeProvider(props: PropsWithChildren) {
 
 			if (theme === 'dark') {
 				document.documentElement.classList.add('dark');
+				document.documentElement.style.colorScheme = 'dark';
 			} else if (theme === 'light') {
 				document.documentElement.classList.remove('dark');
+				document.documentElement.style.colorScheme = 'light';
 			} else {
 				if (window.matchMedia(DARK_MEDIA_QUERY).matches) {
+					document.documentElement.style.colorScheme = 'dark';
 					document.documentElement.classList.add('dark');
 				} else {
+					document.documentElement.style.colorScheme = 'light';
 					document.documentElement.classList.remove('dark');
 				}
 			}
