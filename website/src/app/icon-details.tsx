@@ -29,6 +29,8 @@ export async function IconDetails({data}: {data: GetIconReturn}) {
 		},
 	];
 
+	const componentName = `<${data.name.pascal} />`;
+
 	return (
 		<Box>
 			<Box
@@ -56,9 +58,8 @@ export async function IconDetails({data}: {data: GetIconReturn}) {
 					_dark: 'gray-true.800/25',
 				}}
 			>
-				<styled.code fontFamily="mono">&lt;{data.name.pascal}&nbsp;&#47;&gt;</styled.code>
-
-				<Clipboard display="flex" value={data.html}>
+				<styled.code fontFamily="mono">{componentName}</styled.code>
+				<Clipboard display="flex" value={componentName}>
 					<ClipboardTrigger p="1">
 						<ClipboardIndicator
 							copied={
