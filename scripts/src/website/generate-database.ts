@@ -33,7 +33,7 @@ async function generateDatabase() {
 	});
 
 	const items = await Promise.all(promises);
-	const outputFile = path.join(getWorkspaceRoot(), 'website/src/app/database.json');
+	const outputFile = path.join(getWorkspaceRoot(), 'website/src/assets/icons.json');
 
 	spinner.message("Generating 'database.json'");
 	await fs.writeFile(outputFile, JSON.stringify(items), 'utf-8');

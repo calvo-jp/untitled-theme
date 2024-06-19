@@ -1,9 +1,9 @@
-import type {IIcon} from '@/app/types';
+import type {IIcon} from '@/app/(icons)/types';
 import {unstable_cache as cache} from 'next/cache';
 import prettier, {type Options} from 'prettier';
 import {codeToHtml, type CodeToHastOptions} from 'shiki';
 import * as svgson from 'svgson';
-import database from './database.json';
+import icons from '../../assets/icons.json';
 
 interface GetIconsArgs {
 	limit?: number;
@@ -13,7 +13,7 @@ interface GetIconsArgs {
 
 export const getIcons = cache(
 	async ({search, limit, offset}: GetIconsArgs = {}) => {
-		let l = database;
+		let l = [...icons];
 
 		if (search) {
 			l = l.filter((icon) =>
@@ -262,17 +262,17 @@ async function toHtmlSnippet(svg: string) {
 
 export const getIcon = cache(
 	async (slug: string): Promise<IIcon<true> | null> => {
-		const item = database.find((icon) => icon.slug === slug);
+		const icon = icons.find((icon) => icon.slug === slug);
 
-		if (!item) return null;
+		if (!icon) return null;
 
 		return {
-			...item,
+			...icon,
 			snippet: {
-				html: await toHtmlSnippet(item.html),
-				react: await toReactSnippet(item.html, item.name.pascal),
-				solid: await toSolidSnippet(item.html, item.name.pascal),
-				svelte: await toSvelteSnippet(item.html),
+				html: await toHtmlSnippet(icon.html),
+				react: await toReactSnippet(icon.html, icon.name.pascal),
+				solid: await toSolidSnippet(icon.html, icon.name.pascal),
+				svelte: await toSvelteSnippet(icon.html),
 			},
 		};
 	},

@@ -1,5 +1,5 @@
-import {IconDetails} from '@/app/icon-details';
-import {getIcon, getIcons} from '@/app/utils';
+import {IconDetails} from '@/app/(icons)/icon-details';
+import {getIcon, getIcons} from '@/app/(icons)/utils';
 import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
 
