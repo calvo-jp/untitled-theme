@@ -5,7 +5,10 @@ import svgson from 'svgson';
 import {getIcons} from '../utils/get-icons.js';
 import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
 
-async function generateDatabase() {
+/**
+ * Generates the icons database for docs site use
+ */
+async function generateIconsDb() {
 	p.intro('Generating database');
 
 	const spinner = p.spinner();
@@ -42,4 +45,4 @@ async function generateDatabase() {
 	p.outro('Database generated successfully!');
 }
 
-generateDatabase();
+generateIconsDb();

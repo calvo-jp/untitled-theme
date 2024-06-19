@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"generate:icons": "tsx ./src/icons/generate-icons.ts",
-		"generate:database": "tsx ./src/website/generate-database.ts"
+		"generate:icons-db": "tsx ./src/icons/generate-icons-db.ts"
 	},
 	"dependencies": {
 		"@clack/prompts": "0.7.0",
