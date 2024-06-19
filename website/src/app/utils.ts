@@ -1,15 +1,24 @@
-import type {IIcon} from '@/app/(icons)/types';
 import {unstable_cache as cache} from 'next/cache';
 import prettier, {type Options} from 'prettier';
 import {codeToHtml, type CodeToHastOptions} from 'shiki';
 import * as svgson from 'svgson';
-import icons from '../../assets/icons.json';
+import icons from '../assets/icons.json';
 
-interface GetIconsArgs {
+/*
+ *
+ * ========================
+ * 				ICONS
+ * ========================
+ *
+ */
+
+export interface GetIconsArgs {
 	limit?: number;
 	offset?: number;
 	search?: string;
 }
+
+export type GetIconsReturn = Awaited<ReturnType<typeof getIcons>>;
 
 export const getIcons = cache(
 	async ({search, limit, offset}: GetIconsArgs = {}) => {
@@ -37,11 +46,19 @@ export const getIcons = cache(
 	['untitled-theme/icons'],
 );
 
-const prettierConfig: Options = {
+/*
+ *
+ * ========================
+ * 				ICON
+ * ========================
+ *
+ */
+
+const PRETTIER_CONFIG: Options = {
 	singleQuote: true,
 };
 
-const shikiConfig = {
+const SHIKI_CONFIG = {
 	lang: 'typescript',
 	themes: {
 		dark: 'vitesse-dark',
@@ -50,8 +67,8 @@ const shikiConfig = {
 	defaultColor: false,
 } satisfies CodeToHastOptions;
 
-const REF = 'REF';
-const REST = 'REST';
+const REF_PROP_KEY = 'REF';
+const REST_PROP_KEY = 'REST';
 
 async function toReactSnippet(svg: string, name: string) {
 	const node = await svgson.parse(svg, {
@@ -61,11 +78,11 @@ async function toReactSnippet(svg: string, name: string) {
 				return {
 					...node,
 					attributes: {
-						[REF]: '',
+						[REF_PROP_KEY]: '',
 						...node.attributes,
 						width: '24',
 						height: '24',
-						[REST]: '',
+						[REST_PROP_KEY]: '',
 					},
 				};
 			}
@@ -77,9 +94,9 @@ async function toReactSnippet(svg: string, name: string) {
 	const reactSvg = svgson.stringify(node, {
 		selfClose: true,
 		transformAttr(key, value, esc) {
-			if (key === REF) {
+			if (key === REF_PROP_KEY) {
 				return 'ref={ref}';
-			} else if (key === REST) {
+			} else if (key === REST_PROP_KEY) {
 				return '{...props}';
 			} else if (key === 'stroke') {
 				return `${key}="currentColor"`;
@@ -106,8 +123,8 @@ async function toReactSnippet(svg: string, name: string) {
 	return {
 		raw: component,
 		html: await codeToHtml(
-			await prettier.format(component, {parser: 'typescript', ...prettierConfig}),
-			shikiConfig,
+			await prettier.format(component, {parser: 'typescript', ...PRETTIER_CONFIG}),
+			SHIKI_CONFIG,
 		),
 	};
 }
@@ -123,7 +140,7 @@ async function toSolidSnippet(svg: string, name: string) {
 
 						width: '24',
 						height: '24',
-						[REST]: '',
+						[REST_PROP_KEY]: '',
 					},
 				};
 			}
@@ -135,7 +152,7 @@ async function toSolidSnippet(svg: string, name: string) {
 	const solidSvg = svgson.stringify(node, {
 		selfClose: true,
 		transformAttr(key, value, esc) {
-			if (key === REST) {
+			if (key === REST_PROP_KEY) {
 				return '{...props}';
 			} else if (key === 'stroke') {
 				return `${key}="currentColor"`;
@@ -158,8 +175,8 @@ async function toSolidSnippet(svg: string, name: string) {
 	return {
 		raw: component,
 		html: await codeToHtml(
-			await prettier.format(component, {parser: 'typescript', ...prettierConfig}),
-			shikiConfig,
+			await prettier.format(component, {parser: 'typescript', ...PRETTIER_CONFIG}),
+			SHIKI_CONFIG,
 		),
 	};
 }
@@ -171,11 +188,11 @@ async function toSvelteSnippet(svg: string) {
 				return {
 					...node,
 					attributes: {
-						[REF]: '',
+						[REF_PROP_KEY]: '',
 						...node.attributes,
 						width: '24',
 						height: '24',
-						[REST]: '',
+						[REST_PROP_KEY]: '',
 					},
 				};
 			}
@@ -187,9 +204,9 @@ async function toSvelteSnippet(svg: string) {
 	const svelteSvg = svgson.stringify(node, {
 		selfClose: false,
 		transformAttr(key, value, esc) {
-			if (key === REF) {
+			if (key === REF_PROP_KEY) {
 				return 'ref={ref}';
-			} else if (key === REST) {
+			} else if (key === REST_PROP_KEY) {
 				return '{...props}';
 			} else if (key === 'stroke') {
 				return `${key}="currentColor"`;
@@ -213,8 +230,8 @@ async function toSvelteSnippet(svg: string) {
 
 	return {
 		raw: component,
-		html: await codeToHtml(await prettier.format(component, {parser: 'html', ...prettierConfig}), {
-			...shikiConfig,
+		html: await codeToHtml(await prettier.format(component, {parser: 'html', ...PRETTIER_CONFIG}), {
+			...SHIKI_CONFIG,
 			lang: 'svelte',
 		}),
 	};
@@ -253,15 +270,17 @@ async function toHtmlSnippet(svg: string) {
 
 	return {
 		raw: component,
-		html: await codeToHtml(await prettier.format(component, {parser: 'html', ...prettierConfig}), {
-			...shikiConfig,
+		html: await codeToHtml(await prettier.format(component, {parser: 'html', ...PRETTIER_CONFIG}), {
+			...SHIKI_CONFIG,
 			lang: 'html',
 		}),
 	};
 }
 
+export type GetIconReturn = NonNullable<Awaited<ReturnType<typeof getIcon>>>;
+
 export const getIcon = cache(
-	async (slug: string): Promise<IIcon<true> | null> => {
+	async (slug: string) => {
 		const icon = icons.find((icon) => icon.slug === slug);
 
 		if (!icon) return null;

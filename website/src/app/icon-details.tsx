@@ -3,9 +3,9 @@ import {Icon} from '@/lib/icon';
 import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/lib/tabs';
 import {Box, Flex, styled} from '@/styled-system/jsx';
 import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-react';
-import type {IIcon} from './types';
+import type {GetIconReturn} from './utils';
 
-export async function IconDetails({data}: {data: IIcon<true>}) {
+export async function IconDetails({data}: {data: GetIconReturn}) {
 	const items = [
 		{
 			label: 'Html',

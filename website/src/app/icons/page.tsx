@@ -1,8 +1,13 @@
 import {Link} from '@/lib/link';
 import {Box, Grid, VisuallyHidden, styled} from '@/styled-system/jsx';
+import type {Metadata} from 'next';
 import {Suspense} from 'react';
+import {getIcons} from '../utils';
 import {Searchbar} from './searchbar';
-import {getIcons} from './utils';
+
+export const metadata: Metadata = {
+	title: 'Icons',
+};
 
 interface Props {
 	searchParams: {
