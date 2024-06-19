@@ -1,11 +1,11 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import svgson from 'svgson';
-import {getIcons, type Icon} from '../utils/get-icons.js';
 import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
 import {createBarrelFile, type BarrelItem} from './create-barrel-file.js';
 import {createCleanDir} from './create-clean-dir.js';
 import {generateJsdocPreview} from './generate-jsdoc-preview.js';
+import {getIcons, type Icon} from './get-icons.js';
 
 const outdir = path.join(getWorkspaceRoot(), 'packages/icons/react/src');
 

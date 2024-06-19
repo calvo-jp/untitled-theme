@@ -2,8 +2,8 @@ import * as p from '@clack/prompts';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import svgson from 'svgson';
-import {getIcons} from '../utils/get-icons.js';
 import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
+import {getIcons} from './get-icons.js';
 
 /**
  * Generates the icons database for docs site use

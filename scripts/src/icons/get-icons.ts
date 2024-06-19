@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import svgson from 'svgson';
-import {getWorkspaceRoot} from './get-workspace-root.js';
+import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
 
 interface Name {
 	formal: string;
