@@ -2,7 +2,7 @@ import {unstable_cache as cache} from 'next/cache';
 import prettier, {type Options} from 'prettier';
 import {codeToHtml, type CodeToHastOptions} from 'shiki';
 import * as svgson from 'svgson';
-import icons from '../assets/icons.json';
+import icons from '../../assets/icons.json';
 
 /*
  *

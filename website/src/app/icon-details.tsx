@@ -3,7 +3,7 @@ import {Icon} from '@/lib/icon';
 import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/lib/tabs';
 import {Box, Flex, styled} from '@/styled-system/jsx';
 import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-react';
-import type {GetIconReturn} from './utils';
+import type {GetIconReturn} from './icons/utils';
 
 export async function IconDetails({data}: {data: GetIconReturn}) {
 	const items = [
