@@ -34,7 +34,12 @@ export function NavbarLogo() {
 const Tag = styled(ark.span, {
 	base: {
 		bg: {
+			base: 'gray-true.100',
 			_dark: 'gray-true.800/30',
+		},
+		color: {
+			base: 'gray-true.600',
+			_dark: 'gray-true.400',
 		},
 		px: '1.5',
 		py: '1',
