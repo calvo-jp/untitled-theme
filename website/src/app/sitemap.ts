@@ -1,5 +1,5 @@
 import type {MetadataRoute} from 'next';
-import {getIcons} from './icons/utils';
+import {getIcons} from './utils';
 
 const url = 'https://untitled-theme-docs.vercel.app';
 
