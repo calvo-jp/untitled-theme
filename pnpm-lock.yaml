@@ -14,6 +14,9 @@ importers:
       '@types/node':
         specifier: 20.14.6
         version: 20.14.6
+      typescript:
+        specifier: 5.4.5
+        version: 5.4.5
 
   packages/core/colors:
     devDependencies:
