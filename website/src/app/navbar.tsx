@@ -1,7 +1,6 @@
-import {Icon} from '@/lib/icon';
 import {Link} from '@/lib/link';
 import {Flex, Spacer, VisuallyHidden, styled} from '@/styled-system/jsx';
-import {Asterisk02Icon} from '@untitled-theme/icons-react';
+import {NavbarLogo} from './navbar-logo';
 import {ThemePicker} from './theme-picker';
 
 export function Navbar() {
@@ -22,30 +21,7 @@ export function Navbar() {
 			borderBottomWidth="1px"
 			backdropFilter="blur(6px)"
 		>
-			<Link
-				href="/"
-				display="flex"
-				alignItems="center"
-				px="3.5"
-				py="2"
-				fontFamily="mono"
-				fontSize="sm"
-				rounded="sm"
-				bg={{
-					base: 'gray-true.100',
-					_dark: 'gray-true.700/10',
-				}}
-				color={{
-					base: 'brand.700',
-					_dark: 'brand.500',
-				}}
-			>
-				<styled.span>@untitled-theme/icons-</styled.span>
-				<Icon w="3" h="3">
-					<Asterisk02Icon />
-				</Icon>
-			</Link>
-
+			<NavbarLogo />
 			<Spacer />
 
 			<Flex alignItems="center" gap="3">

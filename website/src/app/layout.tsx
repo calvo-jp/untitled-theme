@@ -3,9 +3,8 @@ import './globals.css';
 import {ThemeProvider} from '@/lib/theme';
 import {cx} from '@/styled-system/css';
 import {styled} from '@/styled-system/jsx';
-import {GeistMono} from 'geist/font/mono';
-import {GeistSans} from 'geist/font/sans';
 import type {Metadata} from 'next';
+import {Fira_Code, Inter} from 'next/font/google';
 import type {ReactNode} from 'react';
 import {Navbar} from './navbar';
 
@@ -24,12 +23,30 @@ export const metadata: Metadata = {
 	},
 };
 
+const sans = Inter({
+	weight: ['400', '500', '600', '700'],
+	display: 'swap',
+	subsets: ['latin'],
+	preload: true,
+	adjustFontFallback: true,
+	variable: '--font-sans',
+});
+
+const mono = Fira_Code({
+	weight: ['400'],
+	display: 'swap',
+	subsets: ['latin'],
+	preload: true,
+	adjustFontFallback: true,
+	variable: '--font-mono',
+});
+
 export default function RootLayout(props: Readonly<{modal: ReactNode; children: ReactNode}>) {
 	return (
 		<styled.html
 			lang="en"
 			scrollBehavior="smooth"
-			className={cx(GeistSans.variable, GeistMono.variable)}
+			className={cx(sans.variable, mono.variable)}
 			suppressHydrationWarning
 		>
 			<styled.body
