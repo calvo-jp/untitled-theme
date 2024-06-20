@@ -1,5 +1,6 @@
 {
 	"editor.codeActionsOnSave": {
 		"quickfix.biome": "always"
-	}
+	},
+	"typescript.tsdk": "node_modules/typescript/lib"
 }
