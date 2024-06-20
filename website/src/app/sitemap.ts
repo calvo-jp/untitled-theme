@@ -8,7 +8,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
 	return [
 		{
-			url,
+			url: `${url}/icons`,
 			priority: 1,
 			lastModified: new Date(),
 			changeFrequency: 'monthly',
