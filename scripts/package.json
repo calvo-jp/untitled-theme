@@ -11,7 +11,7 @@
 		"@tsconfig/node20": "20.1.4",
 		"@types/yargs": "17.0.32",
 		"svgson": "5.3.1",
-		"tsx": "4.15.6",
+		"tsx": "4.15.7",
 		"typescript": "5.5.2",
 		"yargs": "17.7.2"
 	}
