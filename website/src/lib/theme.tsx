@@ -1,6 +1,6 @@
 'use client';
 
-import {createContext, useContext, useEffect, useState, type PropsWithChildren} from 'react';
+import {type PropsWithChildren, createContext, useContext, useEffect, useState} from 'react';
 
 type Theme = 'light' | 'dark' | 'system';
 type TThemeContext = [theme: Theme | undefined, setTheme: (theme: Theme | (string & {})) => void];
@@ -53,7 +53,7 @@ export function ThemeProvider(props: PropsWithChildren) {
 	const [theme, setTheme] = useState<Theme>();
 
 	useEffect(function assignCorrectTheme() {
-		setTheme(parseTheme(localStorage.getItem('theme')));
+		setTheme(parseTheme(localStorage.getItem(STORAGE_KEY)));
 	}, []);
 
 	useEffect(
