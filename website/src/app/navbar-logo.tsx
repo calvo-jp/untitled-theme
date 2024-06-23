@@ -27,6 +27,12 @@ export function NavbarLogo() {
 					<Link href="/icons">icons</Link>
 				</Tag>
 			)}
+
+			{pathname.startsWith('/colors') && (
+				<Tag asChild>
+					<Link href="/colors">colors</Link>
+				</Tag>
+			)}
 		</Flex>
 	);
 }

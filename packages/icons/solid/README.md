@@ -28,4 +28,4 @@ function Component() {
 }
 ```
 
-See all icons [here](https://untitled-theme-docs.vercel.app)
+See all icons [here](https://untitled-theme-docs.vercel.app/icons)
