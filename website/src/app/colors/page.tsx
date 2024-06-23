@@ -157,6 +157,6 @@ function getItems({search}: {search?: string}) {
 		return item.label
 			.replace(/-/, '')
 			.toLowerCase()
-			.includes(search.toLowerCase().replace(/-/, '').replace(/\s/, ''));
+			.includes(search.trim().toLowerCase().replace(/-/, '').replace(/\s/, ''));
 	});
 }
