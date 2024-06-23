@@ -17,11 +17,12 @@ export function Navbar() {
 			zIndex="sticky"
 			display="flex"
 			alignItems="center"
-			gap="2"
+			gap="1"
 			borderBottomWidth="1px"
 			backdropFilter="blur(6px)"
 		>
 			<NavbarLogo />
+
 			<Spacer />
 
 			<Flex alignItems="center" gap="3">

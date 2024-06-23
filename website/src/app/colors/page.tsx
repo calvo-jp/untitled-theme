@@ -82,6 +82,9 @@ function Item({data}: {data: IItem}) {
 					_groupHover={{
 						transform: 'scale(1)',
 					}}
+					_focusWithin={{
+						transform: 'scale(1)',
+					}}
 				>
 					<ClipboardTrigger cursor="pointer">
 						<ClipboardIndicator

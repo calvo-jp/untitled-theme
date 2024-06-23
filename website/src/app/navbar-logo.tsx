@@ -9,7 +9,7 @@ export function NavbarLogo() {
 	const pathname = usePathname();
 
 	return (
-		<Flex fontFamily="mono" display="flex" alignItems="center" gap="2.5">
+		<Flex fontFamily="mono" display="flex" alignItems="center" gap="2">
 			<Link
 				href="/"
 				fontWeight="semibold"
