@@ -3,7 +3,8 @@ import './globals.css';
 import {ThemeProvider} from '@/lib/theme';
 import {cx} from '@/styled-system/css';
 import {styled} from '@/styled-system/jsx';
-import type {Metadata} from 'next';
+import {token} from '@/styled-system/tokens';
+import type {Metadata, Viewport} from 'next';
 import {Fira_Code, Inter} from 'next/font/google';
 import type {ReactNode} from 'react';
 import {Navbar} from './navbar';
@@ -21,6 +22,20 @@ export const metadata: Metadata = {
 		description: 'Untitled UI icons for React and Svelte',
 		images: ['/opengraph.png'],
 	},
+};
+
+export const viewport: Viewport = {
+	width: 'device-width',
+	viewportFit: 'contain',
+	userScalable: false,
+	initialScale: 1,
+	minimumScale: 1,
+	maximumScale: 1,
+	colorScheme: 'dark light',
+	themeColor: [
+		{media: '(prefers-color-scheme: light)', color: token('colors.white')},
+		{media: '(prefers-color-scheme: dark)', color: token('colors.gray-true.900')},
+	],
 };
 
 const sans = Inter({
