@@ -5,7 +5,7 @@ import colors from '@untitled-theme/colors';
 import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-react';
 import type {Metadata} from 'next';
 import {Suspense} from 'react';
-import {Searchbar} from './searchbar';
+import {Searchbar} from '../searchbar';
 
 export const metadata: Metadata = {
 	title: 'Colors',
@@ -105,7 +105,7 @@ function Item({data}: {data: IItem}) {
 					md: 8,
 					lg: 12,
 				}}
-				gap="3"
+				gap="2"
 			>
 				{data.value.map((subItem) => (
 					<Box key={subItem.label}>

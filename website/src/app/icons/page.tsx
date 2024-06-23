@@ -1,8 +1,8 @@
 import {Link} from '@/lib/link';
 import {Box, Grid, VisuallyHidden, styled} from '@/styled-system/jsx';
 import {Suspense} from 'react';
+import {Searchbar} from '../searchbar';
 import {getIcons} from '../utils';
-import {Searchbar} from './searchbar';
 
 interface Props {
 	searchParams: {
