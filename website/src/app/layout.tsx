@@ -14,13 +14,11 @@ export const metadata: Metadata = {
 		default: 'Untitled Theme',
 		template: 'Untitled Theme | %s',
 	},
-	description: 'Untitled UI icons for React and Svelte',
+	description: 'Untitled UI for React, Svelte and SolidJS',
 	metadataBase: new URL('https://untitled-theme-docs.vercel.app'),
 	openGraph: {
 		type: 'website',
 		title: 'Untitled Theme',
-		description: 'Untitled UI icons for React and Svelte',
-		images: ['/opengraph.png'],
 	},
 };
 

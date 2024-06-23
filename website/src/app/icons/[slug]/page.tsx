@@ -12,8 +12,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({params}: {params: {slug: string}}): Promise<Metadata> {
 	const icon = await getIcon(params.slug);
 
+	if (!icon) return {};
+
 	return {
-		title: icon?.name.pascal,
+		title: icon.name.pascal,
 	};
 }
 
