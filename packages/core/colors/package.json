@@ -1,7 +1,7 @@
 {
 	"name": "@untitled-theme/colors",
 	"type": "module",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"license": "MIT",
 	"description": "Untitled UI colors for Tailwind and Panda CSS",
 	"keywords": [
