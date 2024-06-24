@@ -114,8 +114,8 @@ importers:
         specifier: 3.3.1
         version: 3.3.1(@internationalized/date@3.5.4)
       '@untitled-theme/colors':
-        specifier: 0.3.0
-        version: 0.3.0
+        specifier: 0.3.1
+        version: 0.3.1
     devDependencies:
       '@ark-ui/react':
         specifier: 3.3.0
@@ -190,8 +190,8 @@ importers:
         specifier: 3.3.0
         version: 3.3.0(@internationalized/date@3.5.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@untitled-theme/colors':
-        specifier: 0.3.0
-        version: 0.3.0
+        specifier: 0.3.1
+        version: 0.3.1
       '@untitled-theme/icons-react':
         specifier: 0.10.1
         version: 0.10.1(@types/react@18.3.3)(react@18.3.1)
@@ -1212,8 +1212,8 @@ packages:
   '@types/yargs@17.0.32':
     resolution: {integrity: sha512-xQ67Yc/laOG5uMfX/093MRlGGCIBzZMarVa+gfNKJxWAIgykYpVGkBdbqEzGDDfCrVUj6Hiff4mTZ5BA6TmAog==}
 
-  '@untitled-theme/colors@0.3.0':
-    resolution: {integrity: sha512-xKq39XgpuIqGA0HnSI4p2jFSR3NWLni7m0PV8Ms+qtrQA4fl0+gMvZ2Oj3awMmZApsOAKQqVSMxA0syFB0J7OA==}
+  '@untitled-theme/colors@0.3.1':
+    resolution: {integrity: sha512-xYKDjWNU9r+i1lsGU1wQoDX/0dZ1qGGzPLkXPe1nELbKTRmAGaPJnUBiRN7ZdA68pvdoUYoDx6kmJabVDL4F1A==}
 
   '@untitled-theme/icons-react@0.10.1':
     resolution: {integrity: sha512-58ZGZnn/+tLEszlNDnV1rGFe/J3pa7OnKpv80nAG4aO1fE6gvh6rM/QfOwrqvfGACRAEJIKShuPsuyiHSKySbA==}
@@ -4854,7 +4854,7 @@ snapshots:
     dependencies:
       '@types/yargs-parser': 21.0.3
 
-  '@untitled-theme/colors@0.3.0': {}
+  '@untitled-theme/colors@0.3.1': {}
 
   '@untitled-theme/icons-react@0.10.1(@types/react@18.3.3)(react@18.3.1)':
     dependencies:
