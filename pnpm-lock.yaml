@@ -85,10 +85,10 @@ importers:
     devDependencies:
       '@sveltejs/package':
         specifier: 2.3.2
-        version: 2.3.2(svelte@5.0.0-next.165)(typescript@5.5.2)
+        version: 2.3.2(svelte@5.0.0-next.166)(typescript@5.5.2)
       '@sveltejs/vite-plugin-svelte':
         specifier: 3.1.1
-        version: 3.1.1(svelte@5.0.0-next.165)(vite@5.3.1(@types/node@20.14.8)(lightningcss@1.23.0))
+        version: 3.1.1(svelte@5.0.0-next.166)(vite@5.3.1(@types/node@20.14.8)(lightningcss@1.23.0))
       '@tsconfig/svelte':
         specifier: 5.0.4
         version: 5.0.4
@@ -96,11 +96,11 @@ importers:
         specifier: 17.4.0
         version: 17.4.0(typescript@5.5.2)
       svelte:
-        specifier: 5.0.0-next.165
-        version: 5.0.0-next.165
+        specifier: 5.0.0-next.166
+        version: 5.0.0-next.166
       svelte-preprocess:
         specifier: 6.0.1
-        version: 6.0.1(@babel/core@7.24.0)(postcss-load-config@4.0.2(postcss@8.4.38))(postcss@8.4.38)(svelte@5.0.0-next.165)(typescript@5.5.2)
+        version: 6.0.1(@babel/core@7.24.0)(postcss-load-config@4.0.2(postcss@8.4.38))(postcss@8.4.38)(svelte@5.0.0-next.166)(typescript@5.5.2)
       typescript:
         specifier: 5.5.2
         version: 5.5.2
@@ -3473,8 +3473,8 @@ packages:
       svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
       typescript: ^4.9.4 || ^5.0.0
 
-  svelte@5.0.0-next.165:
-    resolution: {integrity: sha512-r/dr89AAzIsT/tpIJsenhkWjJ7j2Q1Q3tdPu2qgi/8Vc42dtvHPr1XHn9qJhjXIGVE/cS1BxEuwG+Qwp7YUqkw==}
+  svelte@5.0.0-next.166:
+    resolution: {integrity: sha512-s1anY8eTprp42QyHGdbfIT7pO+gYgwnS6hkMmvd8ayW5krV9HLYjbQcVUb8/GyQSIlWtewvmZVZ58rpKjRmdTg==}
     engines: {node: '>=18'}
 
   svgson@5.3.1:
@@ -4689,35 +4689,35 @@ snapshots:
 
   '@sindresorhus/merge-streams@2.2.1': {}
 
-  '@sveltejs/package@2.3.2(svelte@5.0.0-next.165)(typescript@5.5.2)':
+  '@sveltejs/package@2.3.2(svelte@5.0.0-next.166)(typescript@5.5.2)':
     dependencies:
       chokidar: 3.6.0
       kleur: 4.1.5
       sade: 1.8.1
       semver: 7.6.2
-      svelte: 5.0.0-next.165
-      svelte2tsx: 0.7.1(svelte@5.0.0-next.165)(typescript@5.5.2)
+      svelte: 5.0.0-next.166
+      svelte2tsx: 0.7.1(svelte@5.0.0-next.166)(typescript@5.5.2)
     transitivePeerDependencies:
       - typescript
 
-  '@sveltejs/vite-plugin-svelte-inspector@2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.165)(vite@5.3.1(@types/node@20.14.8)(lightningcss@1.23.0)))(svelte@5.0.0-next.165)(vite@5.3.1(@types/node@20.14.8)(lightningcss@1.23.0))':
+  '@sveltejs/vite-plugin-svelte-inspector@2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.166)(vite@5.3.1(@types/node@20.14.8)(lightningcss@1.23.0)))(svelte@5.0.0-next.166)(vite@5.3.1(@types/node@20.14.8)(lightningcss@1.23.0))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 3.1.1(svelte@5.0.0-next.165)(vite@5.3.1(@types/node@20.14.8)(lightningcss@1.23.0))
+      '@sveltejs/vite-plugin-svelte': 3.1.1(svelte@5.0.0-next.166)(vite@5.3.1(@types/node@20.14.8)(lightningcss@1.23.0))
       debug: 4.3.4
-      svelte: 5.0.0-next.165
+      svelte: 5.0.0-next.166
       vite: 5.3.1(@types/node@20.14.8)(lightningcss@1.23.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.165)(vite@5.3.1(@types/node@20.14.8)(lightningcss@1.23.0))':
+  '@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.166)(vite@5.3.1(@types/node@20.14.8)(lightningcss@1.23.0))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.165)(vite@5.3.1(@types/node@20.14.8)(lightningcss@1.23.0)))(svelte@5.0.0-next.165)(vite@5.3.1(@types/node@20.14.8)(lightningcss@1.23.0))
+      '@sveltejs/vite-plugin-svelte-inspector': 2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.166)(vite@5.3.1(@types/node@20.14.8)(lightningcss@1.23.0)))(svelte@5.0.0-next.166)(vite@5.3.1(@types/node@20.14.8)(lightningcss@1.23.0))
       debug: 4.3.4
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.10
-      svelte: 5.0.0-next.165
-      svelte-hmr: 0.16.0(svelte@5.0.0-next.165)
+      svelte: 5.0.0-next.166
+      svelte-hmr: 0.16.0(svelte@5.0.0-next.166)
       vite: 5.3.1(@types/node@20.14.8)(lightningcss@1.23.0)
       vitefu: 0.2.5(vite@5.3.1(@types/node@20.14.8)(lightningcss@1.23.0))
     transitivePeerDependencies:
@@ -7435,29 +7435,29 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svelte-hmr@0.16.0(svelte@5.0.0-next.165):
+  svelte-hmr@0.16.0(svelte@5.0.0-next.166):
     dependencies:
-      svelte: 5.0.0-next.165
+      svelte: 5.0.0-next.166
 
-  svelte-preprocess@6.0.1(@babel/core@7.24.0)(postcss-load-config@4.0.2(postcss@8.4.38))(postcss@8.4.38)(svelte@5.0.0-next.165)(typescript@5.5.2):
+  svelte-preprocess@6.0.1(@babel/core@7.24.0)(postcss-load-config@4.0.2(postcss@8.4.38))(postcss@8.4.38)(svelte@5.0.0-next.166)(typescript@5.5.2):
     dependencies:
       detect-indent: 6.1.0
       strip-indent: 3.0.0
-      svelte: 5.0.0-next.165
+      svelte: 5.0.0-next.166
     optionalDependencies:
       '@babel/core': 7.24.0
       postcss: 8.4.38
       postcss-load-config: 4.0.2(postcss@8.4.38)
       typescript: 5.5.2
 
-  svelte2tsx@0.7.1(svelte@5.0.0-next.165)(typescript@5.5.2):
+  svelte2tsx@0.7.1(svelte@5.0.0-next.166)(typescript@5.5.2):
     dependencies:
       dedent-js: 1.0.1
       pascal-case: 3.1.2
-      svelte: 5.0.0-next.165
+      svelte: 5.0.0-next.166
       typescript: 5.5.2
 
-  svelte@5.0.0-next.165:
+  svelte@5.0.0-next.166:
     dependencies:
       '@ampproject/remapping': 2.2.1
       '@jridgewell/sourcemap-codec': 1.4.15
