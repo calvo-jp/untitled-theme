@@ -10,7 +10,9 @@
 		"icons-react": "pnpm --filter @untitled-theme/icons-react",
 		"icons-svelte": "pnpm --filter @untitled-theme/icons-svelte",
 		"icons-solid": "pnpm --filter @untitled-theme/icons-solid",
-		"preset-panda": "pnpm --filter @untitled-theme/preset-panda"
+		"preset-panda": "pnpm --filter @untitled-theme/preset-panda",
+		"lint": "biome lint",
+		"format": "biome format --write"
 	},
 	"dependencies": {
 		"@biomejs/biome": "1.8.2",
