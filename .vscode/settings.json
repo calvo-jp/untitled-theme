@@ -2,5 +2,6 @@
 	"editor.codeActionsOnSave": {
 		"quickfix.biome": "always"
 	},
+	"editor.defaultFormatter": "biomejs.biome",
 	"typescript.tsdk": "node_modules/typescript/lib"
 }
