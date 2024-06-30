@@ -10,7 +10,7 @@
 		"postinstall": "panda codegen"
 	},
 	"dependencies": {
-		"@ark-ui/react": "3.4.0",
+		"@ark-ui/react": "3.5.0",
 		"@untitled-theme/colors": "0.3.1",
 		"@untitled-theme/icons-react": "0.10.1",
 		"next": "14.2.4",
