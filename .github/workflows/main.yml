@@ -24,12 +24,13 @@ jobs:
           fetch-depth: 2
 
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9
+
+      - run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+      - id: nvm
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '${{ steps.nvm.outputs.NVMRC }}'
           cache: 'pnpm'
 
       - run: pnpm install
