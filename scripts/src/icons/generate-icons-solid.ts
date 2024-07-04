@@ -76,9 +76,9 @@ async function toSolidComponent(icon: Icon) {
 	});
 
 	return template
-		.replace('%name%', icon.name.pascal)
-		.replace('%html%', solidSvg)
-		.replace('%comment%', await generateJsdocPreview(icon.html));
+		.replaceAll('%name%', icon.name.pascal)
+		.replaceAll('%html%', solidSvg)
+		.replaceAll('%comment%', await generateJsdocPreview(icon.html));
 }
 
 const template = `

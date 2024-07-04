@@ -84,9 +84,9 @@ async function toReactComponent(icon: Icon) {
 	});
 
 	return template
-		.replace('%name%', icon.name.pascal)
-		.replace('%html%', reactSvg)
-		.replace('%comment%', await generateJsdocPreview(icon.html));
+		.replaceAll('%name%', icon.name.pascal)
+		.replaceAll('%html%', reactSvg)
+		.replaceAll('%comment%', await generateJsdocPreview(icon.html));
 }
 
 const template = `
