@@ -5,6 +5,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
+		"lint": "biome lint .",
 		"build": "next build",
 		"start": "next start",
 		"postinstall": "panda codegen"

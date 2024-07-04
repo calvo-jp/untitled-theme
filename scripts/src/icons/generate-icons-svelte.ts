@@ -76,10 +76,10 @@ async function toSvelteComponent(icon: Icon) {
 	});
 
 	return template
-		.replace('%name%', icon.name.pascal)
-		.replace('%html%', svelteSvg)
-		.replace('%comment%', await generateJsdocPreview(icon.html))
-		.replace('%class%', `lucide-icon ${icon.name.kebab}`);
+		.replaceAll('%name%', icon.name.pascal)
+		.replaceAll('%html%', svelteSvg)
+		.replaceAll('%comment%', await generateJsdocPreview(icon.html))
+		.replaceAll('%class%', `lucide-icon ${icon.name.kebab}`);
 }
 
 const template = `

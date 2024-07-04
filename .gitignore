@@ -21,3 +21,5 @@ styled-system-studio
 packages/icons/react/src
 packages/icons/svelte/src
 packages/icons/solid/src
+
+.turbo

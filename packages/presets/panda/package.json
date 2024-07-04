@@ -21,6 +21,7 @@
 	},
 	"scripts": {
 		"dev": "vite",
+		"lint": "biome lint .",
 		"build": "vite build --mode library",
 		"release": "release-it",
 		"prepack": "clean-package",
