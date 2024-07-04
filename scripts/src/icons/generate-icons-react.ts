@@ -2,10 +2,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import svgson from 'svgson';
 import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
-import {createBarrelFile, type BarrelItem} from './create-barrel-file.js';
+import {type BarrelItem, createBarrelFile} from './create-barrel-file.js';
 import {createCleanDir} from './create-clean-dir.js';
 import {generateJsdocPreview} from './generate-jsdoc-preview.js';
-import {getIcons, type Icon} from './get-icons.js';
+import {type Icon, getIcons} from './get-icons.js';
 
 const outdir = path.join(getWorkspaceRoot(), 'packages/icons/react/src');
 
@@ -84,9 +84,9 @@ async function toReactComponent(icon: Icon) {
 	});
 
 	return template
-		.replaceAll('%name%', icon.name.pascal)
-		.replaceAll('%html%', reactSvg)
-		.replaceAll('%comment%', await generateJsdocPreview(icon.html));
+		.replace('%name%', icon.name.pascal)
+		.replace('%html%', reactSvg)
+		.replace('%comment%', await generateJsdocPreview(icon.html));
 }
 
 const template = `

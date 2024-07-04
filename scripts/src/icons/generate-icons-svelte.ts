@@ -2,10 +2,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import svgson from 'svgson';
 import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
-import {createBarrelFile, type BarrelItem} from './create-barrel-file.js';
+import {type BarrelItem, createBarrelFile} from './create-barrel-file.js';
 import {createCleanDir} from './create-clean-dir.js';
 import {generateJsdocPreview} from './generate-jsdoc-preview.js';
-import {getIcons, type Icon} from './get-icons.js';
+import {type Icon, getIcons} from './get-icons.js';
 
 const outdir = path.join(getWorkspaceRoot(), 'packages/icons/svelte/src');
 
@@ -61,7 +61,7 @@ async function toSvelteComponent(icon: Icon) {
 	});
 
 	const svelteSvg = svgson.stringify(node, {
-		selfClose: true,
+		selfClose: false,
 		transformAttr(key, value, esc) {
 			if (key === CLASSNAME) {
 				return `class="{className}"`;
@@ -76,10 +76,10 @@ async function toSvelteComponent(icon: Icon) {
 	});
 
 	return template
-		.replaceAll('%name%', icon.name.pascal)
-		.replaceAll('%html%', svelteSvg)
-		.replaceAll('%comment%', await generateJsdocPreview(icon.html))
-		.replaceAll('%class%', `lucide-icon ${icon.name.kebab}`);
+		.replace('%name%', icon.name.pascal)
+		.replace('%html%', svelteSvg)
+		.replace('%comment%', await generateJsdocPreview(icon.html))
+		.replace('%class%', `lucide-icon ${icon.name.kebab}`);
 }
 
 const template = `
