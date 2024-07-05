@@ -29,7 +29,10 @@ export default function Page({searchParams}: Props) {
 
 			<Flex
 				direction="column"
-				gap="6"
+				gap={{
+					base: '4',
+					lg: '6',
+				}}
 				mt={{
 					base: '5',
 					lg: '8',
@@ -65,10 +68,7 @@ function Item({data}: {data: IItem}) {
 			flexDir={{
 				base: 'column',
 			}}
-			gap={{
-				base: '3',
-				lg: '2',
-			}}
+			gap="2"
 			className="group"
 		>
 			<Flex alignItems="center" gap="2">
@@ -77,7 +77,9 @@ function Item({data}: {data: IItem}) {
 				<Clipboard
 					value={JSON.stringify(asJson, null, 2)}
 					display="flex"
-					transform="scale(0)"
+					transform={{
+						lg: 'scale(0)',
+					}}
 					transition="transform 200ms"
 					_groupHover={{
 						transform: 'scale(1)',
@@ -104,11 +106,13 @@ function Item({data}: {data: IItem}) {
 
 			<Grid
 				gridTemplateColumns={{
-					base: 4,
-					md: 8,
-					lg: 12,
+					base: '6',
+					md: '12',
 				}}
-				gap="2"
+				gap={{
+					base: '1',
+					lg: '2',
+				}}
 			>
 				{data.value.map((subItem) => (
 					<Box key={subItem.label}>
@@ -119,10 +123,21 @@ function Item({data}: {data: IItem}) {
 							}}
 						/>
 
-						<Box mt="2" fontSize="sm">
+						<Box
+							mt="2"
+							fontSize="sm"
+							display={{
+								base: 'none',
+								lg: 'block',
+							}}
+						>
 							{subItem.label}
 						</Box>
 						<Box
+							display={{
+								base: 'none',
+								lg: 'block',
+							}}
 							fontSize="xs"
 							lineHeight="none"
 							color={{
