@@ -141,8 +141,8 @@ importers:
         specifier: 0.3.1
         version: 0.3.1
       '@untitled-theme/icons-react':
-        specifier: 0.10.1
-        version: 0.10.1(@types/react@18.3.3)(react@18.3.1)
+        specifier: 0.10.4
+        version: 0.10.4(@types/react@18.3.3)(react@18.3.1)
       next:
         specifier: 14.2.4
         version: 14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1089,8 +1089,8 @@ packages:
   '@untitled-theme/colors@0.3.1':
     resolution: {integrity: sha512-xYKDjWNU9r+i1lsGU1wQoDX/0dZ1qGGzPLkXPe1nELbKTRmAGaPJnUBiRN7ZdA68pvdoUYoDx6kmJabVDL4F1A==}
 
-  '@untitled-theme/icons-react@0.10.1':
-    resolution: {integrity: sha512-58ZGZnn/+tLEszlNDnV1rGFe/J3pa7OnKpv80nAG4aO1fE6gvh6rM/QfOwrqvfGACRAEJIKShuPsuyiHSKySbA==}
+  '@untitled-theme/icons-react@0.10.4':
+    resolution: {integrity: sha512-HKO+bttT9PCWqEpUysG4Wkdb0aM3JCsne67yTOaNZ7sBUqF+3meImen36w1imaWi1tGL43PSZzD+dDP7tkAwXw==}
     peerDependencies:
       '@types/react': '>=18.0.0'
       react: '>=18.0.0'
@@ -4357,7 +4357,7 @@ snapshots:
 
   '@untitled-theme/colors@0.3.1': {}
 
-  '@untitled-theme/icons-react@0.10.1(@types/react@18.3.3)(react@18.3.1)':
+  '@untitled-theme/icons-react@0.10.4(@types/react@18.3.3)(react@18.3.1)':
     dependencies:
       react: 18.3.1
     optionalDependencies:
