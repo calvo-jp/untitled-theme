@@ -1,6 +1,6 @@
 import './globals.css';
 
-import {ThemeProvider} from '@/lib/theme';
+import {ThemeProvider} from '@/lib/theme-provider';
 import {cx} from '@/styled-system/css';
 import {styled} from '@/styled-system/jsx';
 import {token} from '@/styled-system/tokens';

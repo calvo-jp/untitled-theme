@@ -6,9 +6,6 @@ const nextConfig = {
 	typescript: {
 		ignoreBuildErrors: true,
 	},
-	experimental: {
-		optimizePackageImports: ['@untitled-theme/icons-react', '@ark-ui/react'],
-	},
 	async redirects() {
 		return [
 			{
@@ -17,6 +14,12 @@ const nextConfig = {
 				permanent: false,
 			},
 		];
+	},
+	compiler: {
+		removeConsole: process.env.NODE_ENV === 'production',
+	},
+	experimental: {
+		optimizePackageImports: ['@untitled-theme/icons-react', '@ark-ui/react'],
 	},
 };
 

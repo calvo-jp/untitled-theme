@@ -12,7 +12,7 @@ import {
 	SelectTrigger,
 	SelectValueText,
 } from '@/lib/select';
-import {useTheme} from '@/lib/theme';
+import {useTheme} from '@/lib/theme-provider';
 import {VisuallyHidden, styled} from '@/styled-system/jsx';
 import {CheckIcon, CloudMoonIcon, CloudSun02Icon, Monitor01Icon} from '@untitled-theme/icons-react';
 
