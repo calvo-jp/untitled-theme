@@ -2,14 +2,8 @@ import type {Metadata} from 'next';
 import type {ReactNode} from 'react';
 
 export const metadata: Metadata = {
-	title: {
-		default: 'Icons',
-		template: 'Untitled Theme | %s',
-	},
-	description: 'Untitled UI icons for React, Svelte and SolidJS',
-	openGraph: {
-		images: ['/opengraph-icons.png'],
-	},
+	title: 'Colors',
+	description: 'Untitled UI colors for Tailwind and Panda',
 };
 
 export default function Layout({children}: Readonly<{children: ReactNode}>) {

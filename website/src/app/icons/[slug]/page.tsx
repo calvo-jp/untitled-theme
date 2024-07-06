@@ -1,7 +1,7 @@
-import {IconDetails} from '@/app/icon-details';
-import {getIcon, getIcons} from '@/app/utils';
 import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
+import {IconDetails} from '../../icon-details';
+import {getIcon, getIcons} from '../../utils';
 
 export async function generateStaticParams() {
 	const icons = await getIcons();

@@ -1,14 +1,14 @@
 'use client';
 
 import {styled} from '@/styled-system/jsx';
-import {ark} from '@ark-ui/react';
+import {ark} from '@ark-ui/react/factory';
 
 export const Icon = styled(
 	ark.svg,
 	{
 		base: {
-			w: 5,
-			h: 5,
+			w: '5',
+			h: '5',
 		},
 	},
 	{

@@ -1,7 +1,7 @@
 'use client';
 
 import {styled} from '@/styled-system/jsx';
-import {Dialog as ArkDialog} from '@ark-ui/react';
+import {Dialog as ArkDialog} from '@ark-ui/react/dialog';
 
 export const Dialog = ArkDialog.Root;
 export const DialogBackdrop = styled(ArkDialog.Backdrop);

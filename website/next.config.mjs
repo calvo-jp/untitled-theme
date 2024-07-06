@@ -19,7 +19,7 @@ const nextConfig = {
 		removeConsole: process.env.NODE_ENV === 'production',
 	},
 	experimental: {
-		optimizePackageImports: ['@untitled-theme/icons-react', '@ark-ui/react'],
+		optimizePackageImports: ['@untitled-theme/icons-react'],
 	},
 };
 

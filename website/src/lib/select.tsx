@@ -1,7 +1,7 @@
 'use client';
 
 import {styled} from '@/styled-system/jsx';
-import {Select as ArkSelect} from '@ark-ui/react';
+import {Select as ArkSelect} from '@ark-ui/react/select';
 
 export const Select = ArkSelect.Root;
 export const SelectClearTrigger = styled(ArkSelect.ClearTrigger);

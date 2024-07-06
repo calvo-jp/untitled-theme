@@ -3,14 +3,8 @@ import {Icon} from '@/lib/icon';
 import {Box, Flex, Grid} from '@/styled-system/jsx';
 import colors from '@untitled-theme/colors';
 import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-react';
-import type {Metadata} from 'next';
 import {Suspense} from 'react';
 import {Searchbar} from '../searchbar';
-
-export const metadata: Metadata = {
-	title: 'Colors',
-	description: 'Untitled UI colors for Tailwind and Panda',
-};
 
 interface Props {
 	searchParams: {
@@ -22,12 +16,13 @@ export default function Page({searchParams}: Props) {
 	const items = getItems({search: searchParams.search?.toString()});
 
 	return (
-		<Box fontFamily="mono">
+		<>
 			<Suspense>
 				<Searchbar />
 			</Suspense>
 
 			<Flex
+				fontFamily="mono"
 				direction="column"
 				gap={{
 					base: '4',
@@ -42,7 +37,7 @@ export default function Page({searchParams}: Props) {
 					<Item key={item.label} data={item} />
 				))}
 			</Flex>
-		</Box>
+		</>
 	);
 }
 

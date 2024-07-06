@@ -1,7 +1,7 @@
 'use client';
 
 import {styled} from '@/styled-system/jsx';
-import {Clipboard as ArkClipboard} from '@ark-ui/react';
+import {Clipboard as ArkClipboard} from '@ark-ui/react/clipboard';
 
 export const Clipboard = styled(ArkClipboard.Root);
 export const ClipboardControl = styled(ArkClipboard.Control);
