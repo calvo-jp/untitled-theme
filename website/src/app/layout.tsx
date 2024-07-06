@@ -43,6 +43,19 @@ const sans = Inter({
 	preload: true,
 	adjustFontFallback: true,
 	variable: '--font-sans',
+	fallback: [
+		'system-ui',
+		'-apple-system',
+		'BlinkMacSystemFont',
+		"'Segoe UI'",
+		'Roboto',
+		'Oxygen',
+		'Ubuntu',
+		'Cantarell',
+		"'Open Sans'",
+		"'Helvetica Neue'",
+		'sans-serif',
+	],
 });
 
 const mono = Fira_Code({
@@ -52,6 +65,12 @@ const mono = Fira_Code({
 	preload: true,
 	adjustFontFallback: true,
 	variable: '--font-mono',
+	fallback: [
+		/**/
+		"'Courier New'",
+		'Courier',
+		'monospace',
+	],
 });
 
 export default function RootLayout(props: Readonly<{modal: ReactNode; children: ReactNode}>) {
