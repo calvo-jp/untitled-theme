@@ -10,7 +10,7 @@ npm install @untitled-theme/colors
 
 ## Usage
 
-Using [Tailwind]():
+Using [Tailwind](https://tailwindcss.com/):
 
 ```js
 // tailwind.config.js
@@ -47,7 +47,7 @@ export default defineConfig({
 });
 ```
 
-Using CSS variables:
+Using [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties):
 
 ```js
 // layout.jsx
