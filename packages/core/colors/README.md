@@ -29,6 +29,18 @@ module.exports = {
 };
 ```
 
+Using [Vanilla Extract](https://vanilla-extract.style/):
+
+```ts
+// theme.css.ts
+import colors from '@untitled-theme/colors';
+import {createTheme, style} from '@vanilla-extract/css';
+
+export const [themeClass, vars] = createTheme({
+  color: colors,
+});
+```
+
 Using [Panda CSS](https://panda-css.com/):
 
 ```js
