@@ -6,7 +6,9 @@ import colors from './colors.json';
 const outdir = path.join(getWorkspaceRoot(), 'packages/core/colors/src/css');
 
 export async function generateColorsVanilla() {
-	await fs.mkdir(outdir, {recursive: true});
+	try {
+		await fs.mkdir(outdir, {recursive: true});
+	} catch {}
 
 	const content = `:root {\n${getColors()}\n}`;
 	const destination = path.join(outdir, 'index.css');

@@ -15,7 +15,7 @@ async function generateColors() {
 
 	spinner.start('Generating colors...');
 
-	await fs.rm(outdir, {force: true});
+	await fs.rm(outdir, {force: true, recursive: true});
 	await fs.mkdir(outdir, {recursive: true});
 
 	await Promise.all([

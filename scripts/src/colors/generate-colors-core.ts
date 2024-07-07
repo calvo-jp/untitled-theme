@@ -6,7 +6,9 @@ import colors from './colors.json';
 const outdir = path.join(getWorkspaceRoot(), 'packages/core/colors/src');
 
 export async function generateColorsCore() {
-	await fs.mkdir(outdir, {recursive: true});
+	try {
+		await fs.mkdir(outdir, {recursive: true});
+	} catch {}
 
 	const content = `const colors = ${JSON.stringify(colors, null, 2)};\nexport default colors;`;
 	const destination = path.join(outdir, 'index.ts');
