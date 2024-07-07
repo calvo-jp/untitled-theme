@@ -23,7 +23,9 @@ export default defineConfig({
 			},
 		},
 		sourcemap: true,
+		copyPublicDir: true,
 	},
+	publicDir: 'src/css',
 	test: {
 		name: 'colors',
 		watch: false,
