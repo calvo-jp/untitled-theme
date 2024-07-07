@@ -9,6 +9,7 @@ export default defineConfig({
 			include: ['src'],
 		}),
 	],
+	publicDir: 'src/css',
 	build: {
 		lib: {
 			name: 'colors',
@@ -23,9 +24,7 @@ export default defineConfig({
 			},
 		},
 		sourcemap: true,
-		copyPublicDir: true,
 	},
-	publicDir: 'src/css',
 	test: {
 		name: 'colors',
 		watch: false,
