@@ -74,4 +74,10 @@ export default function RootLayout({children}) {
 }
 ```
 
+Using vanilla CSS 
+
+```js
+import '@untitled-theme/colors/index.css';
+```
+
 See all colors [here](https://untitled-theme-docs.vercel.app/colors)
