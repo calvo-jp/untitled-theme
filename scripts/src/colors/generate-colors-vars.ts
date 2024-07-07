@@ -21,10 +21,10 @@ function getColors() {
 
 	Object.entries(colors).forEach(([k1, v1]) => {
 		if (typeof v1 === 'string') {
-			result[`--${k1}`] = v1;
+			result[`--colors-${k1}`] = v1;
 		} else {
 			Object.entries(v1).forEach(([k2, v2]) => {
-				result[`--${k1}-${k2}`] = v2;
+				result[`--colors-${k1}-${k2}`] = v2;
 			});
 		}
 	});
