@@ -4,8 +4,10 @@
 	"private": true,
 	"scripts": {
 		"generate:icons": "tsx ./src/icons/generate-icons.ts",
-		"generate:icons-db": "tsx ./src/icons/generate-icons-db.ts",
-		"generate:colors": "tsx ./src/colors/generate-colors.ts"
+		"generate:colors": "tsx ./src/colors/generate-colors.ts",
+		"generate:website-icons-asset": "tsx ./src/icons/generate-website-asset.ts",
+		"generate:website-colors-asset": "tsx ./src/colors/generate-website-asset.ts",
+		"generate:website-assets": "pnpm generate:website-icons-asset && pnpm generate:website-colors-asset"
 	},
 	"dependencies": {
 		"@clack/prompts": "0.7.0",

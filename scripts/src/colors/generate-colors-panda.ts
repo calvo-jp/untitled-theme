@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
-import colors from './colors.json';
+import {colors} from './colors.js';
 
 const outdir = path.join(getWorkspaceRoot(), 'packages/core/colors/src/panda');
 
