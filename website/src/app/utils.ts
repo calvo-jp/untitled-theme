@@ -1,7 +1,8 @@
 import {unstable_cache as cache} from 'next/cache';
 import prettier, {type Options} from 'prettier';
-import {codeToHtml, type CodeToHastOptions} from 'shiki';
+import {type CodeToHastOptions, codeToHtml} from 'shiki';
 import * as svgson from 'svgson';
+import colors from '../assets/colors.json';
 import icons from '../assets/icons.json';
 
 /*
@@ -296,4 +297,27 @@ export const getIcon = cache(
 		};
 	},
 	['untitled-theme/icons/[id]'],
+);
+
+export const getColors = cache(
+	async (search?: string) => {
+		if (!search) return colors;
+
+		const m: Record<string, Record<string, string>> = {};
+		const e = Object.entries(colors);
+
+		for (const [k, v] of e) {
+			if (
+				k
+					.replace(/-/, '')
+					.toLowerCase()
+					.includes(search.trim().toLowerCase().replace(/-/, '').replace(/\s/, ''))
+			) {
+				m[k] = v;
+			}
+		}
+
+		return m;
+	},
+	['untitled-theme/colors'],
 );

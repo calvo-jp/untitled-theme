@@ -3,8 +3,8 @@ import {Icon} from '@/lib/icon';
 import {Box, Flex, Grid} from '@/styled-system/jsx';
 import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-react';
 import {Suspense} from 'react';
-import colors from '../../assets/colors.json';
 import {Searchbar} from '../searchbar';
+import {getColors} from '../utils';
 
 interface Props {
 	searchParams: {
@@ -12,8 +12,8 @@ interface Props {
 	};
 }
 
-export default function Page({searchParams}: Props) {
-	const items = getItems({search: searchParams.search?.toString()});
+export default async function Page({searchParams}: Props) {
+	const colors = await getColors(searchParams.search?.toString());
 
 	return (
 		<>
@@ -33,7 +33,7 @@ export default function Page({searchParams}: Props) {
 					lg: '8',
 				}}
 			>
-				{Object.entries(items).map(([name, shades]) => {
+				{Object.entries(colors).map(([name, shades]) => {
 					return (
 						<Flex
 							key={name}
@@ -128,22 +128,4 @@ export default function Page({searchParams}: Props) {
 			</Flex>
 		</>
 	);
-}
-
-function getItems({search = ''}: {search?: string}) {
-	const m: Record<string, Record<string, string>> = {};
-	const e = Object.entries(colors);
-
-	for (const [k, v] of e) {
-		if (
-			k
-				.replace(/-/, '')
-				.toLowerCase()
-				.includes(search.trim().toLowerCase().replace(/-/, '').replace(/\s/, ''))
-		) {
-			m[k] = v;
-		}
-	}
-
-	return m;
 }
