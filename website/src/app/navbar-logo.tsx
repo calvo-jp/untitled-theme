@@ -2,7 +2,7 @@
 
 import {Icon} from '@/lib/icon';
 import {Link} from '@/lib/link';
-import {Menu, MenuContent, MenuItem, MenuItemGroup, MenuPositioner, MenuTrigger} from '@/lib/menu';
+import {Menu, MenuContent, MenuItem, MenuPositioner, MenuTrigger} from '@/lib/menu';
 import {Flex} from '@/styled-system/jsx';
 import {MenuIndicator} from '@ark-ui/react';
 import {ChevronDownIcon} from '@untitled-theme/icons-react';
@@ -85,31 +85,29 @@ export function NavbarLogo() {
 							animation: 'fade-out',
 						}}
 					>
-						<MenuItemGroup>
-							{links.map((link) => (
-								<MenuItem key={link.href} value={link.href} asChild>
-									<Link
-										href={link.href}
-										px="2"
-										py="1"
-										display="flex"
-										alignItems="center"
-										gap="4"
-										cursor="pointer"
-										rounded="md"
-										fontSize="sm"
-										_highlighted={{
-											bg: {
-												base: 'gray-true.50',
-												_dark: 'gray-true.800/25',
-											},
-										}}
-									>
-										{link.label}
-									</Link>
-								</MenuItem>
-							))}
-						</MenuItemGroup>
+						{links.map((link) => (
+							<MenuItem key={link.href} value={link.href} asChild>
+								<Link
+									href={link.href}
+									px="2"
+									py="1"
+									display="flex"
+									alignItems="center"
+									gap="4"
+									cursor="pointer"
+									rounded="md"
+									fontSize="sm"
+									_highlighted={{
+										bg: {
+											base: 'gray-true.50',
+											_dark: 'gray-true.800/25',
+										},
+									}}
+								>
+									{link.label}
+								</Link>
+							</MenuItem>
+						))}
 					</MenuContent>
 				</MenuPositioner>
 			</Menu>
