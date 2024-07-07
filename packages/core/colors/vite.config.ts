@@ -9,6 +9,7 @@ export default defineConfig({
 			include: ['src'],
 		}),
 	],
+	publicDir: 'src/css',
 	build: {
 		lib: {
 			name: 'colors',
@@ -23,12 +24,5 @@ export default defineConfig({
 			},
 		},
 		sourcemap: true,
-	},
-	test: {
-		name: 'colors',
-		watch: false,
-		globals: true,
-		include: ['tests/**/*.spec.ts', 'tests/**/*.test.ts'],
-		passWithNoTests: true,
 	},
 });

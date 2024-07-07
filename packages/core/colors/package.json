@@ -4,12 +4,7 @@
 	"version": "0.4.3",
 	"license": "MIT",
 	"description": "Untitled UI colors",
-	"keywords": [
-		"Untitled UI",
-		"colors",
-		"Tailwind",
-		"Panda CSS"
-	],
+	"keywords": ["Untitled UI", "colors", "Tailwind", "Panda CSS"],
 	"repository": "https://github.com/calvo-jp/untitled-theme",
 	"bugs": {
 		"url": "https://github.com/calvo-jp/untitled-theme/issues"
@@ -37,19 +32,21 @@
 			"import": "./dist/vars.mjs",
 			"types": "./dist/vars/index.d.ts"
 		},
+		"./index.css": {
+			"require": "./dist/index.css",
+			"import": "./dist/index.css"
+		},
 		"./package.json": {
 			"default": "./package.json"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"publishConfig": {
 		"access": "public"
 	},
 	"scripts": {
+		"prebuild": "pnpm --filter @untitled-theme/scripts run generate:colors",
 		"build": "vite build",
-		"test": "vitest",
 		"release": "release-it"
 	},
 	"devDependencies": {
@@ -57,17 +54,11 @@
 		"release-it": "17.4.1",
 		"typescript": "5.5.3",
 		"vite": "5.3.3",
-		"vite-plugin-dts": "3.9.1",
-		"vitest": "1.6.0"
+		"vite-plugin-dts": "3.9.1"
 	},
 	"release-it": {
 		"hooks": {
-			"before:bump": [
-				"pnpm test"
-			],
-			"after:bump": [
-				"pnpm build"
-			]
+			"after:bump": ["pnpm build"]
 		},
 		"git": {
 			"commitMessage": "chore: release ${npm.name} v${version}",
