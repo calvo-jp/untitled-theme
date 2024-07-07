@@ -1,5 +1,23 @@
-import type {ColorPalette} from './types.js';
+import type {ColorPallete} from './types.js';
 
+/**
+ * @example
+ * ```ts
+ * // tailwind.config.js
+ * import colors from '@untitled-theme/colors';
+ *
+ * module.exports = {
+ * 	theme: {
+ * 		extend: {
+ * 			colors,
+ * 		},
+ *
+ * 		// or this, to remove tailwind's default colors and use only untitled ui's
+ * 		colors,
+ * 	},
+ * };
+ * ```
+ */
 const colors = {
 	white: '#FFFFFF',
 	black: '#000000',
@@ -410,6 +428,6 @@ const colors = {
 		950: '#542C0D',
 	},
 	transparent: 'transparent',
-} satisfies ColorPalette;
+} satisfies ColorPallete;
 
 export default colors;

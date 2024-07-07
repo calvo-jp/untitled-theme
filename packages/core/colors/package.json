@@ -3,8 +3,8 @@
 	"type": "module",
 	"version": "0.3.1",
 	"license": "MIT",
-	"description": "Untitled UI colors for Tailwind and Panda CSS",
-	"keywords": ["Untitled UI", "Tailwind", "Panda CSS", "colors"],
+	"description": "Untitled UI colors",
+	"keywords": ["Untitled UI", "colors", "Tailwind", "Panda CSS"],
 	"repository": "https://github.com/calvo-jp/untitled-theme",
 	"bugs": {
 		"url": "https://github.com/calvo-jp/untitled-theme/issues"
@@ -14,15 +14,23 @@
 		"email": "calvojp92@gmail.com"
 	},
 	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.js"
+			"require": "./dist/index.js",
+			"import": "./dist/index.mjs",
+			"types": "./dist/index.d.ts"
 		},
 		"./panda": {
-			"types": "./dist/panda.d.ts",
-			"import": "./dist/panda.js"
+			"require": "./dist/panda.js",
+			"import": "./dist/panda.mjs",
+			"types": "./dist/panda/index.d.ts"
+		},
+		"./vars": {
+			"require": "./dist/vars.js",
+			"import": "./dist/vars.mjs",
+			"types": "./dist/vars/index.d.ts"
 		}
 	},
 	"files": ["dist"],
@@ -31,6 +39,7 @@
 	},
 	"scripts": {
 		"build": "vite build",
+		"test": "vitest",
 		"release": "release-it"
 	},
 	"devDependencies": {
@@ -38,10 +47,12 @@
 		"release-it": "17.4.1",
 		"typescript": "5.5.3",
 		"vite": "5.3.3",
-		"vite-plugin-dts": "3.9.1"
+		"vite-plugin-dts": "3.9.1",
+		"vitest": "1.6.0"
 	},
 	"release-it": {
 		"hooks": {
+			"before:bump": ["pnpm test"],
 			"after:bump": ["pnpm build"]
 		},
 		"git": {

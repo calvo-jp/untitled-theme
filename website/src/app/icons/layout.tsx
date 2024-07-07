@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 		default: 'Icons',
 		template: 'Untitled Theme | %s',
 	},
-	description: 'Untitled UI icons for React, Svelte and SolidJS',
+	description: 'Untitled UI icons',
 	openGraph: {
 		images: ['/opengraph-icons.png'],
 	},

@@ -10,12 +10,14 @@ npm install @untitled-theme/colors
 
 ## Usage
 
-```js
-// tailwind.config.ts
-import colors from '@untitled-theme/colors';
-import type {Config} from 'tailwindcss';
+Using [Tailwind]():
 
-const config: Config = {
+```js
+// tailwind.config.js
+import colors from '@untitled-theme/colors';
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   theme: {
     extend: {
       colors,
@@ -25,18 +27,16 @@ const config: Config = {
     colors,
   },
 };
-
-export default config;
 ```
 
-for [Panda](https://panda-css.com/)
+Using [Panda CSS](https://panda-css.com/):
 
 ```js
-// panda.config.ts
+// panda.config.js
 import colors from '@untitled-theme/colors/panda';
 import {defineConfig} from '@pandacss/dev';
 
-export const config = defineConfig({
+export default defineConfig({
   theme: {
     extend: {
       tokens: {
@@ -45,6 +45,21 @@ export const config = defineConfig({
     },
   },
 });
+```
+
+Using CSS variables:
+
+```js
+// layout.jsx
+import colors from '@untitled-theme/colors/vars';
+
+export default function RootLayout({children}) {
+  return (
+    <html style={colors}>
+      <body>{children}</body>
+    </html>
+  );
+}
 ```
 
 See all colors [here](https://untitled-theme-docs.vercel.app/colors)

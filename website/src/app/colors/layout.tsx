@@ -3,7 +3,10 @@ import type {ReactNode} from 'react';
 
 export const metadata: Metadata = {
 	title: 'Colors',
-	description: 'Untitled UI colors for Tailwind and Panda',
+	description: 'Untitled UI colors',
+	openGraph: {
+		images: ['/opengraph-colors.png'],
+	},
 };
 
 export default function Layout({children}: Readonly<{children: ReactNode}>) {
