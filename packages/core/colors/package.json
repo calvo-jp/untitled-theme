@@ -4,12 +4,7 @@
 	"version": "0.4.1",
 	"license": "MIT",
 	"description": "Untitled UI colors",
-	"keywords": [
-		"Untitled UI",
-		"colors",
-		"Tailwind",
-		"Panda CSS"
-	],
+	"keywords": ["Untitled UI", "colors", "Tailwind", "Panda CSS"],
 	"repository": "https://github.com/calvo-jp/untitled-theme",
 	"bugs": {
 		"url": "https://github.com/calvo-jp/untitled-theme/issues"
@@ -36,11 +31,12 @@
 			"require": "./dist/vars.js",
 			"import": "./dist/vars.mjs",
 			"types": "./dist/vars/index.d.ts"
+		},
+		"./package.json": {
+			"default": "./package.json"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"publishConfig": {
 		"access": "public"
 	},
@@ -59,12 +55,8 @@
 	},
 	"release-it": {
 		"hooks": {
-			"before:bump": [
-				"pnpm test"
-			],
-			"after:bump": [
-				"pnpm build"
-			]
+			"before:bump": ["pnpm test"],
+			"after:bump": ["pnpm build"]
 		},
 		"git": {
 			"commitMessage": "chore: release ${npm.name} v${version}",
