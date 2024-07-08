@@ -20,6 +20,8 @@ export const getIcons = cache(
 		const l = [...icons];
 		const s = search.toLowerCase().replace(/\s/g, '');
 
+		if (s.length <= 0) return l;
+
 		return l.filter((icon) => icon.name.formal.toLowerCase().replace(/\s/g, '').includes(s));
 	},
 	['untitled-theme/icons'],
@@ -282,7 +284,7 @@ export type GetColorsReturn = Awaited<ReturnType<typeof getColors>>;
 export const getColors = cache(
 	async (search = '') => {
 		const l: Record<string, Record<string, string>> = {...colors};
-		const s = search.trim().toLowerCase().replace(/-/g, '').replace(/\s/g, '');
+		const s = search.trim().toLowerCase().replace(/[-\s]/g, '');
 
 		if (s.length <= 0) return l;
 
