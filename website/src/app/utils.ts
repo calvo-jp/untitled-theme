@@ -13,36 +13,14 @@ import icons from '../assets/icons.json';
  *
  */
 
-export interface GetIconsArgs {
-	limit?: number;
-	offset?: number;
-	search?: string;
-}
-
 export type GetIconsReturn = Awaited<ReturnType<typeof getIcons>>;
 
 export const getIcons = cache(
-	async ({search, limit, offset}: GetIconsArgs = {}) => {
-		let l = [...icons];
+	async (search = '') => {
+		const l = [...icons];
+		const s = search.toLowerCase().replace(/\s/g, '');
 
-		if (search) {
-			l = l.filter((icon) =>
-				icon.name.formal
-					.toLowerCase()
-					.replace(/ /g, '')
-					.includes(search.toLowerCase().replace(/ /g, '')),
-			);
-		}
-
-		if (offset) {
-			l = l.slice(offset);
-		}
-
-		if (limit) {
-			l = l.slice(0, limit);
-		}
-
-		return l;
+		return l.filter((icon) => icon.name.formal.toLowerCase().replace(/\s/g, '').includes(s));
 	},
 	['untitled-theme/icons'],
 );
@@ -299,25 +277,24 @@ export const getIcon = cache(
 	['untitled-theme/icons/[id]'],
 );
 
+export type GetColorsReturn = Awaited<ReturnType<typeof getColors>>;
+
 export const getColors = cache(
-	async (search?: string) => {
-		if (!search) return colors;
+	async (search = '') => {
+		const l: Record<string, Record<string, string>> = {...colors};
+		const s = search.trim().toLowerCase().replace(/-/g, '').replace(/\s/g, '');
 
-		const m: Record<string, Record<string, string>> = {};
-		const e = Object.entries(colors);
+		if (s.length <= 0) return l;
 
-		for (const [k, v] of e) {
-			if (
-				k
-					.replace(/-/, '')
-					.toLowerCase()
-					.includes(search.trim().toLowerCase().replace(/-/, '').replace(/\s/, ''))
-			) {
-				m[k] = v;
+		Object.keys(colors).forEach((k) => {
+			const m = k.replace(/-/g, '').toLowerCase().includes(s);
+
+			if (!m) {
+				delete l[k];
 			}
-		}
+		});
 
-		return m;
+		return l;
 	},
 	['untitled-theme/colors'],
 );

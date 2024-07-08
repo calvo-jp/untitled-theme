@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default async function IconsPage({searchParams}: Props) {
-	const icons = await getIcons({search: searchParams.search?.toString()});
+	const icons = await getIcons(searchParams.search?.toString());
 
 	let totalHtml = '';
 
