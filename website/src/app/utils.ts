@@ -279,6 +279,14 @@ export const getIcon = cache(
 	['untitled-theme/icons/[id]'],
 );
 
+/*
+ *
+ * ========================
+ * 				COLORS
+ * ========================
+ *
+ */
+
 export type GetColorsReturn = Awaited<ReturnType<typeof getColors>>;
 
 export const getColors = cache(
