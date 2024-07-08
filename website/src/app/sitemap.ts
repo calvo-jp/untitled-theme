@@ -20,5 +20,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			lastModified: new Date(),
 			changeFrequency: 'monthly',
 		})),
+
+		{
+			url: `${url}/colors`,
+			priority: 0.8,
+			lastModified: new Date(),
+			changeFrequency: 'monthly',
+		},
 	];
 }
