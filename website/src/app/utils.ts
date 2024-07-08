@@ -1,9 +1,9 @@
+import colors from '@/assets/colors.json';
+import icons from '@/assets/icons.json';
 import {unstable_cache as cache} from 'next/cache';
 import prettier, {type Options} from 'prettier';
 import {type CodeToHastOptions, codeToHtml} from 'shiki';
 import * as svgson from 'svgson';
-import colors from '../assets/colors.json';
-import icons from '../assets/icons.json';
 
 /*
  *

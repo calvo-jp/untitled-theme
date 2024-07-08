@@ -19,6 +19,7 @@
 		],
 		"paths": {
 			"@/lib/*": ["./src/lib/*"],
+			"@/assets/*": ["./src/assets/*"],
 			"@/styled-system/*": ["./styled-system/*"]
 		}
 	},
