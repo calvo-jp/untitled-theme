@@ -1,6 +1,5 @@
 'use client';
 
-import {Icon} from '@/lib/icon';
 import {Menu} from '@ark-ui/react';
 import {ChevronDownIcon} from '@untitled-theme/icons-react';
 import Link from 'next/link';
@@ -28,9 +27,7 @@ export function NavbarLogo() {
 					{pathname.startsWith('/colors') && 'colors'}
 
 					<Menu.Indicator asChild>
-						<Icon className="w-4 h-4 data-open:rotate-180 transition-transform duration-150">
-							<ChevronDownIcon />
-						</Icon>
+						<ChevronDownIcon className="icon data-open:rotate-180 transition-transform duration-150" />
 					</Menu.Indicator>
 				</Menu.Trigger>
 				<Menu.Positioner className="z-dropdown">

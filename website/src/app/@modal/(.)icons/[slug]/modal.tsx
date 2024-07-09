@@ -1,6 +1,5 @@
 'use client';
 
-import {Icon} from '@/lib/icon';
 import {Dialog} from '@ark-ui/react';
 import {XCloseIcon} from '@untitled-theme/icons-react';
 import {useRouter} from 'next/navigation';
@@ -43,9 +42,7 @@ export function Modal({children}: PropsWithChildren) {
 					</div>
 
 					<Dialog.CloseTrigger className="absolute right-3 top-3 p-1 cursor-pointer">
-						<Icon className="size-6">
-							<XCloseIcon />
-						</Icon>
+						<XCloseIcon className="icon-xl" />
 					</Dialog.CloseTrigger>
 				</Dialog.Content>
 			</Dialog.Positioner>

@@ -1,4 +1,3 @@
-import {Icon} from '@/lib/icon';
 import {Clipboard, Tabs} from '@ark-ui/react';
 import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-react';
 import {twMerge} from 'tailwind-merge';
@@ -44,15 +43,9 @@ export async function IconDetails({data}: {data: GetIconReturn}) {
 				<Clipboard.Root className="flex" value={componentName}>
 					<Clipboard.Trigger className="p-1">
 						<Clipboard.Indicator
-							copied={
-								<Icon className="size-4 text-success-500 dark:text-success-700">
-									<CheckIcon />
-								</Icon>
-							}
+							copied={<CheckIcon className="icon text-success-500 dark:text-success-700" />}
 						>
-							<Icon className="size-4">
-								<Copy01Icon />
-							</Icon>
+							<Copy01Icon className="icon" />
 						</Clipboard.Indicator>
 					</Clipboard.Trigger>
 				</Clipboard.Root>
@@ -80,15 +73,9 @@ export async function IconDetails({data}: {data: GetIconReturn}) {
 							>
 								<Clipboard.Trigger className="p-0.5">
 									<Clipboard.Indicator
-										copied={
-											<Icon className="text-success-500 dark:text-success-700">
-												<CheckIcon />
-											</Icon>
-										}
+										copied={<CheckIcon className="icon text-success-500 dark:text-success-700" />}
 									>
-										<Icon>
-											<Copy01Icon />
-										</Icon>
+										<Copy01Icon className="icon" />
 									</Clipboard.Indicator>
 								</Clipboard.Trigger>
 							</Clipboard.Root>

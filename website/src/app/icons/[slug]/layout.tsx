@@ -1,4 +1,3 @@
-import {Icon} from '@/lib/icon';
 import {type HTMLArkProps, ark} from '@ark-ui/react';
 import {ChevronRightIcon, HomeLineIcon} from '@untitled-theme/icons-react';
 import Link from 'next/link';
@@ -24,9 +23,7 @@ export default async function Layout({params, children}: Readonly<Props>) {
 						<BreadcrumbLink asChild>
 							<Link href="/">
 								<span className="sr-only">Home</span>
-								<Icon className="size-5">
-									<HomeLineIcon />
-								</Icon>
+								<HomeLineIcon className="icon-lg" />
 							</Link>
 						</BreadcrumbLink>
 						<BreadcrumbSeparator>

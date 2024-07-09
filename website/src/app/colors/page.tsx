@@ -1,4 +1,3 @@
-import {Icon} from '@/lib/icon';
 import {Clipboard} from '@ark-ui/react';
 import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-react';
 import {Suspense} from 'react';
@@ -32,16 +31,8 @@ export default async function Page({searchParams}: Props) {
 									className="flex lg:scale-0 transition-transform duration-150 focus-within:scale-100 group-hover:scale-100"
 								>
 									<Clipboard.Trigger className="cursor-pointer">
-										<Clipboard.Indicator
-											copied={
-												<Icon className="size-4 text-success-500">
-													<CheckIcon />
-												</Icon>
-											}
-										>
-											<Icon className="size-4">
-												<Copy01Icon />
-											</Icon>
+										<Clipboard.Indicator copied={<CheckIcon className="icon text-success-500" />}>
+											<Copy01Icon className="icon" />
 										</Clipboard.Indicator>
 									</Clipboard.Trigger>
 								</Clipboard.Root>

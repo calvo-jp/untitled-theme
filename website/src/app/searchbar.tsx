@@ -1,6 +1,5 @@
 'use client';
 
-import {Icon} from '@/lib/icon';
 import {SearchLgIcon} from '@untitled-theme/icons-react';
 import {usePathname, useRouter, useSearchParams} from 'next/navigation';
 
@@ -28,9 +27,7 @@ export function Searchbar() {
 				className="h-12 w-full py-2 pl-12 pr-4 rounded border outline-none bg-transparent placeholder:text-gray-true-300 dark:placeholder:text-gray-true-400"
 			/>
 
-			<Icon className="w-6 h-6 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-true-300 dark:text-gray-true-400">
-				<SearchLgIcon />
-			</Icon>
+			<SearchLgIcon className="icon-xl absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-true-300 dark:text-gray-true-400" />
 		</div>
 	);
 }
