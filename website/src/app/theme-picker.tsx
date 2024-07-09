@@ -1,19 +1,8 @@
 'use client';
 
 import {Icon} from '@/lib/icon';
-import {
-	Select,
-	SelectContent,
-	SelectControl,
-	SelectItem,
-	SelectItemIndicator,
-	SelectItemText,
-	SelectPositioner,
-	SelectTrigger,
-	SelectValueText,
-} from '@/lib/select';
 import {useTheme} from '@/lib/theme-provider';
-import {VisuallyHidden, styled} from '@/styled-system/jsx';
+import {Select} from '@ark-ui/react';
 import {CheckIcon, CloudMoonIcon, CloudSun02Icon, Monitor01Icon} from '@untitled-theme/icons-react';
 
 export function ThemePicker() {
@@ -22,7 +11,7 @@ export function ThemePicker() {
 	const selected = themes.find(({value}) => theme === value) ?? themes[0];
 
 	return (
-		<Select
+		<Select.Root
 			items={themes}
 			value={[selected.value]}
 			onValueChange={(o) => {
@@ -31,86 +20,41 @@ export function ThemePicker() {
 			lazyMount
 			unmountOnExit
 		>
-			<SelectControl>
-				<SelectTrigger
-					display="flex"
-					alignItems="center"
-					gap="2"
-					rounded="md"
-					borderWidth="1px"
-					px="2"
-					py="1"
-					aspectRatio="square"
-				>
-					<SelectValueText display="flex" flexGrow={1} alignItems="center" gap="1" textAlign="left">
+			<Select.Control>
+				<Select.Trigger className="flex items-center gap-2 rounded-md borer px-2 py-1 aspect-square">
+					<Select.ValueText className="flex grow items-center gap-1 text-left">
 						<Icon>{selected.icon}</Icon>
-						<VisuallyHidden>{selected.label}</VisuallyHidden>
-					</SelectValueText>
-				</SelectTrigger>
-			</SelectControl>
+						<span className="sr-only">{selected.label}</span>
+					</Select.ValueText>
+				</Select.Trigger>
+			</Select.Control>
 
-			<SelectPositioner zIndex="dropdown">
-				<SelectContent
-					rounded="md"
-					borderWidth="1px"
-					p="2"
-					bg={{
-						base: 'white',
-						_dark: 'gray-true.900',
-					}}
-					_open={{
-						animation: 'fade-in',
-					}}
-					_closed={{
-						animation: 'fade-out',
-					}}
-				>
+			<Select.Positioner className="z-dropdown">
+				<Select.Content className="rounded-md border p-2 bg-white dark:bg-gray-true-900 data-open:animate-fade-in data-closed:animate-fade-out">
 					{themes.map(({icon, label, value}) => (
-						<SelectItem
+						<Select.Item
 							key={value}
 							item={{
 								icon,
 								label,
 								value,
 							}}
-							w="32"
-							px="2"
-							py="1"
-							display="flex"
-							alignItems="center"
-							gap="4"
-							cursor="pointer"
-							rounded="md"
-							_highlighted={{
-								bg: {
-									base: 'gray-true.50',
-									_dark: 'gray-true.800/25',
-								},
-							}}
+							className="w-32 px-2 py-1 flex items-center gap-4 pointer rounded-md data-highlighted:bg-gray-true-50 dark:data-highlighted:bg-gray-true-800/25"
 						>
-							<SelectItemText display="flex" alignItems="center" flexGrow="1" gap="2">
-								<Icon w="4" h="4">
-									{icon}
-								</Icon>
-								<styled.span>{label}</styled.span>
-							</SelectItemText>
-							<SelectItemIndicator>
-								<Icon
-									w="4"
-									h="4"
-									color={{
-										base: 'success.500',
-										_dark: 'success.400',
-									}}
-								>
+							<Select.ItemText className="flex items-center grow gap-2">
+								<Icon className="w-4 h-4">{icon}</Icon>
+								<span>{label}</span>
+							</Select.ItemText>
+							<Select.ItemIndicator>
+								<Icon className="w-4 h-4 text-success-500 dark:text-success-400">
 									<CheckIcon />
 								</Icon>
-							</SelectItemIndicator>
-						</SelectItem>
+							</Select.ItemIndicator>
+						</Select.Item>
 					))}
-				</SelectContent>
-			</SelectPositioner>
-		</Select>
+				</Select.Content>
+			</Select.Positioner>
+		</Select.Root>
 	);
 }
 

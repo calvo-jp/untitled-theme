@@ -1,12 +1,10 @@
 import './globals.css';
 
 import {ThemeProvider} from '@/lib/theme-provider';
-import {cx} from '@/styled-system/css';
-import {styled} from '@/styled-system/jsx';
-import {token} from '@/styled-system/tokens';
 import type {Metadata, Viewport} from 'next';
 import {Fira_Code, Inter} from 'next/font/google';
 import type {ReactNode} from 'react';
+import {twMerge} from 'tailwind-merge';
 import {Navbar} from './navbar';
 
 export const metadata: Metadata = {
@@ -31,8 +29,8 @@ export const viewport: Viewport = {
 	maximumScale: 1,
 	colorScheme: 'dark light',
 	themeColor: [
-		{media: '(prefers-color-scheme: light)', color: token('colors.white')},
-		{media: '(prefers-color-scheme: dark)', color: token('colors.gray-true.900')},
+		{media: '(prefers-color-scheme: light)', color: '#ffffff'},
+		{media: '(prefers-color-scheme: dark)', color: '#000000'},
 	],
 };
 
@@ -75,56 +73,29 @@ const mono = Fira_Code({
 
 export default function RootLayout(props: Readonly<{modal: ReactNode; children: ReactNode}>) {
 	return (
-		<styled.html
+		<html
 			lang="en"
-			scrollBehavior="smooth"
-			className={cx(sans.variable, mono.variable)}
+			className={twMerge(sans.variable, mono.variable, 'scroll-smooth')}
 			suppressHydrationWarning
 		>
-			<styled.body
-				bg={{
-					base: 'white',
-					_dark: 'gray-true.900',
-				}}
-				color={{
-					base: 'gray-true.700',
-					_dark: 'gray-true.400',
-				}}
-				minH="dvh"
-				fontFamily="sans"
-				css={{
-					'& *, & *::after, & *::before': {
-						borderColor: {
-							base: 'gray-true.200',
-							_dark: 'gray-true.800',
-						},
-					},
-					'& ::placeholder': {
-						color: {
-							base: 'gray-true.300',
-							_dark: 'gray-true.400',
-						},
-					},
-				}}
+			<body
+				className={twMerge(
+					'min-h-dvh',
+					'font-sans',
+					'bg-white',
+					'text-gray-true-700',
+					'dark:bg-gray-true-900',
+					'dark:text-gray-true-400',
+				)}
 			>
 				<ThemeProvider>
 					<Navbar />
 
-					<styled.main
-						maxW="1024px"
-						mx="auto"
-						p={{
-							base: '4',
-							md: '8',
-							lg: '12',
-						}}
-					>
-						{props.children}
-					</styled.main>
+					<main className="max-w-screen-lg mx-auto p-4 md:p-8 lg:p-12">{props.children}</main>
 
 					{props.modal}
 				</ThemeProvider>
-			</styled.body>
-		</styled.html>
+			</body>
+		</html>
 	);
 }
