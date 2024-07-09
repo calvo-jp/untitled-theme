@@ -24,7 +24,7 @@ export function Searchbar() {
 					router.replace(`${pathname}?${newParams.toString()}`);
 				}}
 				placeholder="Search"
-				className="h-12 w-full py-2 pl-12 pr-4 rounded border outline-none bg-transparent placeholder:text-gray-true-300 dark:placeholder:text-gray-true-400"
+				className="h-12 w-full py-2 pl-12 pr-4 rounded border outline-none bg-transparent"
 			/>
 
 			<SearchLgIcon className="icon-xl absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-true-300 dark:text-gray-true-400" />

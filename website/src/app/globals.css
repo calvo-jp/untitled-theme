@@ -8,4 +8,16 @@
   *::after {
     @apply border-gray-true-200 dark:border-gray-true-800;
   }
+
+  input::placeholder {
+    @apply text-gray-true-400 dark:text-gray-true-500 opacity-100;
+  }
+
+  html {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+  }
 }
