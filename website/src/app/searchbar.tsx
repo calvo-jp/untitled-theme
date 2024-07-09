@@ -1,7 +1,6 @@
 'use client';
 
 import {Icon} from '@/lib/icon';
-import {Box, styled} from '@/styled-system/jsx';
 import {SearchLgIcon} from '@untitled-theme/icons-react';
 import {usePathname, useRouter, useSearchParams} from 'next/navigation';
 
@@ -11,8 +10,8 @@ export function Searchbar() {
 	const pathname = usePathname();
 
 	return (
-		<Box pos="relative">
-			<styled.input
+		<div className="relative">
+			<input
 				defaultValue={params.get('search')?.toString()}
 				onChange={(e) => {
 					const newParams = new URLSearchParams(params);
@@ -26,31 +25,12 @@ export function Searchbar() {
 					router.replace(`${pathname}?${newParams.toString()}`);
 				}}
 				placeholder="Search"
-				h="12"
-				w="full"
-				py="2"
-				pl="12"
-				pr="4"
-				rounded="sm"
-				borderWidth="1px"
-				outline="none"
+				className="h-12 w-full py-2 pl-12 pr-4 rounded border outline-none bg-transparent placeholder:text-gray-true-300 dark:placeholder:text-gray-true-400"
 			/>
 
-			<Icon
-				w="6"
-				h="6"
-				pos="absolute"
-				left="4"
-				top="50%"
-				transform="translateY(-50%)"
-				pointerEvents="none"
-				color={{
-					base: 'gray-true.300',
-					_dark: 'gray-true.400',
-				}}
-			>
+			<Icon className="w-6 h-6 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-true-300 dark:text-gray-true-400">
 				<SearchLgIcon />
 			</Icon>
-		</Box>
+		</div>
 	);
 }

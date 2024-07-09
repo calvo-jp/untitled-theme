@@ -1,8 +1,7 @@
-import {Clipboard, ClipboardIndicator, ClipboardTrigger} from '@/lib/clipboard';
 import {Icon} from '@/lib/icon';
-import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/lib/tabs';
-import {Box, Flex, styled} from '@/styled-system/jsx';
+import {Clipboard, Tabs} from '@ark-ui/react';
 import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-react';
+import {twMerge} from 'tailwind-merge';
 import type {GetIconReturn} from './utils';
 
 export async function IconDetails({data}: {data: GetIconReturn}) {
@@ -32,187 +31,107 @@ export async function IconDetails({data}: {data: GetIconReturn}) {
 	const componentName = `<${data.name.pascal} />`;
 
 	return (
-		<Box>
-			<Box
-				w="fit-content"
-				p="3"
-				rounded="sm"
-				borderWidth="1px"
+		<div>
+			<div
+				className="w-fit p-3 rounded border"
 				dangerouslySetInnerHTML={{
 					__html: data.html,
 				}}
 			/>
 
-			<Flex
-				w="fit-content"
-				py="2"
-				px="3"
-				mt="5"
-				maxH="dvh"
-				alignItems="center"
-				gap="5"
-				rounded="sm"
-				overflowY="auto"
-				bg={{
-					base: 'gray-true.100',
-					_dark: 'gray-true.800/25',
-				}}
-			>
-				<styled.code fontFamily="mono">{componentName}</styled.code>
-				<Clipboard display="flex" value={componentName}>
-					<ClipboardTrigger p="1">
-						<ClipboardIndicator
+			<div className="w-fit py-2 px-3 mt-5 max-h-dvh flex items-center gap-5 rounded overflow-y-auto bg-gray-true-100 dark:bg-gray-true-800/25">
+				<code className="font-mono">{componentName}</code>
+				<Clipboard.Root className="flex" value={componentName}>
+					<Clipboard.Trigger className="p-1">
+						<Clipboard.Indicator
 							copied={
-								<Icon
-									w="4"
-									h="4"
-									color={{
-										base: 'success.500',
-										_dark: 'success.700',
-									}}
-								>
+								<Icon className="size-4 text-success-500 dark:text-success-700">
 									<CheckIcon />
 								</Icon>
 							}
 						>
-							<Icon w="4" h="4">
+							<Icon className="size-4">
 								<Copy01Icon />
 							</Icon>
-						</ClipboardIndicator>
-					</ClipboardTrigger>
-				</Clipboard>
-			</Flex>
+						</Clipboard.Indicator>
+					</Clipboard.Trigger>
+				</Clipboard.Root>
+			</div>
 
-			<Tabs mt="5" defaultValue={items[0].value}>
-				<TabsList display="flex" gap="4">
+			<Tabs.Root className="mt-5" defaultValue={items[0].value}>
+				<Tabs.List className="flex gap-4">
 					{items.map((item) => (
-						<TabsTrigger
+						<Tabs.Trigger
 							key={item.value}
 							value={item.value}
-							_selected={{
-								color: {
-									base: 'brand.700',
-									_dark: 'brand.500',
-								},
-							}}
+							className="data-selected:text-brand-700 dark:data-selected:text-brand-500"
 						>
 							{item.label}
-						</TabsTrigger>
+						</Tabs.Trigger>
 					))}
-				</TabsList>
+				</Tabs.List>
 
 				{items.map((item) => {
 					return (
-						<TabsContent key={item.value} value={item.value} asChild>
-							<Box pos="relative" mt="5" fontSize="sm">
-								<Clipboard
-									value={item.content.raw}
-									pos="absolute"
-									top="4"
-									right="4"
-									display="flex"
-									alignItems="center"
-									justifyContent="center"
-									rounded="lg"
-									p="0.5"
-								>
-									<ClipboardTrigger p="0.5">
-										<ClipboardIndicator
-											copied={
-												<Icon
-													color={{
-														base: 'success.500',
-														_dark: 'success.700',
-													}}
-												>
-													<CheckIcon />
-												</Icon>
-											}
-										>
-											<Icon>
-												<Copy01Icon />
+						<Tabs.Content key={item.value} value={item.value} className="text-sm relative mt-5">
+							<Clipboard.Root
+								value={item.content.raw}
+								className="absolute top-4 right-4 flex items-center justify-center rounded-lg p-0.5"
+							>
+								<Clipboard.Trigger className="p-0.5">
+									<Clipboard.Indicator
+										copied={
+											<Icon className="text-success-500 dark:text-success-700">
+												<CheckIcon />
 											</Icon>
-										</ClipboardIndicator>
-									</ClipboardTrigger>
-								</Clipboard>
+										}
+									>
+										<Icon>
+											<Copy01Icon />
+										</Icon>
+									</Clipboard.Indicator>
+								</Clipboard.Trigger>
+							</Clipboard.Root>
 
-								<Box
-									css={{
-										'& .shiki': {
-											p: '4',
-											h: 'full',
-											rounded: 'sm',
-											overflow: 'auto',
-											borderWidth: '1px',
-											fontFamily: 'mono',
-											color: {
-												base: 'var(--shiki-light)',
-												_dark: 'var(--shiki-dark)',
-											},
-											bg: {
-												base: 'var(--shiki-light-bg)',
-												_dark: 'var(--shiki-dark-bg)',
-											},
+							<div
+								className={twMerge(
+									'[&_.shiki]:p-4',
+									'[&_.shiki]:h-full',
+									'[&_.shiki]:rounded',
+									'[&_.shiki]:overflow-auto',
+									'[&_.shiki]:border',
+									'[&_.shiki]:font-mono',
+									'[&_.shiki]:bg-[var(--shiki-light-bg)]',
+									'[&_.shiki]:text-[var(--shiki-light)]',
+									'[&_.shiki]:dark:bg-[var(--shiki-dark-bg)]',
+									'[&_.shiki]:dark:text-[var(--shiki-dark)]',
 
-											_scrollbar: {
-												w: '1.5',
-												h: '1.5',
-											},
-											_scrollbarThumb: {
-												rounded: 'full',
-												bg: {
-													base: 'gray-true.400',
-													_dark: 'gray-true.600',
-												},
-											},
-											_scrollbarTrack: {
-												rounded: 'sm',
-												bg: {
-													base: 'gray-true.50',
-													_dark: 'gray-true.800/25',
-												},
-											},
-										},
-										'& .shiki span': {
-											color: {
-												base: 'var(--shiki-light)',
-												_dark: 'var(--shiki-dark)',
-											},
-											bg: {
-												base: 'var(--shiki-light-bg)',
-												_dark: 'var(--shiki-dark-bg)',
-											},
-										},
-										'& .shiki code': {
-											counterReset: 'step',
-											counterIncrement: 'step 0',
-										},
+									'[&_.shiki_span]:bg-[var(--shiki-light-bg)]',
+									'[&_.shiki_span]:text-[var(--shiki-light)]',
+									'[&_.shiki_span]:dark:bg-[var(--shiki-dark-bg)]',
+									'[&_.shiki_span]:dark:text-[var(--shiki-dark)]',
 
-										'& .shiki code .line': {
-											_before: {
-												content: 'counter(step)',
-												counterIncrement: 'step',
-												fontFamily: 'mono',
-												textAlign: 'right',
-												display: 'inline-block',
-												mr: '4',
-												w: '2ch',
-												color: {
-													base: 'gray-true.400',
-													_dark: 'gray-true.700',
-												},
-											},
-										},
-									}}
-									dangerouslySetInnerHTML={{
-										__html: item.content.html,
-									}}
-								/>
-							</Box>
-						</TabsContent>
+									'[&_.shiki_code]:[counter-reset:step]',
+									'[&_.shiki_code]:[counter-increment:step_0]',
+
+									'[&_.shiki_code_.line]:before:[content:counter(step)]',
+									'[&_.shiki_code_.line]:before:[counter-increment:step]',
+									'[&_.shiki_code_.line]:before:font-mono',
+									'[&_.shiki_code_.line]:before:text-right',
+									'[&_.shiki_code_.line]:before:inline-block',
+									'[&_.shiki_code_.line]:before:mr-4',
+									'[&_.shiki_code_.line]:before:w-[2ch]',
+									'[&_.shiki_code_.line]:before:text-gray-true-400',
+									'[&_.shiki_code_.line]:before:dark:text-gray-true-700',
+								)}
+								dangerouslySetInnerHTML={{
+									__html: item.content.html,
+								}}
+							/>
+						</Tabs.Content>
 					);
 				})}
-			</Tabs>
-		</Box>
+			</Tabs.Root>
+		</div>
 	);
 }

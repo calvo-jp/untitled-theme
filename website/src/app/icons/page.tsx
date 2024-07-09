@@ -1,5 +1,4 @@
-import {Link} from '@/lib/link';
-import {Box, Grid, VisuallyHidden, styled} from '@/styled-system/jsx';
+import Link from 'next/link';
 import {Suspense} from 'react';
 import {Searchbar} from '../searchbar';
 import {getIcons} from '../utils';
@@ -33,56 +32,31 @@ export default async function IconsPage({searchParams}: Props) {
 				<Searchbar />
 			</Suspense>
 
-			<Box
-				mb="3"
-				mt={{
-					base: '5',
-					lg: '8',
-				}}
-				fontSize="sm"
+			<div
+				className="mb-3 mt-5 lg:mt-8 text-sm"
 				dangerouslySetInnerHTML={{
 					__html: totalHtml,
 				}}
 			/>
 
-			<Grid
-				gridTemplateColumns={{
-					base: '6',
-					md: '8',
-					lg: '10',
-					xl: '12',
-				}}
-				gap="2"
-			>
+			<div className="grid grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-2">
 				{icons.map((icon) => (
 					<Link
 						key={icon.slug}
 						href={`/icons/${icon.slug}`}
 						scroll={false}
-						display="flex"
-						alignItems="center"
-						justifyContent="center"
-						rounded="sm"
-						p="2"
-						borderWidth="1px"
-						aspectRatio="square"
-						_hover={{
-							bg: {
-								base: 'gray-true.50',
-								_dark: 'gray-true.800/10',
-							},
-						}}
+						className="flex items-center justify-center rounded p-2 border aspect-square hover:bg-gray-true-50 dark:hover:bg-gray-true-800/10"
 					>
-						<styled.span
+						<span
 							dangerouslySetInnerHTML={{
 								__html: icon.html,
 							}}
 						/>
 
-						<VisuallyHidden>{icon.name.formal}</VisuallyHidden>
+						<span className="sr-only">{icon.name.formal}</span>
 					</Link>
 				))}
-			</Grid>
+			</div>
 		</>
 	);
 }

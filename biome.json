@@ -14,8 +14,6 @@
 			".vercel",
 			".svelte-kit",
 			"assets",
-			"styled-system",
-			"styled-system-studio",
 			"packages/icons/react/src",
 			"packages/icons/svelte/src",
 			"packages/icons/solid/src",
@@ -35,6 +33,9 @@
 			},
 			"complexity": {
 				"noForEach": "off"
+			},
+			"a11y": {
+				"noSvgWithoutTitle": "off"
 			}
 		}
 	},

@@ -15,9 +15,6 @@ vite.config.ts.timestamp-*
 .vercel
 next-env.d.ts
 
-styled-system
-styled-system-studio
-
 packages/icons/react/src
 packages/icons/svelte/src
 packages/icons/solid/src

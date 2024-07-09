@@ -1,17 +1,11 @@
 'use client';
 
-import {
-	Dialog,
-	DialogBackdrop,
-	DialogCloseTrigger,
-	DialogContent,
-	DialogPositioner,
-} from '@/lib/dialog';
 import {Icon} from '@/lib/icon';
-import {Box} from '@/styled-system/jsx';
+import {Dialog} from '@ark-ui/react';
 import {XCloseIcon} from '@untitled-theme/icons-react';
 import {useRouter} from 'next/navigation';
-import {useEffect, useState, type PropsWithChildren} from 'react';
+import {type PropsWithChildren, useEffect, useState} from 'react';
+import {twMerge} from 'tailwind-merge';
 
 export function Modal({children}: PropsWithChildren) {
 	const router = useRouter();
@@ -24,7 +18,7 @@ export function Modal({children}: PropsWithChildren) {
 	}, []);
 
 	return (
-		<Dialog
+		<Dialog.Root
 			open={open}
 			onOpenChange={({open}) => {
 				if (!open) {
@@ -35,70 +29,26 @@ export function Modal({children}: PropsWithChildren) {
 				}
 			}}
 		>
-			<DialogBackdrop
-				pos="fixed"
-				inset="0"
-				zIndex="overlay"
-				backdropFilter="blur(4px)"
-				bg={{
-					base: 'gray-true.100/50',
-					_dark: 'gray-true.900/50',
-				}}
-			/>
+			<Dialog.Backdrop className="fixed inset-0 z-overlay backdrop-blur-sm bg-gray-true-900/50 dark:bg-gray-true-900/50" />
 
-			<DialogPositioner>
-				<DialogContent
-					pos="fixed"
-					w="full"
-					bottom="0"
-					right="0"
-					zIndex="modal"
-					p={{
-						base: '4',
-						md: '6',
-						lg: '8',
-					}}
-					bg={{
-						base: 'white',
-						_dark: 'gray-true.900',
-					}}
-					borderTopWidth="1px"
-					borderColor={{
-						base: 'gray-true.400',
-						_dark: 'gray-true.800',
-					}}
-					_open={{
-						animation: 'slide-up',
-					}}
-					_closed={{
-						animation: 'slide-down',
-					}}
-				>
-					<Box
-						css={{
-							w: {
-								base: 'full',
-								lg: '40rem',
-							},
-							maxW: {
-								base: 'full',
-								lg: '75%',
-							},
-							'& .shiki': {
-								maxHeight: '50vh',
-							},
-						}}
+			<Dialog.Positioner>
+				<Dialog.Content className="fixed w-full bottom-0 right-0 z-modal p-4 md:p-6 lg:p-8 border-t border-gray-true-400 dark:border-gray-true-800 data-open:animate-slide-up data-closed:animate-slide-down bg-white dark:bg-gray-true-900">
+					<div
+						className={twMerge(
+							'w-full lg:w-[40rem] max-w-full lg:max-w-[40rem]',
+							'[&_.shiki]:max-h-[50vh]',
+						)}
 					>
 						{children}
-					</Box>
+					</div>
 
-					<DialogCloseTrigger pos="absolute" right="3" top="3" p="1" cursor="pointer">
-						<Icon w="6" h="6">
+					<Dialog.CloseTrigger className="absolute right-3 top-3 p-1 cursor-pointer">
+						<Icon className="size-6">
 							<XCloseIcon />
 						</Icon>
-					</DialogCloseTrigger>
-				</DialogContent>
-			</DialogPositioner>
-		</Dialog>
+					</Dialog.CloseTrigger>
+				</Dialog.Content>
+			</Dialog.Positioner>
+		</Dialog.Root>
 	);
 }

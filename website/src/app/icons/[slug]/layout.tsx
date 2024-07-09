@@ -1,9 +1,9 @@
 import {Icon} from '@/lib/icon';
-import {VisuallyHidden, styled} from '@/styled-system/jsx';
-import {ark} from '@ark-ui/react';
+import {type HTMLArkProps, ark} from '@ark-ui/react';
 import {ChevronRightIcon, HomeLineIcon} from '@untitled-theme/icons-react';
 import Link from 'next/link';
-import type {ReactNode} from 'react';
+import {type ReactNode, forwardRef} from 'react';
+import {twMerge} from 'tailwind-merge';
 import {getIcon} from '../../utils';
 
 interface Props {
@@ -18,18 +18,13 @@ export default async function Layout({params, children}: Readonly<Props>) {
 
 	return (
 		<>
-			<Breadcrumb
-				mb={{
-					base: '8',
-					lg: '16',
-				}}
-			>
+			<Breadcrumb className="mb-8 lg:mb-16">
 				<BreadcrumbItems>
 					<BreadcrumbItem>
 						<BreadcrumbLink asChild>
 							<Link href="/">
-								<VisuallyHidden>Home</VisuallyHidden>
-								<Icon w="5" h="5">
+								<span className="sr-only">Home</span>
+								<Icon className="size-5">
 									<HomeLineIcon />
 								</Icon>
 							</Link>
@@ -57,68 +52,52 @@ export default async function Layout({params, children}: Readonly<Props>) {
 	);
 }
 
-const Breadcrumb = styled(
-	ark.nav,
-	{},
-	{
-		defaultProps: {
-			'aria-label': 'Breadcrumb',
-		},
-	},
-);
-
-const BreadcrumbItems = styled(ark.ol, {
-	base: {
-		display: 'flex',
-		alignItems: 'center',
-		gap: '2',
-	},
+const Breadcrumb = forwardRef<HTMLElement, HTMLArkProps<'nav'>>((props, ref) => {
+	return <ark.nav ref={ref} aria-label="Breadcrumb" {...props} />;
 });
 
-const BreadcrumbItem = styled(ark.li, {
-	base: {
-		display: 'flex',
-		alignItems: 'center',
-		gap: '2',
-	},
+const BreadcrumbItems = forwardRef<HTMLOListElement, HTMLArkProps<'ol'>>((props, ref) => {
+	return (
+		<ark.ol ref={ref} {...props} className={twMerge('flex items-center gap-2', props.className)} />
+	);
 });
 
-const BreadcrumbLink = styled(ark.a, {
-	base: {
-		'&[href]': {
-			_hover: {
-				textDecoration: 'underline',
-				textUnderlineOffset: '2px',
-			},
-		},
-		_currentPage: {
-			color: {
-				base: 'brand.700',
-				_dark: 'brand.500',
-			},
-		},
-	},
+const BreadcrumbItem = forwardRef<HTMLLIElement, HTMLArkProps<'li'>>((props, ref) => {
+	return (
+		<ark.li ref={ref} {...props} className={twMerge('flex items-center gap-2', props.className)} />
+	);
 });
 
-const BreadcrumbSeparator = styled(
-	ark.svg,
-	{
-		base: {
-			w: '4',
-			h: '4',
-			color: {
-				base: 'gray-true.400',
-				_dark: 'gray-true.700',
-			},
-		},
-	},
-	{
-		shouldForwardProp(key) {
-			return ['strokeWidth'].includes(key);
-		},
-		defaultProps: {
-			asChild: true,
-			strokeWidth: '1.66667',
-		},
-	},
-);
+const BreadcrumbLink = forwardRef<HTMLAnchorElement, HTMLArkProps<'a'>>((props, ref) => {
+	return (
+		<ark.a
+			ref={ref}
+			{...props}
+			className={twMerge(
+				'[&[href]]:hover:underline',
+				'[&[href]]:hover:underline-offset-2',
+				'aria-current-page:text-brand-700',
+				'dark:aria-current-page:text-brand-500',
+				props.className,
+			)}
+		/>
+	);
+});
+
+const BreadcrumbSeparator = forwardRef<SVGSVGElement, HTMLArkProps<'svg'>>((props, ref) => {
+	return (
+		<ark.svg
+			ref={ref}
+			strokeWidth="1.66667"
+			asChild
+			{...props}
+			className={twMerge('w-4 h-4 text-gray-true-400 dark:text-gray-true-700', props.className)}
+		/>
+	);
+});
+
+Breadcrumb.displayName = 'Breadcrumb';
+BreadcrumbItems.displayName = 'BreadcrumbItems';
+BreadcrumbItem.displayName = 'BreadcrumbItem';
+BreadcrumbLink.displayName = 'BreadcrumbLink';
+BreadcrumbSeparator.displayName = 'BreadcrumbSeparator';

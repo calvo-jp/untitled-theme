@@ -4,10 +4,9 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
+		"dev": "next dev --turbo",
 		"build": "next build",
-		"start": "next start",
-		"postinstall": "panda codegen"
+		"start": "next start"
 	},
 	"dependencies": {
 		"@ark-ui/react": "3.5.0",
@@ -18,13 +17,16 @@
 		"react": "18.3.1",
 		"react-dom": "18.3.1",
 		"shiki": "1.10.3",
-		"svgson": "5.3.1"
+		"svgson": "5.3.1",
+		"tailwind-merge": "2.4.0"
 	},
 	"devDependencies": {
-		"@pandacss/dev": "0.41.0",
 		"@types/node": "20.14.10",
 		"@types/react": "18.3.3",
 		"@types/react-dom": "18.3.0",
+		"autoprefixer": "10.4.19",
+		"postcss": "8.4.39",
+		"tailwindcss": "3.4.4",
 		"typescript": "5.5.3"
 	}
 }
