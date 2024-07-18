@@ -30,11 +30,11 @@ importers:
         specifier: 5.5.3
         version: 5.5.3
       vite:
-        specifier: 5.3.3
-        version: 5.3.3(@types/node@20.14.11)
+        specifier: 5.3.4
+        version: 5.3.4(@types/node@20.14.11)
       vite-plugin-dts:
         specifier: 3.9.1
-        version: 3.9.1(@types/node@20.14.11)(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.11))
+        version: 3.9.1(@types/node@20.14.11)(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.4(@types/node@20.14.11))
 
   packages/icons/react:
     devDependencies:
@@ -54,11 +54,11 @@ importers:
         specifier: 5.5.3
         version: 5.5.3
       vite:
-        specifier: 5.3.3
-        version: 5.3.3(@types/node@20.14.11)
+        specifier: 5.3.4
+        version: 5.3.4(@types/node@20.14.11)
       vite-plugin-dts:
         specifier: 3.9.1
-        version: 3.9.1(@types/node@20.14.11)(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.11))
+        version: 3.9.1(@types/node@20.14.11)(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.4(@types/node@20.14.11))
 
   packages/icons/solid:
     devDependencies:
@@ -72,14 +72,14 @@ importers:
         specifier: 5.5.3
         version: 5.5.3
       vite:
-        specifier: 5.3.3
-        version: 5.3.3(@types/node@20.14.11)
+        specifier: 5.3.4
+        version: 5.3.4(@types/node@20.14.11)
       vite-plugin-dts:
         specifier: 3.9.1
-        version: 3.9.1(@types/node@20.14.11)(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.11))
+        version: 3.9.1(@types/node@20.14.11)(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.4(@types/node@20.14.11))
       vite-plugin-solid:
         specifier: 2.10.2
-        version: 2.10.2(solid-js@1.8.18)(vite@5.3.3(@types/node@20.14.11))
+        version: 2.10.2(solid-js@1.8.18)(vite@5.3.4(@types/node@20.14.11))
 
   packages/icons/svelte:
     devDependencies:
@@ -88,7 +88,7 @@ importers:
         version: 2.3.2(svelte@5.0.0-next.190)(typescript@5.5.3)
       '@sveltejs/vite-plugin-svelte':
         specifier: 3.1.1
-        version: 3.1.1(svelte@5.0.0-next.190)(vite@5.3.3(@types/node@20.14.11))
+        version: 3.1.1(svelte@5.0.0-next.190)(vite@5.3.4(@types/node@20.14.11))
       '@tsconfig/svelte':
         specifier: 5.0.4
         version: 5.0.4
@@ -105,8 +105,8 @@ importers:
         specifier: 5.5.3
         version: 5.5.3
       vite:
-        specifier: 5.3.3
-        version: 5.3.3(@types/node@20.14.11)
+        specifier: 5.3.4
+        version: 5.3.4(@types/node@20.14.11)
 
   scripts:
     dependencies:
@@ -2896,8 +2896,8 @@ packages:
       '@testing-library/jest-dom':
         optional: true
 
-  vite@5.3.3:
-    resolution: {integrity: sha512-NPQdeCU0Dv2z5fu+ULotpuq5yfCS1BzKUIPhNbP3YBfAMGJXbt2nS+sbTFu+qchaqWTD+H3JK++nRwr6XIcp6A==}
+  vite@5.3.4:
+    resolution: {integrity: sha512-Cw+7zL3ZG9/NZBB8C+8QbQZmR54GwqIz+WMI4b3JgdYJvX+ny9AjJXqkGQlDXSXRP9rP0B4tbciRMOVEKulVOA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -3655,26 +3655,26 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@sveltejs/vite-plugin-svelte-inspector@2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.190)(vite@5.3.3(@types/node@20.14.11)))(svelte@5.0.0-next.190)(vite@5.3.3(@types/node@20.14.11))':
+  '@sveltejs/vite-plugin-svelte-inspector@2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.190)(vite@5.3.4(@types/node@20.14.11)))(svelte@5.0.0-next.190)(vite@5.3.4(@types/node@20.14.11))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 3.1.1(svelte@5.0.0-next.190)(vite@5.3.3(@types/node@20.14.11))
+      '@sveltejs/vite-plugin-svelte': 3.1.1(svelte@5.0.0-next.190)(vite@5.3.4(@types/node@20.14.11))
       debug: 4.3.5
       svelte: 5.0.0-next.190
-      vite: 5.3.3(@types/node@20.14.11)
+      vite: 5.3.4(@types/node@20.14.11)
     transitivePeerDependencies:
       - supports-color
 
-  '@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.190)(vite@5.3.3(@types/node@20.14.11))':
+  '@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.190)(vite@5.3.4(@types/node@20.14.11))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.190)(vite@5.3.3(@types/node@20.14.11)))(svelte@5.0.0-next.190)(vite@5.3.3(@types/node@20.14.11))
+      '@sveltejs/vite-plugin-svelte-inspector': 2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.190)(vite@5.3.4(@types/node@20.14.11)))(svelte@5.0.0-next.190)(vite@5.3.4(@types/node@20.14.11))
       debug: 4.3.5
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.10
       svelte: 5.0.0-next.190
       svelte-hmr: 0.16.0(svelte@5.0.0-next.190)
-      vite: 5.3.3(@types/node@20.14.11)
-      vitefu: 0.2.5(vite@5.3.3(@types/node@20.14.11))
+      vite: 5.3.4(@types/node@20.14.11)
+      vitefu: 0.2.5(vite@5.3.4(@types/node@20.14.11))
     transitivePeerDependencies:
       - supports-color
 
@@ -5965,7 +5965,7 @@ snapshots:
 
   validator@13.12.0: {}
 
-  vite-plugin-dts@3.9.1(@types/node@20.14.11)(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.11)):
+  vite-plugin-dts@3.9.1(@types/node@20.14.11)(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.4(@types/node@20.14.11)):
     dependencies:
       '@microsoft/api-extractor': 7.43.0(@types/node@20.14.11)
       '@rollup/pluginutils': 5.1.0(rollup@4.18.1)
@@ -5976,13 +5976,13 @@ snapshots:
       typescript: 5.5.3
       vue-tsc: 1.8.27(typescript@5.5.3)
     optionalDependencies:
-      vite: 5.3.3(@types/node@20.14.11)
+      vite: 5.3.4(@types/node@20.14.11)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
       - supports-color
 
-  vite-plugin-solid@2.10.2(solid-js@1.8.18)(vite@5.3.3(@types/node@20.14.11)):
+  vite-plugin-solid@2.10.2(solid-js@1.8.18)(vite@5.3.4(@types/node@20.14.11)):
     dependencies:
       '@babel/core': 7.24.8
       '@types/babel__core': 7.20.5
@@ -5990,12 +5990,12 @@ snapshots:
       merge-anything: 5.1.7
       solid-js: 1.8.18
       solid-refresh: 0.6.3(solid-js@1.8.18)
-      vite: 5.3.3(@types/node@20.14.11)
-      vitefu: 0.2.5(vite@5.3.3(@types/node@20.14.11))
+      vite: 5.3.4(@types/node@20.14.11)
+      vitefu: 0.2.5(vite@5.3.4(@types/node@20.14.11))
     transitivePeerDependencies:
       - supports-color
 
-  vite@5.3.3(@types/node@20.14.11):
+  vite@5.3.4(@types/node@20.14.11):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.39
@@ -6004,9 +6004,9 @@ snapshots:
       '@types/node': 20.14.11
       fsevents: 2.3.3
 
-  vitefu@0.2.5(vite@5.3.3(@types/node@20.14.11)):
+  vitefu@0.2.5(vite@5.3.4(@types/node@20.14.11)):
     optionalDependencies:
-      vite: 5.3.3(@types/node@20.14.11)
+      vite: 5.3.4(@types/node@20.14.11)
 
   vue-template-compiler@2.7.16:
     dependencies:
