@@ -24,7 +24,7 @@ export const getIcons = cache(
 
 		return l.filter((icon) => icon.name.formal.toLowerCase().replace(/\s/g, '').includes(s));
 	},
-	['untitled-theme/icons'],
+	['icons'],
 );
 
 /*
@@ -276,7 +276,7 @@ export const getIcon = cache(
 			},
 		};
 	},
-	['untitled-theme/icons/[id]'],
+	['icons/[id]'],
 );
 
 /*
@@ -287,11 +287,87 @@ export const getIcon = cache(
  *
  */
 
-export type GetColorsReturn = Awaited<ReturnType<typeof getColors>>;
+/*
+ *
+ * +--------+
+ * |	INPUT	|
+ * +--------+
+ *
+ * {
+ *   black: "",
+ *   gray: {
+ *     50: "",
+ *   },
+ *   nested: {
+ *     x: {
+ *       50: "",
+ *       deepNested: {
+ *         y: {
+ *           50: "",
+ *         },
+ *       }
+ *     },
+ *   },
+ * }
+ *
+ * +----------+
+ * |	OUTPUT	|
+ * +----------+
+ *
+ * [
+ *   {
+ *     orphan: true,
+ *     children: {
+ *       black: "",
+ *     },
+ *   },
+ *   {
+ *     parent: ["gray"],
+ *     children: {
+ *       50: "",
+ *     },
+ *   },
+ *   {
+ *     parent: ["nested", "x"],
+ *     children: {
+ *       50: "",
+ *     },
+ *   },
+ *   {
+ *     parent: ["nested", "x", "deepNested", "y"],
+ *     children: {
+ *       50: "",
+ *     },
+ *   },
+ * ]
+ *
+ */
+
+type NormalizedColor =
+	| {
+			orphan: false;
+			parent: string[];
+			value: Record<string, string>;
+	  }
+	| {
+			orphan: true;
+			parent: never;
+			value: Record<string, string>;
+	  };
+
+function normalizeColors() {
+	const result: NormalizedColor[] = [];
+
+	return result;
+}
+
+interface Colors {
+	[key: string]: Colors | string;
+}
 
 export const getColors = cache(
 	async (search = '') => {
-		const l: Record<string, Record<string, string>> = {...colors};
+		const l: Colors = {...colors};
 		const s = search.trim().toLowerCase().replace(/[-\s]/g, '');
 
 		if (s.length <= 0) return l;
@@ -306,5 +382,5 @@ export const getColors = cache(
 
 		return l;
 	},
-	['untitled-theme/colors'],
+	['colors'],
 );
