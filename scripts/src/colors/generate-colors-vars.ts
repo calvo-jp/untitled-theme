@@ -1,7 +1,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
-import {colors} from './colors.js';
+import {flatten} from './flatten.js';
+import {getColors} from './get-colors.js';
 
 const outdir = path.join(getWorkspaceRoot(), 'packages/core/colors/src/vars');
 
@@ -10,24 +11,19 @@ export async function generateColorsVars() {
 		await fs.mkdir(outdir, {recursive: true});
 	} catch {}
 
-	const content = `const colors = ${JSON.stringify(getColors(), null, 2)};\nexport default colors;`;
+	const content = await getContent();
 	const destination = path.join(outdir, 'index.ts');
 
 	await fs.writeFile(destination, content, 'utf-8');
 }
 
-function getColors() {
-	const result: Record<string, string> = {};
+async function getContent() {
+	const content: Record<string, string> = {};
 
-	Object.entries(colors).forEach(([k1, v1]) => {
-		if (typeof v1 === 'string') {
-			result[`--colors-${k1}`] = v1;
-		} else {
-			Object.entries(v1).forEach(([k2, v2]) => {
-				result[`--colors-${k1}-${k2}`] = v2;
-			});
-		}
+	flatten(await getColors()).forEach(({keys, value}) => {
+		const key = `--colors-${keys.join('-')}`;
+		content[key] = value;
 	});
 
-	return result;
+	return `const colors = ${JSON.stringify(content, null, 2)};\nexport default colors;`;
 }
