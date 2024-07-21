@@ -1,10 +1,17 @@
 {
 	"name": "@untitled-theme/icons-svelte",
 	"type": "module",
-	"version": "0.10.6",
+	"version": "0.10.7",
 	"license": "MIT",
 	"description": "Untitled UI icons for Svelte",
-	"keywords": ["svg", "icon", "icons", "Svelte", "SvelteKit", "Untitled UI"],
+	"keywords": [
+		"svg",
+		"icon",
+		"icons",
+		"Svelte",
+		"SvelteKit",
+		"Untitled UI"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/calvo-jp/untitled-theme.git",
@@ -31,7 +38,9 @@
 			"default": "./package.json"
 		}
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"publishConfig": {
 		"access": "public"
 	},
@@ -55,7 +64,9 @@
 	},
 	"release-it": {
 		"hooks": {
-			"after:bump": ["pnpm build"]
+			"after:bump": [
+				"pnpm build"
+			]
 		},
 		"git": {
 			"commitMessage": "chore: release ${npm.name} v${version}",
