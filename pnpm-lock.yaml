@@ -85,10 +85,10 @@ importers:
     devDependencies:
       '@sveltejs/package':
         specifier: 2.3.2
-        version: 2.3.2(svelte@5.0.0-next.190)(typescript@5.5.3)
+        version: 2.3.2(svelte@5.0.0-next.192)(typescript@5.5.3)
       '@sveltejs/vite-plugin-svelte':
         specifier: 3.1.1
-        version: 3.1.1(svelte@5.0.0-next.190)(vite@5.3.4(@types/node@20.14.11))
+        version: 3.1.1(svelte@5.0.0-next.192)(vite@5.3.4(@types/node@20.14.11))
       '@tsconfig/svelte':
         specifier: 5.0.4
         version: 5.0.4
@@ -96,11 +96,11 @@ importers:
         specifier: 17.6.0
         version: 17.6.0(typescript@5.5.3)
       svelte:
-        specifier: 5.0.0-next.190
-        version: 5.0.0-next.190
+        specifier: 5.0.0-next.192
+        version: 5.0.0-next.192
       svelte-preprocess:
         specifier: 6.0.2
-        version: 6.0.2(@babel/core@7.24.8)(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(svelte@5.0.0-next.190)(typescript@5.5.3)
+        version: 6.0.2(@babel/core@7.24.8)(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(svelte@5.0.0-next.192)(typescript@5.5.3)
       typescript:
         specifier: 5.5.3
         version: 5.5.3
@@ -138,11 +138,11 @@ importers:
         specifier: 3.5.0
         version: 3.5.0(@internationalized/date@3.5.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@untitled-theme/colors':
-        specifier: 0.6.0
-        version: 0.6.0
+        specifier: 0.6.1
+        version: 0.6.1
       '@untitled-theme/icons-react':
-        specifier: 0.10.4
-        version: 0.10.4(@types/react@18.3.3)(react@18.3.1)
+        specifier: 0.10.5
+        version: 0.10.5(@types/react@18.3.3)(react@18.3.1)
       next:
         specifier: 14.2.5
         version: 14.2.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -911,11 +911,11 @@ packages:
   '@types/yargs@17.0.32':
     resolution: {integrity: sha512-xQ67Yc/laOG5uMfX/093MRlGGCIBzZMarVa+gfNKJxWAIgykYpVGkBdbqEzGDDfCrVUj6Hiff4mTZ5BA6TmAog==}
 
-  '@untitled-theme/colors@0.6.0':
-    resolution: {integrity: sha512-qH6nvcVYKmBPo4wL9859Y/uNRZRxX9XEUeChFKrgrZdWcipxyOBFS0dqeu+y0c91LYP8eG0OSxUcmqAVHOEe9g==}
+  '@untitled-theme/colors@0.6.1':
+    resolution: {integrity: sha512-4femgmoV+Z+dibLfQSV/vhAxto5rsRhvJN6r4HAKihpx9PY9whBuAI8gm5/Tcj8Tum/ScOJm5q0eMhZFWBy/mA==}
 
-  '@untitled-theme/icons-react@0.10.4':
-    resolution: {integrity: sha512-HKO+bttT9PCWqEpUysG4Wkdb0aM3JCsne67yTOaNZ7sBUqF+3meImen36w1imaWi1tGL43PSZzD+dDP7tkAwXw==}
+  '@untitled-theme/icons-react@0.10.5':
+    resolution: {integrity: sha512-Cjl4LRC8yK7okDMGQTDCUVhwBqq8Si4ebIeXRdzby2Kkyc9fRIhPOVtaYO3NlyA/+g8vvbmQ9AqvaMuRKGOuGA==}
     peerDependencies:
       '@types/react': '>=18.0.0'
       react: '>=18.0.0'
@@ -2751,8 +2751,8 @@ packages:
       svelte: ^3.55 || ^4.0.0-next.0 || ^4.0 || ^5.0.0-next.0
       typescript: ^4.9.4 || ^5.0.0
 
-  svelte@5.0.0-next.190:
-    resolution: {integrity: sha512-6cnB92hY2o1Nr8zqrMX/mYJVslXD19C1fbyo3drB3azYBsAtjaBQaxG6JD7dZnicEGJhM/k3H7J5GXgFpijNzA==}
+  svelte@5.0.0-next.192:
+    resolution: {integrity: sha512-UgjiqTCsEWyQ157x5YNbmx859vBVFfznKaxuiMCPqHS3HRZ1iqTsSyO3LI/4BHjqPrtxwrOn1Z63VwoJkYBBDA==}
     engines: {node: '>=18'}
 
   svgson@5.3.1:
@@ -3644,35 +3644,35 @@ snapshots:
 
   '@sindresorhus/merge-streams@2.3.0': {}
 
-  '@sveltejs/package@2.3.2(svelte@5.0.0-next.190)(typescript@5.5.3)':
+  '@sveltejs/package@2.3.2(svelte@5.0.0-next.192)(typescript@5.5.3)':
     dependencies:
       chokidar: 3.6.0
       kleur: 4.1.5
       sade: 1.8.1
       semver: 7.6.2
-      svelte: 5.0.0-next.190
-      svelte2tsx: 0.7.13(svelte@5.0.0-next.190)(typescript@5.5.3)
+      svelte: 5.0.0-next.192
+      svelte2tsx: 0.7.13(svelte@5.0.0-next.192)(typescript@5.5.3)
     transitivePeerDependencies:
       - typescript
 
-  '@sveltejs/vite-plugin-svelte-inspector@2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.190)(vite@5.3.4(@types/node@20.14.11)))(svelte@5.0.0-next.190)(vite@5.3.4(@types/node@20.14.11))':
+  '@sveltejs/vite-plugin-svelte-inspector@2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.192)(vite@5.3.4(@types/node@20.14.11)))(svelte@5.0.0-next.192)(vite@5.3.4(@types/node@20.14.11))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 3.1.1(svelte@5.0.0-next.190)(vite@5.3.4(@types/node@20.14.11))
+      '@sveltejs/vite-plugin-svelte': 3.1.1(svelte@5.0.0-next.192)(vite@5.3.4(@types/node@20.14.11))
       debug: 4.3.5
-      svelte: 5.0.0-next.190
+      svelte: 5.0.0-next.192
       vite: 5.3.4(@types/node@20.14.11)
     transitivePeerDependencies:
       - supports-color
 
-  '@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.190)(vite@5.3.4(@types/node@20.14.11))':
+  '@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.192)(vite@5.3.4(@types/node@20.14.11))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.190)(vite@5.3.4(@types/node@20.14.11)))(svelte@5.0.0-next.190)(vite@5.3.4(@types/node@20.14.11))
+      '@sveltejs/vite-plugin-svelte-inspector': 2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.192)(vite@5.3.4(@types/node@20.14.11)))(svelte@5.0.0-next.192)(vite@5.3.4(@types/node@20.14.11))
       debug: 4.3.5
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.10
-      svelte: 5.0.0-next.190
-      svelte-hmr: 0.16.0(svelte@5.0.0-next.190)
+      svelte: 5.0.0-next.192
+      svelte-hmr: 0.16.0(svelte@5.0.0-next.192)
       vite: 5.3.4(@types/node@20.14.11)
       vitefu: 0.2.5(vite@5.3.4(@types/node@20.14.11))
     transitivePeerDependencies:
@@ -3755,9 +3755,9 @@ snapshots:
     dependencies:
       '@types/yargs-parser': 21.0.3
 
-  '@untitled-theme/colors@0.6.0': {}
+  '@untitled-theme/colors@0.6.1': {}
 
-  '@untitled-theme/icons-react@0.10.4(@types/react@18.3.3)(react@18.3.1)':
+  '@untitled-theme/icons-react@0.10.5(@types/react@18.3.3)(react@18.3.1)':
     dependencies:
       react: 18.3.1
     optionalDependencies:
@@ -5801,27 +5801,27 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svelte-hmr@0.16.0(svelte@5.0.0-next.190):
+  svelte-hmr@0.16.0(svelte@5.0.0-next.192):
     dependencies:
-      svelte: 5.0.0-next.190
+      svelte: 5.0.0-next.192
 
-  svelte-preprocess@6.0.2(@babel/core@7.24.8)(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(svelte@5.0.0-next.190)(typescript@5.5.3):
+  svelte-preprocess@6.0.2(@babel/core@7.24.8)(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(svelte@5.0.0-next.192)(typescript@5.5.3):
     dependencies:
-      svelte: 5.0.0-next.190
+      svelte: 5.0.0-next.192
     optionalDependencies:
       '@babel/core': 7.24.8
       postcss: 8.4.39
       postcss-load-config: 4.0.2(postcss@8.4.39)
       typescript: 5.5.3
 
-  svelte2tsx@0.7.13(svelte@5.0.0-next.190)(typescript@5.5.3):
+  svelte2tsx@0.7.13(svelte@5.0.0-next.192)(typescript@5.5.3):
     dependencies:
       dedent-js: 1.0.1
       pascal-case: 3.1.2
-      svelte: 5.0.0-next.190
+      svelte: 5.0.0-next.192
       typescript: 5.5.3
 
-  svelte@5.0.0-next.190:
+  svelte@5.0.0-next.192:
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@jridgewell/sourcemap-codec': 1.5.0

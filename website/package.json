@@ -10,8 +10,8 @@
 	},
 	"dependencies": {
 		"@ark-ui/react": "3.5.0",
-		"@untitled-theme/colors": "0.6.0",
-		"@untitled-theme/icons-react": "0.10.4",
+		"@untitled-theme/colors": "0.6.1",
+		"@untitled-theme/icons-react": "0.10.5",
 		"next": "14.2.5",
 		"prettier": "3.3.3",
 		"react": "18.3.1",
