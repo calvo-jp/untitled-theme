@@ -38,7 +38,8 @@
 				"noSvgWithoutTitle": "off"
 			},
 			"suspicious": {
-				"noExplicitAny": "off"
+				"noExplicitAny": "off",
+				"noArrayIndexKey": "off"
 			}
 		}
 	},

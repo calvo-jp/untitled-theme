@@ -11,7 +11,20 @@ async function generateWebsiteAsset() {
 }
 
 async function getContent() {
-	return JSON.stringify(await getColors());
+	const colors = await getColors();
+
+	const ignored = [
+		/**/
+		'white',
+		'black',
+		'transparent',
+	];
+
+	ignored.forEach((k) => {
+		delete colors[k];
+	});
+
+	return JSON.stringify(colors);
 }
 
 generateWebsiteAsset();

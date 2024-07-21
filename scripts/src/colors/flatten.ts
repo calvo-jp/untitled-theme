@@ -8,9 +8,9 @@ export function flatten(subject: Record<string, unknown>) {
 		value: any;
 	}[] = [];
 
-	function fn(colors: Record<string, unknown>, previousKeys: string[] = []) {
-		for (const currentKey in colors) {
-			const value = colors[currentKey];
+	function fn(obj: Record<string, unknown>, previousKeys: string[] = []) {
+		for (const currentKey in obj) {
+			const value = obj[currentKey];
 
 			if (isObject(value)) {
 				fn(value, [...previousKeys, currentKey]);
