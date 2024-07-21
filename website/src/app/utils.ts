@@ -1,5 +1,6 @@
 import colors from '@/assets/colors.json';
 import icons from '@/assets/icons.json';
+import {isObject} from '@/lib/is-object';
 import {unstable_cache as cache} from 'next/cache';
 import prettier, {type Options} from 'prettier';
 import {type CodeToHastOptions, codeToHtml} from 'shiki';
@@ -24,7 +25,7 @@ export const getIcons = cache(
 
 		return l.filter((icon) => icon.name.formal.toLowerCase().replace(/\s/g, '').includes(s));
 	},
-	['untitled-theme/icons'],
+	['icons'],
 );
 
 /*
@@ -276,7 +277,7 @@ export const getIcon = cache(
 			},
 		};
 	},
-	['untitled-theme/icons/[id]'],
+	['icons/[id]'],
 );
 
 /*
@@ -287,24 +288,117 @@ export const getIcon = cache(
  *
  */
 
+interface NormalizedColor {
+	parent: string[];
+	children: Record<string, string>;
+}
+
+interface Colors {
+	[key: string]: Colors | string;
+}
+
+/*
+ *
+ * +--------+
+ * |	INPUT	|
+ * +--------+
+ *
+ * {
+ *   black: "",
+ *   gray: {
+ *     50: "",
+ *   },
+ *   nested: {
+ *     x: {
+ *       50: "",
+ *       deepNested: {
+ *         y: {
+ *           50: "",
+ *         },
+ *       }
+ *     },
+ *   },
+ * }
+ *
+ * +----------+
+ * |	OUTPUT	|
+ * +----------+
+ *
+ * [
+ *   {
+ *     parent: [],
+ *     children: {
+ *       black: "",
+ *     },
+ *   },
+ *   {
+ *     parent: ["gray"],
+ *     children: {
+ *       50: "",
+ *     },
+ *   },
+ *   {
+ *     parent: ["nested", "x"],
+ *     children: {
+ *       50: "",
+ *     },
+ *   },
+ *   {
+ *     parent: ["nested", "x", "deepNested", "y"],
+ *     children: {
+ *       50: "",
+ *     },
+ *   },
+ * ]
+ *
+ */
+function normalizeColors(colors: Colors) {
+	const l: NormalizedColor[] = [];
+
+	function fn(o: Record<string, any>, p: string[] = []) {
+		for (const k in o) {
+			const v = o[k];
+
+			if (isObject(v)) {
+				fn(v, [...p, k]);
+			} else {
+				const i = p.length <= 0 ? -1 : l.findIndex((e) => e.parent?.join() === p.join());
+
+				if (i >= 0) {
+					l[i] = {
+						...l[i],
+						children: {
+							...l[i].children,
+							[k]: v,
+						},
+					};
+				} else {
+					l.push({
+						parent: p,
+						children: {[k]: v},
+					});
+				}
+			}
+		}
+	}
+
+	fn(colors);
+
+	return l;
+}
+
 export type GetColorsReturn = Awaited<ReturnType<typeof getColors>>;
 
 export const getColors = cache(
 	async (search = '') => {
-		const l: Record<string, Record<string, string>> = {...colors};
+		const l = normalizeColors(colors);
 		const s = search.trim().toLowerCase().replace(/[-\s]/g, '');
 
 		if (s.length <= 0) return l;
 
-		Object.keys(colors).forEach((k) => {
-			const m = k.replace(/-/g, '').toLowerCase().includes(s);
-
-			if (!m) {
-				delete l[k];
-			}
+		return l.filter((e) => {
+			return e.parent.join('').replace(/-/g, '').toLowerCase().includes(s);
 		});
-
-		return l;
 	},
-	['untitled-theme/colors'],
+	['colors'],
 );
