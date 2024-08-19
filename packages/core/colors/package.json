@@ -4,15 +4,10 @@
 	"version": "0.6.1",
 	"license": "MIT",
 	"description": "Untitled UI colors",
-	"keywords": [
-		"Untitled UI",
-		"colors",
-		"Tailwind",
-		"Panda CSS"
-	],
+	"keywords": ["Untitled UI", "colors", "Tailwind", "Panda CSS"],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/calvo-jp/untitled-theme.git",
+		"url": "git+https://github.com/calvo-jp/untitled-theme.git",
 		"directory": "packages/core/colors"
 	},
 	"bugs": {
@@ -49,9 +44,7 @@
 			"default": "./package.json"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"publishConfig": {
 		"access": "public"
 	},
@@ -69,9 +62,7 @@
 	},
 	"release-it": {
 		"hooks": {
-			"after:bump": [
-				"pnpm build"
-			]
+			"after:bump": ["pnpm build"]
 		},
 		"git": {
 			"commitMessage": "chore: release ${npm.name} v${version}",
