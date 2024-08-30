@@ -97,19 +97,6 @@ export async function IconDetails({data}: {data: GetIconReturn}) {
 									'[&_.shiki_span]:text-[var(--shiki-light)]',
 									'[&_.shiki_span]:dark:bg-[var(--shiki-dark-bg)]',
 									'[&_.shiki_span]:dark:text-[var(--shiki-dark)]',
-
-									'[&_.shiki_code]:[counter-reset:step]',
-									'[&_.shiki_code]:[counter-increment:step_0]',
-
-									'[&_.shiki_code_.line]:before:[content:counter(step)]',
-									'[&_.shiki_code_.line]:before:[counter-increment:step]',
-									'[&_.shiki_code_.line]:before:font-mono',
-									'[&_.shiki_code_.line]:before:text-right',
-									'[&_.shiki_code_.line]:before:inline-block',
-									'[&_.shiki_code_.line]:before:mr-4',
-									'[&_.shiki_code_.line]:before:w-[2ch]',
-									'[&_.shiki_code_.line]:before:text-gray-true-400',
-									'[&_.shiki_code_.line]:before:dark:text-gray-true-700',
 								)}
 								dangerouslySetInnerHTML={{
 									__html: item.content.html,
