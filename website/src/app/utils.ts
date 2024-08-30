@@ -170,7 +170,6 @@ async function toSvelteSnippet(svg: string) {
 				return {
 					...node,
 					attributes: {
-						[REF_PROP_KEY]: '',
 						...node.attributes,
 						width: '24',
 						height: '24',
@@ -186,9 +185,7 @@ async function toSvelteSnippet(svg: string) {
 	const svelteSvg = svgson.stringify(node, {
 		selfClose: false,
 		transformAttr(key, value, esc) {
-			if (key === REF_PROP_KEY) {
-				return 'ref={ref}';
-			} else if (key === REST_PROP_KEY) {
+			if (key === REST_PROP_KEY) {
 				return '{...props}';
 			} else if (key === 'stroke') {
 				return `${key}="currentColor"`;
