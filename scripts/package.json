@@ -12,10 +12,10 @@
 	"dependencies": {
 		"@clack/prompts": "0.7.0",
 		"@tsconfig/node20": "20.1.4",
-		"@types/yargs": "17.0.32",
+		"@types/yargs": "17.0.33",
 		"svgson": "5.3.1",
-		"tsx": "4.16.2",
-		"typescript": "5.5.3",
+		"tsx": "4.19.0",
+		"typescript": "5.5.4",
 		"yargs": "17.7.2"
 	}
 }
