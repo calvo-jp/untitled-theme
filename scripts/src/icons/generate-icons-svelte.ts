@@ -79,7 +79,7 @@ async function toSvelteComponent(icon: Icon) {
 		.replaceAll('%name%', icon.name.pascal)
 		.replaceAll('%html%', svelteSvg)
 		.replaceAll('%comment%', await generateJsdocPreview(icon.html))
-		.replaceAll('%class%', `lucide-icon ${icon.name.kebab}`);
+		.replaceAll('%class%', `untitled-icon ${icon.name.kebab}`);
 }
 
 const template = `
