@@ -9,24 +9,24 @@
 		"start": "next start"
 	},
 	"dependencies": {
-		"@ark-ui/react": "3.10.0",
+		"@ark-ui/react": "3.12.0",
 		"@untitled-theme/colors": "0.6.1",
 		"@untitled-theme/icons-react": "0.10.5",
-		"next": "14.2.8",
+		"next": "14.2.12",
 		"prettier": "3.3.3",
 		"react": "18.3.1",
 		"react-dom": "18.3.1",
-		"shiki": "1.16.2",
+		"shiki": "1.17.7",
 		"svgson": "5.3.1",
 		"tailwind-merge": "2.5.2"
 	},
 	"devDependencies": {
-		"@types/node": "22.5.4",
-		"@types/react": "18.3.5",
+		"@types/node": "22.5.5",
+		"@types/react": "18.3.7",
 		"@types/react-dom": "18.3.0",
 		"autoprefixer": "10.4.20",
-		"postcss": "8.4.45",
-		"tailwindcss": "3.4.10",
-		"typescript": "5.5.4"
+		"postcss": "8.4.47",
+		"tailwindcss": "3.4.12",
+		"typescript": "5.6.2"
 	}
 }
