@@ -6,7 +6,7 @@
   import '@fontsource/inter/700.css';
   import '../app.css';
 
-  import { ThemeProvider } from 'svelte-os-themes';
+  import { ThemeProvider } from '$lib/theme-provider';
   import Navbar from './navbar.svelte';
 
   let {children} = $props();

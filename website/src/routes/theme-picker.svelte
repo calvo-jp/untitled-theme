@@ -1,4 +1,5 @@
 <script lang="ts">
+  import {parseTheme, type Theme, useTheme} from '$lib/theme-provider';
   import {
     CheckIcon,
     CloudMoonIcon,
@@ -6,7 +7,6 @@
     Monitor01Icon,
   } from '@untitled-theme/icons-svelte';
   import type {Component} from 'svelte';
-  import {parseTheme, type Theme, useTheme} from 'svelte-os-themes';
   import type {SVGAttributes} from 'svelte/elements';
   import {Select} from 'ui-ingredients';
 
@@ -35,14 +35,15 @@
   ];
 
   let theme = useTheme();
-  let selected = items.find((o) => o.value === theme.value);
+
+  let selected = items.find((o) => o.value === theme.current);
 </script>
 
 <Select.Root
   {items}
-  value={[theme.value]}
+  value={[theme.current]}
   onValueChange={(o) => {
-    theme.value = parseTheme(o.value[0]);
+    theme.current = parseTheme(o.value[0]);
   }}
   lazyMount
 >
