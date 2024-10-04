@@ -1,5 +1,4 @@
 <script lang="ts">
-  import {page} from '$app/stores';
   import type {Icon} from '$lib/icons';
   import {XCloseIcon} from '@untitled-theme/icons-svelte';
   import {Dialog} from 'ui-ingredients';
@@ -28,7 +27,7 @@
       v += `${icons.length} icons found`;
     }
 
-    const s = $page.url.searchParams.get('search');
+    const s = search.trim();
 
     if (s) {
       v += ` for <strong>'${s}'</strong>`;
