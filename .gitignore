@@ -12,6 +12,7 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
 .next
+.svelte-kit
 .vercel
 next-env.d.ts
 

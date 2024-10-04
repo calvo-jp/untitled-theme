@@ -2,3 +2,4 @@ packages:
   - scripts
   - packages/**
   - website
+  - website-next
