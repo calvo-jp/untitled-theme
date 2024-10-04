@@ -1,17 +1,18 @@
 // @ts-check
 
 import colors from '@untitled-theme/colors';
+import defaultTheme from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
 
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/*.{js,ts,jsx,tsx}'],
+	content: ['./src/**/*.{html,js,svelte,ts}'],
 	darkMode: 'class',
 	theme: {
 		colors,
 		fontFamily: {
-			sans: 'var(--font-sans)',
-			mono: 'var(--font-mono)',
+			sans: ["'Inter'", ...defaultTheme.fontFamily.sans],
+			mono: ["'Fira Code'", ...defaultTheme.fontFamily.mono],
 		},
 		extend: {
 			zIndex: {

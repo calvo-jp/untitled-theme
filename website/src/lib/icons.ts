@@ -1,32 +1,59 @@
-import colors from '@/assets/colors.json';
-import icons from '@/assets/icons.json';
-import {isObject} from '@/lib/is-object';
-import {unstable_cache as cache} from 'next/cache';
+import icons from '$lib/assets/icons.json';
 import prettier, {type Options} from 'prettier';
 import {type CodeToHastOptions, codeToHtml} from 'shiki';
 import * as svgson from 'svgson';
 
-/*
- *
- * ========================
- * 				ICONS
- * ========================
- *
- */
+interface IconName {
+	kebab: string;
+	formal: string;
+	pascal: string;
+}
 
-export type GetIconsReturn = Awaited<ReturnType<typeof getIcons>>;
+interface Snippet {
+	raw: string;
+	html: string;
+}
 
-export const getIcons = cache(
-	async (search = '') => {
-		const l = [...icons];
-		const s = search.toLowerCase().replace(/\s/g, '');
+export interface Icon {
+	slug: string;
+	html: string;
+	name: IconName;
+	snippets: {
+		html: Snippet;
+		react: Snippet;
+		solid: Snippet;
+		svelte: Snippet;
+	};
+}
 
-		if (s.length <= 0) return l;
+export async function getIcons(search = ''): Promise<Icon[]> {
+	const l = await Promise.all(
+		[...icons].map(async (icon) => {
+			const [html, react, solid, svelte] = await Promise.all([
+				toHtmlSnippet(icon.html),
+				toReactSnippet(icon.html, icon.name.pascal),
+				toSolidSnippet(icon.html, icon.name.pascal),
+				toSvelteSnippet(icon.html),
+			]);
 
-		return l.filter((icon) => icon.name.formal.toLowerCase().replace(/\s/g, '').includes(s));
-	},
-	['icons'],
-);
+			return {
+				...icon,
+				snippets: {
+					html,
+					react,
+					solid,
+					svelte,
+				},
+			};
+		}),
+	);
+
+	const s = search.toLowerCase().replace(/\s/g, '');
+
+	if (s.length <= 0) return l;
+
+	return l.filter((icon) => icon.name.formal.toLowerCase().replace(/\s/g, '').includes(s));
+}
 
 /*
  *
@@ -255,147 +282,3 @@ async function toHtmlSnippet(svg: string) {
 		}),
 	};
 }
-
-export type GetIconReturn = NonNullable<Awaited<ReturnType<typeof getIcon>>>;
-
-export const getIcon = cache(
-	async (slug: string) => {
-		const icon = icons.find((icon) => icon.slug === slug);
-
-		if (!icon) return null;
-
-		return {
-			...icon,
-			snippet: {
-				html: await toHtmlSnippet(icon.html),
-				react: await toReactSnippet(icon.html, icon.name.pascal),
-				solid: await toSolidSnippet(icon.html, icon.name.pascal),
-				svelte: await toSvelteSnippet(icon.html),
-			},
-		};
-	},
-	['icons/[id]'],
-);
-
-/*
- *
- * ========================
- * 				COLORS
- * ========================
- *
- */
-
-interface NormalizedColor {
-	parent: string[];
-	children: Record<string, string>;
-}
-
-interface Colors {
-	[key: string]: Colors | string;
-}
-
-/*
- *
- * +--------+
- * |	INPUT	|
- * +--------+
- *
- * {
- *   black: "",
- *   gray: {
- *     50: "",
- *   },
- *   nested: {
- *     x: {
- *       50: "",
- *       deepNested: {
- *         y: {
- *           50: "",
- *         },
- *       }
- *     },
- *   },
- * }
- *
- * +----------+
- * |	OUTPUT	|
- * +----------+
- *
- * [
- *   {
- *     parent: [],
- *     children: {
- *       black: "",
- *     },
- *   },
- *   {
- *     parent: ["gray"],
- *     children: {
- *       50: "",
- *     },
- *   },
- *   {
- *     parent: ["nested", "x"],
- *     children: {
- *       50: "",
- *     },
- *   },
- *   {
- *     parent: ["nested", "x", "deepNested", "y"],
- *     children: {
- *       50: "",
- *     },
- *   },
- * ]
- *
- */
-function normalizeColors(colors: Colors) {
-	const l: NormalizedColor[] = [];
-
-	function fn(o: Record<string, any>, p: string[] = []) {
-		for (const k in o) {
-			const v = o[k];
-
-			if (isObject(v)) {
-				fn(v, [...p, k]);
-			} else {
-				const i = p.length <= 0 ? -1 : l.findIndex((e) => e.parent?.join() === p.join());
-
-				if (i >= 0) {
-					l[i] = {
-						...l[i],
-						children: {
-							...l[i].children,
-							[k]: v,
-						},
-					};
-				} else {
-					l.push({
-						parent: p,
-						children: {[k]: v},
-					});
-				}
-			}
-		}
-	}
-
-	fn(colors);
-
-	return l;
-}
-
-export type GetColorsReturn = Awaited<ReturnType<typeof getColors>>;
-
-export const getColors = cache(
-	async (search = '') => {
-		const l = normalizeColors(colors);
-		const s = search.trim().toLowerCase().replace(/[-\s]/g, '');
-
-		if (s.length <= 0) return l;
-
-		return l.filter((e) => {
-			return e.parent.join('').replace(/-/g, '').toLowerCase().includes(s);
-		});
-	},
-	['colors'],
-);

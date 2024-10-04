@@ -5,7 +5,7 @@ import {getColors} from './get-colors.js';
 
 async function generateWebsiteAsset() {
 	const content = await getContent();
-	const destination = path.join(getWorkspaceRoot(), 'website/src/assets/colors.json');
+	const destination = path.join(getWorkspaceRoot(), 'website/src/lib/assets/colors.json');
 
 	await fs.writeFile(destination, content, 'utf-8');
 }
