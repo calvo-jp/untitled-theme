@@ -84,6 +84,8 @@
       selected = null;
     }
   }}
+  lazyMount
+  keepMounted
 >
   <Dialog.Backdrop
     class="fixed inset-0 z-overlay backdrop-blur-sm bg-gray-true-900/50 dark:bg-gray-true-900/50"
