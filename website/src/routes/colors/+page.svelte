@@ -15,26 +15,6 @@
   });
 </script>
 
-<svelte:head>
-  <title>Untitled Theme | Colors</title>
-  <meta name="description" content="Untitled UI Colors" />
-  <meta property="og:title" content="Untitled UI Colors" />
-  <meta property="og:description" content="Browse all Untitled UI colors" />
-  <meta
-    property="og:image"
-    content="https://untitled-theme-docs.vercel.app/og-banner--colors.png"
-  />
-  <meta property="og:site_name" content="Untitled Theme" />
-  <meta name="twitter:title" content="Untitled UI Colors" />
-  <meta name="twitter:description" content="Browse all Untitled UI colors" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta
-    name="twitter:image"
-    content="https://untitled-theme-docs.vercel.app/og-banner--colors.png"
-  />
-  <meta name="twitter:site" content="Untitled Theme" />
-</svelte:head>
-
 <Searchbar bind:search />
 
 <div class="font-mono flex flex-col gap-4 lg:gap-6 mt-5 lg:mt-8">

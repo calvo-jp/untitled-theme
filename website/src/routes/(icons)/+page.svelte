@@ -37,26 +37,6 @@
   let selected: Icon | null = $state(null);
 </script>
 
-<svelte:head>
-  <title>Untitled Theme | Icons</title>
-  <meta name="description" content="Untitled UI Icons" />
-  <meta property="og:title" content="Untitled UI Icons" />
-  <meta property="og:description" content="Browse all Untitled UI icons" />
-  <meta
-    property="og:image"
-    content="https://untitled-theme-docs.vercel.app/og-banner--icons.png"
-  />
-  <meta property="og:site_name" content="Untitled Theme" />
-  <meta name="twitter:title" content="Untitled UI Icons" />
-  <meta name="twitter:description" content="Browse all Untitled UI icons" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta
-    name="twitter:image"
-    content="https://untitled-theme-docs.vercel.app/og-banner--icons.png"
-  />
-  <meta name="twitter:site" content="Untitled Theme" />
-</svelte:head>
-
 <Searchbar bind:search />
 
 <div class="mb-3 mt-5 lg:mt-8 text-sm">{@html total}</div>
