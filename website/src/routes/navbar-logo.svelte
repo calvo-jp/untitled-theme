@@ -19,7 +19,7 @@
 <div class="font-mono flex items-center gap-2">
   <a
     href={$page.url.pathname}
-    class="font-semibold tracking-tighter text-brand-700 dark:text-brand-500"
+    class="font-bold tracking-tighter text-brand-700 dark:text-brand-500"
   >
     Untitled Theme
   </a>

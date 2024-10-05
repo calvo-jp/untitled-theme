@@ -17,30 +17,20 @@
 	<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 
 	<script>
-		(function () {
-			const k = 'theme';
-			const f = 'system';
-
-			const h = document.documentElement;
-			const q = window.matchMedia('(prefers-color-scheme: dark)')
-			const s = window.localStorage.getItem(k)?.toLowerCase().trim();
-
-			const l = [
-				'dark',
-				'light',
-				'system'
-			];
-
-			const v = l.includes(s) ? s : f;
-			const t = v === 'system' ? q.matches ? 'dark' : 'light' : v;
-
-			h.classList.remove(t === 'dark' ? 'light' : 'dark');
-			h.classList.add(t);
-
-			window.localStorage.setItem(k, v);
-
-			h.style.colorScheme = t
-		})();
+	(() => {
+		const k = 'theme';
+		const f = 'system';
+		const h = document.documentElement;
+		const q = window.matchMedia('(prefers-color-scheme: dark)');
+		const s = window.localStorage.getItem(k)?.toLowerCase().trim();
+		const l = ['dark', 'light', 'system'];
+		const v = s && l.includes(s) ? s : f;
+		const t = v === 'system' ? (q.matches ? 'dark' : 'light') : v;
+		h.classList.remove(t === 'dark' ? 'light' : 'dark');
+		h.classList.add(t);
+		h.style.colorScheme = t;
+		window.localStorage.setItem(k, v);
+	})();
 	</script>
 
 	<style>

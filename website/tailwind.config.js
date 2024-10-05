@@ -49,9 +49,9 @@ export default {
 				},
 			},
 			animation: {
-				'fade-in': 'fade-in 250ms ease-in-out',
+				'fade-in': 'fade-in 200ms ease-in-out',
 				'fade-out': 'fade-out 150ms ease-in-out',
-				'slide-up': 'slide-up 250ms ease-in-out',
+				'slide-up': 'slide-up 200ms ease-in-out',
 				'slide-down': 'slide-down 150ms ease-in-out',
 			},
 			data: {

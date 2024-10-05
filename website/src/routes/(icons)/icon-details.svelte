@@ -1,7 +1,7 @@
 <script lang="ts">
+  import {cx} from '$lib/cx';
   import type {Icon} from '$lib/icons';
   import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-svelte';
-  import {twMerge} from 'tailwind-merge';
   import {Clipboard, Tabs} from 'ui-ingredients';
 
   interface Props {
@@ -37,8 +37,11 @@
 </script>
 
 <div
-  class={twMerge(
-    'w-full lg:w-[40rem] max-w-full lg:max-w-[40rem]',
+  class={cx(
+    'w-full',
+    'max-w-full',
+    'lg:w-[40rem]',
+    'lg:max-w-[40rem]',
     '[&_.shiki]:max-h-[50vh]',
   )}
 >
@@ -94,7 +97,7 @@
           </Clipboard.Root>
 
           <div
-            class={twMerge(
+            class={cx(
               '[&_.shiki]:p-4',
               '[&_.shiki]:h-full',
               '[&_.shiki]:rounded',
