@@ -12,6 +12,7 @@
 	"dependencies": {
 		"@fontsource/fira-code": "5.1.0",
 		"@fontsource/inter": "5.1.0",
+		"@fontsource/rammetto-one": "5.1.0",
 		"@untitled-theme/colors": "0.6.1",
 		"@untitled-theme/icons-svelte": "0.10.10",
 		"prettier": "3.3.3",

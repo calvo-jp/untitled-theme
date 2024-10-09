@@ -13,6 +13,7 @@ export default {
 		fontFamily: {
 			sans: ["'Inter'", ...defaultTheme.fontFamily.sans],
 			mono: ["'Fira Code'", ...defaultTheme.fontFamily.mono],
+			heading: ["'Rammetto One', system-ui"],
 		},
 		extend: {
 			zIndex: {

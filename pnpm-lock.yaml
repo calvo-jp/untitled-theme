@@ -140,6 +140,9 @@ importers:
       '@fontsource/inter':
         specifier: 5.1.0
         version: 5.1.0
+      '@fontsource/rammetto-one':
+        specifier: 5.1.0
+        version: 5.1.0
       '@untitled-theme/colors':
         specifier: 0.6.1
         version: 0.6.1
@@ -658,6 +661,9 @@ packages:
 
   '@fontsource/inter@5.1.0':
     resolution: {integrity: sha512-zKZR3kf1G0noIes1frLfOHP5EXVVm0M7sV/l9f/AaYf+M/DId35FO4LkigWjqWYjTJZGgplhdv4cB+ssvCqr5A==}
+
+  '@fontsource/rammetto-one@5.1.0':
+    resolution: {integrity: sha512-g5ajaHeWFZqVjLSSgQ0QjeYiL2dM6EBImhwAyH8NykesLEtqF09r+zusY1GNTymF7kq5MDqHH+SoJpdYLoaBKg==}
 
   '@iarna/toml@2.2.5':
     resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
@@ -3685,6 +3691,8 @@ snapshots:
   '@fontsource/fira-code@5.1.0': {}
 
   '@fontsource/inter@5.1.0': {}
+
+  '@fontsource/rammetto-one@5.1.0': {}
 
   '@iarna/toml@2.2.5': {}
 

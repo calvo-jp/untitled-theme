@@ -2,6 +2,7 @@
   import '@fontsource/fira-code/400.css';
   import '@fontsource/inter/400.css';
   import '@fontsource/inter/700.css';
+  import '@fontsource/rammetto-one/400.css';
   import '../app.css';
 
   import { ThemeProvider } from '$lib/theme-provider';
