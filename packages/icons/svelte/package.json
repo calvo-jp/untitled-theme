@@ -4,14 +4,7 @@
 	"version": "0.10.10",
 	"license": "MIT",
 	"description": "Untitled UI icons for Svelte",
-	"keywords": [
-		"svg",
-		"icon",
-		"icons",
-		"Svelte",
-		"SvelteKit",
-		"Untitled UI"
-	],
+	"keywords": ["svg", "icon", "icons", "Svelte", "SvelteKit", "Untitled UI"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/calvo-jp/untitled-theme.git",
@@ -38,9 +31,7 @@
 			"default": "./package.json"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"publishConfig": {
 		"access": "public"
 	},
@@ -51,12 +42,12 @@
 	},
 	"devDependencies": {
 		"@sveltejs/package": "2.3.5",
-		"@sveltejs/vite-plugin-svelte": "3.1.2",
+		"@sveltejs/vite-plugin-svelte": "4.0.0-next.6",
 		"@tsconfig/svelte": "5.0.4",
-		"release-it": "17.6.0",
+		"release-it": "17.8.2",
 		"svelte": "5.0.0-next.262",
 		"svelte-preprocess": "6.0.3",
-		"typescript": "5.6.2",
+		"typescript": "5.6.3",
 		"vite": "5.4.8"
 	},
 	"peerDependencies": {
@@ -64,9 +55,7 @@
 	},
 	"release-it": {
 		"hooks": {
-			"after:bump": [
-				"pnpm build"
-			]
+			"after:bump": ["pnpm build"]
 		},
 		"git": {
 			"commitMessage": "chore: release ${npm.name} v${version}",
