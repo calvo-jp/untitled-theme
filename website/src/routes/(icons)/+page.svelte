@@ -2,6 +2,7 @@
   import type {Icon} from '$lib/icons';
   import {XCloseIcon} from '@untitled-theme/icons-svelte';
   import {Dialog} from 'ui-ingredients';
+  import Empty from '../empty.svelte';
   import Searchbar from '../searchbar.svelte';
   import IconDetails from './icon-details.svelte';
 
@@ -39,23 +40,28 @@
 
 <Searchbar bind:search />
 
-<div class="mb-3 mt-5 lg:mt-8 text-sm">{@html total}</div>
-<div
-  class="grid grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-2"
->
-  {#each icons as icon}
-    <button
-      type="button"
-      class="flex items-center justify-center rounded p-2 border aspect-square hover:bg-gray-true-50 dark:hover:bg-gray-true-800/10"
-      onclick={() => {
-        selected = icon;
-      }}
-    >
-      <span>{@html icon.html}</span>
-      <span class="sr-only">{icon.name.formal}</span>
-    </button>
-  {/each}
-</div>
+{#if icons.length > 0}
+  <div class="mb-3 mt-5 lg:mt-8 text-sm">{@html total}</div>
+
+  <div
+    class="grid grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-2"
+  >
+    {#each icons as icon}
+      <button
+        type="button"
+        class="flex items-center justify-center rounded p-2 border aspect-square hover:bg-gray-true-50 dark:hover:bg-gray-true-800/10"
+        onclick={() => {
+          selected = icon;
+        }}
+      >
+        <span>{@html icon.html}</span>
+        <span class="sr-only">{icon.name.formal}</span>
+      </button>
+    {/each}
+  </div>
+{:else}
+  <Empty />
+{/if}
 
 <Dialog.Root
   open={Boolean(selected)}
