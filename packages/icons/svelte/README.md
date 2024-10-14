@@ -30,4 +30,4 @@ or
 <Rocket01Icon />
 ```
 
-See all icons [here](https://untitled-theme-docs.vercel.app/icons)
+See all icons [here](https://untitled-theme-docs.vercel.app)
