@@ -12,7 +12,6 @@ const config = {
 	},
 	compilerOptions: {
 		runes: true,
-		css: 'injected',
 	},
 };
 
