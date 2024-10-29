@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import svgson from 'svgson';
 import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
+import {optimize} from 'svgo';
 
 interface Name {
 	formal: string;
@@ -32,6 +33,7 @@ export async function getIcons() {
 			let content = '';
 
 			content = await fs.readFile(location, 'utf-8');
+			content = optimize(content).data;
 			content = svgson.stringify(await svgson.parse(content), {
 				transformNode(node) {
 					if (node.name === 'svg') {
