@@ -34,11 +34,14 @@
               class="flex lg:scale-0 transition-transform duration-150 focus-within:scale-100 group-hover:scale-100"
             >
               <Clipboard.Trigger class="cursor-pointer">
-                <Clipboard.Indicator copied>
-                  <CheckIcon class="icon text-success-500" />
-                </Clipboard.Indicator>
                 <Clipboard.Indicator>
-                  <Copy01Icon class="icon" />
+                  {#snippet children(ctx)}
+                    {#if ctx.copied}
+                      <CheckIcon class="icon text-success-500" />
+                    {:else}
+                      <Copy01Icon class="icon" />
+                    {/if}
+                  {/snippet}
                 </Clipboard.Indicator>
               </Clipboard.Trigger>
             </Clipboard.Root>

@@ -56,11 +56,16 @@
       <code class="font-mono">{componentName}</code>
       <Clipboard.Root class="flex" value={componentName}>
         <Clipboard.Trigger class="p-1">
-          <Clipboard.Indicator copied>
-            <CheckIcon class="icon text-success-500 dark:text-success-700" />
-          </Clipboard.Indicator>
           <Clipboard.Indicator>
-            <Copy01Icon class="icon" />
+            {#snippet children(ctx)}
+              {#if ctx.copied}
+                <CheckIcon
+                  class="icon text-success-500 dark:text-success-700"
+                />
+              {:else}
+                <Copy01Icon class="icon" />
+              {/if}
+            {/snippet}
           </Clipboard.Indicator>
         </Clipboard.Trigger>
       </Clipboard.Root>
@@ -85,13 +90,16 @@
             class="absolute top-4 right-4 flex items-center justify-center rounded-lg p-0.5"
           >
             <Clipboard.Trigger class="p-0.5">
-              <Clipboard.Indicator copied>
-                <CheckIcon
-                  class="icon text-success-500 dark:text-success-700"
-                />
-              </Clipboard.Indicator>
               <Clipboard.Indicator>
-                <Copy01Icon class="icon" />
+                {#snippet children(ctx)}
+                  {#if ctx.copied}
+                    <CheckIcon
+                      class="icon text-success-500 dark:text-success-700"
+                    />
+                  {:else}
+                    <Copy01Icon class="icon" />
+                  {/if}
+                {/snippet}
               </Clipboard.Indicator>
             </Clipboard.Trigger>
           </Clipboard.Root>
