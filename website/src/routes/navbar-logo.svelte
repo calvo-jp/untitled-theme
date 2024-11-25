@@ -30,11 +30,10 @@
     <Menu.Trigger
       class="px-1.5 py-1 cursor-pointer rounded text-sm leading-none tracking-tight flex items-center gap-0.5 bg-gray-true-100 dark:bg-gray-true-800/30 text-gray-true-600 dark:text-gray-true-400"
     >
-      {#if $page.url.pathname === '/'}
-        icons
-      {/if}
-      {#if $page.url.pathname === '/colors/'}
+      {#if $page.url.pathname.startsWith('/colors')}
         colors
+      {:else}
+        icons
       {/if}
 
       <Menu.Indicator

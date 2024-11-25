@@ -5,7 +5,7 @@
   import {Clipboard, Tabs} from 'ui-ingredients';
 
   interface Props {
-    data: Icon;
+    data: Icon<true>;
   }
 
   let {data}: Props = $props();

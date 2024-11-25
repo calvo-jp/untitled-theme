@@ -1,15 +1,29 @@
 <script lang="ts">
+  import {goto} from '$app/navigation';
+  import {page} from '$app/stores';
   import {SearchLgIcon, XCloseIcon} from '@untitled-theme/icons-svelte';
   import {scale} from 'svelte/transition';
 
-  interface Props {
-    search?: string;
-    onSearchChange?: (value: string) => void;
-  }
+  let value = $derived($page.url.searchParams.get('search') ?? '');
 
-  let {search = $bindable(''), onSearchChange}: Props = $props();
+  let setValue = async (newValue: string) => {
+    const currentPath = $page.url.pathname;
+    const searchParams = new URLSearchParams($page.url.searchParams);
 
-  let inputRef: HTMLInputElement | null = $state(null);
+    if (newValue.trim().length < 1) {
+      searchParams.delete('search');
+    } else {
+      searchParams.set('search', newValue);
+    }
+
+    const query = searchParams.toString();
+    const newPath = query ? `${currentPath}?${query}` : currentPath;
+
+    return goto(query ? `${newPath}` : newPath, {
+      keepFocus: true,
+      noScroll: true,
+    });
+  };
 </script>
 
 <div class="relative">
@@ -18,25 +32,20 @@
   />
 
   <input
-    bind:this={inputRef}
-    bind:value={search}
+    {value}
     oninput={(e) => {
-      onSearchChange?.(e.currentTarget.value);
+      setValue(e.currentTarget.value);
     }}
     placeholder="Search"
     class="h-12 w-full py-2 px-12 rounded border outline-none bg-transparent"
   />
 
-  {#if search.length > 0}
+  {#if value.length > 0}
     <button
       type="button"
       class="absolute right-4 top-1/2 -translate-y-1/2"
       tabindex="-1"
-      onclick={() => {
-        search = '';
-        onSearchChange?.('');
-        inputRef?.focus();
-      }}
+      onclick={() => setValue('')}
       transition:scale={{
         start: 0.5,
         opacity: 0.5,

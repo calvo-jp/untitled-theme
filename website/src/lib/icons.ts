@@ -14,10 +14,13 @@ interface Snippet {
 	html: string;
 }
 
-export interface Icon {
+interface IconBase {
 	slug: string;
 	html: string;
 	name: IconName;
+}
+
+interface IconWithSnippets extends IconBase {
 	snippets: {
 		html: Snippet;
 		react: Snippet;
@@ -26,42 +29,40 @@ export interface Icon {
 	};
 }
 
-export async function getIcons(search = ''): Promise<Icon[]> {
-	const l = await Promise.all(
-		[...icons].map(async (icon) => {
-			const [html, react, solid, svelte] = await Promise.all([
-				toHtmlSnippet(icon.html),
-				toReactSnippet(icon.html, icon.name.pascal),
-				toSolidSnippet(icon.html, icon.name.pascal),
-				toSvelteSnippet(icon.html),
-			]);
+export type Icon<WithSnippets = false> = WithSnippets extends true ? IconWithSnippets : IconBase;
 
-			return {
-				...icon,
-				snippets: {
-					html,
-					react,
-					solid,
-					svelte,
-				},
-			};
-		}),
-	);
-
-	const s = search.toLowerCase().replace(/\s/g, '');
+export async function getIcons(search?: string | null): Promise<Icon[]> {
+	const l = [...icons];
+	const s = search?.toLowerCase().replace(/\s/g, '') ?? '';
 
 	if (s.length <= 0) return l;
 
 	return l.filter((icon) => icon.name.formal.toLowerCase().replace(/\s/g, '').includes(s));
 }
 
-/*
- *
- * ========================
- * 				ICON
- * ========================
- *
- */
+export async function getIcon(slug: string): Promise<Icon<true> | null> {
+	const l = [...icons];
+	const o = l.find((icon) => icon.slug === slug);
+
+	if (!o) return null;
+
+	const [html, react, solid, svelte] = await Promise.all([
+		toHtmlSnippet(o.html),
+		toReactSnippet(o.html, o.name.pascal),
+		toSolidSnippet(o.html, o.name.pascal),
+		toSvelteSnippet(o.html),
+	]);
+
+	return {
+		...o,
+		snippets: {
+			html,
+			react,
+			solid,
+			svelte,
+		},
+	};
+}
 
 const PRETTIER_CONFIG: Options = {
 	singleQuote: true,
