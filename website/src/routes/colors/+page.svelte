@@ -5,18 +5,10 @@
   import Searchbar from '../searchbar.svelte';
 
   let {data} = $props();
-
-  let search = $state('');
-  let colors = $derived.by(() => {
-    const s = search.trim().toLowerCase().replace(/[-\s]/g, '');
-    if (!s) return data.colors;
-    return data.colors.filter((c) => {
-      return c.parent.join('').replace(/-/g, '').toLowerCase().includes(s);
-    });
-  });
+  let colors = $derived(data.colors);
 </script>
 
-<Searchbar bind:search />
+<Searchbar />
 
 {#if colors.length > 0}
   <div class="font-mono flex flex-col gap-4 lg:gap-6 mt-5 lg:mt-8">
