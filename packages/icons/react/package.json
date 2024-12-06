@@ -4,14 +4,7 @@
 	"version": "0.12.0",
 	"license": "MIT",
 	"description": "Untitled UI icons for React",
-	"keywords": [
-		"svg",
-		"icon",
-		"icons",
-		"React",
-		"NextJS",
-		"Untitled UI"
-	],
+	"keywords": ["svg", "icon", "icons", "React", "NextJS", "Untitled UI"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/calvo-jp/untitled-theme.git",
@@ -38,9 +31,7 @@
 			"default": "./package.json"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"publishConfig": {
 		"access": "public"
 	},
@@ -59,8 +50,8 @@
 		"vite-plugin-dts": "^4.3.0"
 	},
 	"peerDependencies": {
-		"@types/react": ">=18.0.0",
-		"react": ">=18.0.0"
+		"@types/react": "^18.0.0 || ^19.0.0",
+		"react": "^18.0.0 || ^19.0.0"
 	},
 	"peerDependenciesMeta": {
 		"@types/react": {
@@ -69,9 +60,7 @@
 	},
 	"release-it": {
 		"hooks": {
-			"after:bump": [
-				"pnpm build"
-			]
+			"after:bump": ["pnpm build"]
 		},
 		"git": {
 			"commitMessage": "chore: release ${npm.name} v${version}",
