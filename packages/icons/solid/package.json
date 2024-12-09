@@ -4,14 +4,7 @@
 	"version": "0.12.0",
 	"license": "MIT",
 	"description": "Untitled UI icons for Solid",
-	"keywords": [
-		"svg",
-		"icon",
-		"icons",
-		"Solid",
-		"Solid Start",
-		"Untitled UI"
-	],
+	"keywords": ["svg", "icon", "icons", "Solid", "Solid Start", "Untitled UI"],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/calvo-jp/untitled-theme.git",
@@ -38,9 +31,7 @@
 			"default": "./package.json"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"publishConfig": {
 		"access": "public"
 	},
@@ -53,18 +44,16 @@
 		"release-it": "^17.10.0",
 		"solid-js": "^1.9.3",
 		"typescript": "^5.7.2",
-		"vite": "^5.4.11",
+		"vite": "^6.0.3",
 		"vite-plugin-dts": "^4.3.0",
-		"vite-plugin-solid": "^2.10.2"
+		"vite-plugin-solid": "^2.11.0"
 	},
 	"peerDependencies": {
-		"solid-js": ">=1.8.15"
+		"solid-js": "^1.0.0"
 	},
 	"release-it": {
 		"hooks": {
-			"after:bump": [
-				"pnpm build"
-			]
+			"after:bump": ["pnpm build"]
 		},
 		"git": {
 			"commitMessage": "chore: release ${npm.name} v${version}",
