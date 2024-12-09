@@ -1,6 +1,6 @@
 <script lang="ts">
   import {XCloseIcon} from '@untitled-theme/icons-svelte';
-  import {Dialog, Portal} from 'ui-ingredients';
+  import {Dialog} from 'ui-ingredients';
   import Empty from '../../empty.svelte';
   import Searchbar from '../../searchbar.svelte';
   import IconDetails from './icon-details.svelte';
@@ -63,7 +63,7 @@
 {/if}
 
 <Dialog.Root
-  open={!!$navigating?.to?.params?.slug || !!icon}
+  open={!!icon}
   onOpenChange={(detail) => {
     if (detail.open) return;
 
