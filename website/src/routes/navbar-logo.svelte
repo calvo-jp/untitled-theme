@@ -1,8 +1,10 @@
 <script lang="ts">
-  import {goto} from '$app/navigation';
+  import {goto, preloadData} from '$app/navigation';
   import {page} from '$app/stores';
   import {ChevronDownIcon} from '@untitled-theme/icons-svelte';
   import {Menu} from 'ui-ingredients';
+
+  let pathname = $derived($page.url.pathname);
 
   let links = [
     {
@@ -30,7 +32,7 @@
     <Menu.Trigger
       class="px-1.5 py-1 cursor-pointer rounded text-sm leading-none tracking-tight flex items-center gap-0.5 bg-gray-true-100 dark:bg-gray-true-800/30 text-gray-true-600 dark:text-gray-true-400"
     >
-      {#if $page.url.pathname.startsWith('/colors')}
+      {#if pathname.startsWith('/colors')}
         colors
       {:else}
         icons
@@ -50,6 +52,7 @@
           <Menu.Item
             value={link.href}
             class="px-2 py-1 flex items-center gap-4 cursor-pointer rounded-md text-sm data-highlighted:bg-gray-true-50 dark:data-highlighted:bg-gray-true-800/25"
+            onmouseover={() => preloadData(link.href)}
           >
             {link.label}
           </Menu.Item>

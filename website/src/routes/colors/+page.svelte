@@ -3,10 +3,22 @@
   import {Clipboard} from 'ui-ingredients';
   import Empty from '../empty.svelte';
   import Searchbar from '../searchbar.svelte';
+  import MetaTags from '$lib/meta-tags.svelte';
+  import {page} from '$app/stores';
 
   let {data} = $props();
   let colors = $derived(data.colors);
 </script>
+
+<svelte:head>
+  <title>Colors | Untitled Theme</title>
+</svelte:head>
+
+<MetaTags
+  title="Untitled Theme Colors"
+  description="Browse all of Untitled UI's colors"
+  image="{$page.url.origin}/colors-opengraph-banner.png"
+/>
 
 <Searchbar />
 
