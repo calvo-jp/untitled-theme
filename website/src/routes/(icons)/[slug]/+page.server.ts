@@ -1,6 +1,13 @@
-import {getIcon} from '$lib/icons';
+import {getIcon, getIcons} from '$lib/icons';
 import {error} from '@sveltejs/kit';
-import type {PageServerLoad} from './$types';
+import type {EntryGenerator, PageServerLoad} from './$types';
+
+export const prerender = true;
+
+export const entries: EntryGenerator = async () => {
+  const icons = await getIcons();
+  return icons.map(({slug}) => ({slug}));
+};
 
 export const load: PageServerLoad = async ({params, setHeaders}) => {
   setHeaders({'Cache-Control': 'public, max-age=28800'});
