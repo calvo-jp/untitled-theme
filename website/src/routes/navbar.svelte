@@ -4,7 +4,7 @@
 </script>
 
 <header
-  class="h-16 p-4 sticky top-0 bg-white/50 dark:bg-gray-true-900/50 z-sticky flex items-center gap-1 border-b backdrop-blur-sm"
+  class="sticky top-0 z-sticky flex h-16 items-center gap-1 border-b bg-white/50 p-4 backdrop-blur-sm dark:bg-gray-true-900/50"
 >
   <NavbarLogo />
 
@@ -19,7 +19,7 @@
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
-        class="w-6 h-6"
+        class="h-6 w-6"
       >
         <title>Github</title>
         <path

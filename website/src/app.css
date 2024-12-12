@@ -10,7 +10,7 @@
   }
 
   input::placeholder {
-    @apply text-gray-true-400 dark:text-gray-true-500 opacity-100;
+    @apply text-gray-true-400 opacity-100 dark:text-gray-true-500;
   }
 
   html {

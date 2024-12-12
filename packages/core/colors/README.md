@@ -74,7 +74,7 @@ export default function RootLayout({children}) {
 }
 ```
 
-Using vanilla CSS 
+Using vanilla CSS
 
 ```js
 import '@untitled-theme/colors/index.css';

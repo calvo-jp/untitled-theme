@@ -11,21 +11,21 @@ import {generateColorsVars} from './generate-colors-vars.js';
 const outdir = path.join(getWorkspaceRoot(), 'packages/core/colors/src');
 
 async function generateColors() {
-	const spinner = p.spinner();
+  const spinner = p.spinner();
 
-	spinner.start('Generating colors...');
+  spinner.start('Generating colors...');
 
-	await fs.rm(outdir, {force: true, recursive: true});
-	await fs.mkdir(outdir, {recursive: true});
+  await fs.rm(outdir, {force: true, recursive: true});
+  await fs.mkdir(outdir, {recursive: true});
 
-	await Promise.all([
-		generateColorsCore(),
-		generateColorsPanda(),
-		generateColorsVars(),
-		generateColorsVanilla(),
-	]);
+  await Promise.all([
+    generateColorsCore(),
+    generateColorsPanda(),
+    generateColorsVars(),
+    generateColorsVanilla(),
+  ]);
 
-	spinner.stop('Colors generated!');
+  spinner.stop('Colors generated!');
 }
 
 generateColors();

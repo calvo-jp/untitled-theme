@@ -18,8 +18,8 @@
   ];
 </script>
 
-<div class="font-mono flex items-center gap-2">
-  <h1 class="lg:text-xl text-gray-800 dark:text-gray-50 font-heading">UT</h1>
+<div class="flex items-center gap-2 font-mono">
+  <h1 class="text-gray-800 dark:text-gray-50 font-heading lg:text-xl">UT</h1>
 
   <Menu.Root
     positioning={{
@@ -30,7 +30,7 @@
     }}
   >
     <Menu.Trigger
-      class="px-1.5 py-1 cursor-pointer rounded text-sm leading-none tracking-tight flex items-center gap-0.5 bg-gray-true-100 dark:bg-gray-true-800/30 text-gray-true-600 dark:text-gray-true-400"
+      class="flex cursor-pointer items-center gap-0.5 rounded bg-gray-true-100 px-1.5 py-1 text-sm leading-none tracking-tight text-gray-true-600 dark:bg-gray-true-800/30 dark:text-gray-true-400"
     >
       {#if pathname.startsWith('/colors')}
         colors
@@ -39,19 +39,19 @@
       {/if}
 
       <Menu.Indicator
-        class="data-open:rotate-180 transition-transform duration-150"
+        class="transition-transform duration-150 data-open:rotate-180"
       >
         <ChevronDownIcon class="icon" />
       </Menu.Indicator>
     </Menu.Trigger>
     <Menu.Positioner class="z-dropdown">
       <Menu.Content
-        class="rounded-md border p-2 bg-white dark:bg-gray-true-900 data-open:animate-fade-in data-closed:animate-fade-out"
+        class="rounded-md border bg-white p-2 data-open:animate-fade-in data-closed:animate-fade-out dark:bg-gray-true-900"
       >
         {#each links as link}
           <Menu.Item
             value={link.href}
-            class="px-2 py-1 flex items-center gap-4 cursor-pointer rounded-md text-sm data-highlighted:bg-gray-true-50 dark:data-highlighted:bg-gray-true-800/25"
+            class="flex cursor-pointer items-center gap-4 rounded-md px-2 py-1 text-sm data-highlighted:bg-gray-true-50 dark:data-highlighted:bg-gray-true-800/25"
             onmouseover={() => preloadData(link.href)}
           >
             {link.label}

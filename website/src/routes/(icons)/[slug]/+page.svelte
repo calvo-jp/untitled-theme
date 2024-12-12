@@ -64,12 +64,12 @@
   keepMounted
 >
   <Dialog.Backdrop
-    class="fixed inset-0 z-overlay backdrop-blur-sm bg-gray-true-900/50 dark:bg-gray-true-900/50"
+    class="fixed inset-0 z-overlay bg-gray-true-900/50 backdrop-blur-sm dark:bg-gray-true-900/50"
   />
 
   <Dialog.Positioner>
     <Dialog.Content
-      class="fixed w-full bottom-0 right-0 z-modal p-4 md:p-6 lg:p-8 border-t border-gray-true-400 dark:border-gray-true-800 data-open:animate-slide-up data-closed:animate-slide-down bg-white dark:bg-gray-true-900"
+      class="fixed bottom-0 right-0 z-modal w-full border-t border-gray-true-400 bg-white p-4 data-open:animate-slide-up data-closed:animate-slide-down dark:border-gray-true-800 dark:bg-gray-true-900 md:p-6 lg:p-8"
     >
       <div
         class={cx(
@@ -81,12 +81,12 @@
         )}
       >
         <div>
-          <div class="w-fit p-3 rounded border">
+          <div class="w-fit rounded border p-3">
             {@html icon.html}
           </div>
 
           <div
-            class="w-fit py-2 px-3 mt-5 max-h-dvh flex items-center gap-5 rounded overflow-y-auto bg-gray-true-100 dark:bg-gray-true-800/25"
+            class="mt-5 flex max-h-dvh w-fit items-center gap-5 overflow-y-auto rounded bg-gray-true-100 px-3 py-2 dark:bg-gray-true-800/25"
           >
             <code class="font-mono">{componentName}</code>
             <Clipboard.Root class="flex" value={componentName}>
@@ -95,7 +95,7 @@
                   {#snippet children(ctx)}
                     {#if ctx.copied}
                       <CheckIcon
-                        class="icon text-success-500 dark:text-success-700"
+                        class="text-success-500 icon dark:text-success-700"
                       />
                     {:else}
                       <Copy01Icon class="icon" />
@@ -119,17 +119,17 @@
             </Tabs.List>
 
             {#each tabs as item}
-              <Tabs.Content value={item.value} class="text-sm relative mt-5">
+              <Tabs.Content value={item.value} class="relative mt-5 text-sm">
                 <Clipboard.Root
                   value={item.content.raw}
-                  class="absolute top-4 right-4 flex items-center justify-center rounded-lg p-0.5"
+                  class="absolute right-4 top-4 flex items-center justify-center rounded-lg p-0.5"
                 >
                   <Clipboard.Trigger class="p-0.5">
                     <Clipboard.Indicator>
                       {#snippet children(ctx)}
                         {#if ctx.copied}
                           <CheckIcon
-                            class="icon text-success-500 dark:text-success-700"
+                            class="text-success-500 icon dark:text-success-700"
                           />
                         {:else}
                           <Copy01Icon class="icon" />
@@ -166,7 +166,7 @@
         </div>
       </div>
 
-      <Dialog.CloseTrigger class="absolute right-3 top-3 p-1 cursor-pointer">
+      <Dialog.CloseTrigger class="absolute right-3 top-3 cursor-pointer p-1">
         <XCloseIcon class="icon-xl" />
       </Dialog.CloseTrigger>
     </Dialog.Content>

@@ -24,16 +24,18 @@
     if (s) {
       v += ` for <strong>'${s}'</strong>`;
     }
+
+    return v;
   });
 </script>
 
 <Searchbar />
 
 {#if icons.length > 0}
-  <div class="mb-3 mt-5 lg:mt-8 text-sm">{@html total}</div>
+  <div class="mb-3 mt-5 text-sm lg:mt-8">{@html total}</div>
 
   <div
-    class="grid grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-2"
+    class="grid grid-cols-6 gap-2 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12"
   >
     {#each icons as icon}
       {@const query = $page.url.searchParams.toString()}
@@ -41,7 +43,7 @@
 
       <a
         {href}
-        class="flex items-center justify-center rounded p-2 border aspect-square hover:bg-gray-true-50 dark:hover:bg-gray-true-800/10"
+        class="flex aspect-square items-center justify-center rounded border p-2 hover:bg-gray-true-50 dark:hover:bg-gray-true-800/10"
         data-sveltekit-noscroll
         data-sveltekit-keepfocus
         data-sveltekit-preload-data="hover"

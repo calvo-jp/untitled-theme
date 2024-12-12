@@ -28,7 +28,7 @@
 
 <div class="relative">
   <SearchLgIcon
-    class="icon-xl absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-true-300 dark:text-gray-true-400"
+    class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-true-300 icon-xl dark:text-gray-true-400"
   />
 
   <input
@@ -37,7 +37,7 @@
       setValue(e.currentTarget.value);
     }}
     placeholder="Search"
-    class="h-12 w-full py-2 px-12 rounded border outline-none bg-transparent"
+    class="h-12 w-full rounded border bg-transparent px-12 py-2 outline-none"
   />
 
   {#if value.length > 0}

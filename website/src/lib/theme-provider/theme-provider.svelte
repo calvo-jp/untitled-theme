@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { setContext, type Snippet } from 'svelte';
-  import { CONTEXT_KEY } from './constants.js';
-  import { createTheme } from './create-theme.svelte.js';
+  import {setContext, type Snippet} from 'svelte';
+  import {CONTEXT_KEY} from './constants.js';
+  import {createTheme} from './create-theme.svelte.js';
 
   let {children}: {children?: Snippet} = $props();
 

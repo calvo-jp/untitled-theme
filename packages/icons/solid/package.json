@@ -1,66 +1,77 @@
 {
-	"name": "@untitled-theme/icons-solid",
-	"type": "module",
-	"version": "0.12.0",
-	"license": "MIT",
-	"description": "Untitled UI icons for Solid",
-	"keywords": ["svg", "icon", "icons", "Solid", "Solid Start", "Untitled UI"],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/calvo-jp/untitled-theme.git",
-		"directory": "packages/icons/solid"
-	},
-	"bugs": {
-		"url": "https://github.com/calvo-jp/untitled-theme/issues"
-	},
-	"author": {
-		"name": "John Paul Calvo",
-		"email": "calvojp92@gmail.com"
-	},
-	"main": "dist/index.js",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.js"
-		},
-		"./*": {
-			"types": "./dist/*.d.ts",
-			"import": "./dist/*.js"
-		},
-		"./package.json": {
-			"default": "./package.json"
-		}
-	},
-	"files": ["dist"],
-	"publishConfig": {
-		"access": "public"
-	},
-	"scripts": {
-		"build": "vite build",
-		"prebuild": "pnpm --filter @untitled-theme/scripts run generate:icons -f solid",
-		"release": "release-it"
-	},
-	"devDependencies": {
-		"release-it": "^17.10.0",
-		"solid-js": "^1.9.3",
-		"typescript": "^5.7.2",
-		"vite": "^6.0.3",
-		"vite-plugin-dts": "^4.3.0",
-		"vite-plugin-solid": "^2.11.0"
-	},
-	"peerDependencies": {
-		"solid-js": "^1.0.0"
-	},
-	"release-it": {
-		"hooks": {
-			"after:bump": ["pnpm build"]
-		},
-		"git": {
-			"commitMessage": "chore: release ${npm.name} v${version}",
-			"tagName": "${npm.name}@${version}"
-		},
-		"github": {
-			"release": false
-		}
-	}
+  "name": "@untitled-theme/icons-solid",
+  "type": "module",
+  "version": "0.12.0",
+  "license": "MIT",
+  "description": "Untitled UI icons for Solid",
+  "keywords": [
+    "svg",
+    "icon",
+    "icons",
+    "Solid",
+    "Solid Start",
+    "Untitled UI"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calvo-jp/untitled-theme.git",
+    "directory": "packages/icons/solid"
+  },
+  "bugs": {
+    "url": "https://github.com/calvo-jp/untitled-theme/issues"
+  },
+  "author": {
+    "name": "John Paul Calvo",
+    "email": "calvojp92@gmail.com"
+  },
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "vite build",
+    "prebuild": "pnpm --filter @untitled-theme/scripts run generate:icons -f solid",
+    "release": "release-it"
+  },
+  "devDependencies": {
+    "release-it": "^17.10.0",
+    "solid-js": "^1.9.3",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3",
+    "vite-plugin-dts": "^4.3.0",
+    "vite-plugin-solid": "^2.11.0"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.0.0"
+  },
+  "release-it": {
+    "hooks": {
+      "after:bump": [
+        "pnpm build"
+      ]
+    },
+    "git": {
+      "commitMessage": "chore: release ${npm.name} v${version}",
+      "tagName": "${npm.name}@${version}"
+    },
+    "github": {
+      "release": false
+    }
+  }
 }

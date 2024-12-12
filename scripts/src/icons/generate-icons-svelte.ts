@@ -10,76 +10,76 @@ import {type Icon, getIcons} from './get-icons.js';
 const outdir = path.join(getWorkspaceRoot(), 'packages/icons/svelte/src');
 
 export async function generateIconsSvelte() {
-	await createCleanDir(outdir);
+  await createCleanDir(outdir);
 
-	const icons = await getIcons();
-	const promises = icons.map(async (icon) => {
-		const component = await toSvelteComponent(icon);
-		const destination = path.join(outdir, `${icon.name.pascal}.svelte`);
+  const icons = await getIcons();
+  const promises = icons.map(async (icon) => {
+    const component = await toSvelteComponent(icon);
+    const destination = path.join(outdir, `${icon.name.pascal}.svelte`);
 
-		await fs.writeFile(destination, component, 'utf-8');
+    await fs.writeFile(destination, component, 'utf-8');
 
-		const item: BarrelItem = {
-			path: `./${icon.name.pascal}.svelte`,
-			modules: [
-				{
-					name: 'default',
-					as: icon.name.pascal,
-				},
-			],
-		};
+    const item: BarrelItem = {
+      path: `./${icon.name.pascal}.svelte`,
+      modules: [
+        {
+          name: 'default',
+          as: icon.name.pascal,
+        },
+      ],
+    };
 
-		return item;
-	});
+    return item;
+  });
 
-	const items = await Promise.all(promises);
+  const items = await Promise.all(promises);
 
-	await createBarrelFile(outdir, items);
+  await createBarrelFile(outdir, items);
 }
 
 const CLASSNAME = 'CLASSNAME';
 const REST_PROPS = 'REST_PROPS';
 
 async function toSvelteComponent(icon: Icon) {
-	const node = svgson.parseSync(icon.html, {
-		transformNode(node) {
-			if (node.name === 'svg') {
-				return {
-					...node,
+  const node = svgson.parseSync(icon.html, {
+    transformNode(node) {
+      if (node.name === 'svg') {
+        return {
+          ...node,
 
-					attributes: {
-						...node.attributes,
+          attributes: {
+            ...node.attributes,
 
-						[CLASSNAME]: '',
-						[REST_PROPS]: '',
-					},
-				};
-			}
+            [CLASSNAME]: '',
+            [REST_PROPS]: '',
+          },
+        };
+      }
 
-			return node;
-		},
-	});
+      return node;
+    },
+  });
 
-	const svelteSvg = svgson.stringify(node, {
-		selfClose: false,
-		transformAttr(key, value, esc) {
-			if (key === CLASSNAME) {
-				return `class="{className}"`;
-			}
+  const svelteSvg = svgson.stringify(node, {
+    selfClose: false,
+    transformAttr(key, value, esc) {
+      if (key === CLASSNAME) {
+        return `class="{className}"`;
+      }
 
-			if (key === REST_PROPS) {
-				return '{...props}';
-			}
+      if (key === REST_PROPS) {
+        return '{...props}';
+      }
 
-			return `${key}="${esc(value)}"`;
-		},
-	});
+      return `${key}="${esc(value)}"`;
+    },
+  });
 
-	return template
-		.replaceAll('%name%', icon.name.pascal)
-		.replaceAll('%html%', svelteSvg)
-		.replaceAll('%comment%', await generateJsdocPreview(icon.html))
-		.replaceAll('%class%', `untitled-icon ${icon.name.kebab}`);
+  return template
+    .replaceAll('%name%', icon.name.pascal)
+    .replaceAll('%html%', svelteSvg)
+    .replaceAll('%comment%', await generateJsdocPreview(icon.html))
+    .replaceAll('%class%', `untitled-icon ${icon.name.kebab}`);
 }
 
 const template = `

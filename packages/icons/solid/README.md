@@ -4,7 +4,6 @@
 
 ![Screenshot](https://raw.githubusercontent.com/calvo-jp/untitled-theme/main/docs/icons-solid-vscode-jsdoc-preview-screenshot.png)
 
-
 ## Installation
 
 ```bash

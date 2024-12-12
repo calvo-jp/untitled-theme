@@ -5,7 +5,7 @@
   import '@fontsource/rammetto-one/400.css';
   import '../app.css';
 
-  import { ThemeProvider } from '$lib/theme-provider';
+  import {ThemeProvider} from '$lib/theme-provider';
   import Navbar from './navbar.svelte';
 
   let {children} = $props();
@@ -13,7 +13,7 @@
 
 <ThemeProvider>
   <Navbar />
-  <main class="max-w-screen-lg mx-auto p-4 md:p-8 lg:p-12">
+  <main class="mx-auto max-w-screen-lg p-4 md:p-8 lg:p-12">
     {@render children()}
   </main>
 </ThemeProvider>

@@ -1,75 +1,84 @@
 {
-	"name": "@untitled-theme/colors",
-	"type": "module",
-	"version": "0.6.1",
-	"license": "MIT",
-	"description": "Untitled UI colors",
-	"keywords": ["Untitled UI", "colors", "Tailwind", "Panda CSS"],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/calvo-jp/untitled-theme.git",
-		"directory": "packages/core/colors"
-	},
-	"bugs": {
-		"url": "https://github.com/calvo-jp/untitled-theme/issues"
-	},
-	"author": {
-		"name": "John Paul Calvo",
-		"email": "calvojp92@gmail.com"
-	},
-	"main": "./dist/index.js",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
-	"exports": {
-		".": {
-			"require": "./dist/index.js",
-			"import": "./dist/index.mjs",
-			"types": "./dist/index.d.ts"
-		},
-		"./panda": {
-			"require": "./dist/panda.js",
-			"import": "./dist/panda.mjs",
-			"types": "./dist/panda/index.d.ts"
-		},
-		"./vars": {
-			"require": "./dist/vars.js",
-			"import": "./dist/vars.mjs",
-			"types": "./dist/vars/index.d.ts"
-		},
-		"./index.css": {
-			"require": "./dist/index.css",
-			"import": "./dist/index.css"
-		},
-		"./package.json": {
-			"default": "./package.json"
-		}
-	},
-	"files": ["dist"],
-	"publishConfig": {
-		"access": "public"
-	},
-	"scripts": {
-		"prebuild": "pnpm --filter @untitled-theme/scripts run generate:colors",
-		"build": "vite build",
-		"release": "release-it"
-	},
-	"devDependencies": {
-		"@tsconfig/node20": "20.1.4",
-		"release-it": "17.10.0",
-		"typescript": "5.7.2",
-		"vite": "6.0.3",
-		"vite-plugin-dts": "4.3.0"
-	},
-	"release-it": {
-		"hooks": {
-			"after:bump": ["pnpm build"]
-		},
-		"git": {
-			"commitMessage": "chore: release ${npm.name} v${version}",
-			"tagName": "${npm.name}@${version}"
-		},
-		"github": {
-			"release": false
-		}
-	}
+  "name": "@untitled-theme/colors",
+  "type": "module",
+  "version": "0.6.1",
+  "license": "MIT",
+  "description": "Untitled UI colors",
+  "keywords": [
+    "Untitled UI",
+    "colors",
+    "Tailwind",
+    "Panda CSS"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calvo-jp/untitled-theme.git",
+    "directory": "packages/core/colors"
+  },
+  "bugs": {
+    "url": "https://github.com/calvo-jp/untitled-theme/issues"
+  },
+  "author": {
+    "name": "John Paul Calvo",
+    "email": "calvojp92@gmail.com"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./panda": {
+      "require": "./dist/panda.js",
+      "import": "./dist/panda.mjs",
+      "types": "./dist/panda/index.d.ts"
+    },
+    "./vars": {
+      "require": "./dist/vars.js",
+      "import": "./dist/vars.mjs",
+      "types": "./dist/vars/index.d.ts"
+    },
+    "./index.css": {
+      "require": "./dist/index.css",
+      "import": "./dist/index.css"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prebuild": "pnpm --filter @untitled-theme/scripts run generate:colors",
+    "build": "vite build",
+    "release": "release-it"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "20.1.4",
+    "release-it": "17.10.0",
+    "typescript": "5.7.2",
+    "vite": "6.0.3",
+    "vite-plugin-dts": "4.3.0"
+  },
+  "release-it": {
+    "hooks": {
+      "after:bump": [
+        "pnpm build"
+      ]
+    },
+    "git": {
+      "commitMessage": "chore: release ${npm.name} v${version}",
+      "tagName": "${npm.name}@${version}"
+    },
+    "github": {
+      "release": false
+    }
+  }
 }

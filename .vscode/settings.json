@@ -1,10 +1,12 @@
 {
-	"editor.codeActionsOnSave": {
-		"quickfix.biome": "always"
-	},
-	"editor.defaultFormatter": "biomejs.biome",
-	"files.associations": {
-		"*.css": "tailwindcss"
-	},
-	"typescript.tsdk": "node_modules/typescript/lib"
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.organizeImports": "always",
+    "source.removeUnusedImports": "always"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
