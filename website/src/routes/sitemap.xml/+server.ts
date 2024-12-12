@@ -3,13 +3,16 @@ import type {RequestHandler} from '@sveltejs/kit';
 
 export const prerender = true;
 
-export const GET: RequestHandler = async ({url: {origin}}) => {
+export const GET: RequestHandler = async () => {
   const icons = await getIcons();
 
   const urls = [
-    `${origin}/icons`,
-    `${origin}/colors`,
-    ...icons.map((icon) => `${origin}/icons/${icon.name.kebab}`),
+    `https://untitled-theme-docs.vercel.app/icons`,
+    `https://untitled-theme-docs.vercel.app/colors`,
+    ...icons.map(
+      (icon) =>
+        `https://untitled-theme-docs.vercel.app/icons/${icon.name.kebab}`,
+    ),
   ];
 
   return new Response(
