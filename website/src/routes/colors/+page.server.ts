@@ -1,7 +1,9 @@
 import {getColors} from '$lib/colors';
 import type {PageServerLoad} from './$types';
 
-export const load: PageServerLoad = async ({url}) => {
+export const load: PageServerLoad = async ({url, setHeaders}) => {
+  setHeaders({'Cache-Control': 'public, max-age=28800'});
+
   const colors = await getColors();
   const search = url.searchParams
     .get('search')
