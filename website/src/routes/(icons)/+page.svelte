@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {page} from '$app/stores';
+  import {page} from '$app/state';
   import MetaTags from '$lib/meta-tags.svelte';
 </script>
 
@@ -10,5 +10,5 @@
 <MetaTags
   title="Untitled Theme Icons"
   description="Browse all of Untitled UI's icons"
-  image="{$page.url.origin}/icons-opengraph-banner.png"
+  image="{page.url.origin}/icons-opengraph-banner.png"
 />

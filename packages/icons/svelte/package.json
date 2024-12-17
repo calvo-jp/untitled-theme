@@ -51,10 +51,10 @@
   },
   "devDependencies": {
     "@sveltejs/package": "^2.3.7",
-    "@sveltejs/vite-plugin-svelte": "^5.0.1",
+    "@sveltejs/vite-plugin-svelte": "^5.0.2",
     "@tsconfig/svelte": "^5.0.4",
     "release-it": "^17.10.0",
-    "svelte": "^5.11.2",
+    "svelte": "^5.14.1",
     "svelte-preprocess": "^6.0.3",
     "typescript": "^5.7.2",
     "vite": "^6.0.3"

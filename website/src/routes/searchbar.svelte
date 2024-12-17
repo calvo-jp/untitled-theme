@@ -1,14 +1,14 @@
 <script lang="ts">
   import {goto} from '$app/navigation';
-  import {page} from '$app/stores';
+  import {page} from '$app/state';
   import {SearchLgIcon, XCloseIcon} from '@untitled-theme/icons-svelte';
   import {scale} from 'svelte/transition';
 
-  let value = $derived($page.url.searchParams.get('search') ?? '');
+  let value = $derived(page.url.searchParams.get('search') ?? '');
 
   let setValue = async (newValue: string) => {
-    const currentPath = $page.url.pathname;
-    const searchParams = new URLSearchParams($page.url.searchParams);
+    const currentPath = page.url.pathname;
+    const searchParams = new URLSearchParams(page.url.searchParams);
 
     if (newValue.trim().length < 1) {
       searchParams.delete('search');

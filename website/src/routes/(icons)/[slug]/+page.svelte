@@ -1,12 +1,14 @@
 <script lang="ts">
-  import {XCloseIcon} from '@untitled-theme/icons-svelte';
-  import {Dialog} from 'ui-ingredients';
   import {goto} from '$app/navigation';
-  import {page} from '$app/stores';
+  import {page} from '$app/state';
   import {cx} from '$lib/cx';
-  import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-svelte';
-  import {Clipboard, Tabs} from 'ui-ingredients';
   import MetaTags from '$lib/meta-tags.svelte';
+  import {
+    CheckIcon,
+    Copy01Icon,
+    XCloseIcon,
+  } from '@untitled-theme/icons-svelte';
+  import {Clipboard, Dialog, Tabs} from 'ui-ingredients';
 
   let {data} = $props();
 
@@ -44,7 +46,7 @@
 <MetaTags
   title="{icon.name.pascal} | Untitled Theme Icons"
   description="Browse all of Untitled UI's icons"
-  image="{$page.url.origin}/icons-opengraph-banner.png"
+  image="{page.url.origin}/icons-opengraph-banner.png"
 />
 
 <Dialog.Root
@@ -52,7 +54,7 @@
   onOpenChange={(detail) => {
     if (detail.open) return;
 
-    const query = $page.url.searchParams.toString();
+    const query = page.url.searchParams.toString();
     const path = query ? `/?${query}` : `/`;
 
     goto(path, {

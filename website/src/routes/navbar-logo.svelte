@@ -1,10 +1,10 @@
 <script lang="ts">
   import {goto, preloadData} from '$app/navigation';
-  import {page} from '$app/stores';
+  import {page} from '$app/state';
   import {ChevronDownIcon} from '@untitled-theme/icons-svelte';
   import {Menu} from 'ui-ingredients';
 
-  let pathname = $derived($page.url.pathname);
+  let pathname = $derived(page.url.pathname);
 
   let links = [
     {

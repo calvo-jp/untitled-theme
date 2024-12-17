@@ -1,10 +1,10 @@
 <script lang="ts">
+  import {page} from '$app/state';
+  import MetaTags from '$lib/meta-tags.svelte';
   import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-svelte';
   import {Clipboard} from 'ui-ingredients';
   import Empty from '../empty.svelte';
   import Searchbar from '../searchbar.svelte';
-  import MetaTags from '$lib/meta-tags.svelte';
-  import {page} from '$app/stores';
 
   let {data} = $props();
   let colors = $derived(data.colors);
@@ -17,7 +17,7 @@
 <MetaTags
   title="Untitled Theme Colors"
   description="Browse all of Untitled UI's colors"
-  image="{$page.url.origin}/colors-opengraph-banner.png"
+  image="{page.url.origin}/colors-opengraph-banner.png"
 />
 
 <Searchbar />
