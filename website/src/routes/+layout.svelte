@@ -5,7 +5,7 @@
   import '@fontsource/rammetto-one/400.css';
   import '../app.css';
 
-  import {ThemeProvider} from '$lib/theme-provider';
+  import {ThemeProvider} from 'svelte-os-themes';
   import Navbar from './navbar.svelte';
 
   let {children} = $props();

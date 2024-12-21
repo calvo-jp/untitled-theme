@@ -3,6 +3,7 @@
 import colors from '@untitled-theme/colors';
 import defaultTheme from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
+import uiIngredients from 'ui-ingredients-plugin-tailwindcss';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -55,18 +56,10 @@ export default {
         'slide-up': 'slide-up 200ms ease-in-out',
         'slide-down': 'slide-down 150ms ease-in-out',
       },
-      data: {
-        open: 'state="open"',
-        closed: 'state="closed"',
-        selected: 'selected',
-        highlighted: 'highlighted',
-      },
-      aria: {
-        'current-page': 'current="page"',
-      },
     },
   },
   plugins: [
+    uiIngredients,
     plugin(function iconPlugin({matchUtilities, addUtilities, theme}) {
       const defaultAttrs = {
         width: 'var(--size)',

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {cx} from '$lib/cx';
+  import {twMerge} from 'tailwind-merge';
 
   interface Props {
     class?: string;
@@ -9,7 +9,7 @@
   let {style, class: className, ...props}: Props = $props();
 </script>
 
-<div {style} class={cx('mt-12 lg:mt-16', className)}>
+<div {style} class={twMerge('mt-12 lg:mt-16', className)}>
   <div class="pr-4 lg:pr-8">
     <div
       class="relative mx-auto size-[8rem] rounded-full bg-gray-true-100 dark:bg-gray-true-800 lg:size-[12rem]"

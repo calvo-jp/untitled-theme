@@ -1,13 +1,13 @@
 <script lang="ts">
   import {goto} from '$app/navigation';
   import {page} from '$app/state';
-  import {cx} from '$lib/cx';
   import MetaTags from '$lib/meta-tags.svelte';
   import {
     CheckIcon,
     Copy01Icon,
     XCloseIcon,
   } from '@untitled-theme/icons-svelte';
+  import {twMerge} from 'tailwind-merge';
   import {Clipboard, Dialog, Tabs} from 'ui-ingredients';
 
   let {data} = $props();
@@ -71,10 +71,10 @@
 
   <Dialog.Positioner>
     <Dialog.Content
-      class="fixed bottom-0 right-0 z-modal w-full border-t border-gray-true-400 bg-white p-4 data-open:animate-slide-up data-closed:animate-slide-down dark:border-gray-true-800 dark:bg-gray-true-900 md:p-6 lg:p-8"
+      class="fixed bottom-0 right-0 z-modal w-full border-t border-gray-true-400 bg-white p-4 ui-open:animate-slide-up ui-closed:animate-slide-down dark:border-gray-true-800 dark:bg-gray-true-900 md:p-6 lg:p-8"
     >
       <div
-        class={cx(
+        class={twMerge(
           'w-full',
           'max-w-full',
           'lg:w-[40rem]',
@@ -113,7 +113,7 @@
               {#each tabs as item}
                 <Tabs.Trigger
                   value={item.value}
-                  class="data-selected:text-brand-700 dark:data-selected:text-brand-500"
+                  class="ui-selected:text-brand-700 dark:ui-selected:text-brand-500"
                 >
                   {item.label}
                 </Tabs.Trigger>
@@ -142,7 +142,7 @@
                 </Clipboard.Root>
 
                 <div
-                  class={cx(
+                  class={twMerge(
                     '[&_.shiki]:p-4',
                     '[&_.shiki]:h-full',
                     '[&_.shiki]:rounded',

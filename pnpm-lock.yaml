@@ -185,12 +185,21 @@ importers:
       shiki:
         specifier: ^1.24.3
         version: 1.24.3
+      svelte-os-themes:
+        specifier: ^0.10.0
+        version: 0.10.0(svelte@5.15.0)
       svgson:
         specifier: ^5.3.1
         version: 5.3.1
+      tailwind-merge:
+        specifier: ^2.5.5
+        version: 2.5.5
       ui-ingredients:
         specifier: ^0.22.0
         version: 0.22.0(@internationalized/date@3.5.5)(svelte@5.15.0)
+      ui-ingredients-plugin-tailwindcss:
+        specifier: ^0.0.2
+        version: 0.0.2(tailwindcss@3.4.17)
     devDependencies:
       '@sveltejs/adapter-vercel':
         specifier: ^5.5.2
@@ -3422,6 +3431,11 @@ packages:
       svelte:
         optional: true
 
+  svelte-os-themes@0.10.0:
+    resolution: {integrity: sha512-5z0tZsevlWlen4rgCPHWGNXJe3iRRN+BTwerF7elD94HkfaXIuuxVKdEgo0kVDc4M6K7D8A1Gn8uCRYb1fDTKQ==}
+    peerDependencies:
+      svelte: '>=5.0.0'
+
   svelte-preprocess@6.0.3:
     resolution: {integrity: sha512-PLG2k05qHdhmRG7zR/dyo5qKvakhm8IJ+hD2eFRQmMLHp7X3eJnjeupUtvuRpbNiF31RjVw45W+abDwHEmP5OA==}
     engines: {node: '>= 18.0.0'}
@@ -3479,6 +3493,9 @@ packages:
 
   tabbable@6.2.0:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
+
+  tailwind-merge@2.5.5:
+    resolution: {integrity: sha512-0LXunzzAZzo0tEPxV3I297ffKZPlKDrjj7NXphC8V5ak9yHC5zRmxnOe2m/Rd/7ivsOMJe3JZ2JVocoDdQTRBA==}
 
   tailwindcss@3.4.17:
     resolution: {integrity: sha512-w33E2aCvSDP0tW9RZuNXadXlkHXqFzSkQew/aIa2i/Sj8fThxwovwlXHSPXTbAHwEIhBFXAedUhP2tueAKP8Og==}
@@ -3573,6 +3590,11 @@ packages:
 
   ufo@1.5.4:
     resolution: {integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==}
+
+  ui-ingredients-plugin-tailwindcss@0.0.2:
+    resolution: {integrity: sha512-RZUikbxeIFjo0dPTMMx9zMzFwpAs6fcmu4XWDh0lnKUYVGIlXPUrjAWP3QgO0vCueDDbQRlE6cnRZtogOGVvRg==}
+    peerDependencies:
+      tailwindcss: ^3.3.3
 
   ui-ingredients@0.22.0:
     resolution: {integrity: sha512-msG8zvuW15+waIxcOfQBetrAggteLz1FVoY5FS4m+XswCO3nKnd0jJXVoqAT2TXruqg5pBxTS7xf+DeKSY7z2A==}
@@ -7319,6 +7341,10 @@ snapshots:
     optionalDependencies:
       svelte: 5.15.0
 
+  svelte-os-themes@0.10.0(svelte@5.15.0):
+    dependencies:
+      svelte: 5.15.0
+
   svelte-preprocess@6.0.3(@babel/core@7.24.8)(postcss-load-config@4.0.2(postcss@8.4.49))(postcss@8.4.49)(svelte@5.15.0)(typescript@5.7.2):
     dependencies:
       svelte: 5.15.0
@@ -7367,6 +7393,8 @@ snapshots:
       xml-reader: 2.4.3
 
   tabbable@6.2.0: {}
+
+  tailwind-merge@2.5.5: {}
 
   tailwindcss@3.4.17:
     dependencies:
@@ -7473,6 +7501,10 @@ snapshots:
   typescript@5.7.2: {}
 
   ufo@1.5.4: {}
+
+  ui-ingredients-plugin-tailwindcss@0.0.2(tailwindcss@3.4.17):
+    dependencies:
+      tailwindcss: 3.4.17
 
   ui-ingredients@0.22.0(@internationalized/date@3.5.5)(svelte@5.15.0):
     dependencies:

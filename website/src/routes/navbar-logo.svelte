@@ -39,19 +39,19 @@
       {/if}
 
       <Menu.Indicator
-        class="transition-transform duration-150 data-open:rotate-180"
+        class="transition-transform duration-150 ui-open:rotate-180"
       >
         <ChevronDownIcon class="icon" />
       </Menu.Indicator>
     </Menu.Trigger>
     <Menu.Positioner class="z-dropdown">
       <Menu.Content
-        class="rounded-md border bg-white p-2 data-open:animate-fade-in data-closed:animate-fade-out dark:bg-gray-true-900"
+        class="rounded-md border bg-white p-2 ui-open:animate-fade-in ui-closed:animate-fade-out dark:bg-gray-true-900"
       >
         {#each links as link}
           <Menu.Item
             value={link.href}
-            class="flex cursor-pointer items-center gap-4 rounded-md px-2 py-1 text-sm data-highlighted:bg-gray-true-50 dark:data-highlighted:bg-gray-true-800/25"
+            class="flex cursor-pointer items-center gap-4 rounded-md px-2 py-1 text-sm ui-highlighted:bg-gray-true-50 dark:ui-highlighted:bg-gray-true-800/25"
             onmouseover={() => preloadData(link.href)}
           >
             {link.label}

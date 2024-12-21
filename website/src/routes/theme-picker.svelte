@@ -1,11 +1,11 @@
 <script lang="ts">
-  import {parseTheme, useTheme} from '$lib/theme-provider';
   import {
     CheckIcon,
     CloudMoonIcon,
     CloudSun02Icon,
     Monitor01Icon,
   } from '@untitled-theme/icons-svelte';
+  import {parseTheme, useTheme} from 'svelte-os-themes';
   import {Select} from 'ui-ingredients';
 
   let collection = Select.collection({
@@ -31,15 +31,15 @@
   let theme = useTheme();
 
   let selected = $derived(
-    collection.items.find((o) => o.value === theme.current),
+    collection.items.find((o) => o.value === theme.value),
   );
 </script>
 
 <Select.Root
   {collection}
-  value={[theme.current]}
+  value={[theme.value]}
   onValueChange={(o) => {
-    theme.current = parseTheme(o.value[0]);
+    theme.value = parseTheme(o.value[0]);
   }}
   lazyMount
 >
@@ -58,12 +58,12 @@
 
   <Select.Positioner class="z-dropdown">
     <Select.Content
-      class="rounded-md border bg-white p-2 data-open:animate-fade-in data-closed:animate-fade-out dark:bg-gray-true-900"
+      class="rounded-md border bg-white p-2 ui-open:animate-fade-in ui-closed:animate-fade-out dark:bg-gray-true-900"
     >
       {#each collection.items as item}
         <Select.Item
           {item}
-          class="pointer flex w-32 items-center gap-4 rounded-md px-2 py-1 data-highlighted:bg-gray-true-50 dark:data-highlighted:bg-gray-true-800/25"
+          class="pointer flex w-32 items-center gap-4 rounded-md px-2 py-1 ui-highlighted:bg-gray-true-50 dark:ui-highlighted:bg-gray-true-800/25"
         >
           <Select.ItemText class="flex grow items-center gap-2">
             <item.icon class="icon" />
