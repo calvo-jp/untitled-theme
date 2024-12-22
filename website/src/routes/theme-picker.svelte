@@ -31,15 +31,15 @@
   let theme = useTheme();
 
   let selected = $derived(
-    collection.items.find((o) => o.value === theme.value),
+    collection.items.find((o) => o.value === theme.current),
   );
 </script>
 
 <Select.Root
   {collection}
-  value={[theme.value]}
+  value={[theme.current]}
   onValueChange={(o) => {
-    theme.value = parseTheme(o.value[0]);
+    theme.current = parseTheme(o.value[0]);
   }}
   lazyMount
 >
