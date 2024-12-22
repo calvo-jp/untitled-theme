@@ -16,16 +16,16 @@
     "@untitled-theme/colors": "^0.6.1",
     "@untitled-theme/icons-svelte": "^0.12.0",
     "prettier": "^3.4.2",
-    "shiki": "^1.24.3",
-    "svelte-os-themes": "^0.10.0",
+    "shiki": "^1.24.4",
+    "svelte-os-themes": "^0.11.0",
     "svgson": "^5.3.1",
     "tailwind-merge": "^2.5.5",
     "ui-ingredients": "^0.22.0",
-    "ui-ingredients-plugin-tailwindcss": "^0.0.2"
+    "ui-ingredients-plugin-tailwindcss": "^0.0.4"
   },
   "devDependencies": {
     "@sveltejs/adapter-vercel": "^5.5.2",
-    "@sveltejs/kit": "^2.13.0",
+    "@sveltejs/kit": "^2.14.1",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
