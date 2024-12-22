@@ -11,7 +11,7 @@
   let {children} = $props();
 </script>
 
-<ThemeProvider>
+<ThemeProvider system>
   <Navbar />
   <main class="mx-auto max-w-screen-lg p-4 md:p-8 lg:p-12">
     {@render children()}
