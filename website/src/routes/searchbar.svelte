@@ -1,6 +1,7 @@
 <script lang="ts">
   import {goto} from '$app/navigation';
   import {page} from '$app/state';
+  import Icon from '$lib/icon.svelte';
   import {SearchLgIcon, XCloseIcon} from '@untitled-theme/icons-svelte';
   import {scale} from 'svelte/transition';
 
@@ -27,8 +28,10 @@
 </script>
 
 <div class="relative">
-  <SearchLgIcon
-    class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-true-300 icon-xl dark:text-gray-true-400"
+  <Icon
+    as={SearchLgIcon}
+    size="xl"
+    class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-true-300  dark:text-gray-true-400"
   />
 
   <input
@@ -52,7 +55,7 @@
         duration: 150,
       }}
     >
-      <XCloseIcon class="icon-lg" />
+      <Icon as={XCloseIcon} size="lg" />
     </button>
   {/if}
 </div>

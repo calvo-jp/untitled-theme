@@ -1,12 +1,12 @@
 // @ts-check
 
 import colors from '@untitled-theme/colors';
+import {withTV} from 'tailwind-variants/transformer';
 import defaultTheme from 'tailwindcss/defaultTheme';
-import plugin from 'tailwindcss/plugin';
 import uiIngredients from 'ui-ingredients-plugin-tailwindcss';
 
 /** @type {import('tailwindcss').Config} */
-export default {
+export default withTV({
   content: ['./src/**/*.{html,js,svelte,ts}'],
   darkMode: 'class',
   theme: {
@@ -58,44 +58,5 @@ export default {
       },
     },
   },
-  plugins: [
-    uiIngredients,
-    plugin(function iconPlugin({matchUtilities, addUtilities, theme}) {
-      const defaultAttrs = {
-        width: 'var(--size)',
-        height: 'var(--size)',
-        strokeWidth: '1.66667',
-      };
-
-      addUtilities({
-        '.icon': {
-          '--size': theme('spacing.4'),
-          ...defaultAttrs,
-        },
-      });
-
-      matchUtilities(
-        {
-          icon(k) {
-            return {
-              '--size': {
-                md: theme('spacing.4'),
-                lg: theme('spacing.5'),
-                xl: theme('spacing.6'),
-              }[k],
-
-              ...defaultAttrs,
-            };
-          },
-        },
-        {
-          values: {
-            md: 'md',
-            lg: 'lg',
-            xl: 'xl',
-          },
-        },
-      );
-    }),
-  ],
-};
+  plugins: [uiIngredients],
+});

@@ -37,6 +37,7 @@ export async function generateIconsSvelte() {
   await createBarrelFile(outdir, items);
 }
 
+const REF = 'REF';
 const CLASSNAME = 'CLASSNAME';
 const REST_PROPS = 'REST_PROPS';
 
@@ -50,6 +51,7 @@ async function toSvelteComponent(icon: Icon) {
           attributes: {
             ...node.attributes,
 
+            [REF]: '',
             [CLASSNAME]: '',
             [REST_PROPS]: '',
           },
@@ -71,6 +73,10 @@ async function toSvelteComponent(icon: Icon) {
         return '{...props}';
       }
 
+      if (key === REF) {
+        return 'bind:this={ref}';
+      }
+
       return `${key}="${esc(value)}"`;
     },
   });
@@ -86,9 +92,13 @@ const template = `
 <script lang="ts">
   import type {SVGAttributes} from 'svelte/elements';
 
+  interface %name%Props extends SVGAttributes<SVGSVGElement> {
+    ref?: SVGElement | null
+  }
+
   const cx = (...args: (string | null | undefined)[]) => args.filter(Boolean).join(' ');
   
-  let {class: classProp, ...props}: SVGAttributes<SVGSVGElement> = $props(); 
+  let {ref, class: classProp, ...props}: %name%Props = $props(); 
   let className = $derived(cx('%class%', classProp)); 
 </script>
 

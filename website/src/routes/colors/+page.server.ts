@@ -1,8 +1,9 @@
+import {dev} from '$app/environment';
 import {getColors} from '$lib/colors';
 import type {PageServerLoad} from './$types';
 
 export const load: PageServerLoad = async ({url, setHeaders}) => {
-  setHeaders({'cache-control': 'public, max-age=2592000'});
+  if (!dev) setHeaders({'cache-control': 'public, max-age=2592000'});
 
   const colors = await getColors();
   const search = url.searchParams

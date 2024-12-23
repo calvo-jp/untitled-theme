@@ -92,12 +92,14 @@ async function toReactComponent(icon: Icon) {
 const template = `
 import * as React from 'react';
 
+interface %name%Props extends React.SVGProps<SVGSVGElement> {}
+
 /**
  * %comment%
  */
 const %name% = React.forwardRef<
   SVGSVGElement,
-  React.SVGProps<SVGSVGElement>
+  %name%Props
 >(({className, ...props}, ref) => {
   return %html%;
 });

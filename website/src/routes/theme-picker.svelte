@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Icon from '$lib/icon.svelte';
   import {
     CheckIcon,
     CloudMoonIcon,
@@ -49,7 +50,7 @@
     >
       <Select.ValueText class="flex grow items-center gap-1 text-left">
         {#if selected}
-          <selected.icon class="icon-lg" />
+          <Icon as={selected.icon} size="lg" />
           <span class="sr-only">{selected.label}</span>
         {/if}
       </Select.ValueText>
@@ -66,11 +67,14 @@
           class="pointer flex w-32 items-center gap-4 rounded-md px-2 py-1 ui-highlighted:bg-gray-true-50 dark:ui-highlighted:bg-gray-true-800/25"
         >
           <Select.ItemText class="flex grow items-center gap-2">
-            <item.icon class="icon" />
+            <Icon as={item.icon} size="lg" />
             <span>{item.label}</span>
           </Select.ItemText>
           <Select.ItemIndicator>
-            <CheckIcon class="text-success-500 icon dark:text-success-400" />
+            <Icon
+              as={CheckIcon}
+              class="text-success-500 dark:text-success-400"
+            />
           </Select.ItemIndicator>
         </Select.Item>
       {/each}

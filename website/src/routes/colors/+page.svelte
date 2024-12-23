@@ -1,5 +1,6 @@
 <script lang="ts">
   import {page} from '$app/state';
+  import Icon from '$lib/icon.svelte';
   import MetaTags from '$lib/meta-tags.svelte';
   import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-svelte';
   import {Clipboard} from 'ui-ingredients';
@@ -41,9 +42,9 @@
                 <Clipboard.Indicator>
                   {#snippet children(ctx)}
                     {#if ctx.copied}
-                      <CheckIcon class="text-success-500 icon" />
+                      <Icon as={CheckIcon} class="text-success-500" />
                     {:else}
-                      <Copy01Icon class="icon" />
+                      <Icon as={Copy01Icon} />
                     {/if}
                   {/snippet}
                 </Clipboard.Indicator>

@@ -61,7 +61,7 @@
     "release": "release-it"
   },
   "devDependencies": {
-    "@tsconfig/node20": "20.1.4",
+    "@tsconfig/node22": "^22.0.0",
     "release-it": "17.10.0",
     "typescript": "5.7.2",
     "vite": "6.0.5",

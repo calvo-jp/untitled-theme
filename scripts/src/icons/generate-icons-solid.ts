@@ -84,10 +84,12 @@ async function toSolidComponent(icon: Icon) {
 const template = `
 import {splitProps, type ComponentProps} from 'solid-js';
 
+interface %name%Props extends ComponentProps<'svg'> {}
+
 /**
  * %comment%
  */
-export default function %name%(props: ComponentProps<'svg'>) {
+export default function %name%(props: %name%Props) {
   const [local, others] = splitProps(props, ['class']);
 
   return %html%;

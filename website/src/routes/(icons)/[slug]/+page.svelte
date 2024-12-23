@@ -1,6 +1,7 @@
 <script lang="ts">
   import {goto} from '$app/navigation';
   import {page} from '$app/state';
+  import Icon from '$lib/icon.svelte';
   import MetaTags from '$lib/meta-tags.svelte';
   import {
     CheckIcon,
@@ -96,11 +97,12 @@
                 <Clipboard.Indicator>
                   {#snippet children(ctx)}
                     {#if ctx.copied}
-                      <CheckIcon
-                        class="text-success-500 icon dark:text-success-700"
+                      <Icon
+                        as={CheckIcon}
+                        class="text-success-500 dark:text-success-700"
                       />
                     {:else}
-                      <Copy01Icon class="icon" />
+                      <Icon as={Copy01Icon} />
                     {/if}
                   {/snippet}
                 </Clipboard.Indicator>
@@ -130,11 +132,12 @@
                     <Clipboard.Indicator>
                       {#snippet children(ctx)}
                         {#if ctx.copied}
-                          <CheckIcon
-                            class="text-success-500 icon dark:text-success-700"
+                          <Icon
+                            as={CheckIcon}
+                            class="text-success-500 dark:text-success-700"
                           />
                         {:else}
-                          <Copy01Icon class="icon" />
+                          <Icon as={Copy01Icon} />
                         {/if}
                       {/snippet}
                     </Clipboard.Indicator>
@@ -169,7 +172,7 @@
       </div>
 
       <Dialog.CloseTrigger class="absolute right-3 top-3 cursor-pointer p-1">
-        <XCloseIcon class="icon-xl" />
+        <Icon as={XCloseIcon} size="xl" />
       </Dialog.CloseTrigger>
     </Dialog.Content>
   </Dialog.Positioner>

@@ -1,6 +1,7 @@
 <script lang="ts">
   import {goto, preloadData} from '$app/navigation';
   import {page} from '$app/state';
+  import Icon from '$lib/icon.svelte';
   import {ChevronDownIcon} from '@untitled-theme/icons-svelte';
   import {Menu} from 'ui-ingredients';
 
@@ -41,7 +42,7 @@
       <Menu.Indicator
         class="transition-transform duration-150 ui-open:rotate-180"
       >
-        <ChevronDownIcon class="icon" />
+        <Icon as={ChevronDownIcon} />
       </Menu.Indicator>
     </Menu.Trigger>
     <Menu.Positioner class="z-dropdown">
