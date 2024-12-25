@@ -4,18 +4,18 @@
   "private": true,
   "packageManager": "pnpm@9.15.1",
   "scripts": {
-    "website": "pnpm --filter \"@untitled-theme/website\"",
-    "scripts": "pnpm --filter \"@untitled-theme/scripts\"",
-    "colors": "pnpm --filter \"@untitled-theme/colors\"",
-    "icons-react": "pnpm --filter \"@untitled-theme/icons-react\"",
-    "icons-svelte": "pnpm --filter \"@untitled-theme/icons-svelte\"",
-    "icons-solid": "pnpm --filter \"@untitled-theme/icons-solid\"",
-    "test": "pnpm --filter \"*\" test",
+    "website": "pnpm --filter=\"@untitled-theme/website\"",
+    "scripts": "pnpm --filter=\"@untitled-theme/scripts\"",
+    "colors": "pnpm --filter=\"@untitled-theme/colors\"",
+    "icons-react": "pnpm --filter=\"@untitled-theme/icons-react\"",
+    "icons-svelte": "pnpm --filter=\"@untitled-theme/icons-svelte\"",
+    "icons-solid": "pnpm --filter=\"@untitled-theme/icons-solid\"",
+    "test": "pnpm --filter=\"*\" test",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "release:core": "pnpm --filter \"@untitled-theme/colors\"",
-    "release:icons": "pnpm --filter \"@untitled-theme/icons-*\" release",
-    "release": "pnpm --filter \"*\" release"
+    "release:core": "pnpm --filter=\"./packages/core/**\" release",
+    "release:icons": "pnpm --filter=\"./packages/icons/**\" --workspace-concurrency=1 release",
+    "release": "pnpm --filter=\"./packages/**\" --workspace-concurrency=1 release"
   },
   "dependencies": {
     "@eslint/compat": "^1.2.4",
