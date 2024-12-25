@@ -3,14 +3,14 @@ import path from 'node:path';
 import svgson from 'svgson';
 import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
 import {type BarrelItem, createBarrelFile} from './create-barrel-file.js';
-import {createCleanDir} from './create-clean-dir.js';
 import {generateJsdocPreview} from './generate-jsdoc-preview.js';
 import {type Icon, getIcons} from './get-icons.js';
 
 const outdir = path.join(getWorkspaceRoot(), 'packages/icons/svelte/src');
 
 export async function generateIconsSvelte() {
-  await createCleanDir(outdir);
+  await fs.rm(outdir, {force: true, recursive: true});
+  await fs.mkdir(outdir, {recursive: true});
 
   const icons = await getIcons();
   const promises = icons.map(async (icon) => {
@@ -66,7 +66,7 @@ async function toSvelteComponent(icon: Icon) {
     selfClose: false,
     transformAttr(key, value, esc) {
       if (key === CLASSNAME) {
-        return `class="{className}"`;
+        return `class={['untitled-icon ${icon.name.kebab}', className]}`;
       }
 
       if (key === REST_PROPS) {
@@ -84,8 +84,7 @@ async function toSvelteComponent(icon: Icon) {
   return template
     .replaceAll('%name%', icon.name.pascal)
     .replaceAll('%html%', svelteSvg)
-    .replaceAll('%comment%', await generateJsdocPreview(icon.html))
-    .replaceAll('%class%', `untitled-icon ${icon.name.kebab}`);
+    .replaceAll('%comment%', await generateJsdocPreview(icon.html));
 }
 
 const template = `
@@ -96,10 +95,7 @@ const template = `
     ref?: SVGElement | null
   }
 
-  const cx = (...args: (string | null | undefined)[]) => args.filter(Boolean).join(' ');
-  
-  let {ref, class: classProp, ...props}: %name%Props = $props(); 
-  let className = $derived(cx('%class%', classProp)); 
+  let {ref, class: className, ...props}: %name%Props = $props(); 
 </script>
 
 <!-- @component %comment% -->

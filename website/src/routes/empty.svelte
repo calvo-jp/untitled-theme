@@ -30,9 +30,9 @@
       <a
         href="https://github.com/calvo-jp/untitled-theme/issues/new"
         class="text-indigo-600 underline underline-offset-2 dark:text-indigo-400"
-        data-sveltekit-preload-data="false"
         target="_blank"
         rel="noopener noreferrer"
+        data-sveltekit-preload-data="false"
       >
         Create an issue
       </a>
