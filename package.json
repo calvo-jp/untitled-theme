@@ -4,18 +4,18 @@
   "private": true,
   "packageManager": "pnpm@9.15.1",
   "scripts": {
-    "website": "pnpm --filter @untitled-theme/website",
-    "scripts": "pnpm --filter @untitled-theme/scripts",
-    "colors": "pnpm --filter @untitled-theme/colors",
-    "icons-react": "pnpm --filter @untitled-theme/icons-react",
-    "icons-svelte": "pnpm --filter @untitled-theme/icons-svelte",
-    "icons-solid": "pnpm --filter @untitled-theme/icons-solid",
-    "test": "pnpm --filter @untitled-theme/scripts test",
+    "website": "pnpm --filter \"@untitled-theme/website\"",
+    "scripts": "pnpm --filter \"@untitled-theme/scripts\"",
+    "colors": "pnpm --filter \"@untitled-theme/colors\"",
+    "icons-react": "pnpm --filter \"@untitled-theme/icons-react\"",
+    "icons-svelte": "pnpm --filter \"@untitled-theme/icons-svelte\"",
+    "icons-solid": "pnpm --filter \"@untitled-theme/icons-solid\"",
+    "test": "pnpm --filter \"*\" test",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "release:core": "pnpm colors release",
-    "release:icons": "pnpm icons-react release && pnpm icons-svelte release && pnpm icons-solid release",
-    "release": "pnpm release:core && pnpm release:icons"
+    "release:core": "pnpm --filter \"@untitled-theme/colors\"",
+    "release:icons": "pnpm --filter \"@untitled-theme/icons-*\" release",
+    "release": "pnpm --filter \"*\" release"
   },
   "dependencies": {
     "@eslint/compat": "^1.2.4",
