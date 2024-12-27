@@ -4,14 +4,18 @@
   "private": true,
   "packageManager": "pnpm@9.15.1",
   "scripts": {
-    "website": "pnpm --filter @untitled-theme/website",
-    "scripts": "pnpm --filter @untitled-theme/scripts",
-    "colors": "pnpm --filter @untitled-theme/colors",
-    "icons-react": "pnpm --filter @untitled-theme/icons-react",
-    "icons-svelte": "pnpm --filter @untitled-theme/icons-svelte",
-    "icons-solid": "pnpm --filter @untitled-theme/icons-solid",
+    "website": "pnpm --filter=\"@untitled-theme/website\"",
+    "scripts": "pnpm --filter=\"@untitled-theme/scripts\"",
+    "colors": "pnpm --filter=\"@untitled-theme/colors\"",
+    "icons-react": "pnpm --filter=\"@untitled-theme/icons-react\"",
+    "icons-svelte": "pnpm --filter=\"@untitled-theme/icons-svelte\"",
+    "icons-solid": "pnpm --filter=\"@untitled-theme/icons-solid\"",
+    "test": "pnpm --filter=\"*\" test",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "release:core": "pnpm --filter=\"./packages/core/**\" release",
+    "release:icons": "pnpm --filter=\"./packages/icons/**\" --workspace-concurrency=1 release",
+    "release": "pnpm --filter=\"./packages/**\" --workspace-concurrency=1 release"
   },
   "dependencies": {
     "@eslint/compat": "^1.2.4",
@@ -25,6 +29,6 @@
     "prettier-plugin-svelte": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.18.1"
+    "typescript-eslint": "^8.18.2"
   }
 }

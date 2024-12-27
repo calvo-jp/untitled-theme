@@ -8,5 +8,5 @@ assets
 packages/icons/react/src
 packages/icons/solid/src
 packages/icons/svelte/src
-packages/colors/src
+packages/core/colors/src
 pnpm-lock.yaml

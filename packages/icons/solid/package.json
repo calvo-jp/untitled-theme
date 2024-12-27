@@ -50,10 +50,10 @@
     "release": "release-it"
   },
   "devDependencies": {
-    "release-it": "^17.10.0",
+    "release-it": "^17.11.0",
     "solid-js": "^1.9.3",
     "typescript": "^5.7.2",
-    "vite": "^6.0.5",
+    "vite": "^6.0.6",
     "vite-plugin-dts": "^4.4.0",
     "vite-plugin-solid": "^2.11.0"
   },

@@ -46,7 +46,6 @@
         class="flex aspect-square items-center justify-center rounded border p-2 hover:bg-gray-true-50 dark:hover:bg-gray-true-800/10"
         data-sveltekit-noscroll
         data-sveltekit-keepfocus
-        data-sveltekit-preload-data="hover"
       >
         <span>{@html icon.html}</span>
         <span class="sr-only">{icon.name.formal}</span>

@@ -3,14 +3,14 @@ import path from 'node:path';
 import svgson from 'svgson';
 import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
 import {type BarrelItem, createBarrelFile} from './create-barrel-file.js';
-import {createCleanDir} from './create-clean-dir.js';
 import {generateJsdocPreview} from './generate-jsdoc-preview.js';
 import {type Icon, getIcons} from './get-icons.js';
 
 const outdir = path.join(getWorkspaceRoot(), 'packages/icons/react/src');
 
 export async function generateIconsReact() {
-  await createCleanDir(outdir);
+  await fs.rm(outdir, {force: true, recursive: true});
+  await fs.mkdir(outdir, {recursive: true});
 
   const icons = await getIcons();
   const promises = icons.map(async (icon) => {

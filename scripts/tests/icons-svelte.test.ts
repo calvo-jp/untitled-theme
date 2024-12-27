@@ -1,3 +1,9 @@
-it('works', () => {
-  expect(1 + 1).toBe(2);
+import {generateIconsSvelte} from '../src/icons/generate-icons-svelte.js';
+
+describe('Svelte Icons Generator', () => {
+  it('generates svelte icons', async () => {
+    await generateIconsSvelte();
+  });
 });
+
+function isValidSvelteComponent(content: string) {}

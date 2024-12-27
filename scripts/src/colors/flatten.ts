@@ -1,8 +1,28 @@
-function isObject(value: unknown): value is Record<string, any> {
-  return (
-    Object.prototype.toString.call(value) === '[object Object]' &&
-    Object(value) === value
-  );
+function isObject<T extends Record<string, unknown>>(
+  value: unknown,
+): value is T {
+  if (value === null) {
+    return false;
+  }
+
+  if (
+    typeof value !== 'object' ||
+    Object.prototype.toString.call(value) !== '[object Object]'
+  ) {
+    return false;
+  }
+
+  if (Object.getPrototypeOf(value) === null) {
+    return true;
+  }
+
+  let proto = value;
+
+  while (Object.getPrototypeOf(proto) !== null) {
+    proto = Object.getPrototypeOf(proto);
+  }
+
+  return Object.getPrototypeOf(value) === proto;
 }
 
 export function flatten(subject: Record<string, unknown>) {
@@ -40,7 +60,7 @@ export function unflatten(subject: {keys: string[]; value: any}[]) {
 
     let current = result;
 
-    const lastKey = keys.pop() as string;
+    const lastKey = keys.pop()!;
 
     for (const key of keys) {
       if (!current[key]) {

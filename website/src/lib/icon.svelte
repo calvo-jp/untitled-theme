@@ -1,4 +1,5 @@
 <script lang="ts" module>
+  import clsx from 'clsx';
   import type {Component} from 'svelte';
   import type {SvelteHTMLElements} from 'svelte/elements';
   import type {Merge} from 'type-fest';
@@ -13,13 +14,7 @@
 <script lang="ts">
   import {iconRecipe} from './icon.recipe';
 
-  let {as: As, size, class: className, ...props}: IconProps = $props();
+  let {as: As, size, ...props}: IconProps = $props();
 </script>
 
-<As
-  class={iconRecipe({
-    size,
-    className,
-  })}
-  {...props}
-/>
+<As {...props} class={clsx(iconRecipe({size}), props.class)} />
