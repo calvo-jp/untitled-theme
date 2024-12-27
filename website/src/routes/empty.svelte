@@ -1,6 +1,4 @@
 <script lang="ts">
-  import {twMerge} from 'tailwind-merge';
-
   interface Props {
     class?: string;
     style?: string;
@@ -9,7 +7,7 @@
   let {style, class: className}: Props = $props();
 </script>
 
-<div {style} class={twMerge('mt-12 lg:mt-16', className)}>
+<div {style} class={['mt-12 lg:mt-16', className]}>
   <div class="pr-4 lg:pr-8">
     <div
       class="relative mx-auto size-[8rem] rounded-full bg-gray-true-100 dark:bg-gray-true-800 lg:size-[12rem]"

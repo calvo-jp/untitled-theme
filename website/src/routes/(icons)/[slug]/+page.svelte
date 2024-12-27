@@ -8,7 +8,6 @@
     Copy01Icon,
     XCloseIcon,
   } from '@untitled-theme/icons-svelte';
-  import {twMerge} from 'tailwind-merge';
   import {Clipboard, Dialog, Tabs} from 'ui-ingredients';
 
   let {data} = $props();
@@ -75,13 +74,13 @@
       class="fixed bottom-0 right-0 z-modal w-full border-t border-gray-true-400 bg-white p-4 ui-open:animate-slide-up ui-closed:animate-slide-down dark:border-gray-true-800 dark:bg-gray-true-900 md:p-6 lg:p-8"
     >
       <div
-        class={twMerge(
+        class={[
           'w-full',
           'max-w-full',
           'lg:w-[40rem]',
           'lg:max-w-[40rem]',
           '[&_.shiki]:max-h-[50vh]',
-        )}
+        ]}
       >
         <div>
           <div class="w-fit rounded border p-3">
@@ -145,7 +144,7 @@
                 </Clipboard.Root>
 
                 <div
-                  class={twMerge(
+                  class={[
                     '[&_.shiki]:p-4',
                     '[&_.shiki]:h-full',
                     '[&_.shiki]:rounded',
@@ -161,7 +160,7 @@
                     '[&_.shiki_span]:text-[var(--shiki-light)]',
                     '[&_.shiki_span]:dark:bg-[var(--shiki-dark-bg)]',
                     '[&_.shiki_span]:dark:text-[var(--shiki-dark)]',
-                  )}
+                  ]}
                 >
                   {@html item.content.html}
                 </div>
