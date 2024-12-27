@@ -6,7 +6,7 @@
     style?: string;
   }
 
-  let {style, class: className, ...props}: Props = $props();
+  let {style, class: className}: Props = $props();
 </script>
 
 <div {style} class={twMerge('mt-12 lg:mt-16', className)}>
