@@ -22,7 +22,7 @@
     "tailwind-merge": "^2.6.0",
     "tailwind-variants": "^0.3.0",
     "ui-ingredients": "^0.23.0",
-    "ui-ingredients-plugin-tailwindcss": "^0.0.4"
+    "ui-ingredients-plugin-tailwindcss": "^0.0.5"
   },
   "devDependencies": {
     "@sveltejs/adapter-vercel": "^5.5.2",
@@ -33,8 +33,8 @@
     "svelte": "^5.16.0",
     "svelte-check": "^4.1.1",
     "tailwindcss": "^3.4.17",
-    "type-fest": "^4.30.2",
+    "type-fest": "^4.31.0",
     "typescript": "^5.7.2",
-    "vite": "^6.0.5"
+    "vite": "^6.0.6"
   }
 }
