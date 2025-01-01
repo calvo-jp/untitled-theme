@@ -95,7 +95,7 @@ const template = `
     ref?: SVGElement | null
   }
 
-  let {ref, class: className, ...props}: %name%Props = $props(); 
+  let {ref = $bindable(null), class: className, ...props}: %name%Props = $props(); 
 </script>
 
 <!-- @component %comment% -->
