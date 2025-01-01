@@ -92,7 +92,7 @@ const template = `
   import type {SVGAttributes} from 'svelte/elements';
 
   interface %name%Props extends SVGAttributes<SVGSVGElement> {
-    ref?: SVGElement | null
+    ref?: SVGSVGElement | null
   }
 
   let {ref = $bindable(null), class: className, ...props}: %name%Props = $props(); 
