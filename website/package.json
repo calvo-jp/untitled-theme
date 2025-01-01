@@ -10,9 +10,9 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "dependencies": {
-    "@fontsource/fira-code": "^5.1.0",
-    "@fontsource/inter": "^5.1.0",
-    "@fontsource/rammetto-one": "^5.1.0",
+    "@fontsource/fira-code": "^5.1.1",
+    "@fontsource/inter": "^5.1.1",
+    "@fontsource/rammetto-one": "^5.1.1",
     "@untitled-theme/colors": "^0.6.1",
     "@untitled-theme/icons-svelte": "^0.13.0",
     "clsx": "^2.1.1",
@@ -21,7 +21,7 @@
     "svelte-os-themes": "^0.11.0",
     "svgson": "^5.3.1",
     "tailwind-variants": "^0.3.0",
-    "ui-ingredients": "^0.23.1",
+    "ui-ingredients": "^0.26.0",
     "ui-ingredients-plugin-tailwindcss": "^0.0.6"
   },
   "devDependencies": {
