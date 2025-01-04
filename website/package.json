@@ -14,14 +14,14 @@
     "@fontsource/inter": "^5.1.1",
     "@fontsource/rammetto-one": "^5.1.1",
     "@untitled-theme/colors": "^0.6.1",
-    "@untitled-theme/icons-svelte": "^0.13.0",
+    "@untitled-theme/icons-svelte": "^0.14.1",
     "clsx": "^2.1.1",
     "prettier": "^3.4.2",
-    "shiki": "^1.24.4",
+    "shiki": "^1.26.1",
     "svelte-os-themes": "^0.11.0",
     "svgson": "^5.3.1",
     "tailwind-variants": "^0.3.0",
-    "ui-ingredients": "^0.26.0",
+    "ui-ingredients": "^0.27.0",
     "ui-ingredients-plugin-tailwindcss": "^0.0.6"
   },
   "devDependencies": {
@@ -30,11 +30,11 @@
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
-    "svelte": "^5.16.0",
+    "svelte": "^5.16.1",
     "svelte-check": "^4.1.1",
     "tailwindcss": "^3.4.17",
     "type-fest": "^4.31.0",
     "typescript": "^5.7.2",
-    "vite": "^6.0.6"
+    "vite": "^6.0.7"
   }
 }
