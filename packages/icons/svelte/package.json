@@ -53,10 +53,10 @@
     "@sveltejs/package": "^2.3.7",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@tsconfig/svelte": "^5.0.4",
-    "release-it": "^17.11.0",
-    "svelte": "^5.16.1",
+    "release-it": "^18.0.0",
+    "svelte": "^5.17.1",
     "svelte-preprocess": "^6.0.3",
-    "typescript": "^5.7.2",
+    "typescript": "^5.7.3",
     "vite": "^6.0.7"
   },
   "peerDependencies": {
