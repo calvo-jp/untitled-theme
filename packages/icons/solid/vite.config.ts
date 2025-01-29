@@ -9,8 +9,9 @@ export default defineConfig({
     lib: {
       name: 'icons-solid',
       entry: path.resolve(__dirname, 'src/index.ts'),
-      formats: ['es'],
-      fileName: (_, name) => `${name}.js`,
+      formats: ['es', 'cjs'],
+      fileName: (format, name) =>
+        format === 'cjs' ? `${name}.cjs` : `${name}.js`,
     },
     sourcemap: 'inline',
     rollupOptions: {
