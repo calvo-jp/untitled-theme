@@ -21,8 +21,8 @@
     "svelte-os-themes": "^0.11.0",
     "svgson": "^5.3.1",
     "tailwind-variants": "^0.3.0",
-    "ui-ingredients": "^0.31.1",
-    "ui-ingredients-plugin-tailwindcss": "^0.0.6"
+    "ui-ingredients": "^1.0.0",
+    "ui-ingredients-plugin-tailwindcss": "^0.0.9"
   },
   "devDependencies": {
     "@sveltejs/adapter-vercel": "^5.5.2",
