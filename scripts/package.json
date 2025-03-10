@@ -11,14 +11,14 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@clack/prompts": "^0.9.0",
+    "@clack/prompts": "^0.10.0",
     "@tsconfig/node22": "^22.0.0",
     "@types/yargs": "^17.0.33",
     "svgo": "^3.3.2",
     "svgson": "^5.3.1",
-    "tsx": "^4.19.2",
-    "typescript": "^5.7.3",
-    "vitest": "^2.1.8",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8",
     "yargs": "^17.7.2"
   }
 }

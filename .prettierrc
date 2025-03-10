@@ -2,7 +2,7 @@
   "plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
   "singleQuote": true,
   "bracketSpacing": false,
-  "tailwindConfig": "website/tailwind.config.js",
+  "tailwindStylesheet": "./website/src/app.css",
   "overrides": [
     {
       "files": "*.svelte",

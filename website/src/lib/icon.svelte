@@ -1,20 +1,33 @@
 <script lang="ts" module>
-  import clsx from 'clsx';
   import type {Component} from 'svelte';
   import type {SvelteHTMLElements} from 'svelte/elements';
   import type {Merge} from 'type-fest';
-  import type {IconRecipeProps} from './icon.recipe';
+
+  interface BaseProps {
+    as: Component<SvelteHTMLElements['svg']>;
+    /**
+     * @default 'md'
+     */
+    size?: 'sm' | 'md' | 'lg' | 'xl';
+  }
 
   export interface IconProps
-    extends Merge<SvelteHTMLElements['svg'], IconRecipeProps> {
-    as: Component<SvelteHTMLElements['svg']>;
-  }
+    extends Merge<SvelteHTMLElements['svg'], BaseProps> {}
 </script>
 
 <script lang="ts">
-  import {iconRecipe} from './icon.recipe';
-
-  let {as: As, size, ...props}: IconProps = $props();
+  let {as: As, size = 'md', ...props}: IconProps = $props();
 </script>
 
-<As {...props} class={clsx(iconRecipe({size}), props.class)} />
+<As
+  {...props}
+  class={[
+    {
+      'size-3': size === 'sm',
+      'size-4': size === 'md',
+      'size-5': size === 'lg',
+      'size-6': size === 'xl',
+    },
+    props.class,
+  ]}
+/>

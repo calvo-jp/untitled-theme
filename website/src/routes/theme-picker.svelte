@@ -46,7 +46,7 @@
 >
   <Select.Control>
     <Select.Trigger
-      class="borer flex aspect-square items-center gap-2 rounded-md px-2 py-1"
+      class="flex aspect-square items-center gap-2 rounded-md px-2 py-1"
     >
       <Select.ValueText class="flex grow items-center gap-1 text-left">
         {#if selected}
@@ -59,12 +59,12 @@
 
   <Select.Positioner class="z-dropdown">
     <Select.Content
-      class="rounded-md border bg-white p-2 ui-open:animate-fade-in ui-closed:animate-fade-out dark:bg-gray-true-900"
+      class="ui-open:animate-fade-in ui-closed:animate-fade-out rounded-md border border-neutral-300 bg-white p-2 dark:border-neutral-800 dark:bg-neutral-900"
     >
       {#each collection.items as item}
         <Select.Item
           {item}
-          class="pointer flex w-32 items-center gap-4 rounded-md px-2 py-1 ui-highlighted:bg-gray-true-50 dark:ui-highlighted:bg-gray-true-800/25"
+          class="pointer ui-highlighted:bg-neutral-50 dark:ui-highlighted:bg-neutral-800/25 flex w-32 items-center gap-4 rounded-md px-2 py-1"
         >
           <Select.ItemText class="flex grow items-center gap-2">
             <Icon as={item.icon} size="lg" />
@@ -73,7 +73,7 @@
           <Select.ItemIndicator>
             <Icon
               as={CheckIcon}
-              class="text-success-500 dark:text-success-400"
+              class="text-emerald-500 dark:text-emerald-400"
             />
           </Select.ItemIndicator>
         </Select.Item>

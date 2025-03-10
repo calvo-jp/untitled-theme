@@ -31,7 +31,7 @@
   <Icon
     as={SearchLgIcon}
     size="xl"
-    class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-gray-true-300  dark:text-gray-true-400"
+    class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-neutral-300  dark:text-neutral-400"
   />
 
   <input
@@ -40,7 +40,7 @@
       setValue(e.currentTarget.value);
     }}
     placeholder="Search"
-    class="h-12 w-full rounded border bg-transparent px-12 py-2 outline-none"
+    class="h-12 w-full rounded border border-neutral-300 bg-transparent px-12 py-2 outline-none dark:border-neutral-800"
   />
 
   {#if value.length > 0}

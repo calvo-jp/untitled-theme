@@ -42,7 +42,10 @@
                 <Clipboard.Indicator>
                   {#snippet children(ctx)}
                     {#if ctx.copied}
-                      <Icon as={CheckIcon} class="text-success-500" />
+                      <Icon
+                        as={CheckIcon}
+                        class="text-emerald-500 dark:text-emerald-400"
+                      />
                     {:else}
                       <Icon as={Copy01Icon} />
                     {/if}
@@ -59,7 +62,7 @@
               <div class="aspect-square bg-[var(--bg)]" style="--bg:{v}"></div>
               <div class="mt-2 hidden text-sm lg:block">{k}</div>
               <div
-                class="hidden text-xs leading-none text-gray-true-700 dark:text-gray-true-500 lg:block"
+                class="hidden text-xs leading-none text-neutral-700 lg:block dark:text-neutral-500"
               >
                 {v}
               </div>

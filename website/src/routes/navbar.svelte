@@ -4,7 +4,7 @@
 </script>
 
 <header
-  class="sticky top-0 z-sticky flex h-16 items-center gap-1 border-b bg-white/50 p-4 backdrop-blur-sm dark:bg-gray-true-900/50"
+  class="z-sticky sticky top-0 flex h-16 items-center gap-1 border-b border-neutral-300 bg-white/50 p-4 backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/50"
 >
   <NavbarLogo />
 

@@ -1,13 +1,8 @@
-import {getIcon} from '$lib/icons';
 import {error} from '@sveltejs/kit';
 import type {PageServerLoad} from './$types';
 
-export const load: PageServerLoad = async ({params}) => {
-  const icon = params.slug ? await getIcon(params.slug) : null;
+export const load: PageServerLoad = async ({parent}) => {
+  const {icon} = await parent();
 
-  if (!icon) return error(404);
-
-  return {
-    icon,
-  };
+  return icon ? {icon} : error(404);
 };
