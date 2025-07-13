@@ -2,7 +2,7 @@
   "name": "@untitled-theme/root",
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@10.6.1",
+  "packageManager": "pnpm@10.13.1",
   "scripts": {
     "website": "pnpm --filter=\"@untitled-theme/website\"",
     "scripts": "pnpm --filter=\"@untitled-theme/scripts\"",
@@ -18,17 +18,17 @@
     "release": "pnpm --filter=\"./packages/**\" --workspace-concurrency=1 release"
   },
   "dependencies": {
-    "@eslint/compat": "^1.2.7",
-    "@eslint/js": "^9.22.0",
-    "@types/node": "^22.13.10",
-    "eslint": "^9.22.0",
-    "eslint-config-prettier": "^10.1.1",
-    "eslint-plugin-svelte": "^3.1.0",
-    "globals": "^16.0.0",
-    "prettier": "^3.5.3",
-    "prettier-plugin-svelte": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "typescript": "^5.8.2",
-    "typescript-eslint": "^8.26.0"
+    "@eslint/compat": "^1.3.1",
+    "@eslint/js": "^9.31.0",
+    "@types/node": "^24.0.13",
+    "eslint": "^9.31.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-svelte": "^3.10.1",
+    "globals": "^16.3.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-svelte": "^3.4.0",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.36.0"
   }
 }

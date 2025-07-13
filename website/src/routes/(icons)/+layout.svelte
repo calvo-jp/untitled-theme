@@ -2,12 +2,12 @@
   import {goto} from '$app/navigation';
   import {page} from '$app/state';
   import Icon from '$lib/icon.svelte';
+  import {Clipboard, Dialog, Tabs} from '@ark-ui/svelte';
   import {
     CheckIcon,
     Copy01Icon,
     XCloseIcon,
   } from '@untitled-theme/icons-svelte';
-  import {Clipboard, Dialog, Tabs} from 'ui-ingredients';
   import Empty from '../empty.svelte';
   import Searchbar from '../searchbar.svelte';
 
@@ -106,7 +106,6 @@
     });
   }}
   lazyMount
-  keepMounted
 >
   <Dialog.Backdrop
     class="z-overlay ui-open:animate-fade-in ui-closed:animate-fade-out fixed inset-0 bg-neutral-900/50 backdrop-blur-sm dark:bg-neutral-900/50"
@@ -140,22 +139,21 @@
               <Clipboard.Root class="flex" value={componentName}>
                 <Clipboard.Trigger class="p-1">
                   <Clipboard.Indicator>
-                    {#snippet children(ctx)}
-                      {#if ctx.copied}
-                        <Icon
-                          as={CheckIcon}
-                          class="text-emerald-500 dark:text-emerald-400"
-                        />
-                      {:else}
-                        <Icon as={Copy01Icon} />
-                      {/if}
+                    {#snippet copied()}
+                      <Icon
+                        as={CheckIcon}
+                        class="text-emerald-500 dark:text-emerald-400"
+                      />
+                    {/snippet}
+                    {#snippet children()}
+                      <Icon as={Copy01Icon} />
                     {/snippet}
                   </Clipboard.Indicator>
                 </Clipboard.Trigger>
               </Clipboard.Root>
             </div>
 
-            <Tabs.Root class="mt-5" defaultValue={tabs[0].value}>
+            <Tabs.Root class="mt-5" defaultValue={tabs[0].value} lazyMount>
               <Tabs.List class="flex gap-4">
                 {#each tabs as item}
                   <Tabs.Trigger
@@ -175,15 +173,14 @@
                   >
                     <Clipboard.Trigger class="p-0.5">
                       <Clipboard.Indicator>
-                        {#snippet children(ctx)}
-                          {#if ctx.copied}
-                            <Icon
-                              as={CheckIcon}
-                              class="text-emerald-500 dark:text-emerald-400"
-                            />
-                          {:else}
-                            <Icon as={Copy01Icon} />
-                          {/if}
+                        {#snippet copied()}
+                          <Icon
+                            as={CheckIcon}
+                            class="text-emerald-500 dark:text-emerald-400"
+                          />
+                        {/snippet}
+                        {#snippet children()}
+                          <Icon as={Copy01Icon} />
                         {/snippet}
                       </Clipboard.Indicator>
                     </Clipboard.Trigger>

@@ -52,13 +52,13 @@
     "release": "release-it"
   },
   "devDependencies": {
-    "@tsconfig/vite-react": "^3.4.0",
-    "@types/react": "^19.0.10",
-    "react": "^19.0.0",
-    "release-it": "^18.1.2",
-    "typescript": "^5.8.2",
-    "vite": "^6.2.1",
-    "vite-plugin-dts": "^4.5.3"
+    "@tsconfig/vite-react": "^7.0.0",
+    "@types/react": "^19.1.8",
+    "react": "^19.1.0",
+    "release-it": "^19.0.3",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.4",
+    "vite-plugin-dts": "^4.5.4"
   },
   "peerDependencies": {
     "@types/react": "^18.0.0 || ^19.0.0",

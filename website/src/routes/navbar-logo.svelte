@@ -2,8 +2,8 @@
   import {goto, preloadData} from '$app/navigation';
   import {page} from '$app/state';
   import Icon from '$lib/icon.svelte';
+  import {Menu} from '@ark-ui/svelte';
   import {ChevronDownIcon} from '@untitled-theme/icons-svelte';
-  import {Menu} from 'ui-ingredients';
 
   let pathname = $derived(page.url.pathname);
 

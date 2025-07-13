@@ -1,5 +1,6 @@
 <script lang="ts">
   import Icon from '$lib/icon.svelte';
+  import {createListCollection, Select} from '@ark-ui/svelte';
   import {
     CheckIcon,
     CloudMoonIcon,
@@ -7,9 +8,8 @@
     Monitor01Icon,
   } from '@untitled-theme/icons-svelte';
   import {parseTheme, useTheme} from 'svelte-os-themes';
-  import {Select} from 'ui-ingredients';
 
-  let collection = Select.collection({
+  let collection = createListCollection({
     items: [
       {
         label: 'System',

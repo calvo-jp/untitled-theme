@@ -1,6 +1,5 @@
 @import 'tailwindcss';
-
-@plugin 'ui-ingredients-plugin-tailwindcss';
+@plugin 'tailwind-zag';
 
 @layer base {
   [hidden] {
@@ -84,5 +83,5 @@
 @custom-variant icon (& svg);
 
 @utility z-* {
-  z-index: --value(--z- *);
+  z-index: --value(--z-*);
 }

@@ -2,8 +2,8 @@
   import {page} from '$app/state';
   import Icon from '$lib/icon.svelte';
   import MetaTags from '$lib/meta-tags.svelte';
+  import {Clipboard} from '@ark-ui/svelte';
   import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-svelte';
-  import {Clipboard} from 'ui-ingredients';
   import Empty from '../empty.svelte';
   import Searchbar from '../searchbar.svelte';
 
@@ -40,15 +40,14 @@
             >
               <Clipboard.Trigger class="cursor-pointer">
                 <Clipboard.Indicator>
-                  {#snippet children(ctx)}
-                    {#if ctx.copied}
-                      <Icon
-                        as={CheckIcon}
-                        class="text-emerald-500 dark:text-emerald-400"
-                      />
-                    {:else}
-                      <Icon as={Copy01Icon} />
-                    {/if}
+                  {#snippet copied()}
+                    <Icon
+                      as={CheckIcon}
+                      class="text-emerald-500 dark:text-emerald-400"
+                    />
+                  {/snippet}
+                  {#snippet children()}
+                    <Icon as={Copy01Icon} />
                   {/snippet}
                 </Clipboard.Indicator>
               </Clipboard.Trigger>

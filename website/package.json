@@ -10,27 +10,27 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "dependencies": {
-    "@fontsource/fira-code": "^5.2.5",
-    "@fontsource/inter": "^5.2.5",
-    "@fontsource/rammetto-one": "^5.2.5",
+    "@ark-ui/svelte": "^5.1.1",
+    "@fontsource/fira-code": "^5.2.6",
+    "@fontsource/inter": "^5.2.6",
+    "@fontsource/rammetto-one": "^5.2.6",
     "@untitled-theme/icons-svelte": "^0.14.1",
-    "prettier": "^3.5.3",
-    "shiki": "^3.1.0",
+    "prettier": "^3.6.2",
+    "shiki": "^3.7.0",
     "svelte-os-themes": "^0.11.0",
-    "svgson": "^5.3.1",
-    "ui-ingredients": "^1.0.0",
-    "ui-ingredients-plugin-tailwindcss": "^0.0.9"
+    "svgson": "^5.3.1"
   },
   "devDependencies": {
-    "@sveltejs/adapter-vercel": "^5.6.3",
-    "@sveltejs/kit": "^2.19.0",
-    "@sveltejs/vite-plugin-svelte": "^5.0.3",
-    "@tailwindcss/vite": "^4.0.12",
-    "svelte": "^5.22.6",
-    "svelte-check": "^4.1.5",
-    "tailwindcss": "^4.0.12",
-    "type-fest": "^4.37.0",
-    "typescript": "^5.8.2",
-    "vite": "^6.2.1"
+    "@sveltejs/adapter-vercel": "^5.7.2",
+    "@sveltejs/kit": "^2.22.5",
+    "@sveltejs/vite-plugin-svelte": "^6.0.0",
+    "@tailwindcss/vite": "^4.1.11",
+    "svelte": "^5.35.6",
+    "svelte-check": "^4.2.2",
+    "tailwind-zag": "^1.0.2",
+    "tailwindcss": "^4.1.11",
+    "type-fest": "^4.41.0",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.4"
   }
 }
