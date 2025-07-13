@@ -189,8 +189,8 @@ importers:
         specifier: ^3.7.0
         version: 3.7.0
       svelte-os-themes:
-        specifier: ^0.11.0
-        version: 0.11.0(svelte@5.35.6)
+        specifier: ^1.0.0
+        version: 1.0.0(svelte@5.35.6)
       svgson:
         specifier: ^5.3.1
         version: 5.3.1
@@ -3468,8 +3468,8 @@ packages:
       svelte:
         optional: true
 
-  svelte-os-themes@0.11.0:
-    resolution: {integrity: sha512-pBCoCqo0hK3G9vmugSzUX+aK+d1sP6FCSQb529FVMKeXZ6nIpYC8FjUN5TVEcZir3W/pmwv5YqvZCGTxpxumcw==}
+  svelte-os-themes@1.0.0:
+    resolution: {integrity: sha512-IjVInpo9G3GyP3NwKACqn1dBFGFxPhhlY4LYPpFbBCtxkMu0l2e+iQJXImknHtO4SqfJaBc+JzAff9zMxpzccg==}
     peerDependencies:
       svelte: ^5.0.0
 
@@ -7397,7 +7397,7 @@ snapshots:
     optionalDependencies:
       svelte: 5.35.6
 
-  svelte-os-themes@0.11.0(svelte@5.35.6):
+  svelte-os-themes@1.0.0(svelte@5.35.6):
     dependencies:
       svelte: 5.35.6
 
