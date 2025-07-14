@@ -3,10 +3,15 @@
 import {Clipboard} from '@ark-ui/react';
 import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-react';
 import {useSearchParams} from 'next/navigation';
+import type {CSSProperties} from 'react';
+import {twMerge} from 'tailwind-merge';
 import type {Color} from './types';
 
 export interface ColorsGalleryProps {
 	colors: Color[];
+	id?: string;
+	style?: CSSProperties;
+	className?: string;
 }
 
 export function ColorsGallery(props: ColorsGalleryProps) {
@@ -25,7 +30,13 @@ export function ColorsGallery(props: ColorsGalleryProps) {
 			});
 
 	return (
-		<div className="mt-5 flex flex-col gap-4 font-mono lg:mt-8 lg:gap-6">
+		<div
+			{...props}
+			className={twMerge(
+				props.className,
+				'flex flex-col gap-4 font-mono lg:gap-6',
+			)}
+		>
 			{colors.map(({parent, children}, idx_0) => {
 				const name = parent.join('.');
 				const pairs = Object.entries(children);
