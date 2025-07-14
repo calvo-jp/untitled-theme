@@ -1,5 +1,5 @@
-import {Icon} from '@/types';
 import {usePathname, useRouter, useSearchParams} from 'next/navigation';
+import {Icon} from './types';
 
 export interface UseIconsGalleryProps {
   icons: Icon[];

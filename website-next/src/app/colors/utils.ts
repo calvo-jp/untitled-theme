@@ -1,5 +1,6 @@
-import colors from '$lib/assets/colors.json';
-import {isObject} from '$lib/is-object';
+import colors from '@/app/assets/colors.json';
+import isObject from 'lodash-es/isObject';
+import {Color} from './types';
 
 /*
  *
@@ -56,11 +57,6 @@ import {isObject} from '$lib/is-object';
  * ]
  *
  */
-
-export interface Color {
-  parent: string[];
-  children: Record<string, string>;
-}
 
 export const getColors = async (): Promise<Color[]> => {
   const l: Color[] = [];

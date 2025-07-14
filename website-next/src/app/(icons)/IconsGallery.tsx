@@ -1,9 +1,9 @@
 'use client';
 
-import {Icon} from '@/types';
 import {CSSProperties} from 'react';
 import {IconDetails} from './IconDetails';
 import {IconsGalleryProvider} from './IconsGalleryContext';
+import {Icon} from './types';
 import {useIconsGallery} from './useIconsGallery';
 
 export interface IconsGalleryProps {
