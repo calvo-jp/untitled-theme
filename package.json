@@ -1,34 +1,25 @@
 {
-  "name": "@untitled-theme/root",
-  "type": "module",
-  "private": true,
-  "packageManager": "pnpm@10.13.1",
-  "scripts": {
-    "website": "pnpm --filter=\"@untitled-theme/website\"",
-    "scripts": "pnpm --filter=\"@untitled-theme/scripts\"",
-    "colors": "pnpm --filter=\"@untitled-theme/colors\"",
-    "icons-react": "pnpm --filter=\"@untitled-theme/icons-react\"",
-    "icons-svelte": "pnpm --filter=\"@untitled-theme/icons-svelte\"",
-    "icons-solid": "pnpm --filter=\"@untitled-theme/icons-solid\"",
-    "test": "pnpm --filter=\"*\" test",
-    "lint": "eslint .",
-    "format": "prettier --write .",
-    "release:core": "pnpm --filter=\"./packages/core/**\" release",
-    "release:icons": "pnpm --filter=\"./packages/icons/**\" --workspace-concurrency=1 release",
-    "release": "pnpm --filter=\"./packages/**\" --workspace-concurrency=1 release"
-  },
-  "dependencies": {
-    "@eslint/compat": "^1.3.1",
-    "@eslint/js": "^9.31.0",
-    "@types/node": "^24.0.13",
-    "eslint": "^9.31.0",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-svelte": "^3.10.1",
-    "globals": "^16.3.0",
-    "prettier": "^3.6.2",
-    "prettier-plugin-svelte": "^3.4.0",
-    "prettier-plugin-tailwindcss": "^0.6.14",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.36.0"
-  }
+	"name": "@untitled-theme/root",
+	"type": "module",
+	"private": true,
+	"packageManager": "pnpm@10.13.1",
+	"scripts": {
+		"website": "pnpm --filter=\"@untitled-theme/website\"",
+		"scripts": "pnpm --filter=\"@untitled-theme/scripts\"",
+		"colors": "pnpm --filter=\"@untitled-theme/colors\"",
+		"icons-react": "pnpm --filter=\"@untitled-theme/icons-react\"",
+		"icons-svelte": "pnpm --filter=\"@untitled-theme/icons-svelte\"",
+		"icons-solid": "pnpm --filter=\"@untitled-theme/icons-solid\"",
+		"test": "pnpm --filter=\"*\" test",
+		"lint": "biome lint",
+		"format": "biome format",
+		"release:core": "pnpm --filter=\"./packages/core/**\" release",
+		"release:icons": "pnpm --filter=\"./packages/icons/**\" --workspace-concurrency=1 release",
+		"release": "pnpm --filter=\"./packages/**\" --workspace-concurrency=1 release"
+	},
+	"dependencies": {
+		"@biomejs/biome": "2.1.1",
+		"@types/node": "^24.0.13",
+		"typescript": "^5.8.3"
+	}
 }

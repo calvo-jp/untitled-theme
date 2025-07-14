@@ -7,26 +7,26 @@ import {getColors} from './get-colors.js';
 const outdir = path.join(getWorkspaceRoot(), 'packages/core/colors/src/panda');
 
 export async function generateColorsPanda() {
-  try {
-    await fs.mkdir(outdir, {recursive: true});
-  } catch {}
+	try {
+		await fs.mkdir(outdir, {recursive: true});
+	} catch {}
 
-  const content = await getContent();
-  const destination = path.join(outdir, 'index.ts');
+	const content = await getContent();
+	const destination = path.join(outdir, 'index.ts');
 
-  await fs.writeFile(destination, content, 'utf-8');
+	await fs.writeFile(destination, content, 'utf-8');
 }
 
 async function getContent() {
-  const colors = await getColors();
-  const result = unflatten(
-    flatten(colors).map(({keys, value}) => {
-      return {
-        keys,
-        value: {value},
-      };
-    }),
-  );
+	const colors = await getColors();
+	const result = unflatten(
+		flatten(colors).map(({keys, value}) => {
+			return {
+				keys,
+				value: {value},
+			};
+		}),
+	);
 
-  return `const colors = ${JSON.stringify(result, null, 2)};\nexport default colors;`;
+	return `const colors = ${JSON.stringify(result, null, 2)};\nexport default colors;`;
 }

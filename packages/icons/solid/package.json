@@ -1,79 +1,79 @@
 {
-  "name": "@untitled-theme/icons-solid",
-  "type": "module",
-  "version": "0.14.0",
-  "license": "MIT",
-  "description": "Untitled UI icons for Solid",
-  "keywords": [
-    "svg",
-    "icon",
-    "icons",
-    "Solid",
-    "Solid Start",
-    "Untitled UI"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/calvo-jp/untitled-theme.git",
-    "directory": "packages/icons/solid"
-  },
-  "bugs": {
-    "url": "https://github.com/calvo-jp/untitled-theme/issues"
-  },
-  "author": {
-    "name": "John Paul Calvo",
-    "email": "calvojp92@gmail.com"
-  },
-  "main": "dist/index.js",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
-    "./*": {
-      "types": "./dist/*.d.ts",
-      "import": "./dist/*.js",
-      "require": "./dist/*.cjs"
-    },
-    "./package.json": {
-      "default": "./package.json"
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "build": "vite build",
-    "prebuild": "pnpm --filter @untitled-theme/scripts run generate:icons -f solid",
-    "release": "release-it"
-  },
-  "devDependencies": {
-    "release-it": "^19.0.3",
-    "solid-js": "^1.9.7",
-    "typescript": "^5.8.3",
-    "vite": "^7.0.4",
-    "vite-plugin-dts": "^4.5.4",
-    "vite-plugin-solid": "^2.11.7"
-  },
-  "peerDependencies": {
-    "solid-js": "^1.0.0"
-  },
-  "release-it": {
-    "hooks": {
-      "after:bump": [
-        "pnpm build"
-      ]
-    },
-    "git": {
-      "commitMessage": "chore: release ${npm.name} v${version}",
-      "tagName": "${npm.name}@${version}"
-    },
-    "github": {
-      "release": false
-    }
-  }
+	"name": "@untitled-theme/icons-solid",
+	"type": "module",
+	"version": "0.14.0",
+	"license": "MIT",
+	"description": "Untitled UI icons for Solid",
+	"keywords": [
+		"svg",
+		"icon",
+		"icons",
+		"Solid",
+		"Solid Start",
+		"Untitled UI"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/calvo-jp/untitled-theme.git",
+		"directory": "packages/icons/solid"
+	},
+	"bugs": {
+		"url": "https://github.com/calvo-jp/untitled-theme/issues"
+	},
+	"author": {
+		"name": "John Paul Calvo",
+		"email": "calvojp92@gmail.com"
+	},
+	"main": "dist/index.js",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		},
+		"./*": {
+			"types": "./dist/*.d.ts",
+			"import": "./dist/*.js",
+			"require": "./dist/*.cjs"
+		},
+		"./package.json": {
+			"default": "./package.json"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"build": "vite build",
+		"prebuild": "pnpm --filter @untitled-theme/scripts run generate:icons -f solid",
+		"release": "release-it"
+	},
+	"devDependencies": {
+		"release-it": "^19.0.3",
+		"solid-js": "^1.9.7",
+		"typescript": "^5.8.3",
+		"vite": "^7.0.4",
+		"vite-plugin-dts": "^4.5.4",
+		"vite-plugin-solid": "^2.11.7"
+	},
+	"peerDependencies": {
+		"solid-js": "^1.0.0"
+	},
+	"release-it": {
+		"hooks": {
+			"after:bump": [
+				"pnpm build"
+			]
+		},
+		"git": {
+			"commitMessage": "chore: release ${npm.name} v${version}",
+			"tagName": "${npm.name}@${version}"
+		},
+		"github": {
+			"release": false
+		}
+	}
 }

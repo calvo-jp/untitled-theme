@@ -4,30 +4,30 @@ import {getWorkspaceRoot} from '../utils/get-workspace-root.js';
 import {getColors} from './get-colors.js';
 
 async function generateWebsiteAsset() {
-  const content = await getContent();
-  const destination = path.join(
-    getWorkspaceRoot(),
-    'website/src/lib/assets/colors.json',
-  );
+	const content = await getContent();
+	const destination = path.join(
+		getWorkspaceRoot(),
+		'website/src/lib/assets/colors.json',
+	);
 
-  await fs.writeFile(destination, content, 'utf-8');
+	await fs.writeFile(destination, content, 'utf-8');
 }
 
 async function getContent() {
-  const colors = await getColors();
+	const colors = await getColors();
 
-  const ignored = [
-    /**/
-    'white',
-    'black',
-    'transparent',
-  ];
+	const ignored = [
+		/**/
+		'white',
+		'black',
+		'transparent',
+	];
 
-  ignored.forEach((k) => {
-    delete colors[k];
-  });
+	ignored.forEach((k) => {
+		delete colors[k];
+	});
 
-  return JSON.stringify(colors);
+	return JSON.stringify(colors);
 }
 
 generateWebsiteAsset();
