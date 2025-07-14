@@ -30,7 +30,7 @@ export function ColorsGallery(props: ColorsGalleryProps) {
 					);
 			});
 
-	if (colors.length <= 0) return <Empty className="py-12" />;
+	if (colors.length <= 0) return <Empty />;
 
 	return (
 		<div

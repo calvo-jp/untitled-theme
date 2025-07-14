@@ -1,5 +1,6 @@
 import {LinkExternal02Icon} from '@untitled-theme/icons-react';
 import type {CSSProperties} from 'react';
+import {twMerge} from 'tailwind-merge';
 
 export interface EmptyProps {
 	id?: string;
@@ -9,7 +10,12 @@ export interface EmptyProps {
 
 export function Empty(props: EmptyProps) {
 	return (
-		<div role="alert" aria-live="polite" {...props}>
+		<div
+			role="alert"
+			aria-live="polite"
+			{...props}
+			className={twMerge(props.className, 'py-12 lg:py-16')}
+		>
 			<div className="pr-4 lg:pr-8">
 				<div className="relative mx-auto size-[8rem] rounded-full bg-neutral-100 lg:size-[12rem] dark:bg-neutral-800">
 					<div className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 size-[6.5rem] rounded-full bg-white lg:size-[10rem] dark:bg-neutral-900" />

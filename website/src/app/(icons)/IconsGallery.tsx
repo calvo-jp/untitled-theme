@@ -17,7 +17,7 @@ export interface IconsGalleryProps {
 export function IconsGallery(props: IconsGalleryProps) {
 	const iconsGallery = useIconsGallery(props);
 
-	if (iconsGallery.icons.length <= 0) return <Empty className="py-12" />;
+	if (iconsGallery.icons.length <= 0) return <Empty />;
 
 	return (
 		<IconsGalleryProvider value={iconsGallery}>
