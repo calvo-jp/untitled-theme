@@ -6,18 +6,18 @@ import {IconsGallery} from './IconsGallery';
 import {Icon} from './types';
 
 export const metadata: Metadata = {
-  title: 'Icons',
+	title: 'Icons',
 };
 
 export default async function Page() {
-  return (
-    <>
-      <Suspense fallback={null}>
-        <Searchbar className="mb-5 lg:mb-8" />
-      </Suspense>
-      <Suspense fallback={null}>
-        <IconsGallery icons={icons as unknown as Icon[]} />
-      </Suspense>
-    </>
-  );
+	return (
+		<>
+			<Suspense fallback={null}>
+				<Searchbar className="mb-5 lg:mb-8" />
+			</Suspense>
+			<Suspense fallback={null}>
+				<IconsGallery icons={icons as unknown as Icon[]} />
+			</Suspense>
+		</>
+	);
 }

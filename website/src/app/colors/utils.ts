@@ -59,39 +59,39 @@ import {Color} from './types';
  */
 
 export const getColors = async (): Promise<Color[]> => {
-  const l: Color[] = [];
+	const l: Color[] = [];
 
-  function fn(o: Record<string, any>, p: string[] = []) {
-    for (const k in o) {
-      const v = o[k];
+	function fn(o: Record<string, any>, p: string[] = []) {
+		for (const k in o) {
+			const v = o[k];
 
-      if (isObject(v)) {
-        fn(v, [...p, k]);
-      } else {
-        const i =
-          p.length <= 0
-            ? -1
-            : l.findIndex((e) => e.parent?.join() === p.join());
+			if (isObject(v)) {
+				fn(v, [...p, k]);
+			} else {
+				const i =
+					p.length <= 0
+						? -1
+						: l.findIndex((e) => e.parent?.join() === p.join());
 
-        if (i >= 0) {
-          l[i] = {
-            ...l[i],
-            children: {
-              ...l[i].children,
-              [k]: v,
-            },
-          };
-        } else {
-          l.push({
-            parent: p,
-            children: {[k]: v},
-          });
-        }
-      }
-    }
-  }
+				if (i >= 0) {
+					l[i] = {
+						...l[i],
+						children: {
+							...l[i].children,
+							[k]: v,
+						},
+					};
+				} else {
+					l.push({
+						parent: p,
+						children: {[k]: v},
+					});
+				}
+			}
+		}
+	}
 
-  fn(colors);
+	fn(colors);
 
-  return l;
+	return l;
 };
