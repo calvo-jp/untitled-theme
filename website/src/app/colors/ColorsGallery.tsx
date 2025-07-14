@@ -5,6 +5,7 @@ import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-react';
 import {useSearchParams} from 'next/navigation';
 import type {CSSProperties} from 'react';
 import {twMerge} from 'tailwind-merge';
+import {Empty} from '../Empty';
 import type {Color} from './types';
 
 export interface ColorsGalleryProps {
@@ -28,6 +29,8 @@ export function ColorsGallery(props: ColorsGalleryProps) {
 						searchParams.get('search')?.replace(/\s+/g, '').toLowerCase() ?? '',
 					);
 			});
+
+	if (colors.length <= 0) return <Empty className="py-12" />;
 
 	return (
 		<div

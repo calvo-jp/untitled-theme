@@ -1,5 +1,3 @@
-/* FORCE REDEPLOY COUNT: 1 */
-
 import type {Metadata} from 'next';
 import {Fira_Code, Inter, Rammetto_One} from 'next/font/google';
 import {twMerge} from 'tailwind-merge';
@@ -8,11 +6,13 @@ import {Navbar} from './Navbar';
 import {Providers} from './Providers';
 
 const body = Inter({
-	weight: ['400', '700'],
+	weight: ['400', '500', '600', '700'],
 	style: 'normal',
 	display: 'swap',
 	subsets: ['latin'],
 	variable: '--font-sans',
+	preload: true,
+	adjustFontFallback: true,
 });
 
 const heading = Rammetto_One({
@@ -21,6 +21,8 @@ const heading = Rammetto_One({
 	display: 'swap',
 	subsets: ['latin'],
 	variable: '--font-heading',
+	preload: true,
+	adjustFontFallback: true,
 });
 
 const mono = Fira_Code({
@@ -29,6 +31,8 @@ const mono = Fira_Code({
 	display: 'swap',
 	subsets: ['latin'],
 	variable: '--font-mono',
+	preload: true,
+	adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {

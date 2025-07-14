@@ -1,6 +1,7 @@
 'use client';
 
 import type {CSSProperties} from 'react';
+import {Empty} from '../Empty';
 import {IconDetails} from './IconDetails';
 import {IconsGalleryProvider} from './IconsGalleryContext';
 import type {Icon} from './types';
@@ -15,6 +16,8 @@ export interface IconsGalleryProps {
 
 export function IconsGallery(props: IconsGalleryProps) {
 	const iconsGallery = useIconsGallery(props);
+
+	if (iconsGallery.icons.length <= 0) return <Empty className="py-12" />;
 
 	return (
 		<IconsGalleryProvider value={iconsGallery}>
