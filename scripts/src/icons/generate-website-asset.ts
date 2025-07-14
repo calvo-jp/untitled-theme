@@ -1,6 +1,6 @@
-import * as p from '@clack/prompts';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import * as p from '@clack/prompts';
 import prettier, {type Options} from 'prettier';
 import {type CodeToHastOptions, codeToHtml} from 'shiki';
 import svgson from 'svgson';
@@ -40,7 +40,7 @@ async function generateWebsiteAsset() {
 
 	const outputFile = path.join(
 		getWorkspaceRoot(),
-		'website-next/src/app/assets/icons.json',
+		'website/src/app/assets/icons.json',
 	);
 
 	spinner.message("Generating 'database.json'");

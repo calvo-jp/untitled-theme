@@ -7,7 +7,7 @@ async function generateWebsiteAsset() {
 	const content = await getContent();
 	const destination = path.join(
 		getWorkspaceRoot(),
-		'website/src/lib/assets/colors.json',
+		'website/src/app/assets/colors.json',
 	);
 
 	await fs.writeFile(destination, content, 'utf-8');
