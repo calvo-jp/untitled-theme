@@ -25,6 +25,21 @@
 						"functions": ["twMerge", "twJoin"]
 					}
 				}
+			},
+			"suspicious": {
+				"noExplicitAny": "off",
+				"noArrayIndexKey": "off"
+			},
+			"security": {
+				"noDangerouslySetInnerHtml": "off",
+				"noDangerouslySetInnerHtmlWithChildren": "off"
+			},
+			"a11y": {
+				"noSvgWithoutTitle": "off"
+			},
+			"correctness": {
+				"noUnusedVariables": "warn",
+				"noUnusedFunctionParameters": "warn"
 			}
 		}
 	},

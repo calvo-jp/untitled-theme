@@ -3,7 +3,7 @@
 import {Clipboard} from '@ark-ui/react';
 import {CheckIcon, Copy01Icon} from '@untitled-theme/icons-react';
 import {useSearchParams} from 'next/navigation';
-import {Color} from './types';
+import type {Color} from './types';
 
 export interface ColorsGalleryProps {
 	colors: Color[];
@@ -63,7 +63,7 @@ export function ColorsGallery(props: ColorsGalleryProps) {
 										}}
 									/>
 									<div className="mt-2 hidden text-sm lg:block">{k}</div>
-									<div className="hidden text-xs leading-none text-neutral-700 lg:block dark:text-neutral-500">
+									<div className="hidden text-neutral-700 text-xs leading-none lg:block dark:text-neutral-500">
 										{v}
 									</div>
 								</div>

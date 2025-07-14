@@ -1,7 +1,7 @@
 'use client';
 
-import {createContext, PropsWithChildren, useContext} from 'react';
-import {UseIconsGalleryReturn} from './useIconsGallery';
+import {createContext, type PropsWithChildren, useContext} from 'react';
+import type {UseIconsGalleryReturn} from './useIconsGallery';
 
 export const IconsGalleryContext = createContext<UseIconsGalleryReturn | null>(
 	null,

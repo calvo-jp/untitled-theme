@@ -11,6 +11,8 @@
 		"icons-svelte": "pnpm --filter=\"@untitled-theme/icons-svelte\"",
 		"icons-solid": "pnpm --filter=\"@untitled-theme/icons-solid\"",
 		"test": "pnpm --filter=\"*\" test",
+		"lint": "biome lint",
+		"format": "biome format",
 		"release:core": "pnpm --filter=\"./packages/core/**\" release",
 		"release:icons": "pnpm --filter=\"./packages/icons/**\" --workspace-concurrency=1 release",
 		"release": "pnpm --filter=\"./packages/**\" --workspace-concurrency=1 release"

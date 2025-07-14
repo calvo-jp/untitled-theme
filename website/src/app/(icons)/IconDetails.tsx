@@ -40,11 +40,11 @@ export function IconDetails() {
 			lazyMount
 			unmountOnExit
 		>
-			<Dialog.Backdrop className="z-overlay ui-open:animate-fade-in ui-closed:animate-fade-out fixed inset-0 bg-neutral-900/50 backdrop-blur-sm dark:bg-neutral-900/50" />
+			<Dialog.Backdrop className="fixed inset-0 z-overlay ui-closed:animate-fade-out ui-open:animate-fade-in bg-neutral-900/50 backdrop-blur-sm dark:bg-neutral-900/50" />
 
 			<Dialog.Positioner>
-				<Dialog.Content className="z-modal ui-open:animate-slide-up ui-closed:animate-slide-down fixed bottom-0 right-0 w-full border-t border-neutral-300 bg-white p-4 md:p-6 lg:p-8 dark:border-neutral-800 dark:bg-neutral-900">
-					<Dialog.CloseTrigger className="absolute right-3 top-3 cursor-pointer p-1">
+				<Dialog.Content className="fixed right-0 bottom-0 z-modal w-full ui-closed:animate-slide-down ui-open:animate-slide-up border-neutral-300 border-t bg-white p-4 md:p-6 lg:p-8 dark:border-neutral-800 dark:bg-neutral-900">
+					<Dialog.CloseTrigger className="absolute top-3 right-3 cursor-pointer p-1">
 						<XCloseIcon />
 					</Dialog.CloseTrigger>
 
@@ -101,7 +101,7 @@ export function IconDetails() {
 										>
 											<Clipboard.Root
 												value={tab.content?.raw ?? ''}
-												className="absolute right-4 top-4 flex items-center justify-center rounded-lg p-0.5"
+												className="absolute top-4 right-4 flex items-center justify-center rounded-lg p-0.5"
 											>
 												<Clipboard.Trigger className="p-0.5">
 													<Clipboard.Indicator

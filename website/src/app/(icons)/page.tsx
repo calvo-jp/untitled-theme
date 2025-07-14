@@ -1,9 +1,9 @@
 import icons from '@/app/assets/icons.json';
-import {Metadata} from 'next';
+import type {Metadata} from 'next';
 import {Suspense} from 'react';
 import {Searchbar} from '../Searchbar';
 import {IconsGallery} from './IconsGallery';
-import {Icon} from './types';
+import type {Icon} from './types';
 
 export const metadata: Metadata = {
 	title: 'Icons',

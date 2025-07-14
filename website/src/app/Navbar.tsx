@@ -1,14 +1,14 @@
-import {ComponentPropsWithRef} from 'react';
+import type {ComponentPropsWithRef} from 'react';
 import {NavbarLogo} from './NavbarLogo';
 import {ThemePicker} from './ThemePicker';
 
 export function Navbar() {
 	return (
-		<header className="z-sticky sticky top-0 flex h-16 items-center gap-1 border-b border-neutral-300 bg-white/50 p-4 backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/50">
+		<header className="sticky top-0 z-sticky flex h-16 items-center gap-1 border-neutral-300 border-b bg-white/50 p-4 backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/50">
 			<NavbarLogo />
 
 			<div className="grow"></div>
-			<div className="icon:size-5 flex items-center gap-3">
+			<div className="flex icon:size-5 items-center gap-3">
 				<a
 					href="https://github.com/calvo-jp/untitled-theme"
 					target="_blank"

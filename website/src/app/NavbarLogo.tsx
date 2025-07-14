@@ -33,7 +33,7 @@ export function NavbarLogo() {
 					router.push(detail.value);
 				}}
 			>
-				<Menu.Trigger className="flex cursor-pointer items-center gap-0.5 rounded bg-neutral-100 px-1.5 py-1 text-sm leading-none tracking-tight text-neutral-600 dark:bg-neutral-800/30 dark:text-neutral-400">
+				<Menu.Trigger className="flex cursor-pointer items-center gap-0.5 rounded bg-neutral-100 px-1.5 py-1 text-neutral-600 text-sm leading-none tracking-tight dark:bg-neutral-800/30 dark:text-neutral-400">
 					{pathname.startsWith('/colors') ? 'colors' : 'icons'}
 
 					<Menu.Indicator className="ui-open:rotate-180 transition-transform duration-150">
@@ -41,12 +41,12 @@ export function NavbarLogo() {
 					</Menu.Indicator>
 				</Menu.Trigger>
 				<Menu.Positioner className="z-dropdown">
-					<Menu.Content className="ui-open:animate-fade-in ui-closed:animate-fade-out rounded-md border border-neutral-300 bg-white p-2 dark:border-neutral-800 dark:bg-neutral-900">
+					<Menu.Content className="ui-closed:animate-fade-out ui-open:animate-fade-in rounded-md border border-neutral-300 bg-white p-2 dark:border-neutral-800 dark:bg-neutral-900">
 						{links.map((link) => (
 							<Menu.Item
 								key={link.href}
 								value={link.href}
-								className="ui-highlighted:bg-neutral-50 dark:ui-highlighted:bg-neutral-800/25 flex cursor-pointer items-center gap-4 rounded-md px-2 py-1 text-sm"
+								className="flex cursor-pointer items-center gap-4 rounded-md ui-highlighted:bg-neutral-50 px-2 py-1 text-sm dark:ui-highlighted:bg-neutral-800/25"
 								onMouseOver={() => router.prefetch(link.href)}
 							>
 								{link.label}

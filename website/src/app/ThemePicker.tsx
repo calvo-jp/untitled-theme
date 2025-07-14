@@ -49,7 +49,7 @@ export function ThemePicker() {
 			lazyMount
 		>
 			<Select.Control>
-				<Select.Trigger className="icon:size-5 flex aspect-square cursor-pointer items-center gap-2 rounded-md px-2 py-1">
+				<Select.Trigger className="flex aspect-square icon:size-5 cursor-pointer items-center gap-2 rounded-md px-2 py-1">
 					{!!selected && (
 						<>
 							{selected.icon}
@@ -60,14 +60,14 @@ export function ThemePicker() {
 			</Select.Control>
 
 			<Select.Positioner className="z-dropdown">
-				<Select.Content className="ui-open:animate-fade-in ui-closed:animate-fade-out rounded-md border border-neutral-300 bg-white p-2 dark:border-neutral-800 dark:bg-neutral-900">
+				<Select.Content className="ui-closed:animate-fade-out ui-open:animate-fade-in rounded-md border border-neutral-300 bg-white p-2 dark:border-neutral-800 dark:bg-neutral-900">
 					{collection.items.map((item) => (
 						<Select.Item
 							key={item.value}
 							item={item}
-							className="pointer ui-highlighted:bg-neutral-50 dark:ui-highlighted:bg-neutral-800/25 flex w-32 cursor-pointer items-center gap-4 rounded-md px-2 py-1"
+							className="pointer flex w-32 cursor-pointer items-center gap-4 rounded-md ui-highlighted:bg-neutral-50 px-2 py-1 dark:ui-highlighted:bg-neutral-800/25"
 						>
-							<Select.ItemText className="icon:size-5 flex grow items-center gap-2">
+							<Select.ItemText className="flex icon:size-5 grow items-center gap-2">
 								{item.icon}
 								<span>{item.label}</span>
 							</Select.ItemText>

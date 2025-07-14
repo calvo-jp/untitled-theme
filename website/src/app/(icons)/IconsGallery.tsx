@@ -1,9 +1,9 @@
 'use client';
 
-import {CSSProperties} from 'react';
+import type {CSSProperties} from 'react';
 import {IconDetails} from './IconDetails';
 import {IconsGalleryProvider} from './IconsGalleryContext';
-import {Icon} from './types';
+import type {Icon} from './types';
 import {useIconsGallery} from './useIconsGallery';
 
 export interface IconsGalleryProps {
@@ -27,7 +27,7 @@ export function IconsGallery(props: IconsGalleryProps) {
 								key={icon.name}
 								type="button"
 								onClick={() => iconsGallery.setIcon(icon)}
-								className="icon:size-8 icon:stroke-[1.66667] flex aspect-square cursor-pointer items-center justify-center rounded border border-neutral-300 p-2 hover:bg-neutral-50 dark:border-neutral-800 dark:hover:bg-neutral-800/10"
+								className="flex aspect-square icon:size-8 cursor-pointer items-center justify-center rounded border border-neutral-300 icon:stroke-[1.66667] p-2 hover:bg-neutral-50 dark:border-neutral-800 dark:hover:bg-neutral-800/10"
 							>
 								<span
 									dangerouslySetInnerHTML={{

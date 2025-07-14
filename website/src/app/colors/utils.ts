@@ -1,6 +1,6 @@
 import colors from '@/app/assets/colors.json';
 import isObject from 'lodash-es/isObject';
-import {Color} from './types';
+import type {Color} from './types';
 
 /*
  *
