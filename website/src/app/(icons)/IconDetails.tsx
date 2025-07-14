@@ -37,8 +37,6 @@ export function IconDetails() {
 					iconsGallery.setIcon(null);
 				}
 			}}
-			lazyMount
-			unmountOnExit
 		>
 			<Dialog.Backdrop className="fixed inset-0 z-overlay ui-closed:animate-fade-out ui-open:animate-fade-in bg-neutral-900/50 backdrop-blur-sm dark:bg-neutral-900/50" />
 
@@ -76,11 +74,7 @@ export function IconDetails() {
 									</Clipboard.Root>
 								</div>
 
-								<Tabs.Root
-									className="mt-5"
-									defaultValue={tabs[0].value}
-									lazyMount
-								>
+								<Tabs.Root className="mt-5" defaultValue={tabs[0].value}>
 									<Tabs.List className="flex gap-4">
 										{tabs.map((tab) => (
 											<Tabs.Trigger
@@ -128,7 +122,6 @@ export function IconDetails() {
 													'[&_.shiki]:text-[var(--shiki-light)]',
 													'[&_.shiki]:dark:bg-[var(--shiki-dark-bg)]',
 													'[&_.shiki]:dark:text-[var(--shiki-dark)]',
-
 													'[&_.shiki_span]:bg-[var(--shiki-light-bg)]',
 													'[&_.shiki_span]:text-[var(--shiki-light)]',
 													'[&_.shiki_span]:dark:bg-[var(--shiki-dark-bg)]',

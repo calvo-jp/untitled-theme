@@ -9,6 +9,11 @@ import type {Icon} from './types';
 
 export const metadata: Metadata = {
 	title: 'Icons',
+	openGraph: {
+		title: 'Untitled Theme Colors',
+		description: "Browse all of Untitled UI's colors",
+		images: '/colors-opengraph-banner.png',
+	},
 };
 
 export default async function Page() {

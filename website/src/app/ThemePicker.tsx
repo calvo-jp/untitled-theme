@@ -46,7 +46,6 @@ export function ThemePicker() {
 				const value = details.value.at(0);
 				if (value) setTheme(value);
 			}}
-			lazyMount
 		>
 			<Select.Control>
 				<Select.Trigger className="flex aspect-square icon:size-5 cursor-pointer items-center gap-2 rounded-md px-2 py-1">
@@ -58,7 +57,6 @@ export function ThemePicker() {
 					)}
 				</Select.Trigger>
 			</Select.Control>
-
 			<Select.Positioner className="z-dropdown">
 				<Select.Content className="ui-closed:animate-fade-out ui-open:animate-fade-in rounded-md border border-neutral-300 bg-white p-2 dark:border-neutral-800 dark:bg-neutral-900">
 					{collection.items.map((item) => (

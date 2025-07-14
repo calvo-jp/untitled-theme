@@ -40,6 +40,7 @@ export const metadata: Metadata = {
 		default: 'Untitled Theme',
 		template: '%s | Untitled Theme',
 	},
+	metadataBase: new URL('https://untitled-theme-docs.vercel.app'),
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {

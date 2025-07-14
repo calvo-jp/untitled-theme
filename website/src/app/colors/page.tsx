@@ -8,6 +8,11 @@ import {getColors} from './utils';
 
 export const metadata: Metadata = {
 	title: 'Colors',
+	openGraph: {
+		title: 'Untitled Theme Icons',
+		description: "Browse all of Untitled UI's icons",
+		images: '/icons-opengraph-banner.png',
+	},
 };
 
 export default async function Page() {
