@@ -1,3 +1,5 @@
+/* FORCE REDEPLOY COUNT: 1 */
+
 import type {Metadata} from 'next';
 import {Fira_Code, Inter, Rammetto_One} from 'next/font/google';
 import {twMerge} from 'tailwind-merge';
