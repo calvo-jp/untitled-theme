@@ -4,18 +4,15 @@
 	"private": true,
 	"packageManager": "pnpm@10.13.1",
 	"scripts": {
-		"website": "pnpm --filter=\"@untitled-theme/website\"",
-		"scripts": "pnpm --filter=\"@untitled-theme/scripts\"",
-		"colors": "pnpm --filter=\"@untitled-theme/colors\"",
-		"icons-react": "pnpm --filter=\"@untitled-theme/icons-react\"",
-		"icons-svelte": "pnpm --filter=\"@untitled-theme/icons-svelte\"",
-		"icons-solid": "pnpm --filter=\"@untitled-theme/icons-solid\"",
-		"test": "pnpm --filter=\"*\" test",
+		"website": "pnpm --filter=@untitled-theme/website",
+		"scripts": "pnpm --filter=@untitled-theme/scripts",
+		"colors": "pnpm --filter=@untitled-theme/colors",
+		"icons-react": "pnpm --filter=@untitled-theme/icons-react",
+		"icons-svelte": "pnpm --filter=@untitled-theme/icons-svelte",
+		"icons-solid": "pnpm --filter=@untitled-theme/icons-solid",
+		"test": "pnpm --recursive test",
 		"lint": "biome lint",
-		"format": "biome format",
-		"release:core": "pnpm --filter=\"./packages/core/**\" release",
-		"release:icons": "pnpm --filter=\"./packages/icons/**\" --workspace-concurrency=1 release",
-		"release": "pnpm --filter=\"./packages/**\" --workspace-concurrency=1 release"
+		"format": "biome format --write"
 	},
 	"dependencies": {
 		"@biomejs/biome": "2.1.1",
